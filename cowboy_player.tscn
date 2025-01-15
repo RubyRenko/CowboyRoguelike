@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://be3fpwoys47ky"]
+
+[ext_resource type="Script" path="res://CowboyPlayer.gd" id="1_oimyp"]
+[ext_resource type="Texture2D" uid="uid://dtm5sj28gohig" path="res://Assets/Cowboytemp.png" id="2_y4847"]
+[ext_resource type="Texture2D" uid="uid://brso0skym7tdp" path="res://Assets/Bullettemp.png" id="3_fdu5s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bp7eu"]
+
+[node name="CowboyPlayer" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_oimyp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_bp7eu")
+
+[node name="Cowboytemp" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_y4847")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(17, 0)
+
+[node name="Bullettemp" type="Sprite2D" parent="Marker2D"]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("3_fdu5s")

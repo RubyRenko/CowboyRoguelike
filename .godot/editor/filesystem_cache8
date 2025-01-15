@@ -1,0 +1,12 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1736800344
+Bullet.gd::GDScript::-1::1736651351::0::1::::<>Area2D<>::
+bullet.tscn::PackedScene::207685315265105694::1736652607::0::1::::<><>::res://Bullet.gd<>uid://brso0skym7tdp::::res://Assets/Bullettemp.png
+CowboyPlayer.gd::GDScript::-1::1736652485::0::1::::<>CharacterBody2D<>::
+cowboy_player.tscn::PackedScene::2725310185487956468::1736652607::0::1::::<><>::res://CowboyPlayer.gd<>uid://dtm5sj28gohig::::res://Assets/Cowboytemp.png<>uid://brso0skym7tdp::::res://Assets/Bullettemp.png
+icon.svg::CompressedTexture2D::1272389800033636916::1736646851::1736646857::1::::<><>::
+Player.gd::GDScript::-1::1736648686::0::1::::<>CharacterBody2D<>::
+test1.tscn::PackedScene::6033212316049352544::1736652640::0::1::::<><>::uid://be3fpwoys47ky::::res://cowboy_player.tscn<>uid://dtm5sj28gohig::::res://Assets/Cowboytemp.png
+::res://Assets/::1736647589
+Bullettemp.png::CompressedTexture2D::3617685469835193217::1736647584::1736647589::1::::<><>::
+Cowboytemp.png::CompressedTexture2D::8519476783251733986::1736647106::1736647108::1::::<><>::
