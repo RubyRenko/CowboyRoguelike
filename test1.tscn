@@ -9,7 +9,7 @@
 position = Vector2(-2, 1)
 
 [node name="CowboyPlayer" parent="." instance=ExtResource("1_xv7ad")]
-position = Vector2(1, -1)
+position = Vector2(142, 184)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(305, 120)
