@@ -10,5 +10,9 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		pass
+	elif body.is_in_group("enemy"):
+		print("bullet hit")
+		body.hp -= 5;
+		queue_free()
 	else:
 		queue_free()

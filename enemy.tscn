@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4e2ah1rnbl17"]
+
+[ext_resource type="Texture2D" uid="uid://2etw3x73l1d6" path="res://Assets/Cube.png" id="1_lti8k"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_s7mun"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nuv7r"]
+radius = 182.069
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6phsp"]
+radius = 17.0
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_s7mun")
+
+[node name="tempsprite" type="Sprite2D" parent="."]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("1_lti8k")
+
+[node name="SenseArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SenseArea"]
+shape = SubResource("CircleShape2D_nuv7r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6phsp")
+
+[connection signal="body_entered" from="SenseArea" to="." method="_on_sense_area_body_entered"]
+[connection signal="body_exited" from="SenseArea" to="." method="_on_sense_area_body_exited"]

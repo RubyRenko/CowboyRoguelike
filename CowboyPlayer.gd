@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name CowboyPlayer
 
 @onready var main = get_tree().get_root().get_node("Main")
 var bullet = load("res://bullet.tscn")
