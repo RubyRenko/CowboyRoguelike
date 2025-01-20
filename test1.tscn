@@ -1,13 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr7sei7aprnm3"]
+[gd_scene load_steps=7 format=3 uid="uid://cr7sei7aprnm3"]
 
+[ext_resource type="Script" path="res://test1.gd" id="1_rmec5"]
 [ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://cowboy_player.tscn" id="1_xv7ad"]
 [ext_resource type="Texture2D" uid="uid://dtm5sj28gohig" path="res://Assets/Cowboytemp.png" id="2_cvgdl"]
 [ext_resource type="PackedScene" uid="uid://d4e2ah1rnbl17" path="res://enemy.tscn" id="3_bijhn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5re24"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_h5sup"]
+font_size = 30
+
 [node name="Main" type="Node2D"]
+process_mode = 1
 position = Vector2(-2, 1)
+script = ExtResource("1_rmec5")
 
 [node name="CowboyPlayer" parent="." instance=ExtResource("1_xv7ad")]
 position = Vector2(142, 184)
@@ -32,3 +38,22 @@ position = Vector2(736, 374)
 
 [node name="Enemy2" parent="." groups=["enemy"] instance=ExtResource("3_bijhn")]
 position = Vector2(271, 560)
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="GameOverText" type="Label" parent="GUI"]
+visible = false
+layout_direction = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -11.5
+offset_right = 53.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER!!!"
+label_settings = SubResource("LabelSettings_h5sup")

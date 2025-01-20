@@ -23,3 +23,5 @@ position = Vector2(17, 0)
 [node name="Bullettemp" type="Sprite2D" parent="Marker2D"]
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("3_fdu5s")
+
+[node name="Camera2D" type="Camera2D" parent="."]
