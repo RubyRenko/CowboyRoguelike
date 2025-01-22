@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 150
+const SPEED = 120
 var hp = 20
 var chase = null
 var hurt = false
@@ -14,13 +14,14 @@ func _physics_process(delta):
 	if chase != null:
 		#when chasing, minus the chased from the enemy's position to get the direction
 		velocity = (chase.position - position).normalized() * SPEED
+		
 	elif randi_range(0,30) == 0:
 		#when not chasing, every few seconds, choose a random direction and move towards it
 		#this will make the enemy wander naturally
 		var rand_direction =  Vector2(randi_range(-20,20), randi_range(-20,20))
 		velocity = rand_direction * SPEED * delta
 	
-	move_and_slide()
+	move_and_collide(velocity * delta)
 	
 	if hurt:
 		#if the player is too close (in the hit area), then hurts the player

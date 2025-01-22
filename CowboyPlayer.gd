@@ -18,7 +18,7 @@ func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * SPEED
 	look_at(get_global_mouse_position())
-	move_and_slide()
+	move_and_collide(velocity * delta)
 	
 	#handles shooting with the different guns
 	if gun == 1 and Input.is_action_just_pressed("shoot"):

@@ -3,6 +3,4 @@ res://enemy.gd
 res://cowboy_player.tscn
 res://bullet.tscn
 res://enemy.tscn
-res://Bullet.gd
 res://CowboyPlayer.gd
-res://test1.gd
