@@ -14,7 +14,6 @@ func _physics_process(delta):
 	if chase != null:
 		#when chasing, minus the chased from the enemy's position to get the direction
 		velocity = (chase.position - position).normalized() * SPEED
-		
 	elif randi_range(0,30) == 0:
 		#when not chasing, every few seconds, choose a random direction and move towards it
 		#this will make the enemy wander naturally

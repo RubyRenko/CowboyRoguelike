@@ -1,6 +1,6 @@
-res://test1.tscn
+res://enemy.tscn
 res://enemy.gd
+res://test1.tscn
 res://cowboy_player.tscn
 res://bullet.tscn
-res://enemy.tscn
-res://CowboyPlayer.gd
+res://test1.gd

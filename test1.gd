@@ -1,5 +1,5 @@
 extends Node2D
-
+@onready var enemy = load("res://enemy.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,3 +14,14 @@ func _process(delta):
 		$GUI/GameOverText.visible = true
 		get_tree().paused = true
 		#insert scene change to game over screen here
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		spawn_enemy()
+
+func spawn_enemy():
+	#create a new enemy instance
+	#add it to the enemy group and set the position randomly
+	var e = enemy.instantiate()
+	e.add_to_group("enemy")
+	e.position = Vector2(randi_range(0,1152), randi_range(0,648))
+	add_child(e)
