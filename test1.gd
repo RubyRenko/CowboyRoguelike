@@ -1,5 +1,6 @@
 extends Node2D
 @onready var enemy = load("res://enemy.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -15,6 +16,8 @@ func _process(delta):
 		get_tree().paused = true
 		#insert scene change to game over screen here
 	
+	#when space is pressed, spawns an enemy
+	#ui accept is default, can be changed to whatever button
 	if Input.is_action_just_pressed("ui_accept"):
 		spawn_enemy()
 

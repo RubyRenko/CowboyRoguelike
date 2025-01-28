@@ -6,11 +6,14 @@ var bullet = load("res://bullet.tscn")
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-var ammo = 6
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+var ammo = 6
 var gun = 1
 var hp = 20
+static var damage = 5
 
 func _physics_process(delta):
 	#takes care of player movement, gets direction from input keys
@@ -46,7 +49,7 @@ func _physics_process(delta):
 func shoot():
 	#makes 1 bullet right in front
 	var b = bullet.instantiate()
-	b.damage = 5
+	b.damage = damage
 	b.global_position = $Marker2D.global_position
 	b.global_rotation = $Marker2D.global_rotation - deg_to_rad(90)
 	main.add_child(b)
@@ -56,15 +59,15 @@ func scatter_shot():
 	var a = bullet.instantiate()
 	var b = bullet.instantiate()
 	var c = bullet.instantiate()
-	a.damage = 2
+	a.damage = damage-3
 	a.global_position = $Marker2D.global_position
 	a.global_rotation = $Marker2D.global_rotation - deg_to_rad(90)
 	main.add_child(a)
-	b.damage = 3
+	b.damage = damage-3
 	b.global_position = $Marker2D.global_position
 	b.global_rotation = $Marker2D.global_rotation - deg_to_rad(75)
 	main.add_child(b)
-	c.damage = 3
+	c.damage = damage-3
 	c.global_position = $Marker2D.global_position
 	c.global_rotation = $Marker2D.global_rotation - deg_to_rad(105)
 	main.add_child(c)

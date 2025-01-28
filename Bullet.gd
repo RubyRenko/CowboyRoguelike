@@ -1,12 +1,12 @@
 extends Node2D
 
-const SPEED = 750
-var damage = 5
-	
+var speed = 750
+var damage
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#makes the bullt go straight in front
-	var velocity = Vector2(0, SPEED).rotated(rotation)
+	var velocity = Vector2(0, speed).rotated(rotation)
 	position += velocity * delta
 
 func _on_bullet_body_entered(body):

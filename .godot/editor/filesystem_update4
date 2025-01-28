@@ -1,6 +1,13 @@
-res://enemy.tscn
-res://enemy.gd
+res://Pickup.gd
+res://Bullet.gd
+res://CowboyPlayer.gd
+res://test1.gd
 res://test1.tscn
 res://cowboy_player.tscn
 res://bullet.tscn
-res://test1.gd
+res://enemy.tscn
+res://pickup.tscn
+res://NextAreaMove.gd
+res://test_2.tscn
+res://test2.tscn
+res://Exit.gd
