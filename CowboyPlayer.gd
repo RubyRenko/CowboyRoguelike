@@ -4,41 +4,102 @@ class_name CowboyPlayer
 @onready var main = get_tree().get_root().get_node("Main")
 @onready var bullet_display = get_node("Camera2D/HUD/BulletHUD")
 @onready var hp_display = get_node("Camera2D/HUD/HpDisplay")
-var bullet = load("res://bullet.tscn")
+@onready var dash_available = $Dash_Available
+@onready var dash_timer = $Dash_Timer
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+var bullet = load("res://bullet.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var ammo = 6
-var gun = 1
-var hp = 8
-static var damage = 5
+#stats
+static var ranged_dmg = 5
+static var melee_dmg = 5
+static var speed = 300.0
+static var ammo = 6
+static var hp = 8
+
+#all dash variables
+var dash_speed = 600
+var dashing = false
+var can_dash = true
 
 func _ready() :
 	bullet_display.play("default")
 	bullet_display.frame = 6
 	hp_display.update_health(hp)
+	$CenterPoint/Melee.damage = melee_dmg
 
 func _physics_process(delta):
 	#takes care of player movement, gets direction from input keys
 	#and looks at where the mouse position is
 	var direction = Input.get_vector("left", "right", "up", "down")
-	velocity = direction * SPEED
-	look_at(get_global_mouse_position())
+	velocity = direction * speed
+	$CenterPoint.look_at(get_global_mouse_position())
 	move_and_collide(velocity * delta)
 	hp_display.update_health(hp)
 	
 	#handles shooting with the different guns
-	if gun == 1 and Input.is_action_just_pressed("shoot"):
-		if ammo > 0:
-			shoot()
-			ammo -= 1
-			bullet_display.frame -= 1
-			print(ammo)
+	if Input.is_action_just_pressed("shoot") and ammo > 0:
+		shoot()
+		ammo -= 1
+		bullet_display.frame -= 1
+		#print(ammo)
 	
+	#reloads and puts ammo back at 6
+	if Input.is_action_just_pressed("reload"):
+		ammo = 6;
+		bullet_display.frame = 6
+	
+	if Input.is_action_just_pressed("melee"):
+		$AnimationPlayer.play("melee")
+	
+	if $AnimationPlayer.is_playing():
+		$CenterPoint/Melee.visible = true
+	else:
+		$CenterPoint/Melee.visible = false
+	
+	if dashing:
+		speed = dash_speed
+		set_collision_layer_value(3, true)
+		set_collision_layer_value(1, false)
+		#$CowboyCollision.set_collision_layer_value(3)
+	else:
+		speed = 300
+		set_collision_layer_value(3, false)
+		set_collision_layer_value(1, true)
+		#$CowboyCollision.set_collision_layer_value(1)
+
+	if Input.is_action_just_pressed("dash") and can_dash:
+		dashing = true
+		can_dash = false
+		dash_timer.start()
+		dash_available.start()
+
+func shoot():
+	#makes 1 bullet right in front
+	var b = bullet.instantiate()
+	b.damage = ranged_dmg
+	b.global_position = $CenterPoint/GunPoint.global_position
+	b.global_rotation = $CenterPoint/GunPoint.global_rotation - deg_to_rad(90)
+	main.add_child(b)
+
+
+func set_hp(health):
+	var heart = hp_display.get_node("Heart1")
+	for i in range(health/2):
+		var h = heart.instantiate()
+		h.positon.x += 50 * (1+i)
+
+func _on_dash_available_timeout():
+	can_dash = true
+
+func _on_dash_timer_timeout():
+	dashing = false
+
+"""
+old scatter shot code
+var gun = 1
 	if gun == 2 and Input.is_action_just_pressed("shoot"):
 		if ammo > 0:
 			scatter_shot()
@@ -51,20 +112,7 @@ func _physics_process(delta):
 		if gun > 2:
 			gun = 1
 	
-	#reloads and puts ammo back at 6
-	if Input.is_action_just_pressed("reload"):
-		ammo = 6;
-		bullet_display.frame = 6
-
-func shoot():
-	#makes 1 bullet right in front
-	var b = bullet.instantiate()
-	b.damage = damage
-	b.global_position = $Marker2D.global_position
-	b.global_rotation = $Marker2D.global_rotation - deg_to_rad(90)
-	main.add_child(b)
-
-func scatter_shot():
+	func scatter_shot():
 	#makes a scatter shot with 3 bullets in front
 	var a = bullet.instantiate()
 	var b = bullet.instantiate()
@@ -81,9 +129,4 @@ func scatter_shot():
 	c.global_position = $Marker2D.global_position
 	c.global_rotation = $Marker2D.global_rotation - deg_to_rad(105)
 	main.add_child(c)
-
-func set_hp(health):
-	var heart = hp_display.get_node("Heart1")
-	for i in range(health/2):
-		var h = heart.instantiate()
-		h.positon.x += 50 * (1+i)
+"""

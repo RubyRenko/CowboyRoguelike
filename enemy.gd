@@ -28,7 +28,7 @@ func _physics_process(delta):
 		if next_hurt <= 0:
 			#next hurt is a variable to make it so it's not constantly hurting
 			#whenever the player is too close and kills it too quickly
-			print("hurt player")
+			#print("hurt player")
 			main.get_node("CowboyPlayer").hp -= 1
 			next_hurt = 1;
 			#making the next_hurt value higher makes it take more time
@@ -58,8 +58,10 @@ func _on_sense_area_body_exited(body):
 
 func _on_hit_area_body_entered(body):
 	if body.name == "CowboyPlayer":
+		chase = null
 		hurt = true
 
 func _on_hit_area_body_exited(body):
 	if body.name == "CowboyPlayer":
+		chase = body
 		hurt = false

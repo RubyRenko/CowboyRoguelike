@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://be3fpwoys47ky"]
+[gd_scene load_steps=18 format=3 uid="uid://be3fpwoys47ky"]
 
 [ext_resource type="Script" path="res://CowboyPlayer.gd" id="1_oimyp"]
 [ext_resource type="Texture2D" uid="uid://dtm5sj28gohig" path="res://Assets/Cowboytemp.png" id="2_y4847"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://rlpct1pe6cxh" path="res://Assets/hud assets/bullet chambers-08.png" id="10_rdy8a"]
 [ext_resource type="PackedScene" uid="uid://dr6r2nm4dswxx" path="res://hp_display.tscn" id="11_ou5rn"]
 [ext_resource type="Texture2D" uid="uid://degwg4r1qiskw" path="res://Assets/hud assets/hot bar box-02.png" id="11_rjv63"]
+[ext_resource type="PackedScene" uid="uid://cac4vxkmwm5en" path="res://melee.tscn" id="13_232df"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vb32t"]
 radius = 13.0
@@ -45,23 +46,50 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_on5aa"]
+resource_name = "melee"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterPoint/Melee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(28, -22), Vector2(38, -10), Vector2(35, 10), Vector2(26, 23)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nyhyu"]
+_data = {
+"melee": SubResource("Animation_on5aa")
+}
+
 [node name="CowboyPlayer" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_oimyp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CenterPoint" type="Marker2D" parent="."]
+
+[node name="Melee" parent="CenterPoint" instance=ExtResource("13_232df")]
+position = Vector2(14, 23)
+scale = Vector2(0.5, 0.5)
+
+[node name="Bullettemp" type="Sprite2D" parent="CenterPoint"]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("3_fdu5s")
+
+[node name="GunPoint" type="Marker2D" parent="CenterPoint"]
+position = Vector2(20, 0)
+
+[node name="CowboyCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vb32t")
 
 [node name="Cowboytemp" type="Sprite2D" parent="."]
 position = Vector2(1, 0)
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("2_y4847")
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(12, 0)
-
-[node name="Bullettemp" type="Sprite2D" parent="Marker2D"]
-scale = Vector2(0.01, 0.01)
-texture = ExtResource("3_fdu5s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -74,10 +102,10 @@ sprite_frames = SubResource("SpriteFrames_2k3k8")
 speed_scale = 0.0
 
 [node name="HpDisplay" parent="Camera2D/HUD" instance=ExtResource("11_ou5rn")]
-offset_left = 252.0
-offset_top = 589.0
-offset_right = 600.0
-offset_bottom = 629.0
+offset_left = 15.0
+offset_top = 13.0
+offset_right = 532.0
+offset_bottom = 72.0
 
 [node name="InvHotbar" type="Node2D" parent="Camera2D/HUD"]
 
@@ -90,3 +118,16 @@ texture = ExtResource("11_rjv63")
 position = Vector2(71.34, 573.34)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("11_rjv63")
+
+[node name="Dash_Available" type="Timer" parent="."]
+
+[node name="Dash_Timer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nyhyu")
+}
+
+[connection signal="timeout" from="Dash_Available" to="." method="_on_dash_available_timeout"]
+[connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]

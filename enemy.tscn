@@ -12,9 +12,11 @@ font_size = 15
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3feb"]
 radius = 15.2971
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2yin7"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_r7jp3"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_s7mun")
 
 [node name="tempsprite" type="Sprite2D" parent="."]
@@ -22,8 +24,9 @@ scale = Vector2(0.07, 0.07)
 texture = ExtResource("1_lti8k")
 
 [node name="SenseArea" type="Area2D" parent="."]
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SenseArea"]
+[node name="SenseCollision" type="CollisionShape2D" parent="SenseArea"]
 shape = SubResource("CircleShape2D_teiet")
 
 [node name="HpDisplay" type="Label" parent="."]
@@ -36,12 +39,13 @@ text = "hp:"
 label_settings = SubResource("LabelSettings_2q00l")
 
 [node name="HitArea" type="Area2D" parent="."]
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+[node name="HitCollision" type="CollisionShape2D" parent="HitArea"]
 shape = SubResource("CircleShape2D_p3feb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_2yin7")
+shape = SubResource("CircleShape2D_r7jp3")
 
 [connection signal="body_entered" from="SenseArea" to="." method="_on_sense_area_body_entered"]
 [connection signal="body_exited" from="SenseArea" to="." method="_on_sense_area_body_exited"]

@@ -16,7 +16,7 @@ func _on_bullet_body_entered(body):
 		pass
 	elif body.is_in_group("enemy"):
 		#if it hits an enemy, it deals damage to the enemy
-		print("bullet hit")
+		#print("bullet hit")
 		body.hp -= damage
 		queue_free()
 	else:
