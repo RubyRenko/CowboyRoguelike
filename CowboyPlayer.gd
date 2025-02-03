@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name CowboyPlayer
 
 @onready var main = get_tree().get_root().get_node("Main")
+@onready var bullet_display = get_node("Camera2D/HUD/BulletHUD")
+@onready var hp_display = get_node("Camera2D/HUD/HpDisplay")
 var bullet = load("res://bullet.tscn")
 
 const SPEED = 300.0
@@ -12,8 +14,13 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var ammo = 6
 var gun = 1
-var hp = 20
+var hp = 8
 static var damage = 5
+
+func _ready() :
+	bullet_display.play("default")
+	bullet_display.frame = 6
+	hp_display.update_health(hp)
 
 func _physics_process(delta):
 	#takes care of player movement, gets direction from input keys
@@ -22,12 +29,14 @@ func _physics_process(delta):
 	velocity = direction * SPEED
 	look_at(get_global_mouse_position())
 	move_and_collide(velocity * delta)
+	hp_display.update_health(hp)
 	
 	#handles shooting with the different guns
 	if gun == 1 and Input.is_action_just_pressed("shoot"):
 		if ammo > 0:
 			shoot()
 			ammo -= 1
+			bullet_display.frame -= 1
 			print(ammo)
 	
 	if gun == 2 and Input.is_action_just_pressed("shoot"):
@@ -45,6 +54,7 @@ func _physics_process(delta):
 	#reloads and puts ammo back at 6
 	if Input.is_action_just_pressed("reload"):
 		ammo = 6;
+		bullet_display.frame = 6
 
 func shoot():
 	#makes 1 bullet right in front
@@ -71,3 +81,9 @@ func scatter_shot():
 	c.global_position = $Marker2D.global_position
 	c.global_rotation = $Marker2D.global_rotation - deg_to_rad(105)
 	main.add_child(c)
+
+func set_hp(health):
+	var heart = hp_display.get_node("Heart1")
+	for i in range(health/2):
+		var h = heart.instantiate()
+		h.positon.x += 50 * (1+i)

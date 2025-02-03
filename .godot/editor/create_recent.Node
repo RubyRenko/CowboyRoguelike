@@ -1,7 +1,12 @@
+TextureRect
+HBoxContainer
+Node2D
+Sprite2D
+Node
+AnimatedSprite2D
+CanvasLayer
 CollisionShape2D
 Area2D
-Sprite2D
-CanvasLayer
 Label
 Camera2D
 CharacterBody2D

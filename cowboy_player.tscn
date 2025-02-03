@@ -1,11 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://be3fpwoys47ky"]
+[gd_scene load_steps=15 format=3 uid="uid://be3fpwoys47ky"]
 
 [ext_resource type="Script" path="res://CowboyPlayer.gd" id="1_oimyp"]
 [ext_resource type="Texture2D" uid="uid://dtm5sj28gohig" path="res://Assets/Cowboytemp.png" id="2_y4847"]
 [ext_resource type="Texture2D" uid="uid://brso0skym7tdp" path="res://Assets/Bullettemp.png" id="3_fdu5s"]
+[ext_resource type="Texture2D" uid="uid://cebdnhre7ljlw" path="res://Assets/hud assets/bullet chambers-02.png" id="4_i026i"]
+[ext_resource type="Texture2D" uid="uid://irna5bc2y8mo" path="res://Assets/hud assets/bullet chambers-03.png" id="5_tufiq"]
+[ext_resource type="Texture2D" uid="uid://2npyrk4ffbi" path="res://Assets/hud assets/bullet chambers-04.png" id="6_ofun5"]
+[ext_resource type="Texture2D" uid="uid://b77crc3c1jgwd" path="res://Assets/hud assets/bullet chambers-07.png" id="7_m3pkg"]
+[ext_resource type="Texture2D" uid="uid://clls7w4ccbvci" path="res://Assets/hud assets/bullet chambers-06.png" id="8_flcyh"]
+[ext_resource type="Texture2D" uid="uid://dw3hww6wc72mm" path="res://Assets/hud assets/bullet chambers-05.png" id="9_pw6ie"]
+[ext_resource type="Texture2D" uid="uid://rlpct1pe6cxh" path="res://Assets/hud assets/bullet chambers-08.png" id="10_rdy8a"]
+[ext_resource type="PackedScene" uid="uid://dr6r2nm4dswxx" path="res://hp_display.tscn" id="11_ou5rn"]
+[ext_resource type="Texture2D" uid="uid://degwg4r1qiskw" path="res://Assets/hud assets/hot bar box-02.png" id="11_rjv63"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vb32t"]
 radius = 13.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2k3k8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_i026i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tufiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ofun5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_m3pkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_flcyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pw6ie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rdy8a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="CowboyPlayer" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_oimyp")
@@ -26,3 +64,29 @@ scale = Vector2(0.01, 0.01)
 texture = ExtResource("3_fdu5s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="Camera2D"]
+
+[node name="BulletHUD" type="AnimatedSprite2D" parent="Camera2D/HUD"]
+position = Vector2(1076, 77)
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_2k3k8")
+speed_scale = 0.0
+
+[node name="HpDisplay" parent="Camera2D/HUD" instance=ExtResource("11_ou5rn")]
+offset_left = 252.0
+offset_top = 589.0
+offset_right = 600.0
+offset_bottom = 629.0
+
+[node name="InvHotbar" type="Node2D" parent="Camera2D/HUD"]
+
+[node name="Inventory2" type="Sprite2D" parent="Camera2D/HUD/InvHotbar"]
+position = Vector2(187.34, 573.34)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("11_rjv63")
+
+[node name="Inventory1" type="Sprite2D" parent="Camera2D/HUD/InvHotbar"]
+position = Vector2(71.34, 573.34)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("11_rjv63")
