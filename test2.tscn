@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct4naq3oauebx"]
+[gd_scene load_steps=4 format=3 uid="uid://ct4naq3oauebx"]
 
+[ext_resource type="Script" path="res://test2.gd" id="1_i4f30"]
 [ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://cowboy_player.tscn" id="2_igihv"]
-[ext_resource type="PackedScene" uid="uid://d4e2ah1rnbl17" path="res://enemy.tscn" id="3_p12r4"]
+[ext_resource type="PackedScene" uid="uid://bto150pv6mwui" path="res://bigfoot.tscn" id="3_pygoa"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_i4f30")
 
 [node name="CowboyPlayer" parent="." instance=ExtResource("2_igihv")]
 position = Vector2(569, 314)
 
-[node name="Enemy" parent="." instance=ExtResource("3_p12r4")]
-position = Vector2(313, 284)
+[node name="Bigfoot" parent="." instance=ExtResource("3_pygoa")]
+position = Vector2(379, 319)
+scale = Vector2(0.3, 0.3)

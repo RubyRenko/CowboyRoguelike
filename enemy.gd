@@ -6,6 +6,7 @@ var chase = null
 var hurt = false
 var next_hurt = 0
 @onready var main = get_tree().get_root().get_node("Main")
+@onready var coin = load("res://pickup.tscn")
 
 func _physics_process(delta):
 	#makes sure the hp display is up to date
@@ -35,8 +36,15 @@ func _physics_process(delta):
 	
 	if hp <= 0:
 		#if the enemy hp drops to zero, then it dies
-		queue_free()
+		die()
 
+func die():
+	var main = get_tree().get_root().get_node("Main")
+	for i in range(randi_range(1,5)):
+		var c = coin.instantiate()
+		c.position = position + Vector2(randi_range(0,40), randi_range(0,40))
+		main.add_child(c)
+	queue_free()
 """
 func chase_after(node):
 	#the offset makes it jittery, comment out if you don't like

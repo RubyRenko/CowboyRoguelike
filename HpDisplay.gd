@@ -5,7 +5,8 @@ enum MODES {simple, partial}
 var heart_full = preload("res://Assets/hud assets/cow boy heart-02.png")
 var heart_half = preload("res://Assets/hud assets/cow boy half heart.png")
 #var heart_empty = preload("")
-#var armor_heart = preload("")
+#var armor_full = preload("")
+#var armor_half = preload("")
 
 func update_health(value):
 	update_partial(value)

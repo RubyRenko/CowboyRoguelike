@@ -110,14 +110,21 @@ offset_bottom = 72.0
 [node name="InvHotbar" type="Node2D" parent="Camera2D/HUD"]
 
 [node name="Inventory2" type="Sprite2D" parent="Camera2D/HUD/InvHotbar"]
-position = Vector2(187.34, 573.34)
-scale = Vector2(0.04, 0.04)
+position = Vector2(170.672, 581.672)
+scale = Vector2(0.035, 0.035)
 texture = ExtResource("11_rjv63")
 
 [node name="Inventory1" type="Sprite2D" parent="Camera2D/HUD/InvHotbar"]
-position = Vector2(71.34, 573.34)
-scale = Vector2(0.04, 0.04)
+position = Vector2(65.6725, 581.672)
+scale = Vector2(0.035, 0.035)
 texture = ExtResource("11_rjv63")
+
+[node name="Money" type="Label" parent="Camera2D/HUD"]
+offset_left = 228.0
+offset_top = 600.0
+offset_right = 279.0
+offset_bottom = 623.0
+text = "Coins: "
 
 [node name="Dash_Available" type="Timer" parent="."]
 

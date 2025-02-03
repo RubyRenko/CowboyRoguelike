@@ -6,6 +6,7 @@ class_name CowboyPlayer
 @onready var hp_display = get_node("Camera2D/HUD/HpDisplay")
 @onready var dash_available = $Dash_Available
 @onready var dash_timer = $Dash_Timer
+@onready var coin = get_node("Camera2D/HUD/Money")
 
 var bullet = load("res://bullet.tscn")
 
@@ -18,6 +19,7 @@ static var melee_dmg = 5
 static var speed = 300.0
 static var ammo = 6
 static var hp = 8
+static var money = 0
 
 #all dash variables
 var dash_speed = 600
@@ -38,6 +40,7 @@ func _physics_process(delta):
 	$CenterPoint.look_at(get_global_mouse_position())
 	move_and_collide(velocity * delta)
 	hp_display.update_health(hp)
+	coin.set_text("Coins: " + str(money))
 	
 	#handles shooting with the different guns
 	if Input.is_action_just_pressed("shoot") and ammo > 0:
