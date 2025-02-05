@@ -25,5 +25,5 @@ func spawn_enemy():
 	#create a new enemy instance
 	#add it to the enemy group and set the position randomly
 	var e = enemy.instantiate()
-	e.position = Vector2(randi_range(0,1152), randi_range(0,648))
+	e.position = Vector2(randi_range(100,1052), randi_range(100,548))
 	add_child(e)

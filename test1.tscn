@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cr7sei7aprnm3"]
+[gd_scene load_steps=21 format=3 uid="uid://cr7sei7aprnm3"]
 
 [ext_resource type="Script" path="res://test1.gd" id="1_rmec5"]
 [ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://cowboy_player.tscn" id="1_xv7ad"]
@@ -107,6 +107,12 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhk66"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0o68"]
+size = Vector2(1176, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yp3mn"]
+size = Vector2(20, 673)
+
 [node name="Main" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_rmec5")
@@ -177,5 +183,23 @@ texture = ExtResource("2_cvgdl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 shape = SubResource("RectangleShape2D_hhk66")
+
+[node name="RoomBorder" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RoomBorder"]
+position = Vector2(587, 650)
+shape = SubResource("RectangleShape2D_b0o68")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomBorder"]
+position = Vector2(578, 0)
+shape = SubResource("RectangleShape2D_b0o68")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RoomBorder"]
+position = Vector2(1152, 330)
+shape = SubResource("RectangleShape2D_yp3mn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RoomBorder"]
+position = Vector2(0, 326.5)
+shape = SubResource("RectangleShape2D_yp3mn")
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
