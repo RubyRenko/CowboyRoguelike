@@ -12,3 +12,7 @@ res://Pickup.gd
 res://enemy.gd
 res://hud.tscn
 res://Exit.gd
+res://RetryButton.gd
+res://GameOver.gd
+res://test1.gd
+res://game_over.tscn

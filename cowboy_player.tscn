@@ -80,15 +80,15 @@ scale = Vector2(0.01, 0.01)
 texture = ExtResource("3_fdu5s")
 
 [node name="GunPoint" type="Marker2D" parent="CenterPoint"]
-position = Vector2(20, 0)
+position = Vector2(25, 0)
 
 [node name="CowboyCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_e1b84")
 
+[node name="HUD" parent="." instance=ExtResource("7_k6um4")]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("5_wqsxw")
-
-[node name="HUD" parent="Camera2D" instance=ExtResource("7_k6um4")]
 
 [node name="Dash_Available" type="Timer" parent="."]
 

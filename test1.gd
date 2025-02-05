@@ -10,11 +10,8 @@ func _ready():
 func _process(delta):
 	if $CowboyPlayer.hp <= 0:
 		#if the player runs out of hp
-		#pauses the game and makes the gameover text visible
 		#print("game over")
-		$GUI/GameOverText.visible = true
-		get_tree().paused = true
-		#insert scene change to game over screen here
+		get_tree().change_scene_to_file("res://game_over.tscn")
 	
 	#when space is pressed, spawns an enemy
 	#ui accept is default, can be changed to whatever button
