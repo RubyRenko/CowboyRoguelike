@@ -14,8 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://degwg4r1qiskw" path="res://Assets/hud assets/hot bar box-02.png" id="11_rjv63"]
 [ext_resource type="PackedScene" uid="uid://cac4vxkmwm5en" path="res://melee.tscn" id="13_232df"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vb32t"]
-radius = 13.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1b84"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2k3k8"]
 animations = [{
@@ -84,7 +83,7 @@ texture = ExtResource("3_fdu5s")
 position = Vector2(20, 0)
 
 [node name="CowboyCollision" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_vb32t")
+shape = SubResource("CapsuleShape2D_e1b84")
 
 [node name="Cowboytemp" type="Sprite2D" parent="."]
 position = Vector2(1, 0)
