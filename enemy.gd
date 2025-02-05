@@ -30,8 +30,9 @@ func _physics_process(delta):
 			#next hurt is a variable to make it so it's not constantly hurting
 			#whenever the player is too close and kills it too quickly
 			#print("hurt player")
-			main.get_node("CowboyPlayer").hp -= 1
-			next_hurt = 1;
+			main.get_node("CowboyPlayer").hurt(1)
+			#main.get_node("CowboyPlayer").hp -= 1
+			next_hurt = 1.5;
 			#making the next_hurt value higher makes it take more time
 	
 	if hp <= 0:

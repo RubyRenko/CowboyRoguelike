@@ -1,9 +1,13 @@
+res://enemy.tscn
+res://CameraShake.gd
+res://CowboyPlayer.gd
+res://enemy.gd
 res://cowboy_player.tscn
 res://test1.tscn
 res://bullet.tscn
-res://enemy.tscn
 res://pickup.tscn
 res://test2.tscn
 res://hp_display.tscn
 res://melee.tscn
 res://bigfoot.tscn
+res://melee.gd

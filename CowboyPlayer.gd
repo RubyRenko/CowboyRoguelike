@@ -59,8 +59,10 @@ func _physics_process(delta):
 	
 	if $AnimationPlayer.is_playing():
 		$CenterPoint/Melee.visible = true
+		$CenterPoint/Melee.set_collision_mask_value(2, true)
 	else:
 		$CenterPoint/Melee.visible = false
+		$CenterPoint/Melee.set_collision_mask_value(2, false)
 	
 	if dashing:
 		speed = dash_speed
@@ -93,6 +95,10 @@ func set_hp(health):
 	for i in range(health/2):
 		var h = heart.instantiate()
 		h.positon.x += 50 * (1+i)
+
+func hurt(amount, shake = 0.2):
+	hp -= amount
+	$Camera2D.add_trauma(shake)
 
 func _on_dash_available_timeout():
 	can_dash = true
