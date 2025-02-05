@@ -36,11 +36,22 @@ func _physics_process(delta):
 	#takes care of player movement, gets direction from input keys
 	#and looks at where the mouse position is
 	var direction = Input.get_vector("left", "right", "up", "down")
+	if direction.y < 0:
+		$CowboyAnim.play("back")
+	elif direction.x > 0:
+		$CowboyAnim.play("side")
+		$CowboyAnim.flip_h = false
+	elif direction.x < 0:
+		$CowboyAnim.play("side")
+		$CowboyAnim.flip_h = true
+	else:
+		$CowboyAnim.play("front")
+	
 	velocity = direction * speed
 	$CenterPoint.look_at(get_global_mouse_position())
 	move_and_collide(velocity * delta)
 	hp_display.update_health(hp)
-	coin.set_text("Coins: " + str(money))
+	coin.set_text(str(money))
 	
 	#handles shooting with the different guns
 	if Input.is_action_just_pressed("shoot") and ammo > 0:

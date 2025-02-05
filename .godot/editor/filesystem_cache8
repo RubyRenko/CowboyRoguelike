@@ -1,33 +1,35 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1738721769
+::res://::1738746400
 Bigfoot.gd::GDScript::-1::1738617345::0::1::::<>Node2D<>::
-bigfoot.tscn::PackedScene::3750543554253516088::1738717788::0::1::::<><>::res://Bigfoot.gd<>uid://4nemk88u2gr7::::res://Assets/sprites/temp_bigfoot.jpg
+bigfoot.tscn::PackedScene::3750543554253516088::1738746400::0::1::::<><>::res://Bigfoot.gd<>uid://4nemk88u2gr7::::res://Assets/sprites/temp_bigfoot.jpg
 Bullet.gd::GDScript::-1::1738550860::0::1::::<>Node2D<>::
-bullet.tscn::PackedScene::207685315265105694::1738717787::0::1::::<><>::res://Bullet.gd<>uid://brso0skym7tdp::::res://Assets/Bullettemp.png
+bullet.tscn::PackedScene::207685315265105694::1738746400::0::1::::<><>::res://Bullet.gd<>uid://brso0skym7tdp::::res://Assets/Bullettemp.png
 BulletHUD.gd::GDScript::-1::1738544240::0::1::::<>Sprite2D<>::
-CowboyPlayer.gd::GDScript::-1::1738615070::0::1::::CowboyPlayer<>CharacterBody2D<>::
-cowboy_player.tscn::PackedScene::2725310185487956468::1738717787::0::1::::<><>::res://CowboyPlayer.gd<>uid://dtm5sj28gohig::::res://Assets/Cowboytemp.png<>uid://brso0skym7tdp::::res://Assets/Bullettemp.png<>uid://cebdnhre7ljlw::::res://Assets/hud assets/bullet chambers-02.png<>uid://irna5bc2y8mo::::res://Assets/hud assets/bullet chambers-03.png<>uid://2npyrk4ffbi::::res://Assets/hud assets/bullet chambers-04.png<>uid://b77crc3c1jgwd::::res://Assets/hud assets/bullet chambers-07.png<>uid://clls7w4ccbvci::::res://Assets/hud assets/bullet chambers-06.png<>uid://dw3hww6wc72mm::::res://Assets/hud assets/bullet chambers-05.png<>uid://rlpct1pe6cxh::::res://Assets/hud assets/bullet chambers-08.png<>uid://dr6r2nm4dswxx::::res://hp_display.tscn<>uid://degwg4r1qiskw::::res://Assets/hud assets/hot bar box-02.png<>uid://cac4vxkmwm5en::::res://melee.tscn
-enemy.gd::GDScript::-1::1738717301::0::1::::<>CharacterBody2D<>::
-enemy.tscn::PackedScene::9204635795021369272::1738717787::0::1::::<><>::uid://2etw3x73l1d6::::res://Assets/Cube.png<>res://enemy.gd
+CameraShake.gd::GDScript::-1::1738722841::0::1::::<>Camera2D<>::
+CowboyPlayer.gd::GDScript::-1::1738746400::0::1::::CowboyPlayer<>CharacterBody2D<>::
+cowboy_player.tscn::PackedScene::2725310185487956468::1738746400::0::1::::<><>::res://CowboyPlayer.gd<>uid://cfamld50g3qaj::::res://Assets/sprites/CowboyBack.png<>uid://brso0skym7tdp::::res://Assets/Bullettemp.png<>uid://covt5rr4mvc4b::::res://Assets/sprites/CowboyFront.png<>uid://by433ls7pjtle::::res://Assets/sprites/CowboySide.png<>res://CameraShake.gd<>uid://bd15k20ikk6lo::::res://hud.tscn<>uid://cac4vxkmwm5en::::res://melee.tscn
+enemy.gd::GDScript::-1::1738746039::0::1::::<>CharacterBody2D<>::
+enemy.tscn::PackedScene::9204635795021369272::1738746400::0::1::::<><>::uid://2etw3x73l1d6::::res://Assets/Cube.png<>res://enemy.gd
 Exit.gd::GDScript::-1::1738022317::0::1::::<>Area2D<>::
 export_presets.cfg::TextFile::-1::1737512393::0::1::::<><>::
 HpDisplay.gd::GDScript::-1::1738616077::0::1::::<>HBoxContainer<>::
-hp_display.tscn::PackedScene::8417549211277743709::1738717788::0::1::::<><>::res://HpDisplay.gd<>uid://chn1pdjdr2y1o::::res://Assets/hud assets/cow boy heart-02.png
+hp_display.tscn::PackedScene::8417549211277743709::1738746400::0::1::::<><>::res://HpDisplay.gd<>uid://chn1pdjdr2y1o::::res://Assets/hud assets/cow boy heart-02.png
 icon.svg::CompressedTexture2D::1272389800033636916::1736646851::1736646857::1::::<><>::
-melee.gd::GDScript::-1::1738552094::0::1::::<>Area2D<>::
-melee.tscn::PackedScene::4778769641416780365::1738717788::0::1::::<><>::uid://brso0skym7tdp::::res://Assets/Bullettemp.png<>res://melee.gd
-Pickup.gd::GDScript::-1::1738615099::0::1::::<>Area2D<>::
-pickup.tscn::PackedScene::6157002397297251083::1738717787::0::1::::<><>::res://Pickup.gd<>uid://brso0skym7tdp::::res://Assets/Bullettemp.png
+melee.gd::GDScript::-1::1738723455::0::1::::<>Area2D<>::
+melee.tscn::PackedScene::4778769641416780365::1738746400::0::1::::<><>::uid://brso0skym7tdp::::res://Assets/Bullettemp.png<>res://melee.gd
+Pickup.gd::GDScript::-1::1738746039::0::1::::<>Area2D<>::
+pickup.tscn::PackedScene::6157002397297251083::1738746400::0::1::::<><>::res://Pickup.gd<>uid://vir3upu5b4b5::::res://Assets/sprites/coins-02.png
 Player.gd::GDScript::-1::1736648686::0::1::::<>CharacterBody2D<>::
+hud.tscn::PackedScene::2652501861062635568::1738745911::0::1::::<><>::uid://cebdnhre7ljlw::::res://Assets/hud assets/bullet chambers-02.png<>uid://irna5bc2y8mo::::res://Assets/hud assets/bullet chambers-03.png<>uid://2npyrk4ffbi::::res://Assets/hud assets/bullet chambers-04.png<>uid://b77crc3c1jgwd::::res://Assets/hud assets/bullet chambers-07.png<>uid://clls7w4ccbvci::::res://Assets/hud assets/bullet chambers-06.png<>uid://dw3hww6wc72mm::::res://Assets/hud assets/bullet chambers-05.png<>uid://rlpct1pe6cxh::::res://Assets/hud assets/bullet chambers-08.png<>uid://dr6r2nm4dswxx::::res://hp_display.tscn<>uid://degwg4r1qiskw::::res://Assets/hud assets/hot bar box-02.png
 test1.gd::GDScript::-1::1738717418::0::1::::<>Node2D<>::
-test1.tscn::PackedScene::6033212316049352544::1738717872::0::1::::<><>::res://test1.gd<>uid://be3fpwoys47ky::::res://cowboy_player.tscn<>uid://dtm5sj28gohig::::res://Assets/Cowboytemp.png<>uid://d4e2ah1rnbl17::::res://enemy.tscn<>uid://ctyq6vaerwf28::::res://pickup.tscn<>res://Exit.gd
+test1.tscn::PackedScene::6033212316049352544::1738746400::0::1::::<><>::res://test1.gd<>uid://be3fpwoys47ky::::res://cowboy_player.tscn<>uid://dtm5sj28gohig::::res://Assets/Cowboytemp.png<>uid://d4e2ah1rnbl17::::res://enemy.tscn<>uid://ctyq6vaerwf28::::res://pickup.tscn<>res://Exit.gd
 test2.gd::GDScript::-1::1738616077::0::1::::<>Node2D<>::
-test2.tscn::PackedScene::6167086556547527593::1738717788::0::1::::<><>::res://test2.gd<>uid://be3fpwoys47ky::::res://cowboy_player.tscn<>uid://bto150pv6mwui::::res://bigfoot.tscn
+test2.tscn::PackedScene::6167086556547527593::1738746400::0::1::::<><>::res://test2.gd<>uid://be3fpwoys47ky::::res://cowboy_player.tscn<>uid://bto150pv6mwui::::res://bigfoot.tscn
 ::res://Assets/::1738616583
 Bullettemp.png::CompressedTexture2D::3617685469835193217::1736647584::1736647589::1::::<><>::
 Cowboytemp.png::CompressedTexture2D::8519476783251733986::1736647106::1736647108::1::::<><>::
 Cube.png::CompressedTexture2D::1904550707247703109::1737358178::1737358178::1::::<><>::
-::res://Assets/hud assets/::1738550165
+::res://Assets/hud assets/::1738746495
 bullet chambers-02.png::CompressedTexture2D::5055866880141528136::1738543179::1738543207::1::::<><>::
 bullet chambers-03.png::CompressedTexture2D::597396069202481818::1738543179::1738543207::1::::<><>::
 bullet chambers-04.png::CompressedTexture2D::56555594489540278::1738543179::1738543207::1::::<><>::
@@ -35,12 +37,17 @@ bullet chambers-05.png::CompressedTexture2D::8761684699051143728::1738543179::17
 bullet chambers-06.png::CompressedTexture2D::5568778054380607304::1738543179::1738543206::1::::<><>::
 bullet chambers-07.png::CompressedTexture2D::4698675709149167279::1738543179::1738543206::1::::<><>::
 bullet chambers-08.png::CompressedTexture2D::1216833862417180597::1738543179::1738543207::1::::<><>::
+coins-03.png::CompressedTexture2D::6604153478185686600::1738746481::1738746499::1::::<><>::
 cow boy half heart.png::CompressedTexture2D::6417351272029674764::1738543179::1738543207::1::::<><>::
 cow boy heart-02.png::CompressedTexture2D::5292605784009111402::1738543179::1738543208::1::::<><>::
 crosshair-02-resized-2.png::CompressedTexture2D::7042032500757464854::1738550162::1738550165::1::::<><>::
 crosshair-02-resized.png::CompressedTexture2D::1609073430297702590::1738550096::1738550099::1::::<><>::
 crosshair-02.png::CompressedTexture2D::8220719606299507439::1738543136::1738543207::1::::<><>::
 hot bar box-02.png::CompressedTexture2D::7453751731401950194::1738543179::1738543208::1::::<><>::
-::res://Assets/sprites/::1738616600
+::res://Assets/sprites/::1738746124
+coins-02.png::CompressedTexture2D::1491564004125465820::1738745955::1738745980::1::::<><>::
+CowboyBack.png::CompressedTexture2D::5124534038281721001::1738745384::1738745410::1::::<><>::
+CowboyFront.png::CompressedTexture2D::5800045228326740011::1738745366::1738745410::1::::<><>::
+CowboySide.png::CompressedTexture2D::4132570570938095614::1738746123::1738746124::1::::<><>::
 temp_bigfoot.jpg::CompressedTexture2D::2062578251542852466::1738616594::1738616600::1::::<><>::
 ::res://CowboyRoguelitePrototype0/::1737512497

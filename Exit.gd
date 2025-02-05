@@ -12,4 +12,4 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name == "CowboyPlayer":
-		get_tree().change_scene_to_file("res://test2.tscn")
+		get_tree().change_scene_to_file("res://test1.tscn")

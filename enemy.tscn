@@ -4,15 +4,16 @@
 [ext_resource type="Script" path="res://enemy.gd" id="1_s7mun"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_teiet"]
-radius = 157.051
+radius = 208.01
 
 [sub_resource type="LabelSettings" id="LabelSettings_2q00l"]
 font_size = 15
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3feb"]
-radius = 15.2971
+radius = 24.0208
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r7jp3"]
+radius = 18.0278
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 2
@@ -20,7 +21,7 @@ collision_mask = 2
 script = ExtResource("1_s7mun")
 
 [node name="tempsprite" type="Sprite2D" parent="."]
-scale = Vector2(0.07, 0.07)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_lti8k")
 
 [node name="SenseArea" type="Area2D" parent="."]

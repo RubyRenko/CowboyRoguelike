@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cr7sei7aprnm3"]
+[gd_scene load_steps=9 format=3 uid="uid://cr7sei7aprnm3"]
 
 [ext_resource type="Script" path="res://test1.gd" id="1_rmec5"]
 [ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://cowboy_player.tscn" id="1_xv7ad"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://d4e2ah1rnbl17" path="res://enemy.tscn" id="3_bijhn"]
 [ext_resource type="PackedScene" uid="uid://ctyq6vaerwf28" path="res://pickup.tscn" id="5_46ww3"]
 [ext_resource type="Script" path="res://Exit.gd" id="6_pm3r1"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5re24"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h5sup"]
 font_size = 30
@@ -19,19 +17,7 @@ process_mode = 1
 script = ExtResource("1_rmec5")
 
 [node name="CowboyPlayer" parent="." instance=ExtResource("1_xv7ad")]
-position = Vector2(142, 184)
-
-[node name="wall" type="StaticBody2D" parent="."]
-position = Vector2(305, 120)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
-position = Vector2(5, -2)
-shape = SubResource("RectangleShape2D_5re24")
-
-[node name="Sprite2D" type="Sprite2D" parent="wall"]
-position = Vector2(5, -2)
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("2_cvgdl")
+position = Vector2(142, 200)
 
 [node name="Enemy1" parent="." instance=ExtResource("3_bijhn")]
 position = Vector2(393, 181)
@@ -65,7 +51,7 @@ label_settings = SubResource("LabelSettings_h5sup")
 position = Vector2(186, 339)
 
 [node name="Exit" type="Area2D" parent="."]
-position = Vector2(140, 102)
+position = Vector2(80, 63)
 script = ExtResource("6_pm3r1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Exit"]

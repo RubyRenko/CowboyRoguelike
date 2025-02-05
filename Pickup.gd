@@ -10,8 +10,7 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_body_entered(body):
 	if body.name == "CowboyPlayer":
-		body.money += 1
+		body.money += randi_range(1,5)
 		queue_free()

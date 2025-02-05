@@ -41,10 +41,9 @@ func _physics_process(delta):
 
 func die():
 	var main = get_tree().get_root().get_node("Main")
-	for i in range(randi_range(1,5)):
-		var c = coin.instantiate()
-		c.position = position + Vector2(randi_range(0,40), randi_range(0,40))
-		main.add_child(c)
+	var c = coin.instantiate()
+	c.position = position
+	main.add_child(c)
 	queue_free()
 """
 func chase_after(node):
