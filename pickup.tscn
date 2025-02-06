@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctyq6vaerwf28"]
 
 [ext_resource type="Script" path="res://Pickup.gd" id="1_lf6km"]
-[ext_resource type="Texture2D" uid="uid://vir3upu5b4b5" path="res://Assets/sprites/coins-02.png" id="2_i14rt"]
+[ext_resource type="Texture2D" uid="uid://c1ddpcaale3w3" path="res://Assets/hud assets/coins-03.png" id="2_q1be7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p120l"]
 radius = 14.0
@@ -14,6 +14,6 @@ shape = SubResource("CircleShape2D_p120l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.01, 0.01)
-texture = ExtResource("2_i14rt")
+texture = ExtResource("2_q1be7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

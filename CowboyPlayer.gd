@@ -2,11 +2,11 @@ extends CharacterBody2D
 class_name CowboyPlayer
 
 @onready var main = get_tree().get_root().get_node("Main")
-@onready var bullet_display = get_node("Camera2D/HUD/BulletHUD")
-@onready var hp_display = get_node("Camera2D/HUD/HpDisplay")
+@onready var bullet_display = get_node("HUD/BulletHUD")
+@onready var hp_display = get_node("HUD/HpDisplay")
 @onready var dash_available = $Dash_Available
 @onready var dash_timer = $Dash_Timer
-@onready var coin = get_node("Camera2D/HUD/Money")
+@onready var coin = get_node("HUD/Money")
 
 var bullet = load("res://bullet.tscn")
 

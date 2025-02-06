@@ -1,6 +1,5 @@
-res://cowboy_player.tscn
-res://CowboyPlayer.gd
 res://test1.tscn
+res://cowboy_player.tscn
 res://bullet.tscn
 res://enemy.tscn
 res://pickup.tscn
@@ -8,11 +7,9 @@ res://test2.tscn
 res://hp_display.tscn
 res://melee.tscn
 res://bigfoot.tscn
-res://Pickup.gd
-res://enemy.gd
 res://hud.tscn
-res://Exit.gd
-res://RetryButton.gd
-res://GameOver.gd
-res://test1.gd
 res://game_over.tscn
+res://CowboyPlayer.gd
+res://Exit.gd
+res://Exit2.gd
+res://enemy.gd

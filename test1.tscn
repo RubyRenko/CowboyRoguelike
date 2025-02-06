@@ -14,7 +14,7 @@ process_mode = 1
 script = ExtResource("1_rmec5")
 
 [node name="CowboyPlayer" parent="." instance=ExtResource("1_xv7ad")]
-position = Vector2(142, 200)
+position = Vector2(90, 177)
 
 [node name="Enemy1" parent="." instance=ExtResource("3_bijhn")]
 position = Vector2(393, 181)
