@@ -1,5 +1,7 @@
-res://test1.tscn
 res://cowboy_player.tscn
+res://AudioManager.gd
+res://CowboyPlayer.gd
+res://test1.tscn
 res://bullet.tscn
 res://enemy.tscn
 res://pickup.tscn
@@ -9,7 +11,6 @@ res://melee.tscn
 res://bigfoot.tscn
 res://hud.tscn
 res://game_over.tscn
-res://CowboyPlayer.gd
-res://Exit.gd
-res://Exit2.gd
-res://enemy.gd
+res://AudioPlayer.gd
+res://goat_head.tscn
+res://GoatHead.gd

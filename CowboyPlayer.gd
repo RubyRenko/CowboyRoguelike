@@ -46,25 +46,33 @@ func _physics_process(delta):
 		$CowboyAnim.flip_h = true
 	else:
 		$CowboyAnim.play("front")
-	
+		
 	velocity = direction * speed
 	$CenterPoint.look_at(get_global_mouse_position())
 	move_and_collide(velocity * delta)
+	
+	#updates hud elements
 	hp_display.update_health(hp)
 	coin.set_text(str(money))
 	
-	#handles shooting with the different guns
-	if Input.is_action_just_pressed("shoot") and ammo > 0:
-		shoot()
-		ammo -= 1
-		bullet_display.frame -= 1
-		#print(ammo)
+	if Input.is_action_just_pressed("shoot"):
+		#shoots if there is still ammo
+		if ammo > 0:
+			shoot()
+			ammo -= 1
+			bullet_display.frame -= 1
+			#print(ammo)
+		else:
+			#otherwise plays empty sfx
+			$AudioPlayer.play_sfx("empty")
 	
 	#reloads and puts ammo back at 6
 	if Input.is_action_just_pressed("reload"):
 		ammo = 6;
 		bullet_display.frame = 6
+		$AudioPlayer.play_sfx("reload")
 	
+	#handles melee animation and collision
 	if Input.is_action_just_pressed("melee"):
 		$AnimationPlayer.play("melee")
 	
@@ -75,6 +83,7 @@ func _physics_process(delta):
 		$CenterPoint/Melee.visible = false
 		$CenterPoint/Melee.set_collision_mask_value(2, false)
 	
+	#handles dash
 	if dashing:
 		speed = dash_speed
 		set_collision_layer_value(3, true)
@@ -99,7 +108,7 @@ func shoot():
 	b.global_position = $CenterPoint/GunPoint.global_position
 	b.global_rotation = $CenterPoint/GunPoint.global_rotation - deg_to_rad(90)
 	main.add_child(b)
-
+	$AudioPlayer.play_sfx("fire")
 
 func set_hp(health):
 	var heart = hp_display.get_node("Heart1")

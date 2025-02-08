@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://8217ylvkvjb1"
+path="res://.godot/imported/Player Gun Fire(even shorter).wav-461daf7484cd9f938d23f1cb69f24b90.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Player Gun Fire(even shorter).wav"
+dest_files=["res://.godot/imported/Player Gun Fire(even shorter).wav-461daf7484cd9f938d23f1cb69f24b90.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

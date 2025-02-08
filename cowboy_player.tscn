@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://be3fpwoys47ky"]
+[gd_scene load_steps=15 format=3 uid="uid://be3fpwoys47ky"]
 
 [ext_resource type="Script" path="res://CowboyPlayer.gd" id="1_oimyp"]
 [ext_resource type="Texture2D" uid="uid://cfamld50g3qaj" path="res://Assets/sprites/CowboyBack.png" id="2_2vwln"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://by433ls7pjtle" path="res://Assets/sprites/CowboySide.png" id="4_wknyu"]
 [ext_resource type="Script" path="res://CameraShake.gd" id="5_wqsxw"]
 [ext_resource type="PackedScene" uid="uid://bd15k20ikk6lo" path="res://hud.tscn" id="7_k6um4"]
+[ext_resource type="Script" path="res://AudioPlayer.gd" id="10_52od8"]
+[ext_resource type="AudioStream" uid="uid://cnbq0uqqeqxt7" path="res://Assets/Sound/Player Gun Click.wav" id="11_00c0b"]
 [ext_resource type="PackedScene" uid="uid://cac4vxkmwm5en" path="res://melee.tscn" id="13_232df"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_epel2"]
@@ -95,6 +97,10 @@ script = ExtResource("5_wqsxw")
 
 [node name="Dash_Timer" type="Timer" parent="."]
 wait_time = 0.25
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_00c0b")
+script = ExtResource("10_52od8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
