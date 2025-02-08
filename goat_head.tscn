@@ -16,6 +16,7 @@ radius = 24.0208
 radius = 18.0278
 
 [node name="GoatHead" type="CharacterBody2D" groups=["enemy"]]
+z_index = 1
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_05l85")

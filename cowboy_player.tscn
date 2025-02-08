@@ -64,6 +64,7 @@ _data = {
 }
 
 [node name="CowboyPlayer" type="CharacterBody2D" groups=["player"]]
+z_index = 1
 script = ExtResource("1_oimyp")
 
 [node name="CowboyAnim" type="AnimatedSprite2D" parent="."]

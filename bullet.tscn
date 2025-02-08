@@ -8,6 +8,7 @@ radius = 6.0
 height = 12.0
 
 [node name="Bullet" type="Node2D"]
+z_index = 1
 script = ExtResource("1_gv073")
 
 [node name="Bullet" type="Area2D" parent="."]

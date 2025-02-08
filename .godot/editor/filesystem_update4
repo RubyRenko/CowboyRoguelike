@@ -14,3 +14,6 @@ res://game_over.tscn
 res://AudioPlayer.gd
 res://goat_head.tscn
 res://GoatHead.gd
+res://desert_room.tscn
+res://desert_room.gd
+res://GameOver.gd

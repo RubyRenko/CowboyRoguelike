@@ -52,7 +52,7 @@ func die():
 func spawn_blood():
 	var b = blood.instantiate()
 	b.position = Vector2(position.x, position.y+30)
-	b.z_index = -1
+	b.z_index = 0
 	main.add_child(b)
 
 func _on_sense_area_body_entered(body):

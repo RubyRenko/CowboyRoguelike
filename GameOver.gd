@@ -19,4 +19,4 @@ func _on_retry_button_pressed():
 	player.ammo = 6
 	player.hp = 8
 	player.money = 0
-	get_tree().change_scene_to_file("res://test1.tscn")
+	get_tree().change_scene_to_file("res://desert_room.tscn")
