@@ -1,7 +1,7 @@
+CollisionShape2D
 Marker2D
 Node2D
 Node
-CollisionShape2D
 CollisionPolygon2D
 StaticBody2D
 TileMap

@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bd146hink0coy"]
+[gd_scene load_steps=16 format=3 uid="uid://bd146hink0coy"]
 
 [ext_resource type="Texture2D" uid="uid://dw5fubqtnb7we" path="res://Assets/Tilemaps/DesertTileset.png" id="1_d3unl"]
 [ext_resource type="Script" path="res://desert_room.gd" id="1_w386a"]
 [ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://cowboy_player.tscn" id="2_10jt5"]
+[ext_resource type="Texture2D" uid="uid://58lyhuaolr4f" path="res://Assets/Tilemaps/tempWall.png" id="3_mjflq"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_x3a4p"]
 tile_data = PackedInt32Array(0, 65536, 1, 65536, 0, 1, 1, 65536, 1, 65537, 0, 2)
@@ -29,17 +30,44 @@ margins = Vector2i(16, 16)
 separation = Vector2i(16, 16)
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
 0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
 0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
 1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
 0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
 1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q7udy"]
+texture = ExtResource("3_mjflq")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32, -32, 32, -32, 32, -32, 32)
 
 [sub_resource type="TileSet" id="TileSet_vjrfc"]
 tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_ycwy4")
+sources/1 = SubResource("TileSetAtlasSource_q7udy")
 pattern_0 = SubResource("TileMapPattern_x3a4p")
 pattern_1 = SubResource("TileMapPattern_olwcv")
 pattern_2 = SubResource("TileMapPattern_vt0e7")
@@ -59,14 +87,18 @@ script = ExtResource("1_w386a")
 [node name="DesertTile" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_vjrfc")
 format = 2
-layer_0/tile_data = PackedInt32Array(393242, 65536, 2, 196626, 0, 0, 131090, 0, 0, 65554, 0, 0, 18, 0, 0, -65518, 0, 0, -65519, 0, 0, -65520, 0, 0, -65521, 0, 0, -65522, 0, 0, -65523, 0, 0, -65524, 0, 0, -65525, 0, 0, -65526, 0, 0, -65527, 0, 0, -65528, 0, 0, -65529, 0, 0, -65530, 0, 0, -65531, 0, 0, -65532, 0, 0, -65533, 0, 0, -65534, 0, 0, -65535, 0, 0, -65536, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 393215, 0, 0, 458751, 0, 0, 524287, 0, 0, 589823, 0, 0, 655359, 0, 0, 720895, 0, 0, 786431, 0, 0, 720914, 0, 0, 655378, 0, 0, 589842, 0, 0, 524306, 0, 0, 458770, 0, 0, 393234, 0, 0, 327698, 0, 0, 262162, 0, 0, 851967, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0)
+layer_0/name = "0"
+layer_0/tile_data = PackedInt32Array(393242, 65536, 2)
+layer_1/name = "1"
+layer_1/tile_data = PackedInt32Array()
 
 [node name="CowboyPlayer" parent="." instance=ExtResource("2_10jt5")]
 position = Vector2(569, 350)
 
 [node name="RoomBorders" type="StaticBody2D" parent="."]
-collision_layer = 7
-collision_mask = 7
+visible = false
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomBorders"]
 position = Vector2(571, -33)
