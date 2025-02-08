@@ -1,5 +1,5 @@
 extends Node2D
-@onready var enemy = load("res://enemy.tscn")
+@onready var enemies = [load("res://enemy.tscn"), load("res://goat_head.tscn")]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +21,6 @@ func _process(delta):
 func spawn_enemy():
 	#create a new enemy instance
 	#add it to the enemy group and set the position randomly
-	var e = enemy.instantiate()
+	var e = enemies.pick_random().instantiate()
 	e.position = Vector2(randi_range(100,1052), randi_range(100,548))
 	add_child(e)

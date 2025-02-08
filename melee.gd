@@ -1,9 +1,6 @@
 extends Area2D
-var damage = 5
+var damage = 10
 
 func _on_body_entered(body):
-	#print("Detected: " + body.name)
 	if body.is_in_group("enemy"):
-		print("Detected enemy")
-		body.hp -= damage
-	
+		body.hp -= 10
