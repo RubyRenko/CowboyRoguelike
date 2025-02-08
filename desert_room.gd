@@ -35,6 +35,16 @@ func _process(delta):
 	#if the player runs out of health, goes to the gameover screen
 	if $CowboyPlayer.hp <= 0:
 		get_tree().change_scene_to_file("res://game_over.tscn")
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		var all_children = get_children()
+		for child in all_children:
+			if child.is_in_group("enemy"):
+				child.queue_free()
+		create_room(room_height, room_width)
+		for i in range(rng.randi_range(2, 5)):
+			spawn_enemy(spawn_points[i].position)
+		$CowboyPlayer.position = Vector2(542, 358)
 
 func create_room(height, width, padding = 6):
 	#nested for loops to get i rows and j columns

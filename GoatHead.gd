@@ -34,7 +34,7 @@ func _physics_process(delta):
 			#print("hurt player")
 			main.get_node("CowboyPlayer").hurt(1)
 			#main.get_node("CowboyPlayer").hp -= 1
-			next_hurt = 1
+			next_hurt = 1.5
 			#making the next_hurt value higher makes it take more time
 	
 	if hp <= 0:
