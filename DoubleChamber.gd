@@ -12,15 +12,13 @@ func _ready():
 func _process(delta):
 	if near and can_buy and Input.is_action_just_pressed("interact"):
 		sold = true
-		$Description.text = "Jackalope heart sold!"
+		$Description.text = "Double Chamber heart sold!"
 
 func _on_body_entered(body):
 	#print("body detected")
 	if body.name == "CowboyPlayer" and sold:
-		#print("add 1 heart")
-		body.max_hp += 2
-		body.hp += 2
-		#print(body.hp)
+		body.max_ammo += 6
+		body.ammo += 6
 		queue_free()
 
 func _on_selling_interface_body_entered(body):

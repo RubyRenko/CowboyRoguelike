@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt8akrmj3vqos"]
+[gd_scene load_steps=6 format=3 uid="uid://dt8akrmj3vqos"]
 
 [ext_resource type="Script" path="res://jackPickup.gd" id="1_mai21"]
 [ext_resource type="Texture2D" uid="uid://chn1pdjdr2y1o" path="res://Assets/hud assets/cow boy heart-02.png" id="2_w163m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ry3t"]
 radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yu3bt"]
+radius = 100.02
+
+[sub_resource type="LabelSettings" id="LabelSettings_n327b"]
 
 [node name="JackalopPickup" type="Area2D"]
 script = ExtResource("1_mai21")
@@ -17,4 +22,22 @@ position = Vector2(2.38419e-07, 9.53674e-07)
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("2_w163m")
 
+[node name="SellingInterface" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SellingInterface"]
+shape = SubResource("CircleShape2D_yu3bt")
+
+[node name="Description" type="Label" parent="."]
+visible = false
+offset_left = -100.0
+offset_top = -80.0
+offset_right = 118.0
+offset_bottom = -31.0
+text = "Roasted Jackalope
+Increases max hp by 1 heart"
+label_settings = SubResource("LabelSettings_n327b")
+horizontal_alignment = 1
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="SellingInterface" to="." method="_on_selling_interface_body_entered"]
+[connection signal="body_exited" from="SellingInterface" to="." method="_on_selling_interface_body_exited"]

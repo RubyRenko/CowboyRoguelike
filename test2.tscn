@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct4naq3oauebx"]
+[gd_scene load_steps=9 format=3 uid="uid://ct4naq3oauebx"]
 
 [ext_resource type="Script" path="res://test2.gd" id="1_i4f30"]
 [ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://cowboy_player.tscn" id="2_igihv"]
 [ext_resource type="PackedScene" uid="uid://bto150pv6mwui" path="res://bigfoot.tscn" id="3_pygoa"]
 [ext_resource type="Script" path="res://Exit2.gd" id="4_lm1tn"]
 [ext_resource type="Texture2D" uid="uid://dtm5sj28gohig" path="res://Assets/Cowboytemp.png" id="5_ncr11"]
+[ext_resource type="PackedScene" uid="uid://dt8akrmj3vqos" path="res://Items/jackalop_pickup.tscn" id="6_5xbt5"]
+[ext_resource type="PackedScene" uid="uid://cvqixv0v6a7mh" path="res://Items/double_chamber.tscn" id="7_1ei5h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2c41w"]
 
@@ -28,5 +30,11 @@ texture = ExtResource("5_ncr11")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 shape = SubResource("RectangleShape2D_2c41w")
+
+[node name="JackalopPickup" parent="." instance=ExtResource("6_5xbt5")]
+position = Vector2(641, 361)
+
+[node name="DoubleChamber" parent="." instance=ExtResource("7_1ei5h")]
+position = Vector2(894, 363)
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]

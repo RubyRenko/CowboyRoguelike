@@ -1,4 +1,4 @@
-extends Area2D
+extends HBoxContainer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,6 +10,11 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_body_entered(body):
-	if body.name == "CowboyPlayer":
-		get_tree().change_scene_to_file("res://desert_room.tscn")
+func update_bullets(ammo, max):
+	if max == 6:
+		$BulletHUD.frame = ammo
+		$BulletHUD2.visible = false
+	elif max == 12:
+		$BulletHUD2.visible = true
+		$BulletHUD2.frame = ammo-6
+		$BulletHUD.frame = ammo

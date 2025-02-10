@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bd15k20ikk6lo"]
+[gd_scene load_steps=14 format=3 uid="uid://bd15k20ikk6lo"]
 
 [ext_resource type="Texture2D" uid="uid://cebdnhre7ljlw" path="res://Assets/hud assets/bullet chambers-02.png" id="1_8o2li"]
 [ext_resource type="Texture2D" uid="uid://irna5bc2y8mo" path="res://Assets/hud assets/bullet chambers-03.png" id="2_v7ovw"]
 [ext_resource type="Texture2D" uid="uid://2npyrk4ffbi" path="res://Assets/hud assets/bullet chambers-04.png" id="3_d75u2"]
+[ext_resource type="Script" path="res://BulletDisplay.gd" id="4_h5ano"]
 [ext_resource type="Texture2D" uid="uid://b77crc3c1jgwd" path="res://Assets/hud assets/bullet chambers-07.png" id="4_w3g6i"]
 [ext_resource type="Texture2D" uid="uid://clls7w4ccbvci" path="res://Assets/hud assets/bullet chambers-06.png" id="5_7b2pb"]
 [ext_resource type="Texture2D" uid="uid://dw3hww6wc72mm" path="res://Assets/hud assets/bullet chambers-05.png" id="6_lhi1e"]
@@ -10,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dr6r2nm4dswxx" path="res://hp_display.tscn" id="8_1dmy0"]
 [ext_resource type="Texture2D" uid="uid://degwg4r1qiskw" path="res://Assets/hud assets/hot bar box-02.png" id="9_38mh7"]
 [ext_resource type="Texture2D" uid="uid://vir3upu5b4b5" path="res://Assets/hud assets/coins-02.png" id="10_ci18m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r3ihe"]
+font_size = 25
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2k3k8"]
 animations = [{
@@ -40,16 +44,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="LabelSettings" id="LabelSettings_r3ihe"]
-font_size = 25
-
 [node name="HUD" type="CanvasLayer"]
-
-[node name="BulletHUD" type="AnimatedSprite2D" parent="."]
-position = Vector2(1076, 77)
-scale = Vector2(0.05, 0.05)
-sprite_frames = SubResource("SpriteFrames_2k3k8")
-speed_scale = 0.0
 
 [node name="HpDisplay" parent="." instance=ExtResource("8_1dmy0")]
 offset_left = 15.0
@@ -81,3 +76,22 @@ label_settings = SubResource("LabelSettings_r3ihe")
 position = Vector2(261, 599)
 scale = Vector2(0.025, 0.025)
 texture = ExtResource("10_ci18m")
+
+[node name="BulletDisplay" type="HBoxContainer" parent="."]
+offset_left = 854.0
+offset_top = 1.0
+offset_right = 1154.0
+offset_bottom = 162.0
+script = ExtResource("4_h5ano")
+
+[node name="BulletHUD2" type="AnimatedSprite2D" parent="BulletDisplay"]
+position = Vector2(76.0001, 76)
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_2k3k8")
+speed_scale = 0.0
+
+[node name="BulletHUD" type="AnimatedSprite2D" parent="BulletDisplay"]
+position = Vector2(222, 76)
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_2k3k8")
+speed_scale = 0.0

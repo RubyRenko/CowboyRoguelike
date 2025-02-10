@@ -1,5 +1,8 @@
 CollisionShape2D
 Area2D
+HBoxContainer
+Label
+Sprite2D
 TileMap
 Marker2D
 Node2D
@@ -9,6 +12,3 @@ StaticBody2D
 AudioStreamPlayer2D
 Button
 AnimatedSprite2D
-RigidBody2D
-Label
-TextureRect

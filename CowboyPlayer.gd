@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name CowboyPlayer
 
 @onready var main = get_tree().get_root().get_node("Main")
-@onready var bullet_display = get_node("HUD/BulletHUD")
+@onready var bullet_display = get_node("HUD/BulletDisplay")
 @onready var hp_display = get_node("HUD/HpDisplay")
 @onready var dash_available = $Dash_Available
 @onready var dash_timer = $Dash_Timer
@@ -14,10 +14,12 @@ var bullet = load("res://bullet.tscn")
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #stats
+#static stats carry over when changing scenes
 static var ranged_dmg = 5
 static var melee_dmg = 5
 static var speed = 300.0
-static var ammo = 6
+static var max_ammo = 6
+var ammo = max_ammo
 static var max_hp = 8
 static var hp = 8
 static var money = 0
@@ -27,9 +29,8 @@ var dash_speed = 600
 var dashing = false
 var can_dash = true
 
-func _ready() :
-	bullet_display.play("default")
-	bullet_display.frame = 6
+func _ready():
+	bullet_display.update_bullets(ammo, max_ammo)
 	hp_display.update_health(hp)
 	$CenterPoint/Melee.damage = melee_dmg
 
@@ -52,16 +53,11 @@ func _physics_process(delta):
 	$CenterPoint.look_at(get_global_mouse_position())
 	move_and_collide(velocity * delta)
 	
-	#updates hud elements
-	hp_display.update_health(hp)
-	coin.set_text(str(money))
-	
 	if Input.is_action_just_pressed("shoot"):
 		#shoots if there is still ammo
 		if ammo > 0:
 			shoot()
 			ammo -= 1
-			bullet_display.frame -= 1
 			#print(ammo)
 		else:
 			#otherwise plays empty sfx
@@ -69,8 +65,7 @@ func _physics_process(delta):
 	
 	#reloads and puts ammo back at 6
 	if Input.is_action_just_pressed("reload"):
-		ammo = 6;
-		bullet_display.frame = 6
+		ammo = max_ammo;
 		$AudioPlayer.play_sfx("reload")
 	
 	#handles melee animation and collision
@@ -101,6 +96,11 @@ func _physics_process(delta):
 		can_dash = false
 		dash_timer.start()
 		dash_available.start()
+	
+	#updates hud elements
+	hp_display.update_health(hp)
+	coin.set_text(str(money))
+	bullet_display.update_bullets(ammo, max_ammo)
 
 func shoot():
 	#makes 1 bullet right in front
