@@ -4,6 +4,7 @@ var sold = false
 var near = false
 var can_buy = false
 var price = 5
+@onready var player = get_tree().get_root().get_node("Main").get_node("CowboyPlayer")
 
 func _ready():
 	pass # Replace with function body.
@@ -12,6 +13,8 @@ func _ready():
 func _process(delta):
 	if near and can_buy and Input.is_action_just_pressed("interact"):
 		sold = true
+		player.money -= price
+		can_buy = false
 		$Description.text = "Double Chamber heart sold!"
 
 func _on_body_entered(body):

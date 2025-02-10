@@ -31,7 +31,7 @@ var can_dash = true
 
 func _ready():
 	bullet_display.update_bullets(ammo, max_ammo)
-	hp_display.update_health(hp)
+	hp_display.update_health(hp, max_hp)
 	$CenterPoint/Melee.damage = melee_dmg
 
 func _physics_process(delta):
@@ -98,7 +98,7 @@ func _physics_process(delta):
 		dash_available.start()
 	
 	#updates hud elements
-	hp_display.update_health(hp)
+	hp_display.update_health(hp, max_hp)
 	coin.set_text(str(money))
 	bullet_display.update_bullets(ammo, max_ammo)
 

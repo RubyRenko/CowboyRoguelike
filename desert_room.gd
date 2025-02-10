@@ -19,13 +19,13 @@ var tileset_prob = [
 
 #how many rows and columns to generate
 #can be adjusted to get bigger rooms
-var room_height = 12
-var room_width = 18
+var room_height = 50
+var room_width = 25
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#sets the rng seed and creates room
 	rng.set_seed(randi())
-	create_room(room_height, room_width)
+	create_room(room_width, room_height)
 	#randomly spawns 2-5 enemies from each spawn point
 	for i in range(rng.randi_range(2, 5)):
 		spawn_enemy(spawn_points[i].position)
@@ -46,7 +46,7 @@ func _process(delta):
 			spawn_enemy(spawn_points[i].position)
 		$CowboyPlayer.position = Vector2(542, 358)
 
-func create_room(height, width, padding = 6):
+func create_room(width, height, padding = 6):
 	#nested for loops to get i rows and j columns
 	#padding is so that around the room there's still tiles and doesn't stop suddenly
 	for i in range(-padding, height+padding):

@@ -47,3 +47,53 @@ expand_mode = 2
 layout_mode = 2
 texture = ExtResource("2_esdv8")
 expand_mode = 2
+
+[node name="9" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_esdv8")
+expand_mode = 2
+
+[node name="10" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_esdv8")
+expand_mode = 2
+
+[node name="11" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_esdv8")
+expand_mode = 2
+
+[node name="12" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_esdv8")
+expand_mode = 2
+
+[node name="13" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_esdv8")
+expand_mode = 2
+
+[node name="14" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_esdv8")
+expand_mode = 2
+
+[node name="15" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_esdv8")
+expand_mode = 2
+
+[node name="16" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_esdv8")
+expand_mode = 2
+
+[node name="17" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_esdv8")
+expand_mode = 2
+
+[node name="18" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_esdv8")
+expand_mode = 2
