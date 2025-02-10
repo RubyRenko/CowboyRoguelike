@@ -1,44 +1,48 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1739149168
+::res://::1739156747
 AudioManager.gd::GDScript::-1::1739049791::0::1::::<>Node2D<>::
 AudioPlayer.gd::GDScript::-1::1739049992::0::1::::<>AudioStreamPlayer2D<>::
+BeansPickup.gd::GDScript::-1::1739156461::0::1::::<>Area2D<>::
+beans_pickup.tscn::PackedScene::1906480359671176314::1739156684::0::1::::<><>::res://BeansPickup.gd<>uid://cxou3qtni0d7y::::res://Assets/hud assets/cow boy half heart.png
 Bigfoot.gd::GDScript::-1::1738617345::0::1::::<>Node2D<>::
 bigfoot.tscn::PackedScene::3750543554253516088::1739049792::0::1::::<><>::res://Bigfoot.gd<>uid://4nemk88u2gr7::::res://Assets/sprites/temp_bigfoot.jpg
 Bullet.gd::GDScript::-1::1738550860::0::1::::<>Node2D<>::
-bullet.tscn::PackedScene::207685315265105694::1739149130::0::1::::<><>::res://Bullet.gd<>uid://brso0skym7tdp::::res://Assets/Bullettemp.png
+bullet.tscn::PackedScene::207685315265105694::1739155723::0::1::::<><>::res://Bullet.gd<>uid://brso0skym7tdp::::res://Assets/Bullettemp.png
 BulletHUD.gd::GDScript::-1::1738544240::0::1::::<>Sprite2D<>::
 CameraShake.gd::GDScript::-1::1738722841::0::1::::<>Camera2D<>::
-CowboyPlayer.gd::GDScript::-1::1739050430::0::1::::CowboyPlayer<>CharacterBody2D<>::
-cowboy_player.tscn::PackedScene::2725310185487956468::1739149130::0::1::::<><>::res://CowboyPlayer.gd<>uid://cfamld50g3qaj::::res://Assets/sprites/CowboyBack.png<>uid://brso0skym7tdp::::res://Assets/Bullettemp.png<>uid://covt5rr4mvc4b::::res://Assets/sprites/CowboyFront.png<>uid://by433ls7pjtle::::res://Assets/sprites/CowboySide.png<>res://CameraShake.gd<>uid://bd15k20ikk6lo::::res://hud.tscn<>res://AudioPlayer.gd<>uid://cnbq0uqqeqxt7::::res://Assets/Sound/Player Gun Click.wav<>uid://cac4vxkmwm5en::::res://melee.tscn
-desert_room.gd::GDScript::-1::1739069178::0::1::::<>Node2D<>::
-desert_room.tscn::PackedScene::2652477569240927236::1739149130::0::1::::<><>::uid://dw5fubqtnb7we::::res://Assets/Tilemaps/DesertTileset.png<>res://desert_room.gd<>uid://be3fpwoys47ky::::res://cowboy_player.tscn<>uid://58lyhuaolr4f::::res://Assets/Tilemaps/tempWall.png
+CowboyPlayer.gd::GDScript::-1::1739156029::0::1::::CowboyPlayer<>CharacterBody2D<>::
+cowboy_player.tscn::PackedScene::2725310185487956468::1739156684::0::1::::<><>::res://CowboyPlayer.gd<>uid://cfamld50g3qaj::::res://Assets/sprites/CowboyBack.png<>uid://brso0skym7tdp::::res://Assets/Bullettemp.png<>uid://covt5rr4mvc4b::::res://Assets/sprites/CowboyFront.png<>uid://by433ls7pjtle::::res://Assets/sprites/CowboySide.png<>res://CameraShake.gd<>uid://bd15k20ikk6lo::::res://hud.tscn<>res://AudioPlayer.gd<>uid://cnbq0uqqeqxt7::::res://Assets/Sound/Player Gun Click.wav<>uid://cac4vxkmwm5en::::res://melee.tscn
+desert_room.gd::GDScript::-1::1739155123::0::1::::<>Node2D<>::
+desert_room.tscn::PackedScene::2652477569240927236::1739156684::0::1::::<><>::uid://dw5fubqtnb7we::::res://Assets/Tilemaps/DesertTileset.png<>res://desert_room.gd<>uid://be3fpwoys47ky::::res://cowboy_player.tscn<>uid://58lyhuaolr4f::::res://Assets/Tilemaps/tempWall.png
 enemy.gd::GDScript::-1::1738789138::0::1::::<>CharacterBody2D<>::
-enemy.tscn::PackedScene::9204635795021369272::1739149130::0::1::::<><>::uid://2etw3x73l1d6::::res://Assets/Cube.png<>res://enemy.gd
+enemy.tscn::PackedScene::9204635795021369272::1739155723::0::1::::<><>::uid://2etw3x73l1d6::::res://Assets/Cube.png<>res://enemy.gd
 Exit2.gd::GDScript::-1::1738788186::0::1::::<>Area2D<>::
 Exit.gd::GDScript::-1::1738788156::0::1::::<>Area2D<>::
 export_presets.cfg::TextFile::-1::1737512393::0::1::::<><>::
-forest_room.gd::GDScript::-1::1739149094::0::1::::<>Node2D<>::
-forest_room.tscn::PackedScene::6477576450019100078::1739149131::0::1::::<><>::res://CowboyPlayer.gd<>uid://cuc6wb3awlf2p::::res://Assets/Tilemaps/Forest_tileset07.png<>uid://clravkd2h58y1::::res://Assets/Tilemaps/Forest_tileset05.png<>uid://br4a8npn2yejb::::res://Assets/Tilemaps/Forest_tileset04.png<>uid://bnqv2vk5khfu5::::res://Assets/Tilemaps/ForestDetails7Tiled.png<>uid://be3fpwoys47ky::::res://cowboy_player.tscn
+forest_room.gd::GDScript::-1::1739154629::0::1::::<>Node2D<>::
+forest_room.tscn::PackedScene::6477576450019100078::1739156684::0::1::::<><>::res://forest_room.gd<>uid://cuc6wb3awlf2p::::res://Assets/Tilemaps/Forest_tileset07.png<>uid://clravkd2h58y1::::res://Assets/Tilemaps/Forest_tileset05.png<>uid://58lyhuaolr4f::::res://Assets/Tilemaps/tempWall.png<>uid://br4a8npn2yejb::::res://Assets/Tilemaps/Forest_tileset04.png<>uid://bnqv2vk5khfu5::::res://Assets/Tilemaps/ForestDetails7Tiled.png<>uid://be3fpwoys47ky::::res://cowboy_player.tscn
 GameOver.gd::GDScript::-1::1739055354::0::1::::<>Node2D<>::
 game_over.tscn::PackedScene::2209444458219348627::1739049792::0::1::::<><>::res://GameOver.gd
 GoatBlood.gd::GDScript::-1::1739068632::0::1::::<>Area2D<>::
-GoatHead.gd::GDScript::-1::1739058375::0::1::::<>CharacterBody2D<>::
+GoatHead.gd::GDScript::-1::1739156621::0::1::::<>CharacterBody2D<>::
 goat_blood.tscn::PackedScene::583260893891104391::1739007573::0::1::::<><>::res://GoatBlood.gd<>uid://di1f3vqutx7x3::::res://Assets/sprites/GoatBlood.png
-goat_head.tscn::PackedScene::6947146955970694915::1739149130::0::1::::<><>::res://GoatHead.gd<>uid://dtxn6rube6gcw::::res://Assets/sprites/chubaspriteminion.png
-HpDisplay.gd::GDScript::-1::1738616077::0::1::::<>HBoxContainer<>::
-hp_display.tscn::PackedScene::8417549211277743709::1739149130::0::1::::<><>::res://HpDisplay.gd<>uid://chn1pdjdr2y1o::::res://Assets/hud assets/cow boy heart-02.png
+goat_head.tscn::PackedScene::6947146955970694915::1739156684::0::1::::<><>::res://GoatHead.gd<>uid://dtxn6rube6gcw::::res://Assets/sprites/chubaspriteminion.png
+HpDisplay.gd::GDScript::-1::1739155922::0::1::::<>HBoxContainer<>::
+hp_display.tscn::PackedScene::8417549211277743709::1739156684::0::1::::<><>::res://HpDisplay.gd<>uid://chn1pdjdr2y1o::::res://Assets/hud assets/cow boy heart-02.png
 hud.tscn::PackedScene::2652501861062635568::1739049792::0::1::::<><>::uid://cebdnhre7ljlw::::res://Assets/hud assets/bullet chambers-02.png<>uid://irna5bc2y8mo::::res://Assets/hud assets/bullet chambers-03.png<>uid://2npyrk4ffbi::::res://Assets/hud assets/bullet chambers-04.png<>uid://b77crc3c1jgwd::::res://Assets/hud assets/bullet chambers-07.png<>uid://clls7w4ccbvci::::res://Assets/hud assets/bullet chambers-06.png<>uid://dw3hww6wc72mm::::res://Assets/hud assets/bullet chambers-05.png<>uid://rlpct1pe6cxh::::res://Assets/hud assets/bullet chambers-08.png<>uid://dr6r2nm4dswxx::::res://hp_display.tscn<>uid://degwg4r1qiskw::::res://Assets/hud assets/hot bar box-02.png<>uid://vir3upu5b4b5::::res://Assets/hud assets/coins-02.png
 icon.svg::CompressedTexture2D::1272389800033636916::1736646851::1736646857::1::::<><>::
+jackalop_pickup.tscn::PackedScene::4064602845645340709::1739156684::0::1::::<><>::res://jackPickup.gd<>uid://chn1pdjdr2y1o::::res://Assets/hud assets/cow boy heart-02.png
+jackPickup.gd::GDScript::-1::1739156461::0::1::::<>Area2D<>::
 melee.gd::GDScript::-1::1739007368::0::1::::<>Area2D<>::
-melee.tscn::PackedScene::4778769641416780365::1739149130::0::1::::<><>::uid://brso0skym7tdp::::res://Assets/Bullettemp.png<>res://melee.gd
-Pickup.gd::GDScript::-1::1738746039::0::1::::<>Area2D<>::
-pickup.tscn::PackedScene::6157002397297251083::1739149130::0::1::::<><>::res://Pickup.gd<>uid://c1ddpcaale3w3::::res://Assets/hud assets/coins-03.png
+melee.tscn::PackedScene::4778769641416780365::1739156684::0::1::::<><>::uid://brso0skym7tdp::::res://Assets/Bullettemp.png<>res://melee.gd
+Pickup.gd::GDScript::-1::1739155012::0::1::::<>Area2D<>::
+pickup.tscn::PackedScene::6157002397297251083::1739156684::0::1::::<><>::res://Pickup.gd<>uid://c1ddpcaale3w3::::res://Assets/hud assets/coins-03.png
 Player.gd::GDScript::-1::1736648686::0::1::::<>CharacterBody2D<>::
 RetryButton.gd::GDScript::-1::1738747153::0::1::::<>Button<>::
 test1.gd::GDScript::-1::1739006876::0::1::::<>Node2D<>::
-test1.tscn::PackedScene::6033212316049352544::1739149130::0::1::::<><>::res://test1.gd<>uid://be3fpwoys47ky::::res://cowboy_player.tscn<>uid://dtm5sj28gohig::::res://Assets/Cowboytemp.png<>uid://d4e2ah1rnbl17::::res://enemy.tscn<>uid://ctyq6vaerwf28::::res://pickup.tscn<>res://Exit.gd<>uid://c58iq3wgcd4xj::::res://goat_head.tscn
+test1.tscn::PackedScene::6033212316049352544::1739154629::0::1::::<><>::res://test1.gd<>uid://be3fpwoys47ky::::res://cowboy_player.tscn<>uid://dtm5sj28gohig::::res://Assets/Cowboytemp.png<>uid://d4e2ah1rnbl17::::res://enemy.tscn<>uid://ctyq6vaerwf28::::res://pickup.tscn<>res://Exit.gd<>uid://c58iq3wgcd4xj::::res://goat_head.tscn
 test2.gd::GDScript::-1::1738616077::0::1::::<>Node2D<>::
-test2.tscn::PackedScene::6167086556547527593::1739149130::0::1::::<><>::res://test2.gd<>uid://be3fpwoys47ky::::res://cowboy_player.tscn<>uid://bto150pv6mwui::::res://bigfoot.tscn<>res://Exit2.gd<>uid://dtm5sj28gohig::::res://Assets/Cowboytemp.png
+test2.tscn::PackedScene::6167086556547527593::1739154744::0::1::::<><>::res://test2.gd<>uid://be3fpwoys47ky::::res://cowboy_player.tscn<>uid://bto150pv6mwui::::res://bigfoot.tscn<>res://Exit2.gd<>uid://dtm5sj28gohig::::res://Assets/Cowboytemp.png
 ::res://Assets/::1739049031
 Bullettemp.png::CompressedTexture2D::3617685469835193217::1736647584::1736647589::1::::<><>::
 Cowboytemp.png::CompressedTexture2D::8519476783251733986::1736647106::1736647108::1::::<><>::

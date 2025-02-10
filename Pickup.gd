@@ -12,5 +12,5 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name == "CowboyPlayer":
-		body.money += randi_range(1,5)
+		body.money += 1
 		queue_free()

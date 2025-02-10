@@ -18,6 +18,7 @@ static var ranged_dmg = 5
 static var melee_dmg = 5
 static var speed = 300.0
 static var ammo = 6
+static var max_hp = 8
 static var hp = 8
 static var money = 0
 

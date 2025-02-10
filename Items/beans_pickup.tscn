@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bunvairgjda2b"]
+
+[ext_resource type="Script" path="res://BeansPickup.gd" id="1_k37md"]
+[ext_resource type="Texture2D" uid="uid://cxou3qtni0d7y" path="res://Assets/hud assets/cow boy half heart.png" id="2_dvwpr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ry3t"]
+radius = 30.0
+
+[node name="BeansPickup" type="Area2D" groups=["pickup"]]
+z_index = 1
+collision_mask = 7
+script = ExtResource("1_k37md")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4ry3t")
+
+[node name="CowBoyHeart-02" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, 9.53674e-07)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_dvwpr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

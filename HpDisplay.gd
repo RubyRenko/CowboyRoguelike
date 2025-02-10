@@ -14,8 +14,10 @@ func update_health(value):
 func update_partial(value):
 	for i in get_child_count():
 		if value > i * 2 + 1:
+			get_child(i).visible = true
 			get_child(i).texture = heart_full
 		elif value > i * 2:
+			get_child(i).visible = true
 			get_child(i).texture = heart_half
 		else:
 			get_child(i).visible = value > i * 2

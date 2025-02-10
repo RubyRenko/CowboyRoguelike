@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bd146hink0coy"]
+[gd_scene load_steps=17 format=3 uid="uid://bd146hink0coy"]
 
 [ext_resource type="Texture2D" uid="uid://dw5fubqtnb7we" path="res://Assets/Tilemaps/DesertTileset.png" id="1_d3unl"]
 [ext_resource type="Script" path="res://desert_room.gd" id="1_w386a"]
 [ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://cowboy_player.tscn" id="2_10jt5"]
 [ext_resource type="Texture2D" uid="uid://58lyhuaolr4f" path="res://Assets/Tilemaps/tempWall.png" id="3_mjflq"]
+[ext_resource type="PackedScene" path="res://Items/jackalop_pickup.tscn" id="5_xs5q5"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_x3a4p"]
 tile_data = PackedInt32Array(0, 65536, 1, 65536, 0, 1, 1, 65536, 1, 65537, 0, 2)
@@ -30,36 +31,18 @@ margins = Vector2i(16, 16)
 separation = Vector2i(16, 16)
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
 1:2/0 = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
 0:3/0 = 0
-0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:3/0/physics_layer_0/angular_velocity = 0.0
 1:3/0 = 0
-1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:3/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q7udy"]
 texture = ExtResource("3_mjflq")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_vjrfc"]
 tile_size = Vector2i(64, 64)
@@ -131,3 +114,6 @@ position = Vector2(1028, 664)
 
 [node name="5" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(583, 691)
+
+[node name="JackalopPickup" parent="." instance=ExtResource("5_xs5q5")]
+position = Vector2(225, 274)

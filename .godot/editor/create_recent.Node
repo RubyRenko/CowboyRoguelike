@@ -1,5 +1,6 @@
-TileMap
 CollisionShape2D
+Area2D
+TileMap
 Marker2D
 Node2D
 Node
@@ -9,6 +10,5 @@ AudioStreamPlayer2D
 Button
 AnimatedSprite2D
 RigidBody2D
-Area2D
 Label
 TextureRect

@@ -9,6 +9,7 @@ var next_hurt = 0
 @onready var coin = load("res://pickup.tscn")
 @onready var blood = load("res://goat_blood.tscn")
 @onready var blood_timer = $Blood_Timer
+@onready var loot_table = [load("res://Items/beans_pickup.tscn")]
 
 func _physics_process(delta):
 	#makes sure the hp display is up to date
@@ -47,6 +48,10 @@ func die():
 		var c = coin.instantiate()
 		c.position = position + Vector2(randi_range(10,30), randi_range(10,30))
 		main.add_child(c)
+	if randi_range(0,5) == 0:
+		var p = loot_table.pick_random().instantiate()
+		p.position = position
+		main.add_child(p)
 	queue_free()
 
 func spawn_blood():
