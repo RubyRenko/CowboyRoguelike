@@ -1,6 +1,6 @@
 extends Camera2D
 
-var decay = 0.4  # How quickly the shaking stops [0, 1].
+var decay = 0.5  # How quickly the shaking stops [0, 1].
 var max_offset = Vector2(100, 75)  # Maximum hor/ver shake in pixels.
 var max_roll = 0.05  # Maximum rotation in radians (use sparingly).
 var trauma = 0.0  # Current shake strength.
@@ -17,7 +17,7 @@ func _process(delta):
 		shake()
 
 func add_trauma(amount):
-	trauma = min(trauma + amount, 1.0)
+	trauma = min(amount, 1.0)
 
 func shake():
 	var amount = pow(trauma, trauma_power)

@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://bd146hink0coy"]
+[gd_scene load_steps=17 format=3 uid="uid://bd146hink0coy"]
 
 [ext_resource type="Texture2D" uid="uid://dw5fubqtnb7we" path="res://Assets/Tilemaps/DesertTileset.png" id="1_d3unl"]
 [ext_resource type="Script" path="res://desert_room.gd" id="1_w386a"]
 [ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://cowboy_player.tscn" id="2_10jt5"]
 [ext_resource type="Texture2D" uid="uid://58lyhuaolr4f" path="res://Assets/Tilemaps/tempWall.png" id="3_mjflq"]
-[ext_resource type="Script" path="res://Exit.gd" id="5_fsb1f"]
-[ext_resource type="Texture2D" uid="uid://vir3upu5b4b5" path="res://Assets/hud assets/coins-02.png" id="6_5tk6b"]
+[ext_resource type="AudioStream" uid="uid://klnmu5125dt" path="res://Assets/Sound/Music/44 Forest (Forest Theme GAMEREADY).ogg" id="5_rc6bk"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_x3a4p"]
 tile_data = PackedInt32Array(0, 65536, 1, 65536, 0, 1, 1, 65536, 1, 65537, 0, 2)
@@ -83,8 +82,6 @@ size = Vector2(1282.75, 63)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8k3p"]
 size = Vector2(92, 847.25)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rboum"]
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w386a")
 
@@ -121,6 +118,7 @@ position = Vector2(1200, 354)
 shape = SubResource("RectangleShape2D_b8k3p")
 
 [node name="SpawnPoints" type="Node2D" parent="."]
+visible = false
 
 [node name="1" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(216, 133)
@@ -137,15 +135,11 @@ position = Vector2(1028, 664)
 [node name="5" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(583, 691)
 
-[node name="Exit" type="Area2D" parent="."]
-position = Vector2(121, 130)
-script = ExtResource("5_fsb1f")
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 5.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Exit"]
-scale = Vector2(0.01, 0.011)
-texture = ExtResource("6_5tk6b")
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_rc6bk")
+autoplay = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("RectangleShape2D_rboum")
-
-[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

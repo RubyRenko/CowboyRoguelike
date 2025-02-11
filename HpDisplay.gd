@@ -8,18 +8,18 @@ var heart_empty = preload("res://Assets/hud assets/empty heart.png")
 #var armor_full = preload("")
 #var armor_half = preload("")
 
-func update_health(value, max):
-	update_partial(value, max)
+func update_health(health, max_hp):
+	update_partial(health, max_hp)
 
-func update_partial(value, max):
+func update_partial(health, max_hp):
 	for i in get_child_count():
-		if value > i * 2 + 1:
+		if health > i * 2 + 1:
 			get_child(i).visible = true
 			get_child(i).texture = heart_full
-		elif value > i * 2:
+		elif health > i * 2:
 			get_child(i).visible = true
 			get_child(i).texture = heart_half
-		elif max > i * 2:
+		elif max_hp > i * 2:
 			get_child(i).visible = true
 			get_child(i).texture = heart_empty
 		else:

@@ -11,7 +11,7 @@ radius = 96.1873
 
 [sub_resource type="LabelSettings" id="LabelSettings_a71v0"]
 
-[node name="DoubleChamber" type="Area2D"]
+[node name="DoubleChamber" type="Area2D" groups=["nonstackable", "sellable"]]
 script = ExtResource("1_shhh5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

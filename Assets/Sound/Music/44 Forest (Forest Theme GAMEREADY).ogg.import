@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://klnmu5125dt"
+path="res://.godot/imported/44 Forest (Forest Theme GAMEREADY).ogg-e1637b96bf8404f2fa1e35328d1ee3d9.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sound/Music/44 Forest (Forest Theme GAMEREADY).ogg"
+dest_files=["res://.godot/imported/44 Forest (Forest Theme GAMEREADY).ogg-e1637b96bf8404f2fa1e35328d1ee3d9.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

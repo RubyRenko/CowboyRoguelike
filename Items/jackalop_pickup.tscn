@@ -11,7 +11,7 @@ radius = 100.02
 
 [sub_resource type="LabelSettings" id="LabelSettings_n327b"]
 
-[node name="JackalopPickup" type="Area2D"]
+[node name="JackalopPickup" type="Area2D" groups=["sellable"]]
 script = ExtResource("1_mai21")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

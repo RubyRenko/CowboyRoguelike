@@ -25,12 +25,15 @@ func _on_body_entered(body):
 		queue_free()
 
 func _on_selling_interface_body_entered(body):
-	if body.name == "CowboyPlayer":
+	if body.name == "CowboyPlayer" and not(sold):
 		near = true
 		$Description.visible = true
 		if body.money >= price:
 			can_buy = true
+		else:
+			can_buy = false
 
 func _on_selling_interface_body_exited(body):
 	near = false
+	can_buy = false
 	$Description.visible = false

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc2bvgost5g5y"]
+
+[ext_resource type="Script" path="res://shop.gd" id="1_2cwil"]
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_2cwil")
+
+[node name="ItemPoint1" type="Marker2D" parent="."]
+position = Vector2(-176, -128)
+
+[node name="ItemPoint2" type="Marker2D" parent="."]
+position = Vector2(0, -128)
+
+[node name="ItemPoint3" type="Marker2D" parent="."]
+position = Vector2(176, -128)

@@ -5,8 +5,8 @@ extends Node2D
 @onready var enemies = [load("res://enemy.tscn"), load("res://goat_head.tscn")]
 
 var color_palette = 0
-var room_width = 36
-var room_height = 24
+var room_width = 50
+var room_height = 50
 
 var tile_ids = [
 			Vector2i(1,1), Vector2i(5,0), Vector2i(5,1), #base grass tiles
@@ -27,7 +27,7 @@ var grass_prob = [
 func _ready():
 	#tilemap.set_cells_terrain_connect(0, [Vector2i(0,0), Vector2i(1,0),Vector2i(0,1),Vector2i(1,1),Vector2i(1,2)], 0, 0)
 	create_room(room_width, room_height)
-	for i in range(randi_range(3, 8)):
+	for i in range(randi_range(10, 20)):
 			create_detail(room_width, room_height)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,12 +40,11 @@ func _process(delta):
 		tilemap.clear()
 		tile_details.clear()
 		create_room(room_width, room_height)
-		for i in range(randi_range(5,12)):
+		for i in range(randi_range(10, 20)):
 			create_detail(room_width, room_height)
 		#for i in range(rng.randi_range(2, 5)):
 			#spawn_enemy(spawn_points[i].position)
 		#$CowboyPlayer.position = Vector2(542, 358)
-
 
 func create_room(width, height, padding = 12):
 	var terrain_start_point = []
@@ -90,13 +89,36 @@ func create_room(width, height, padding = 12):
 		tilemap.set_cell(2, Vector2i(i, height+1), 3, Vector2i(0,0))
 
 func create_detail(range_x, range_y):
-	var point_x = randi_range(0, range_x)
-	var point_y = randi_range(0, range_y)
-	if tile_details.get_cell_atlas_coords(0, Vector2i(point_x, point_y)) == Vector2i(-1,-1):
-		var pattern_ind : int
-		if color_palette == 0 || color_palette == 3:
-			pattern_ind = randi_range(0,8)
+	var point = Vector2i(randi_range(0, range_x), randi_range(0, range_y))
+	var detail_array = [Vector2i(7,0), Vector2i(9,0), Vector2i(11,0), Vector2i(13,0), 
+						Vector2i(7,2), Vector2i(9,2), Vector2i(11,2), Vector2i(13,2),
+									   Vector2i(9,4), Vector2i(11,4), Vector2i(13,4)]
+	if point == Vector2i(16, 12):
+		point.x += 2
+		point.y += 2
+	while tile_details.get_cell_atlas_coords(0, point) != Vector2i(-1,-1):
+		point.x += randi_range(-3, 3)
+		point.y += randi_range(-3, 3)
+	if tile_details.get_cell_atlas_coords(0, point) == Vector2i(-1,-1):
+		if randi_range(0,1) == 0:
+			#50% chance for a big item, a pattern
+			var pattern_ind : int
+			if color_palette == 0 || color_palette == 3:
+				pattern_ind = randi_range(0,8)
+			else:
+				pattern_ind = color_palette * 9 + randi_range(0,8)
+			var pattern = tile_details.tile_set.get_pattern(pattern_ind)
+			tile_details.set_pattern(0, point, pattern)
 		else:
-			pattern_ind = color_palette * 9 + randi_range(0,8)
-		var pattern = tile_details.tile_set.get_pattern(pattern_ind)
-		tile_details.set_pattern(0, Vector2i(point_x, point_y), pattern)
+			#50% chance for a small item
+			var color
+			if color_palette == 0 || color_palette == 3:
+				color = 0
+			else:
+				color = 1
+			tile_details.set_cell(0, point, color, detail_array.pick_random())
+func spawn_enemy(spawn_pos):
+	#create a new enemy instance and set the position
+	var e = enemies.pick_random().instantiate()
+	e.position = spawn_pos
+	add_child(e)

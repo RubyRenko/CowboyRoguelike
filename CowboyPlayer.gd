@@ -29,6 +29,9 @@ var dash_speed = 600
 var dashing = false
 var can_dash = true
 
+#animation variables
+var sprite_dir = ""
+
 func _ready():
 	bullet_display.update_bullets(ammo, max_ammo)
 	hp_display.update_health(hp, max_hp)
@@ -40,15 +43,31 @@ func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	if direction.y < 0:
 		$CowboyAnim.play("back")
+		sprite_dir = "back"
+	elif direction.y > 0:
+		$CowboyAnim.play("front")
+		sprite_dir = "front"
 	elif direction.x > 0:
 		$CowboyAnim.play("side")
 		$CowboyAnim.flip_h = false
+		sprite_dir = "right"
 	elif direction.x < 0:
 		$CowboyAnim.play("side")
 		$CowboyAnim.flip_h = true
+		sprite_dir = "left"
+	elif sprite_dir == "left":
+		$CowboyAnim.play("side_idle")
+		$CowboyAnim.flip_h = true
+	elif sprite_dir == "right":
+		$CowboyAnim.play("side_idle")
+		$CowboyAnim.flip_h = false
+	elif sprite_dir == "back":
+		$CowboyAnim.play("back_idle")
+		$CowboyAnim.flip_h = false
 	else:
-		$CowboyAnim.play("front")
-		
+		$CowboyAnim.play("front_idle")
+		$CowboyAnim.flip_h = false
+	
 	velocity = direction * speed
 	$CenterPoint.look_at(get_global_mouse_position())
 	move_and_collide(velocity * delta)
