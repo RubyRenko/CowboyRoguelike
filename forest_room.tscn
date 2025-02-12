@@ -2256,3 +2256,8 @@ layer_0/tile_data = PackedInt32Array(-1572892, 0, 2, -1572891, 65536, 2, -157289
 
 [node name="CowboyPlayer" parent="." instance=ExtResource("6_rb41a")]
 position = Vector2(491, 299)
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

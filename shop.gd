@@ -7,6 +7,7 @@ extends Node2D
 var pos_items = ["jackalope", "double_chamber"]
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Despawn_timer.start()
 	var item1 = pos_items.pick_random()
 	var item1_instance = item_list[item1].instantiate()
 	item1_instance.position = $ItemPoint1.position
@@ -37,3 +38,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func _on_despawn_timer_timeout():
+	queue_free()

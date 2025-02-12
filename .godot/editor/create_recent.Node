@@ -1,3 +1,5 @@
+Button
+Timer
 Sprite2D
 TextureRect
 CollisionShape2D
@@ -11,4 +13,3 @@ Node
 CollisionPolygon2D
 StaticBody2D
 AudioStreamPlayer2D
-Button

@@ -13,3 +13,7 @@ res://DoubleChamber.gd
 res://jackPickup.gd
 res://desert_room.gd
 res://BulletDisplay.gd
+res://forest_room.gd
+res://shop.gd
+res://GameOver.gd
+res://game_over.tscn

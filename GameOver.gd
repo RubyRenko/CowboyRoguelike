@@ -9,9 +9,29 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+"""
+	var player = cowboy.instantiate()
+	player.ranged_dmg = 5
+	player.melee_dmg = 5
+	player.speed = 300.0
+	player.ammo = 6
+	player.hp = 8
+	player.money = 0
+"""
 
-func _on_retry_button_pressed():
-	#reset all the player's stats
+
+func _on_forest_button_pressed():
+	var player = cowboy.instantiate()
+	player.ranged_dmg = 5
+	player.melee_dmg = 5
+	player.speed = 300.0
+	player.ammo = 6
+	player.hp = 8
+	player.money = 0
+	get_tree().change_scene_to_file("res://forest_room.tscn")
+
+
+func _on_desert_button_pressed():
 	var player = cowboy.instantiate()
 	player.ranged_dmg = 5
 	player.melee_dmg = 5
