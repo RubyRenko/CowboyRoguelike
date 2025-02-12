@@ -26,7 +26,7 @@ var room_width = 25
 
 var wave = 1
 var spawn_points = []
-var difficulty = 3
+var difficulty = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,8 +36,7 @@ func _ready():
 func _process(_delta):
 	#if the player runs out of health, goes to the gameover screen
 	if player.hp <= 0:
-		#get_tree().change_scene_to_file("res://game_over.tscn")
-		pass
+		get_tree().change_scene_to_file("res://game_over.tscn")
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		clean_up()

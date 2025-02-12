@@ -34,7 +34,8 @@ offset_top = -80.0
 offset_right = 118.0
 offset_bottom = -31.0
 text = "Roasted Jackalope
-Increases max hp by 1 heart"
+Increases max hp by 1 heart
+Cost: 20"
 label_settings = SubResource("LabelSettings_n327b")
 horizontal_alignment = 1
 

@@ -34,7 +34,8 @@ offset_top = -80.0
 offset_right = 118.0
 offset_bottom = -31.0
 text = "Double Chamber
-Increases max ammo by 6"
+Increases max ammo by 6
+Cost: 25"
 label_settings = SubResource("LabelSettings_a71v0")
 horizontal_alignment = 1
 
