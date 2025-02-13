@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqxsi6jrohmjs"]
+
+[ext_resource type="Script" path="res://FlatwoodsPickup.gd" id="1_7o4wy"]
+[ext_resource type="Texture2D" uid="uid://brso0skym7tdp" path="res://Assets/Bullettemp.png" id="2_qo2ek"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0br2u"]
+radius = 23.0217
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ew51t"]
+radius = 100.02
+
+[sub_resource type="LabelSettings" id="LabelSettings_c7ym2"]
+
+[node name="FlatwoodsPickup" type="Area2D" groups=["sellable"]]
+script = ExtResource("1_7o4wy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0br2u")
+
+[node name="SellingInterface" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SellingInterface"]
+shape = SubResource("CircleShape2D_ew51t")
+
+[node name="Description" type="Label" parent="."]
+visible = false
+offset_left = -100.0
+offset_top = -80.0
+offset_right = 118.0
+offset_bottom = -31.0
+text = "Flatwoods Thorns
+Increases ranged damage
+Cost: 10"
+label_settings = SubResource("LabelSettings_c7ym2")
+horizontal_alignment = 1
+
+[node name="Bullettemp" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, 4.76837e-07)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_qo2ek")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="SellingInterface" to="." method="_on_selling_interface_body_entered"]
+[connection signal="body_exited" from="SellingInterface" to="." method="_on_selling_interface_body_exited"]

@@ -1,9 +1,9 @@
+Area2D
+CollisionShape2D
 Button
 Timer
 Sprite2D
 TextureRect
-CollisionShape2D
-Area2D
 HBoxContainer
 Label
 TileMap
@@ -12,4 +12,3 @@ Node2D
 Node
 CollisionPolygon2D
 StaticBody2D
-AudioStreamPlayer2D

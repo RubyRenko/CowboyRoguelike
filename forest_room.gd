@@ -8,11 +8,11 @@ extends Node2D
 @onready var shop_spawn = load("res://shop.tscn")
 
 var color_palette = 0
-var room_width = 50
-var room_height = 50
+var room_width = 100
+var room_height = 100
 
 var wave = 1
-var difficulty = 2
+var difficulty = 5
 
 var tile_ids = [
 			Vector2i(1,1), Vector2i(5,0), Vector2i(5,1), #base grass tiles
@@ -38,7 +38,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
+	"""if Input.is_action_just_pressed("ui_accept"):
 		#var all_children = get_children()
 		#for child in all_children:
 			#if child.is_in_group("enemy"):
@@ -50,7 +50,7 @@ func _process(delta):
 			create_detail(room_width, room_height)
 		#for i in range(rng.randi_range(2, 5)):
 			#spawn_enemy(spawn_points[i].position)
-		#$CowboyPlayer.position = Vector2(542, 358)
+		#$CowboyPlayer.position = Vector2(542, 358)"""
 	
 	if player.hp <= 0:
 		get_tree().change_scene_to_file("res://game_over.tscn")
@@ -137,7 +137,7 @@ func start_up():
 	create_room(room_width, room_height)
 	for i in range(randi_range(10, 20)):
 			create_detail(room_width, room_height)
-	player.position = tilemap.map_to_local(Vector2i(25, 25))
+	player.position = tilemap.map_to_local(Vector2i(room_width, room_height))
 	#starts wave timer and makes the first wave spawn earlier
 	wave_timer.start()
 	wave_timer.wait_time = 20
@@ -151,11 +151,14 @@ func spawn_enemy(spawn_pos):
 
 func spawn_wave(difficulty):
 	var spawn_array = spawn_points
-	for i in range(randi_range(difficulty, difficulty+3)):
+	for i in range(randi_range(difficulty, difficulty*2)):
 		#picks a random point from the possible spawn points
 		#spawns an enemy and then pops the value so there isn't duplicates
 		#print(spawn_array)
-		var spawn_pos = spawn_array.pop_at(randi_range(0, spawn_array.size()))
+		var index = randi_range(1*i, 30*i)
+		if index >= spawn_array.size():
+			index = spawn_array.size()-1
+		var spawn_pos = spawn_array.pop_at(index)
 		#print(spawn_pos)
 		#print(spawn_array)
 		spawn_enemy(tilemap.map_to_local(spawn_pos))

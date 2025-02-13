@@ -21,12 +21,12 @@ var tileset_prob = [
 
 #how many rows and columns to generate
 #can be adjusted to get bigger rooms
-var room_height = 25
-var room_width = 25
+var room_height = 50
+var room_width = 50
 
 var wave = 1
 var spawn_points = []
-var difficulty = 2
+var difficulty = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,9 +38,9 @@ func _process(_delta):
 	if player.hp <= 0:
 		get_tree().change_scene_to_file("res://game_over.tscn")
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	"""if Input.is_action_just_pressed("ui_accept"):
 		clean_up()
-		start_up()
+		start_up()"""
 
 func create_room(width, height, padding = 6):
 	#nested for loops to get i rows and j columns
@@ -86,11 +86,14 @@ func clean_up():
 
 func spawn_wave(difficulty):
 	var spawn_array = spawn_points
-	for i in range(randi_range(difficulty, difficulty+3)):
+	for i in range(randi_range(difficulty, difficulty*2)):
 		#picks a random point from the possible spawn points
 		#spawns an enemy and then pops the value so there isn't duplicates
 		#print(spawn_array)
-		var spawn_pos = spawn_array.pop_at(randi_range(0, spawn_array.size()))
+		var index = randi_range(1*i, 20*i)
+		if index >= spawn_array.size():
+			index = spawn_array.size()-1
+		var spawn_pos = spawn_array.pop_at(index)
 		#print(spawn_pos)
 		#print(spawn_array)
 		spawn_enemy(tilemap.map_to_local(spawn_pos))

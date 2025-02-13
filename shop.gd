@@ -2,9 +2,11 @@ extends Node2D
 
 @onready var item_list = {
 	"jackalope" : load("res://Items/jackalop_pickup.tscn"),
-	"double_chamber" : load("res://Items/double_chamber.tscn")
+	"double_chamber" : load("res://Items/double_chamber.tscn"),
+	"wampus" : load("res://Items/wampus_pickup.tscn"),
+	"flatwoods" : load("res://Items/flatwoods_pickup.tscn")
 }
-var pos_items = ["jackalope", "double_chamber"]
+var pos_items = ["jackalope", "double_chamber", "wampus", "flatwoods"]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Despawn_timer.start()
