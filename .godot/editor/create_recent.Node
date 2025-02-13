@@ -1,3 +1,8 @@
+AudioStreamPlayer
+AudioStreamPlayer2D
+Label
+CanvasLayer
+CanvasGroup
 Area2D
 CollisionShape2D
 Button
@@ -5,10 +10,6 @@ Timer
 Sprite2D
 TextureRect
 HBoxContainer
-Label
 TileMap
 Marker2D
 Node2D
-Node
-CollisionPolygon2D
-StaticBody2D

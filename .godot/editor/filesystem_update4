@@ -1,3 +1,4 @@
+res://main_menu.tscn
 res://desert_room.tscn
 res://forest_room.tscn
 res://Items/beans_pickup.tscn
@@ -5,8 +6,8 @@ res://Items/jackalop_pickup.tscn
 res://Items/double_chamber.tscn
 res://game_over.tscn
 res://Items/wampus_pickup.tscn
-res://cowboy_player.tscn
 res://Items/flatwoods_pickup.tscn
-res://shop.tscn
-res://desert_room.gd
+res://hud.tscn
+res://main_menu.gd
 res://forest_room.gd
+res://cowboy_player.tscn

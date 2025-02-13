@@ -138,7 +138,7 @@ position = Vector2(583, 691)
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 5.0
 
-[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_rc6bk")
 autoplay = true
 

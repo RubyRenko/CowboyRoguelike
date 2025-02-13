@@ -33,11 +33,12 @@ var spawn_points = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#tilemap.set_cells_terrain_connect(0, [Vector2i(0,0), Vector2i(1,0),Vector2i(0,1),Vector2i(1,1),Vector2i(1,2)], 0, 0)
 	start_up()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	"""if Input.is_action_just_pressed("ui_accept"):
 		#var all_children = get_children()
 		#for child in all_children:
@@ -141,7 +142,6 @@ func start_up():
 	#starts wave timer and makes the first wave spawn earlier
 	wave_timer.start()
 	wave_timer.wait_time = 20
-	
 
 func spawn_enemy(spawn_pos):
 	#create a new enemy instance and set the position
