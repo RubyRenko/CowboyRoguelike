@@ -1,4 +1,3 @@
-res://main_menu.tscn
 res://desert_room.tscn
 res://forest_room.tscn
 res://Items/beans_pickup.tscn
@@ -8,6 +7,7 @@ res://game_over.tscn
 res://Items/wampus_pickup.tscn
 res://Items/flatwoods_pickup.tscn
 res://hud.tscn
-res://main_menu.gd
-res://forest_room.gd
+res://main_menu.tscn
 res://cowboy_player.tscn
+res://dash_bar.gd
+res://dash_bar.tscn

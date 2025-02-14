@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://be3fpwoys47ky"]
+[gd_scene load_steps=49 format=3 uid="uid://be3fpwoys47ky"]
 
 [ext_resource type="Script" path="res://CowboyPlayer.gd" id="1_oimyp"]
 [ext_resource type="Texture2D" uid="uid://c1lbkgla6h58g" path="res://Assets/sprites/Player sprite/back/walk-back0.png" id="2_w3kbx"]
@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://dod1bjfqe7oiu" path="res://Assets/sprites/Player sprite/side/idle-side1.png" id="35_c44it"]
 [ext_resource type="Texture2D" uid="uid://nlvjbomq4de2" path="res://Assets/sprites/Player sprite/side/idle-side2.png" id="36_kt57j"]
 [ext_resource type="Texture2D" uid="uid://c7e6b8jhtkgu2" path="res://Assets/sprites/Player sprite/side/idle-side3.png" id="37_iv0iv"]
+[ext_resource type="PackedScene" uid="uid://d18gh6v6mtf71" path="res://dash_bar.tscn" id="44_ht30l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_epel2"]
 animations = [{
@@ -244,9 +245,11 @@ ignore_rotation = false
 script = ExtResource("5_wqsxw")
 
 [node name="Dash_Available" type="Timer" parent="."]
+one_shot = true
 
 [node name="Dash_Timer" type="Timer" parent="."]
 wait_time = 0.25
+one_shot = true
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_00c0b")
@@ -256,6 +259,12 @@ script = ExtResource("10_52od8")
 libraries = {
 "": SubResource("AnimationLibrary_nyhyu")
 }
+
+[node name="Dash_Bar" parent="." instance=ExtResource("44_ht30l")]
+offset_left = -18.0
+offset_top = -44.0
+offset_right = 17.0
+offset_bottom = -37.0
 
 [connection signal="timeout" from="Dash_Available" to="." method="_on_dash_available_timeout"]
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]

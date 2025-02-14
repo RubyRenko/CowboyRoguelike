@@ -1,3 +1,4 @@
+ProgressBar
 AudioStreamPlayer
 AudioStreamPlayer2D
 Label
@@ -12,4 +13,3 @@ TextureRect
 HBoxContainer
 TileMap
 Marker2D
-Node2D
