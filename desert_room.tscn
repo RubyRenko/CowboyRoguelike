@@ -78,7 +78,7 @@ layer_1/name = "1"
 [node name="CowboyPlayer" parent="." instance=ExtResource("2_10jt5")]
 position = Vector2(212, 255)
 
-[node name="ChubacabraBoss" parent="." instance=ExtResource("6_xhx4u")]
+[node name="ChubacabraBoss" parent="." groups=["boss"] instance=ExtResource("6_xhx4u")]
 position = Vector2(710, 276)
 
 [node name="RoomBorders" type="StaticBody2D" parent="."]

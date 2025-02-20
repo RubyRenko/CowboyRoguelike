@@ -21,6 +21,10 @@ window/stretch/mode="viewport"
 mouse_cursor/custom_image="res://Assets/hud assets/crosshair-02-resized-2.png"
 mouse_cursor/custom_image_hotspot=Vector2(32, 32)
 
+[global_group]
+
+boss=""
+
 [input]
 
 left={
