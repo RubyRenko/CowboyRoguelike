@@ -2,7 +2,7 @@ extends Node2D
 class_name State
  
 @onready var debug: Label = $"../../Debug"
-@onready var player: CowboyPlayer = $CowboyPlayer
+@onready var player: CowboyPlayer = $"../CowboyPlayer"
  
 func _ready():
 	set_physics_process(false)

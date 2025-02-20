@@ -2,7 +2,7 @@ extends State
  
 @onready var collision: CollisionShape2D = $"../../PlayerDetection/CollisionShape2D"
 @onready var progress_bar: ProgressBar = $"../../Boss_UI/ProgressBar"
- 
+
 var player_entered: bool = false:
 	set(value):
 		player_entered = value

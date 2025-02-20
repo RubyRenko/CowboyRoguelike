@@ -10,6 +10,5 @@ func exit():
  
 func transition():
 	var distance = owner.direction.length()
-	
-	if distance < 30:
-		get_parent().change_state("Slash")
+	if distance > 400:
+		get_parent().change_state("Dash")

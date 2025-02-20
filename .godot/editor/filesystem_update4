@@ -1,4 +1,5 @@
 res://desert_room.tscn
+res://chubacabra.gd
 res://forest_room.tscn
 res://Items/beans_pickup.tscn
 res://Items/jackalop_pickup.tscn
@@ -9,14 +10,13 @@ res://Items/flatwoods_pickup.tscn
 res://hud.tscn
 res://main_menu.tscn
 res://cowboy_player.tscn
-res://dash_bar.gd
 res://dash_bar.tscn
-res://finite_state_machine.gd
-res://state.gd
 res://chubacabra.tscn
 res://boss_room_test.tscn
-res://idle.gd
-res://chubacabra.gd
 res://follow.gd
-res://CowboyPlayer.gd
+res://dash.gd
 res://slash.gd
+res://idle.gd
+res://finite_state_machine.gd
+res://state.gd
+res://dash_bar.gd

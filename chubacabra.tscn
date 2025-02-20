@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bv6nmywn88rro"]
+[gd_scene load_steps=13 format=3 uid="uid://bv6nmywn88rro"]
 
 [ext_resource type="Texture2D" uid="uid://cncqrwitl7bjk" path="res://Assets/sprites/chubasprite.png" id="1_dh7tt"]
 [ext_resource type="Script" path="res://chubacabra.gd" id="1_v3ton"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://state.gd" id="3_mhabh"]
 [ext_resource type="Script" path="res://follow.gd" id="5_0duyx"]
 [ext_resource type="Script" path="res://slash.gd" id="6_edt7l"]
+[ext_resource type="Script" path="res://dash.gd" id="7_b0jhf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d14ql"]
 bg_color = Color(0.267491, 0, 0.0169396, 1)
@@ -91,7 +92,7 @@ script = ExtResource("5_0duyx")
 script = ExtResource("6_edt7l")
 
 [node name="Dash" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("3_mhabh")
+script = ExtResource("7_b0jhf")
 
 [node name="Feed" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("3_mhabh")
