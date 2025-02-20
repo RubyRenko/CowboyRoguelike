@@ -11,3 +11,12 @@ res://main_menu.tscn
 res://cowboy_player.tscn
 res://dash_bar.gd
 res://dash_bar.tscn
+res://finite_state_machine.gd
+res://state.gd
+res://chubacabra.tscn
+res://boss_room_test.tscn
+res://idle.gd
+res://chubacabra.gd
+res://follow.gd
+res://CowboyPlayer.gd
+res://slash.gd

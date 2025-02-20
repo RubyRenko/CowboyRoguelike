@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 		print(dash_available.time_left)
 			
 func prog_down():
-	$".".value-=1
+	$".".value-=2
 
 func prog_reset():
 	$".".value = $".".max_value
