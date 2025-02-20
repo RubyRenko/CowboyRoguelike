@@ -39,8 +39,8 @@ offset_bottom = 211.0
 size_flags_horizontal = 4
 text = "Controls
 WASD - Move
-R Click - Shoot
-L Click - Melee
+L Click - Shoot
+R Click - Melee
 Shift - Dash
 R - Reload
 E - Interact/Buy"
