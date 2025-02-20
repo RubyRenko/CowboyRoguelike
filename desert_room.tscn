@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://bd146hink0coy"]
+[gd_scene load_steps=17 format=3 uid="uid://bd146hink0coy"]
 
 [ext_resource type="Texture2D" uid="uid://dw5fubqtnb7we" path="res://Assets/Tilemaps/DesertTileset.png" id="1_d3unl"]
 [ext_resource type="Script" path="res://desert_room.gd" id="1_w386a"]
 [ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://cowboy_player.tscn" id="2_10jt5"]
 [ext_resource type="Texture2D" uid="uid://58lyhuaolr4f" path="res://Assets/Tilemaps/tempWall.png" id="3_mjflq"]
 [ext_resource type="AudioStream" uid="uid://klnmu5125dt" path="res://Assets/Sound/Music/44 Forest (Forest Theme GAMEREADY).ogg" id="5_rc6bk"]
-[ext_resource type="PackedScene" uid="uid://bv6nmywn88rro" path="res://chubacabra.tscn" id="6_xhx4u"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_x3a4p"]
 tile_data = PackedInt32Array(0, 65536, 1, 65536, 0, 1, 1, 65536, 1, 65537, 0, 2)
@@ -76,10 +75,7 @@ layer_0/tile_data = PackedInt32Array(393242, 65536, 2)
 layer_1/name = "1"
 
 [node name="CowboyPlayer" parent="." instance=ExtResource("2_10jt5")]
-position = Vector2(212, 255)
-
-[node name="ChubacabraBoss" parent="." instance=ExtResource("6_xhx4u")]
-position = Vector2(710, 276)
+position = Vector2(542, 358)
 
 [node name="RoomBorders" type="StaticBody2D" parent="."]
 visible = false

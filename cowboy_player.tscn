@@ -224,7 +224,7 @@ speed_scale = 1.5
 [node name="CenterPoint" type="Marker2D" parent="."]
 
 [node name="Melee" parent="CenterPoint" instance=ExtResource("13_232df")]
-position = Vector2(44, -46)
+position = Vector2(42, 61)
 scale = Vector2(0.5, 0.5)
 collision_mask = 0
 
@@ -261,12 +261,10 @@ libraries = {
 }
 
 [node name="Dash_Bar" parent="." instance=ExtResource("44_ht30l")]
-offset_left = -17.0
-offset_top = -39.0
-offset_right = 18.0
-offset_bottom = -36.0
-scale = Vector2(1, 1.79145)
-value = 0.0
+offset_left = -18.0
+offset_top = -44.0
+offset_right = 17.0
+offset_bottom = -37.0
 
 [connection signal="timeout" from="Dash_Available" to="." method="_on_dash_available_timeout"]
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
