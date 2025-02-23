@@ -7,8 +7,9 @@ extends CharacterBody2D
 
 var direction : Vector2
 var target : Vector2
-var speed = 200
+var speed = 250
 var DEF = 0
+var next_hurt = 0
  
 var health = 100:
 	set(value):
@@ -19,7 +20,7 @@ var health = 100:
 func _ready():
 	set_physics_process(false)
  
-func _process(_delta):
+func _process(delta):
 	if state_machine.current_state.name == "Follow":
 		direction = player.position - position
 	elif state_machine.current_state.name == "Dash":

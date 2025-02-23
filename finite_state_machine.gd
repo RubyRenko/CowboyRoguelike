@@ -12,5 +12,5 @@ func change_state(state):
 	previous_state.exit()
 	current_state = find_child(state) as State
 	current_state.enter()
-	
+	print("entering state: " + current_state.name)
 	previous_state = current_state

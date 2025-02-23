@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bv6nmywn88rro"]
+[gd_scene load_steps=14 format=3 uid="uid://bv6nmywn88rro"]
 
 [ext_resource type="Texture2D" uid="uid://cncqrwitl7bjk" path="res://Assets/sprites/chubasprite.png" id="1_dh7tt"]
 [ext_resource type="Script" path="res://chubacabra.gd" id="1_v3ton"]
@@ -18,11 +18,15 @@ bg_color = Color(0.810923, 0, 0.244318, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drkii"]
 size = Vector2(100, 72)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_agv6m"]
+radius = 80.0062
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_5i42r"]
 radius = 19.753
 
-[node name="ChubacabraBoss" type="CharacterBody2D"]
+[node name="ChubacabraBoss" type="CharacterBody2D" groups=["boss"]]
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_v3ton")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -72,6 +76,12 @@ text = "debug"
 position = Vector2(1, 24)
 shape = SubResource("RectangleShape2D_drkii")
 
+[node name="SlashArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlashArea"]
+position = Vector2(0, 24)
+shape = SubResource("CircleShape2D_agv6m")
+
 [node name="PlayerDetection" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
@@ -88,7 +98,7 @@ script = ExtResource("3_k2l71")
 [node name="Follow" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("5_0duyx")
 
-[node name="Slash" type="Node2D" parent="FiniteStateMachine"]
+[node name="Slash" type="Node2D" parent="FiniteStateMachine" groups=["boss"]]
 script = ExtResource("6_edt7l")
 
 [node name="Dash" type="Node2D" parent="FiniteStateMachine"]
@@ -100,4 +110,8 @@ script = ExtResource("3_mhabh")
 [node name="Death" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("3_mhabh")
 
+[connection signal="body_entered" from="SlashArea" to="FiniteStateMachine/Follow" method="_on_slash_area_body_entered"]
+[connection signal="body_entered" from="SlashArea" to="FiniteStateMachine/Slash" method="_on_slash_area_body_entered"]
+[connection signal="body_exited" from="SlashArea" to="FiniteStateMachine/Follow" method="_on_slash_area_body_exited"]
+[connection signal="body_exited" from="SlashArea" to="FiniteStateMachine/Slash" method="_on_slash_area_body_exited"]
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
