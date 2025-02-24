@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 			set_visible(true)
 			prog_down()
 		
-		print(dash_available.time_left)
+		#print(dash_available.time_left)
 			
 func prog_down():
 	$".".value-=1

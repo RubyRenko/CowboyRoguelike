@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbbtml2yjiiey"]
+
+[ext_resource type="PackedScene" uid="uid://bv6nmywn88rro" path="res://chubacabra.tscn" id="1_mpf2a"]
+[ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://cowboy_player.tscn" id="2_87xc4"]
+
+[node name="BossRoomTest" type="Node2D"]
+position = Vector2(547, 248)
+
+[node name="ChubacabraBoss" parent="." instance=ExtResource("1_mpf2a")]
+scale = Vector2(1.5, 1.5)
+
+[node name="CowboyPlayer" parent="." instance=ExtResource("2_87xc4")]
+position = Vector2(-468, 321)

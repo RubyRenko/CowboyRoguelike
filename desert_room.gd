@@ -6,6 +6,7 @@ var rng = RandomNumberGenerator.new()
 @onready var enemies = [load("res://enemy.tscn"), load("res://goat_head.tscn")]
 @onready var wave_timer = $WaveTimer
 @onready var shop_spawn = load("res://shop.tscn")
+@onready var boss = load("res://chubacabra.tscn")
 
 #ids to get each tile from the tilemap
 var tile_ids = [Vector2i(0, 0), Vector2i(1,0), #base tiles
@@ -100,8 +101,12 @@ func spawn_wave(difficulty):
 
 func _on_wave_timer_timeout():
 	print("wave ", wave)
-	#if wave == 1:
-	if wave % 5 == 0:
+	if wave == 1:
+		var chupacabra = boss.instantiate()
+		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
+		chupacabra.scale = Vector2(1.5, 1.5)
+		add_child(chupacabra)
+	elif wave % 5 == 0:
 		#function spawn shop
 		var shop = shop_spawn.instantiate()
 		shop.position = player.position
@@ -112,6 +117,11 @@ func _on_wave_timer_timeout():
 	elif wave + 1 % 5 == 0:
 		var shop = get_node("Shop")
 		shop.queue_free()
+	elif wave == 10:
+		var chupacabra = boss.instantiate()
+		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
+		chupacabra.scale = Vector2(1.5, 1.5)
+		add_child(chupacabra)
 	else:
 		print("enemy spawn")
 		spawn_wave(difficulty)

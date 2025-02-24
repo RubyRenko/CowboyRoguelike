@@ -75,7 +75,7 @@ layer_0/tile_data = PackedInt32Array(393242, 65536, 2)
 layer_1/name = "1"
 
 [node name="CowboyPlayer" parent="." instance=ExtResource("2_10jt5")]
-position = Vector2(542, 358)
+position = Vector2(212, 255)
 
 [node name="RoomBorders" type="StaticBody2D" parent="."]
 visible = false
@@ -121,7 +121,6 @@ wait_time = 5.0
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_rc6bk")
-volume_db = -20.0
 autoplay = true
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

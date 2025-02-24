@@ -19,6 +19,9 @@ func _on_bullet_body_entered(body):
 		#print("bullet hit")
 		body.hp -= damage
 		queue_free()
+	elif body.is_in_group("boss"):
+		body.take_damage()
+		queue_free()
 	else:
 		#if it hits anything else, disappears
 		queue_free()
