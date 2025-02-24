@@ -77,16 +77,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.5,
+"duration": 2.0,
 "texture": ExtResource("10_dtb2u")
 }, {
-"duration": 1.5,
+"duration": 2.0,
 "texture": ExtResource("11_xadcs")
 }, {
-"duration": 1.5,
+"duration": 2.0,
 "texture": ExtResource("12_55k2d")
 }, {
-"duration": 1.5,
+"duration": 2.0,
 "texture": ExtResource("13_ip701")
 }],
 "loop": true,
@@ -123,16 +123,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.5,
+"duration": 2.0,
 "texture": ExtResource("22_pfots")
 }, {
-"duration": 1.5,
+"duration": 2.0,
 "texture": ExtResource("23_5npk7")
 }, {
-"duration": 1.5,
+"duration": 2.0,
 "texture": ExtResource("24_1schh")
 }, {
-"duration": 1.5,
+"duration": 2.0,
 "texture": ExtResource("25_0kl5m")
 }],
 "loop": true,
@@ -169,16 +169,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.5,
+"duration": 2.0,
 "texture": ExtResource("34_xcq8w")
 }, {
-"duration": 1.5,
+"duration": 2.0,
 "texture": ExtResource("35_c44it")
 }, {
-"duration": 1.5,
+"duration": 2.0,
 "texture": ExtResource("36_kt57j")
 }, {
-"duration": 1.5,
+"duration": 2.0,
 "texture": ExtResource("37_iv0iv")
 }],
 "loop": true,
@@ -188,7 +188,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1b84"]
 radius = 18.0
-height = 62.0
+height = 40.0
 
 [sub_resource type="Animation" id="Animation_on5aa"]
 resource_name = "melee"
@@ -217,9 +217,8 @@ script = ExtResource("1_oimyp")
 
 [node name="CowboyAnim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_epel2")
-animation = &"side_idle"
-frame_progress = 0.787932
-speed_scale = 1.5
+animation = &"back_idle"
+speed_scale = 2.5
 
 [node name="CenterPoint" type="Marker2D" parent="."]
 
@@ -236,6 +235,7 @@ texture = ExtResource("3_fdu5s")
 position = Vector2(25, 0)
 
 [node name="CowboyCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
 shape = SubResource("CapsuleShape2D_e1b84")
 
 [node name="HUD" parent="." instance=ExtResource("7_k6um4")]
@@ -253,6 +253,7 @@ one_shot = true
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_00c0b")
+volume_db = -10.0
 script = ExtResource("10_52od8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -261,12 +262,10 @@ libraries = {
 }
 
 [node name="Dash_Bar" parent="." instance=ExtResource("44_ht30l")]
-offset_left = -17.0
-offset_top = -39.0
-offset_right = 18.0
-offset_bottom = -36.0
-scale = Vector2(1, 1.79145)
-value = 0.0
+offset_left = -18.0
+offset_top = -44.0
+offset_right = 17.0
+offset_bottom = -37.0
 
 [connection signal="timeout" from="Dash_Available" to="." method="_on_dash_available_timeout"]
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]

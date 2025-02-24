@@ -101,11 +101,13 @@ func _physics_process(delta):
 	#handles dash
 	if dashing:
 		speed = dash_speed
+		$CowboyAnim.speed_scale = 5
 		set_collision_layer_value(3, true)
 		set_collision_layer_value(1, false)
 		#$CowboyCollision.set_collision_layer_value(3)
 	else:
 		speed = 300
+		$CowboyAnim.speed_scale = 2.5
 		set_collision_layer_value(3, false)
 		set_collision_layer_value(1, true)
 		#$CowboyCollision.set_collision_layer_value(1)

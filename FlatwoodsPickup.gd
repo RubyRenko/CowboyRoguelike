@@ -14,7 +14,7 @@ func _process(delta):
 	if near and can_buy and Input.is_action_just_pressed("interact"):
 		sold = true
 		player.money -= price
-		player.melee_dmg += 2
+		player.ranged_dmg += 2
 		queue_free()
 
 func _on_body_entered(body):

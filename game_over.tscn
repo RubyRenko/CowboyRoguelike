@@ -31,5 +31,20 @@ text = "Desert
 "
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="."]
+offset_left = -560.0
+offset_top = -288.0
+offset_right = -368.0
+offset_bottom = -93.0
+size_flags_horizontal = 4
+text = "Controls
+WASD - Move
+L Click - Shoot
+R Click - Melee
+Shift - Dash
+R - Reload
+E - Interact/Buy"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="ForestButton" to="." method="_on_forest_button_pressed"]
 [connection signal="pressed" from="DesertButton" to="." method="_on_desert_button_pressed"]

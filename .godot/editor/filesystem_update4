@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 res://desert_room.tscn
 res://follow.gd
 res://forest_room.tscn
@@ -17,3 +18,19 @@ res://goat_blood.tscn
 res://finite_state_machine.gd
 res://goat_head.tscn
 res://desert_room.gd
+=======
+res://main_menu.tscn
+res://game_over.tscn
+res://cowboy_player.tscn
+res://hud.tscn
+res://forest_room.tscn
+res://desert_room.tscn
+res://Items/beans_pickup.tscn
+res://Items/jackalop_pickup.tscn
+res://Items/double_chamber.tscn
+res://Items/wampus_pickup.tscn
+res://Items/flatwoods_pickup.tscn
+res://dash_bar.tscn
+res://FlatwoodsPickup.gd
+res://CowboyPlayer.gd
+>>>>>>> main
