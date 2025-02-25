@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://chn1pdjdr2y1o" path="res://Assets/hud assets/cow boy heart-02.png" id="2_w163m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ry3t"]
-radius = 30.0
+radius = 22.0227
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yu3bt"]
-radius = 100.02
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_48uen"]
+radius = 18.0
+height = 90.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_n327b"]
 
@@ -19,13 +20,13 @@ shape = SubResource("CircleShape2D_4ry3t")
 
 [node name="CowBoyHeart-02" type="Sprite2D" parent="."]
 position = Vector2(2.38419e-07, 9.53674e-07)
-scale = Vector2(0.02, 0.02)
+scale = Vector2(0.015, 0.015)
 texture = ExtResource("2_w163m")
 
 [node name="SellingInterface" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SellingInterface"]
-shape = SubResource("CircleShape2D_yu3bt")
+shape = SubResource("CapsuleShape2D_48uen")
 
 [node name="Description" type="Label" parent="."]
 visible = false

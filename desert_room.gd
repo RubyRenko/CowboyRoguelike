@@ -5,6 +5,7 @@ var rng = RandomNumberGenerator.new()
 @onready var player = $CowboyPlayer
 @onready var enemies = [load("res://enemy.tscn"), load("res://goat_head.tscn")]
 @onready var wave_timer = $WaveTimer
+@onready var wave_display = $Gui/WaveLabel
 @onready var shop_spawn = load("res://shop.tscn")
 @onready var boss = load("res://chubacabra.tscn")
 
@@ -53,7 +54,7 @@ func create_room(width, height, padding = 6):
 			#tileset_prob is the coordinates for the actual tile from the tileset
 			tilemap.set_cell(0, Vector2i(j,i), 0, tileset_prob.pick_random())
 			
-			if i == 5 || i == height - 5 || j == 5 || j == width - 5:
+			if i == 10 || i == height - 10 || j == 10 || j == width - 10:
 				if i > 0 && i < height && j > 0 && j < width:
 					spawn_points.append(Vector2i(j, i))
 	
@@ -79,7 +80,6 @@ func start_up():
 	wave_timer.wait_time = 20
 
 func clean_up():
-	tilemap.clear()
 	var all_children = get_children()
 	for child in all_children:
 		if child.is_in_group("enemy"):
@@ -101,13 +101,30 @@ func spawn_wave(difficulty):
 
 func _on_wave_timer_timeout():
 	print("wave ", wave)
+	wave_display.display_wave(wave)
+	await get_tree().create_timer(0.5).timeout
+	"if wave == 1:
+		var chupacabra = boss.instantiate()
+		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
+		chupacabra.scale = Vector2(1.5, 1.5)
+		add_child(chupacabra)
+	"
 	if wave == 1:
+		var shop = shop_spawn.instantiate()
+		shop.position = player.position
+		shop.add_to_group("shop")
+		add_child(shop)
+		print("shop spawn")
+		difficulty += 3
+	if wave == 15:
 		var chupacabra = boss.instantiate()
 		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 		chupacabra.scale = Vector2(1.5, 1.5)
 		add_child(chupacabra)
 	elif wave % 5 == 0:
-		#function spawn shop
+		#clears the previous waves
+		clean_up()
+		#spawn shop
 		var shop = shop_spawn.instantiate()
 		shop.position = player.position
 		shop.add_to_group("shop")
@@ -117,11 +134,8 @@ func _on_wave_timer_timeout():
 	elif wave + 1 % 5 == 0:
 		var shop = get_node("Shop")
 		shop.queue_free()
-	elif wave == 10:
-		var chupacabra = boss.instantiate()
-		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
-		chupacabra.scale = Vector2(1.5, 1.5)
-		add_child(chupacabra)
+		print("enemy spawn")
+		spawn_wave(difficulty)
 	else:
 		print("enemy spawn")
 		spawn_wave(difficulty)

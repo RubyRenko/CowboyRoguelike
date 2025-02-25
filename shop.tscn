@@ -1,20 +1,81 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc2bvgost5g5y"]
+[gd_scene load_steps=10 format=3 uid="uid://bc2bvgost5g5y"]
 
 [ext_resource type="Script" path="res://shop.gd" id="1_2cwil"]
+[ext_resource type="Texture2D" uid="uid://dqaewuei1sttl" path="res://Assets/sprites/YetiIdle_SpriteSheet.png" id="2_cuel8"]
+[ext_resource type="Texture2D" uid="uid://csk5rrrpylj0c" path="res://Assets/sprites/Shop Wagon.png" id="2_x3nlf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dpdqj"]
+size = Vector2(118, 84.6667)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o45mf"]
+radius = 25.0
+height = 86.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dghhk"]
+atlas = ExtResource("2_cuel8")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twesg"]
+atlas = ExtResource("2_cuel8")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5g7q"]
+atlas = ExtResource("2_cuel8")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ydf7p"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_dghhk")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_twesg")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_r5g7q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_2cwil")
 
+[node name="Wagon" type="StaticBody2D" parent="."]
+
+[node name="Wagon" type="Sprite2D" parent="Wagon"]
+position = Vector2(-1, -128)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("2_x3nlf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wagon"]
+position = Vector2(6.5, -129.5)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_dpdqj")
+
 [node name="ItemPoint1" type="Marker2D" parent="."]
-position = Vector2(-176, -128)
+position = Vector2(-45, -100)
 
 [node name="ItemPoint2" type="Marker2D" parent="."]
-position = Vector2(0, -128)
+position = Vector2(5, -100)
 
 [node name="ItemPoint3" type="Marker2D" parent="."]
-position = Vector2(176, -128)
+position = Vector2(55, -100)
 
 [node name="Despawn_timer" type="Timer" parent="."]
 wait_time = 20.0
+
+[node name="Shopkeep" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shopkeep"]
+position = Vector2(-99, -63)
+shape = SubResource("CapsuleShape2D_o45mf")
+
+[node name="Shopkeep" type="AnimatedSprite2D" parent="Shopkeep"]
+position = Vector2(-96, -64)
+sprite_frames = SubResource("SpriteFrames_ydf7p")
+frame_progress = 0.00260547
 
 [connection signal="timeout" from="Despawn_timer" to="." method="_on_despawn_timer_timeout"]

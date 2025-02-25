@@ -30,3 +30,24 @@
 .godot/editor/editor_layout.cfg
 .godot/editor/create_recent.Node
 .godot/editor/cowboy_player.tscn-editstate-b6f7945dd95cee43d605d851665536d7.cfg
+*.bin
+*.sample
+*.md5
+*.cfg
+*.Node
+.godot/uid_cache.bin
+.godot/imported/Player Reload.wav-c73629fa0078ff7d3770dcc74191821a.sample
+.godot/imported/Player Reload.wav-c73629fa0078ff7d3770dcc74191821a.md5
+.godot/imported/Player Gun Fire(even shorter).wav-461daf7484cd9f938d23f1cb69f24b90.sample
+.godot/imported/Player Gun Fire(even shorter).wav-461daf7484cd9f938d23f1cb69f24b90.md5
+.godot/imported/Player Gun Click.wav-4fb42c7c74d9ce9ba420152948d81c31.sample
+.godot/imported/Player Gun Click.wav-4fb42c7c74d9ce9ba420152948d81c31.md5
+.godot/global_script_class_cache.cfg
+.godot/editor/script_editor_cache.cfg
+.godot/editor/recent_dirs
+.godot/editor/project_metadata.cfg
+.godot/editor/filesystem_update4
+.godot/editor/filesystem_cache8
+.godot/editor/editor_layout.cfg
+.godot/editor/create_recent.Node
+.godot/editor/cowboy_player.tscn-editstate-b6f7945dd95cee43d605d851665536d7.cfg
