@@ -14,15 +14,13 @@ func _process(delta):
 	if near and can_buy and Input.is_action_just_pressed("interact"):
 		sold = true
 		player.money -= price
-		player.melee_dmg += 2
+		add_to_inv()
 		queue_free()
 
 func _on_body_entered(body):
 	#print("body detected")
 	if body.name == "CowboyPlayer" and sold:
-		#print("add 1 heart")
-		body.melee_dmg += 2
-		#print(body.hp)
+		add_to_inv()
 		queue_free()
 
 func _on_selling_interface_body_entered(body):
@@ -38,3 +36,11 @@ func _on_selling_interface_body_exited(body):
 	near = false
 	can_buy = false
 	$Description.visible = false
+
+func add_to_inv():
+	player.melee_dmg += 2
+	if "wampus" in player.inventory:
+		player.inventory["wampus"] += 1
+	else:
+		player.inventory["wampus"] = 1
+	print(player.inventory)

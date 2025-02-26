@@ -6,23 +6,18 @@ var can_buy = false
 var price = 25
 @onready var player = get_tree().get_root().get_node("Main").get_node("CowboyPlayer")
 
-func _ready():
-	pass # Replace with function body.
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if near and can_buy and Input.is_action_just_pressed("interact"):
 		sold = true
 		player.money -= price
-		player.max_ammo += 6
-		player.ammo += 6
+		add_to_inv()
 		queue_free()
 
 func _on_body_entered(body):
 	#print("body detected")
 	if body.name == "CowboyPlayer" and sold:
-		body.max_ammo += 6
-		body.ammo += 6
+		add_to_inv()
 		queue_free()
 
 func _on_selling_interface_body_entered(body):
@@ -38,3 +33,9 @@ func _on_selling_interface_body_exited(body):
 	near = false
 	can_buy = false
 	$Description.visible = false
+
+func add_to_inv():
+	player.max_ammo += 6
+	player.ammo += 6
+	player.inventory["double_chamber"] = 1
+	print(player.inventory)

@@ -23,6 +23,8 @@ var ammo = max_ammo
 static var max_hp = 8
 static var hp = 8
 static var money = 0
+static var armor = 1
+static var inventory = {"darkhat": 0}
 
 #all dash variables
 var dash_speed = 600
@@ -34,7 +36,7 @@ var sprite_dir = ""
 
 func _ready():
 	bullet_display.update_bullets(ammo, max_ammo)
-	hp_display.update_health(hp, max_hp)
+	hp_display.update_health(hp, max_hp, armor)
 	$CenterPoint/Melee.damage = melee_dmg
 
 func _physics_process(delta):
@@ -89,6 +91,7 @@ func _physics_process(delta):
 	
 	#handles melee animation and collision
 	if Input.is_action_just_pressed("melee"):
+		$CenterPoint/Melee.damage = melee_dmg
 		$AnimationPlayer.play("melee")
 	
 	if $AnimationPlayer.is_playing():
@@ -119,7 +122,7 @@ func _physics_process(delta):
 		dash_available.start()
 	
 	#updates hud elements
-	hp_display.update_health(hp, max_hp)
+	hp_display.update_health(hp, max_hp, armor)
 	coin.set_text(str(money))
 	bullet_display.update_bullets(ammo, max_ammo)
 
@@ -127,6 +130,7 @@ func shoot():
 	#makes 1 bullet right in front
 	var b = bullet.instantiate()
 	b.damage = ranged_dmg
+	b.stun_chance = inventory["darkhat"]
 	b.global_position = $CenterPoint/GunPoint.global_position
 	b.global_rotation = $CenterPoint/GunPoint.global_rotation - deg_to_rad(90)
 	main.add_child(b)
@@ -139,8 +143,20 @@ func set_hp(health):
 		h.positon.x += 50 * (1+i)
 
 func hurt(amount, shake = 0.2):
-	hp -= amount
-	$Camera2D.add_trauma(shake)
+	if armor > 0 and amount <= armor:
+		armor -= amount
+		if armor < 0:
+			armor = 0
+		$Camera2D.add_trauma(shake)
+	elif armor > 0 and amount > armor:
+		hp -= amount - armor
+		armor -= amount
+		if armor < 0:
+			armor = 0
+		$Camera2D.add_trauma(shake)
+	else:
+		hp -= amount
+		$Camera2D.add_trauma(shake)
 
 func _on_dash_available_timeout():
 	can_dash = true

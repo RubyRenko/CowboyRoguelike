@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ba8x53aboe5gk" path="res://Assets/sprites/BigfootSpriteSheet.png" id="7_b08kw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dpdqj"]
-size = Vector2(118, 84.6667)
+size = Vector2(118, 92)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smrf8"]
 radius = 46.0
@@ -81,7 +81,7 @@ scale = Vector2(1.7, 1.7)
 texture = ExtResource("2_x3nlf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wagon"]
-position = Vector2(6.5, -129.5)
+position = Vector2(6.5, -135)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_dpdqj")
 

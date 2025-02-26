@@ -3,19 +3,26 @@ extends CharacterBody2D
 const SPEED = 280
 var hp = 20
 var chase = null
+var stun = 0
 var hurt = false
 var next_hurt = 0
 @onready var main = get_tree().get_root().get_node("Main")
 @onready var coin = load("res://pickup.tscn")
 @onready var blood = load("res://goat_blood.tscn")
 @onready var blood_timer = $Blood_Timer
-@onready var loot_table = [load("res://Items/beans_pickup.tscn"), load("res://Items/jackalop_pickup.tscn")]
+@onready var loot_table = [load("res://Items/beans_pickup.tscn"), 
+						load("res://Items/jackalop_pickup.tscn"), 
+						load("res://Items/gator_pickup.tscn"),
+						load("res://Items/wampus_pickup.tscn"),
+						load("res://Items/flatwoods_pickup.tscn")]
 
 func _physics_process(delta):
 	#makes sure the hp display is up to date
 	$HpDisplay.set_text("hp: " + str(hp))
-	
-	if chase != null:
+	if stun > 0:
+		stun -= delta
+		velocity = Vector2(0,0)
+	elif chase != null:
 		#when chasing, minus the chased from the enemy's position to get the direction
 		velocity = (chase.position - position).normalized() * SPEED
 	elif randi_range(0,30) == 0:
@@ -33,7 +40,7 @@ func _physics_process(delta):
 			#next hurt is a variable to make it so it's not constantly hurting
 			#whenever the player is too close and kills it too quickly
 			#print("hurt player")
-			main.get_node("CowboyPlayer").hurt(1)
+			main.get_node("CowboyPlayer").hurt(2)
 			#main.get_node("CowboyPlayer").hp -= 1
 			next_hurt = 1.5
 			#making the next_hurt value higher makes it take more time

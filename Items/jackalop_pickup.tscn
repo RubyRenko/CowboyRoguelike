@@ -15,7 +15,7 @@ height = 90.0
 [node name="JackalopPickup" type="Area2D" groups=["sellable"]]
 script = ExtResource("1_mai21")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["sellable"]]
 shape = SubResource("CircleShape2D_4ry3t")
 
 [node name="CowBoyHeart-02" type="Sprite2D" parent="."]

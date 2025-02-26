@@ -248,7 +248,7 @@ one_shot = true
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_00c0b")
-volume_db = -10.0
+volume_db = -20.0
 script = ExtResource("10_52od8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
