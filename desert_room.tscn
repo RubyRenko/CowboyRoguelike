@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bd146hink0coy"]
+[gd_scene load_steps=48 format=3 uid="uid://bd146hink0coy"]
 
 [ext_resource type="Texture2D" uid="uid://dw5fubqtnb7we" path="res://Assets/Tilemaps/DesertTileset.png" id="1_d3unl"]
 [ext_resource type="Script" path="res://desert_room.gd" id="1_w386a"]
@@ -7,6 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://klnmu5125dt" path="res://Assets/Sound/Music/44 Forest (Forest Theme GAMEREADY).ogg" id="5_rc6bk"]
 [ext_resource type="FontFile" uid="uid://b1iy1e5pnw0od" path="res://Assets/hud assets/GothicPixels.ttf" id="6_45l3r"]
 [ext_resource type="Script" path="res://wave_label.gd" id="7_7cw2e"]
+[ext_resource type="Texture2D" uid="uid://eahr4aho2nc8" path="res://Assets/hud assets/waves tiles-02.png" id="8_bbysa"]
+[ext_resource type="Texture2D" uid="uid://dvaghdj4rpbo5" path="res://Assets/Tilemaps/Desert_Sprites.png" id="8_tjtds"]
+[ext_resource type="Script" path="res://wave_anim.gd" id="9_qhkml"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_x3a4p"]
 tile_data = PackedInt32Array(0, 65536, 1, 65536, 0, 1, 1, 65536, 1, 65537, 0, 2)
@@ -66,6 +69,193 @@ font_size = 30
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.65098)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjccw"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(300, 250, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rag4t"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(2800, 250, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ger7"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(5300, 250, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yyb4"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(300, 1410, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m6tj"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(2800, 1410, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayrys"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(5300, 1410, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0tus"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(300, 2570, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ja3k"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(2800, 2570, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m7k0"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(5300, 2570, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c83da"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(300, 3730, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecjgv"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(2800, 3730, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c33dy"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(5300, 3730, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nqok"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(300, 4890, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu6su"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(2800, 4890, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arngu"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(5300, 4890, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es0jj"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(300, 6050, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg2du"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(2800, 6050, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy07r"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(5300, 6050, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kovv"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(300, 7210, 2400, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tod8j"]
+atlas = ExtResource("8_bbysa")
+region = Rect2(2800, 7210, 2400, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ecpgm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjccw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rag4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ger7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yyb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3m6tj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayrys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0tus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ja3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m7k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c83da")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecjgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c33dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nqok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wu6su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arngu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_es0jj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg2du")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy07r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kovv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tod8j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_pvccq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WaveLabel:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WaveLabel:label_settings:shadow_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.65098)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WaveAnim:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_wbf1a"]
 resource_name = "wave_fade"
 length = 3.0
@@ -94,38 +284,44 @@ tracks/1/keys = {
 "values": [Color(0, 0, 0, 0.65098), Color(0, 0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_pvccq"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_1gnae"]
+resource_name = "wave_fade2"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("WaveLabel:label_settings:font_color")
+tracks/0/path = NodePath("WaveAnim:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WaveLabel:label_settings:shadow_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0.65098)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c4u4k"]
 _data = {
 "RESET": SubResource("Animation_pvccq"),
-"wave_fade": SubResource("Animation_wbf1a")
+"wave_fade": SubResource("Animation_wbf1a"),
+"wave_fade2": SubResource("Animation_1gnae")
 }
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8otjg"]
+texture = ExtResource("8_tjtds")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+1:0/0 = 0
+0:2/0 = 0
+2:2/0 = 0
+2:1/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_35da2"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_8otjg")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w386a")
@@ -168,10 +364,22 @@ label_settings = SubResource("LabelSettings_ns8pr")
 horizontal_alignment = 1
 script = ExtResource("7_7cw2e")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Gui/WaveLabel"]
+[node name="WaveAnim" type="AnimatedSprite2D" parent="Gui"]
+visible = false
+position = Vector2(577, 145)
+scale = Vector2(0.08, 0.08)
+sprite_frames = SubResource("SpriteFrames_ecpgm")
+speed_scale = -1.0
+script = ExtResource("9_qhkml")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Gui/WaveAnim"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_c4u4k")
 }
 
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_35da2")
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

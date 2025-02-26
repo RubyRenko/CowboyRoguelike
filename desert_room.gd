@@ -5,7 +5,7 @@ var rng = RandomNumberGenerator.new()
 @onready var player = $CowboyPlayer
 @onready var enemies = [load("res://enemy.tscn"), load("res://goat_head.tscn")]
 @onready var wave_timer = $WaveTimer
-@onready var wave_display = $Gui/WaveLabel
+@onready var wave_display = $Gui/WaveAnim
 @onready var shop_spawn = load("res://shop.tscn")
 @onready var boss = load("res://chubacabra.tscn")
 
@@ -103,13 +103,27 @@ func _on_wave_timer_timeout():
 	print("wave ", wave)
 	wave_display.display_wave(wave)
 	await get_tree().create_timer(0.5).timeout
-	"if wave == 1:
+	"""if wave == 1:
 		var chupacabra = boss.instantiate()
 		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 		chupacabra.scale = Vector2(1.5, 1.5)
-		add_child(chupacabra)
-	"
+		add_child(chupacabra)"""
+	"""if wave == 1:
+		#clears the previous waves and stops timer
+		wave_timer.stop()
+		clean_up()
+		#spawn shop
+		var shop = shop_spawn.instantiate()
+		shop.position = player.position
+		shop.add_to_group("shop")
+		add_child(shop)
+		print("shop spawn")
+		difficulty += 3"""
 	if wave == 1:
+		#clears the previous waves and stops timer
+		wave_timer.stop()
+		clean_up()
+		#spawn shop
 		var shop = shop_spawn.instantiate()
 		shop.position = player.position
 		shop.add_to_group("shop")
@@ -122,7 +136,8 @@ func _on_wave_timer_timeout():
 		chupacabra.scale = Vector2(1.5, 1.5)
 		add_child(chupacabra)
 	elif wave % 5 == 0:
-		#clears the previous waves
+		#clears the previous waves and stops timer
+		wave_timer.stop()
 		clean_up()
 		#spawn shop
 		var shop = shop_spawn.instantiate()
@@ -131,12 +146,11 @@ func _on_wave_timer_timeout():
 		add_child(shop)
 		print("shop spawn")
 		difficulty += 3
-	elif wave + 1 % 5 == 0:
-		var shop = get_node("Shop")
-		shop.queue_free()
-		print("enemy spawn")
-		spawn_wave(difficulty)
 	else:
 		print("enemy spawn")
 		spawn_wave(difficulty)
 	wave += 1
+
+func _on_child_exiting_tree(node):
+	if node.name == "Shop":
+		wave_timer.start()
