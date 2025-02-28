@@ -2,7 +2,7 @@ extends Area2D
 
 var in_range = []
 var damage = 2
-@onready var level = owner.inventory["thunderbird"]
+var level = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -10,8 +10,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$CollisionShape2D.scale = Vector2(level * 10, level * 10)
-	set_particles(level)
+	if visible:
+		$CollisionShape2D.scale = Vector2(level * 10, level * 10)
+		set_particles(level)
 
 func deal_dmg():
 	print("dealing thunder damage")
