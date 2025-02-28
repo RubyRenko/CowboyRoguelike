@@ -7,6 +7,8 @@ class_name CowboyPlayer
 @onready var dash_available = $Dash_Available
 @onready var dash_timer = $Dash_Timer
 @onready var coin = get_node("HUD/Money")
+@onready var thunder = get_node("ThunderbirdArea")
+@onready var thunder_timer = $Thunder_Timer
 
 var bullet = load("res://bullet.tscn")
 var bullet_n = load("res://bullet_nessie.tscn")
@@ -25,12 +27,13 @@ static var max_hp = 8
 static var hp = 8
 static var money = 0
 static var armor = 0
-static var inventory = {"darkhat": 0}
+static var inventory = {"darkhat": 0, "cadejo": 0, "tractor": 0}
 
 #all dash variables
 var dash_speed = 600
 var dashing = false
 var can_dash = true
+var thunder_start = true
 
 #animation variables
 var sprite_dir = ""
@@ -39,8 +42,13 @@ func _ready():
 	bullet_display.update_bullets(ammo, max_ammo)
 	hp_display.update_health(hp, max_hp, armor)
 	$CenterPoint/Melee.damage = melee_dmg
+	thunder.visible = false
 
 func _physics_process(delta):
+	if thunder_start && "thunderbird" in inventory:
+		thunder_start = false
+		thunder.visible = true
+		thunder_timer.start()
 	#takes care of player movement, gets direction from input keys
 	#and looks at where the mouse position is
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -136,6 +144,7 @@ func shoot():
 		b = bullet.instantiate()
 	b.damage = ranged_dmg
 	b.stun_chance = inventory["darkhat"]
+	b.slow = inventory["tractor"]
 	b.global_position = $CenterPoint/GunPoint.global_position
 	b.global_rotation = $CenterPoint/GunPoint.global_rotation - deg_to_rad(90)
 	main.add_child(b)
@@ -168,6 +177,9 @@ func _on_dash_available_timeout():
 
 func _on_dash_timer_timeout():
 	dashing = false
+
+func _on_thunder_timer_timeout():
+	thunder.deal_dmg()
 
 """
 old scatter shot code

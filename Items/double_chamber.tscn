@@ -48,7 +48,7 @@ position = Vector2(-3.8147e-06, -81)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_pklhu")
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="." groups=["nonstackable", "sellable"]]
 offset_left = -51.0
 offset_top = -120.0
 offset_right = 53.0

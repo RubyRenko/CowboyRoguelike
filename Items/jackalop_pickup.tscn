@@ -58,9 +58,9 @@ autowrap_mode = 2
 
 [node name="Description" type="Label" parent="."]
 offset_left = -49.0
-offset_top = -86.0
+offset_top = -84.0
 offset_right = 53.0
-offset_bottom = -32.0
+offset_bottom = -30.0
 text = "Increases health
 20 Silver"
 label_settings = SubResource("LabelSettings_o4am8")

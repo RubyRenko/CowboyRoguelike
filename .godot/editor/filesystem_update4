@@ -40,3 +40,11 @@ res://Items/sinkhole_pickup.tscn
 res://FlatwoodsPickup.gd
 res://Items/gator_pickup.tscn
 res://Items/gator_pickup.gd
+res://melee.gd
+res://cadejo_pickup.gd
+res://Items/cadejo_pickup.tscn
+res://tractor_pickup.gd
+res://Items/tractor_pickup.tscn
+res://thunderbird_area.gd
+res://thunderbird_pickup.gd
+res://Items/thunderbird_pickup.tscn

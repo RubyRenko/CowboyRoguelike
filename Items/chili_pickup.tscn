@@ -25,7 +25,7 @@ font = ExtResource("3_xfvn2")
 font_size = 13
 font_color = Color(0.290196, 0.215686, 0.180392, 1)
 
-[node name="ChiliBowl" type="Area2D"]
+[node name="ChiliBowl" type="Area2D" groups=["sellable"]]
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_gkp2v")

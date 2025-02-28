@@ -26,8 +26,8 @@ func _physics_process(delta):
 	#makes sure the hp display is up to date
 	$HpDisplay.set_text("hp: " + str(hp))
 	if slow > 0:
-		speed = 140
-		stun -= delta
+		speed = 180
+		slow -= delta
 	else:
 		speed = 280
 	if stun > 0:
