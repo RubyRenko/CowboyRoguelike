@@ -7,30 +7,28 @@ var price = 20
 @onready var player = get_tree().get_root().get_node("Main").get_node("CowboyPlayer")
 
 func _ready():
-	pass # Replace with function body.
+	hide_desc()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if near and can_buy and Input.is_action_just_pressed("interact"):
 		sold = true
 		player.money -= price
-		player.max_hp += 2
-		player.hp += 2
+		add_inv()
 		queue_free()
 
 func _on_body_entered(body):
 	#print("body detected")
 	if body.name == "CowboyPlayer" and sold:
 		#print("add 1 heart")
-		body.max_hp += 2
-		body.hp += 2
+		add_inv()
 		#print(body.hp)
 		queue_free()
 
 func _on_selling_interface_body_entered(body):
 	if body.name == "CowboyPlayer" and not(sold):
 		near = true
-		$Description.visible = true
+		show_desc()
 		if body.money >= price:
 			can_buy = true
 		else:
@@ -39,4 +37,18 @@ func _on_selling_interface_body_entered(body):
 func _on_selling_interface_body_exited(body):
 	near = false
 	can_buy = false
+	hide_desc()
+
+func add_inv():
+	player.max_hp += 2
+	player.hp += 2
+
+func show_desc():
+	$TextBox.visible = true
+	$Title.visible = true
+	$Description.visible = true
+
+func hide_desc():
+	$TextBox.visible = false
+	$Title.visible = false
 	$Description.visible = false

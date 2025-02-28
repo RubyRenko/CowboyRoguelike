@@ -3,7 +3,7 @@ extends Area2D
 var sold = false
 var near = false
 var can_buy = false
-var price = 40
+var price = 30
 @onready var player = get_tree().get_root().get_node("Main").get_node("CowboyPlayer")
 
 func _ready():
@@ -38,7 +38,7 @@ func _on_selling_interface_body_exited(body):
 	hide_desc()
 
 func add_inv():
-	player.inventory["darkhat"] += 1
+	player.inventory["nessie"] = 1
 	print(player.inventory)
 
 func show_desc():

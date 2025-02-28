@@ -11,19 +11,16 @@ func _process(delta):
 	var velocity = Vector2(0, speed).rotated(rotation)
 	position += velocity * delta
 
-func _on_bullet_body_entered(body):
+func _on_body_entered(body):
 	if body.is_in_group("player"):
 		#if it hits the player or spawns inside the player
 		#just skips
 		pass
 	elif body.is_in_group("enemy"):
-		#if it hits an enemy, it deals damage to the enemy
-		#print("bullet hit")
+		print("detected enemy")
 		deal_dmg(body)
-		queue_free()
 	elif body.is_in_group("boss"):
 		body.take_damage()
-		queue_free()
 	else:
 		#if it hits anything else, disappears
 		queue_free()

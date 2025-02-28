@@ -6,10 +6,15 @@ extends Node2D
 	"wampus" : load("res://Items/wampus_pickup.tscn"),
 	"flatwoods" : load("res://Items/flatwoods_pickup.tscn"),
 	"gator" : load("res://Items/gator_pickup.tscn"),
-	"darkhat" : load("res://Items/dark_watcher_pickup.tscn")
+	"darkhat" : load("res://Items/dark_watcher_pickup.tscn"),
+	"chili" : load("res://Items/chili_pickup.tscn"),
+	"nessie" : load("res://Items/nessie_pickup.tscn"),
+	"sinkhole" : load("res://Items/sinkhole_pickup.tscn")
 }
 """static var pos_items = ["jackalope", "double_chamber", "wampus", "flatwoods", "gator", "darkhat"]"""
-static var pos_items = ["jackalope", "double_chamber", "wampus", "flatwoods", "darkhat"]
+static var pos_items = ["jackalope", "chili", "wampus", "flatwoods", #hp/flat stat increases
+						"darkhat", #stackable items
+						"double_chamber", "nessie", "sinkhole"] #nonstackable items
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if "double_chamber" in already_bought:

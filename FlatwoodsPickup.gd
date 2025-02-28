@@ -7,7 +7,7 @@ var price = 10
 @onready var player = get_tree().get_root().get_node("Main").get_node("CowboyPlayer")
 
 func _ready():
-	pass # Replace with function body.
+	hide_desc()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -26,7 +26,7 @@ func _on_body_entered(body):
 func _on_selling_interface_body_entered(body):
 	if body.name == "CowboyPlayer" and not(sold):
 		near = true
-		$Description.visible = true
+		show_desc()
 		if body.money >= price:
 			can_buy = true
 		else:
@@ -35,7 +35,7 @@ func _on_selling_interface_body_entered(body):
 func _on_selling_interface_body_exited(body):
 	near = false
 	can_buy = false
-	$Description.visible = false
+	hide_desc()
 
 func add_to_inv():
 	player.ranged_dmg += 1
@@ -44,3 +44,13 @@ func add_to_inv():
 	else:
 		player.inventory["flatwoods"] = 1
 	print(player.inventory)
+
+func show_desc():
+	$TextBox.visible = true
+	$Title.visible = true
+	$Description.visible = true
+
+func hide_desc():
+	$TextBox.visible = false
+	$Title.visible = false
+	$Description.visible = false

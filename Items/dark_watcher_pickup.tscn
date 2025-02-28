@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://7dwqtw8aidt6"]
+[gd_scene load_steps=9 format=3 uid="uid://7dwqtw8aidt6"]
 
 [ext_resource type="Script" path="res://dark_watcher_pickup.gd" id="1_c03fk"]
 [ext_resource type="Texture2D" uid="uid://6qmy01ekl1yr" path="res://Assets/ItemSprites/dark watcher hat-02.png" id="2_5n38n"]
+[ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="3_3ymwg"]
+[ext_resource type="FontFile" uid="uid://b1iy1e5pnw0od" path="res://Assets/hud assets/GothicPixels.ttf" id="4_7k301"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h1one"]
 radius = 23.0217
@@ -10,9 +12,22 @@ radius = 23.0217
 radius = 19.0
 height = 90.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_s4fm8"]
+[sub_resource type="LabelSettings" id="LabelSettings_fdotd"]
+font = ExtResource("4_7k301")
+font_size = 14
+font_color = Color(0.16, 0.118453, 0.0992, 1)
+outline_color = Color(0.290196, 0.215686, 0.180392, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_d0s3a"]
+line_spacing = 2.0
+font = ExtResource("4_7k301")
+font_size = 13
+font_color = Color(0.290196, 0.215686, 0.180392, 1)
 
 [node name="DarkWatcherPickup" type="Area2D" groups=["sellable"]]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_c03fk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -28,16 +43,33 @@ texture = ExtResource("2_5n38n")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SellingInterface"]
 shape = SubResource("CapsuleShape2D_bgyyk")
 
-[node name="Description" type="Label" parent="."]
-offset_left = -100.0
-offset_top = -80.0
-offset_right = 118.0
-offset_bottom = -31.0
-text = "Dark Watcher's Hat
-Small chance to stun
-Cost: 40"
-label_settings = SubResource("LabelSettings_s4fm8")
+[node name="TextBox" type="Sprite2D" parent="."]
+position = Vector2(-3.8147e-06, -81)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_3ymwg")
+
+[node name="Title" type="Label" parent="."]
+offset_left = -51.0
+offset_top = -121.0
+offset_right = 53.0
+offset_bottom = -88.0
+text = "Dark Watcher
+Hat"
+label_settings = SubResource("LabelSettings_fdotd")
 horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="."]
+offset_left = -50.0
+offset_top = -86.0
+offset_right = 52.0
+offset_bottom = -32.0
+text = "Gives attacks
+stun chance
+40 Silver"
+label_settings = SubResource("LabelSettings_d0s3a")
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="SellingInterface" to="." method="_on_selling_interface_body_entered"]

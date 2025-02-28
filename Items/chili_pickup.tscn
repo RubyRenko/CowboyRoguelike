@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://bysic3agekq1n"]
+
+[ext_resource type="Script" path="res://Items/chili_bowl.gd" id="1_gkp2v"]
+[ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="2_dkiup"]
+[ext_resource type="FontFile" uid="uid://b1iy1e5pnw0od" path="res://Assets/hud assets/GothicPixels.ttf" id="3_xfvn2"]
+[ext_resource type="Texture2D" uid="uid://ba02pqcmb5s2g" path="res://Assets/ItemSprites/bowl of chili-02.png" id="4_nifoi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8g0oo"]
+radius = 23.0217
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1rcvq"]
+radius = 18.0
+height = 90.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_indkp"]
+font = ExtResource("3_xfvn2")
+font_size = 14
+font_color = Color(0.16, 0.118453, 0.0992, 1)
+outline_color = Color(0.290196, 0.215686, 0.180392, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_htxrs"]
+line_spacing = 2.0
+font = ExtResource("3_xfvn2")
+font_size = 13
+font_color = Color(0.290196, 0.215686, 0.180392, 1)
+
+[node name="ChiliBowl" type="Area2D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_gkp2v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8g0oo")
+
+[node name="SellingInterface" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SellingInterface"]
+shape = SubResource("CapsuleShape2D_1rcvq")
+
+[node name="TextBox" type="Sprite2D" parent="."]
+position = Vector2(-3.8147e-06, -81)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_dkiup")
+
+[node name="Title" type="Label" parent="."]
+offset_left = -51.0
+offset_top = -113.0
+offset_right = 53.0
+offset_bottom = -93.0
+text = "Chili Bowl"
+label_settings = SubResource("LabelSettings_indkp")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="."]
+offset_left = -50.0
+offset_top = -90.0
+offset_right = 52.0
+offset_bottom = -36.0
+text = "Fully heals
+health
+10 Silver"
+label_settings = SubResource("LabelSettings_htxrs")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Chili" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(0.018, 0.018)
+texture = ExtResource("4_nifoi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="SellingInterface" to="." method="_on_selling_interface_body_entered"]
+[connection signal="body_exited" from="SellingInterface" to="." method="_on_selling_interface_body_exited"]

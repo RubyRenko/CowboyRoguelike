@@ -9,6 +9,7 @@ class_name CowboyPlayer
 @onready var coin = get_node("HUD/Money")
 
 var bullet = load("res://bullet.tscn")
+var bullet_n = load("res://bullet_nessie.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -23,7 +24,7 @@ var ammo = max_ammo
 static var max_hp = 8
 static var hp = 8
 static var money = 0
-static var armor = 1
+static var armor = 0
 static var inventory = {"darkhat": 0}
 
 #all dash variables
@@ -128,7 +129,11 @@ func _physics_process(delta):
 
 func shoot():
 	#makes 1 bullet right in front
-	var b = bullet.instantiate()
+	var b
+	if "nessie" in inventory:
+		b = bullet_n.instantiate()
+	else:
+		b = bullet.instantiate()
 	b.damage = ranged_dmg
 	b.stun_chance = inventory["darkhat"]
 	b.global_position = $CenterPoint/GunPoint.global_position

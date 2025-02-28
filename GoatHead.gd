@@ -1,17 +1,23 @@
 extends CharacterBody2D
 
-const SPEED = 280
+#stats
+var speed = 280
 var hp = 20
+
 var chase = null
-var stun = 0
 var hurt = false
 var next_hurt = 0
+
+#status effects
+var stun = 0
+var slow = 0
+
 @onready var main = get_tree().get_root().get_node("Main")
 @onready var coin = load("res://pickup.tscn")
 @onready var blood = load("res://goat_blood.tscn")
 @onready var blood_timer = $Blood_Timer
 @onready var loot_table = [load("res://Items/beans_pickup.tscn"), 
-						load("res://Items/jackalop_pickup.tscn"), 
+						load("res://Items/jerky_pickup.tscn"), 
 						load("res://Items/gator_pickup.tscn"),
 						load("res://Items/wampus_pickup.tscn"),
 						load("res://Items/flatwoods_pickup.tscn")]
@@ -19,17 +25,22 @@ var next_hurt = 0
 func _physics_process(delta):
 	#makes sure the hp display is up to date
 	$HpDisplay.set_text("hp: " + str(hp))
+	if slow > 0:
+		speed = 140
+		stun -= delta
+	else:
+		speed = 280
 	if stun > 0:
 		stun -= delta
 		velocity = Vector2(0,0)
 	elif chase != null:
 		#when chasing, minus the chased from the enemy's position to get the direction
-		velocity = (chase.position - position).normalized() * SPEED
+		velocity = (chase.position - position).normalized() * speed
 	elif randi_range(0,30) == 0:
 		#when not chasing, every few seconds, choose a random direction and move towards it
 		#this will make the enemy wander naturally
 		var rand_direction =  Vector2(randi_range(-20,20), randi_range(-20,20))
-		velocity = rand_direction * SPEED * delta
+		velocity = rand_direction * speed * delta
 	
 	move_and_collide(velocity * delta)
 	
