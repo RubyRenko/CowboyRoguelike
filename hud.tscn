@@ -50,10 +50,10 @@ animations = [{
 [node name="HUD" type="CanvasLayer"]
 
 [node name="HpDisplay" parent="." instance=ExtResource("8_1dmy0")]
-offset_left = 10.0
+offset_left = 13.0
 offset_top = 13.0
-offset_right = 1140.0
-offset_bottom = 72.0
+offset_right = 1143.0
+offset_bottom = 75.0
 
 [node name="InvHotbar" type="Node2D" parent="."]
 visible = false
@@ -108,13 +108,13 @@ offset_bottom = 214.0
 script = ExtResource("4_h5ano")
 
 [node name="BulletHUD" type="AnimatedSprite2D" parent="BulletDisplay"]
-position = Vector2(88, 69)
+position = Vector2(1068.68, 0.675)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_2k3k8")
 speed_scale = 0.0
 
 [node name="BulletHUD2" type="AnimatedSprite2D" parent="BulletDisplay"]
-position = Vector2(233, 70)
+position = Vector2(923.675, 1.675)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_2k3k8")
 speed_scale = 0.0

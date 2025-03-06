@@ -1,8 +1,9 @@
-[gd_scene load_steps=50 format=3 uid="uid://be3fpwoys47ky"]
+[gd_scene load_steps=51 format=3 uid="uid://be3fpwoys47ky"]
 
 [ext_resource type="Script" path="res://CowboyPlayer.gd" id="1_oimyp"]
 [ext_resource type="Texture2D" uid="uid://c1lbkgla6h58g" path="res://Assets/sprites/Player sprite/back/walk-back0.png" id="2_w3kbx"]
 [ext_resource type="Texture2D" uid="uid://dgqg84mys600c" path="res://Assets/sprites/Player sprite/back/walk-back1.png" id="3_fsym0"]
+[ext_resource type="Texture2D" uid="uid://c250b1jsgirxu" path="res://Assets/ThunderParticle3.png" id="3_kdhep"]
 [ext_resource type="Texture2D" uid="uid://bd17s43x8bvnf" path="res://Assets/sprites/Player sprite/back/walk-back2.png" id="4_0w4wj"]
 [ext_resource type="Texture2D" uid="uid://5dmmsxkmaq8s" path="res://Assets/sprites/Player sprite/back/walk-back3.png" id="5_1v0la"]
 [ext_resource type="Script" path="res://CameraShake.gd" id="5_wqsxw"]
@@ -218,20 +219,23 @@ z_index = 1
 script = ExtResource("1_oimyp")
 
 [node name="ThunderbirdArea" type="Area2D" parent="."]
-visible = false
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("44_f0x4w")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="ThunderbirdArea"]
 scale = Vector2(2, 2)
-amount = 15
+amount = 30
 local_coords = true
+texture = ExtResource("3_kdhep")
 emission_shape = 1
 emission_sphere_radius = 50.0
 gravity = Vector2(0, 0)
+scale_amount_min = 0.5
+scale_amount_max = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ThunderbirdArea"]
-scale = Vector2(10, 10)
+scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_bf1xx")
 
 [node name="CowboyAnim" type="AnimatedSprite2D" parent="."]
@@ -285,8 +289,13 @@ offset_top = -44.0
 offset_right = 17.0
 offset_bottom = -37.0
 
+[node name="Reload_Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="body_entered" from="ThunderbirdArea" to="ThunderbirdArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ThunderbirdArea" to="ThunderbirdArea" method="_on_body_exited"]
 [connection signal="timeout" from="Dash_Available" to="." method="_on_dash_available_timeout"]
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Thunder_Timer" to="." method="_on_thunder_timer_timeout"]
+[connection signal="timeout" from="Reload_Timer" to="." method="_on_reload_timer_timeout"]

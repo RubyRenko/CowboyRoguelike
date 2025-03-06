@@ -2,12 +2,14 @@ extends Node2D
 
 var rng = RandomNumberGenerator.new()
 @onready var tilemap = $DesertTile
+@onready var tile_detail = $DesertSprites
 @onready var player = $CowboyPlayer
 @onready var enemies = [load("res://goat_head.tscn")]
 @onready var wave_timer = $WaveTimer
 @onready var wave_display = $Gui/WaveAnim
 @onready var shop_spawn = load("res://shop.tscn")
 @onready var boss = load("res://chubacabra.tscn")
+
 
 #ids to get each tile from the tilemap
 var tile_ids = [Vector2i(0, 0), Vector2i(1,0), #base tiles
@@ -62,9 +64,101 @@ func create_room(width, height, padding = 6):
 	for i in range(height+1):
 		tilemap.set_cell(1, Vector2i(-1, i), 1, Vector2i(0,0))
 		tilemap.set_cell(1, Vector2i(width+1, i), 1, Vector2i(0,0))
+		if i % 2 == 0:
+			var cactus = tile_detail.tile_set.get_pattern(randi_range(0,1))
+			var cactus2 = tile_detail.tile_set.get_pattern(randi_range(0,1))
+			tile_detail.set_pattern(Vector2i(-1, i), cactus)
+			tile_detail.set_pattern(Vector2i(width+1, i), cactus2)
+		
 	for i in range(width+1):
 		tilemap.set_cell(1, Vector2i(i,-1), 1, Vector2i(0,0))
 		tilemap.set_cell(1, Vector2i(i, height+1), 1, Vector2i(0,0))
+		if i % 2 == 0:
+			var cactus = tile_detail.tile_set.get_pattern(randi_range(0,1))
+			var cactus2 = tile_detail.tile_set.get_pattern(randi_range(0,1))
+			tile_detail.set_pattern(Vector2i(i, -1), cactus)
+			tile_detail.set_pattern(Vector2i(i, height+1), cactus2)
+
+func create_detail(width, height):
+	var invalid_array = [
+		Vector2i(width/2-1, height/2-1), Vector2i(width/2, height/2-1), Vector2i(width/2+1, height/2-1),
+		Vector2i(width/2-1, height/2), Vector2i(width/2, height/2), Vector2i(width/2+1, height/2),
+		Vector2i(width/2-1, height/2+1),Vector2i(width/2, height/2+1), Vector2i(width/2+1, height/2+1)]
+	
+	#create buildings
+	for i in range(randi_range(20, 40)):
+		var spawn_x = randi_range(1, width-1)
+		var spawn_y = randi_range(1, height-1)
+		var spawning_tiles = [
+			Vector2i(spawn_x, spawn_y), Vector2i(spawn_x+1, spawn_y), Vector2i(spawn_x+2, spawn_y),
+			Vector2i(spawn_x, spawn_y+1), Vector2i(spawn_x+1, spawn_y+1), Vector2i(spawn_x+2, spawn_y+1),
+			Vector2i(spawn_x, spawn_y+2), Vector2i(spawn_x+1, spawn_y+2), Vector2i(spawn_x+2, spawn_y+2)
+		]
+		
+		var invalid_spawn = true
+		while invalid_spawn:
+			var found_invalid = false
+			for tile in spawning_tiles:
+				if tile in invalid_array:
+					spawn_x += randi_range(-3, 3)
+					spawn_y += randi_range(-3, 3)
+					found_invalid = true
+				elif tile_detail.get_cell_atlas_coords(tile) != Vector2i(-1, -1):
+					invalid_array.append(Vector2i(spawn_x, spawn_y))
+					spawn_x += randi_range(-3, 3)
+					spawn_y += randi_range(-3, 3)
+					found_invalid = true
+			if found_invalid:
+				spawning_tiles = [
+				Vector2i(spawn_x, spawn_y), Vector2i(spawn_x+1, spawn_y), Vector2i(spawn_x+2, spawn_y),
+				Vector2i(spawn_x, spawn_y+1), Vector2i(spawn_x+1, spawn_y+1), Vector2i(spawn_x+2, spawn_y+1),
+				Vector2i(spawn_x, spawn_y+2), Vector2i(spawn_x+1, spawn_y+2), Vector2i(spawn_x+2, spawn_y+2)
+				]
+			elif !found_invalid:
+				invalid_spawn = false
+		
+		spawning_tiles = [
+			Vector2i(spawn_x, spawn_y), Vector2i(spawn_x+1, spawn_y), Vector2i(spawn_x+2, spawn_y),
+			Vector2i(spawn_x, spawn_y+1), Vector2i(spawn_x+1, spawn_y+1), Vector2i(spawn_x+2, spawn_y+1),
+			Vector2i(spawn_x, spawn_y+2), Vector2i(spawn_x+1, spawn_y+2), Vector2i(spawn_x+2, spawn_y+2)
+		]
+		var pattern = tile_detail.tile_set.get_pattern(randi_range(5, 7))
+		for tile in spawning_tiles:
+			invalid_array.append(tile)
+		tile_detail.set_pattern(Vector2i(spawn_x, spawn_y), pattern)
+	
+	#create cactus
+	for i in range(randi_range(30, 100)):
+		var spawn_x = randi_range(1, width-1)
+		var spawn_y = randi_range(1, height-1)
+		var spawning_tiles = [
+			Vector2i(spawn_x, spawn_y), Vector2i(spawn_x, spawn_y +1)
+		]
+		
+		var invalid_spawn = true
+		while invalid_spawn:
+			var found_invalid = false
+			for tile in spawning_tiles:
+				if tile in invalid_array:
+					spawn_x += randi_range(-3, 3)
+					spawn_y += randi_range(-3, 3)
+					found_invalid = true
+				elif tile_detail.get_cell_atlas_coords(tile) != Vector2i(-1, -1):
+					invalid_array.append(Vector2i(spawn_x, spawn_y))
+					spawn_x += randi_range(-3, 3)
+					spawn_y += randi_range(-3, 3)
+					found_invalid = true
+			if found_invalid:
+				spawning_tiles = [
+				Vector2i(spawn_x, spawn_y), Vector2i(spawn_x, spawn_y+1)
+				]
+			elif !found_invalid:
+				invalid_spawn = false
+		
+		var pattern = tile_detail.tile_set.get_pattern(randi_range(0, 4))
+		for tile in spawning_tiles:
+			invalid_array.append(tile)
+		tile_detail.set_pattern(Vector2i(spawn_x, spawn_y), pattern)
 
 func spawn_enemy(spawn_pos):
 	#create a new enemy instance and set the position
@@ -74,6 +168,9 @@ func spawn_enemy(spawn_pos):
 
 func start_up():
 	create_room(room_width, room_height)
+	create_detail(room_width, room_height)
+	var pattern = tile_detail.tile_set.get_pattern(randi_range(5, 7))
+	tile_detail.set_pattern(Vector2i(0,0), pattern)
 	player.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 	#starts wave timer and makes the first wave spawn earlier
 	wave_timer.start()

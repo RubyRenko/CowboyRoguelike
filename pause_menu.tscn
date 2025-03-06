@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://bh68xq7v3vfvv"]
+
+[ext_resource type="Texture2D" uid="uid://bgpdvj7xqn3nj" path="res://Assets/hud assets/menus/inventory.png" id="1_qg6c2"]
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_uwbnv"]
+[ext_resource type="Texture2D" uid="uid://drjnjquogoq86" path="res://Assets/hud assets/menus/transparent bg.png" id="2_4f8cl"]
+[ext_resource type="Texture2D" uid="uid://bx0xeg3a042xg" path="res://Assets/hud assets/menus/buttonCont2.png" id="2_6twpo"]
+[ext_resource type="Texture2D" uid="uid://cp0ayhslbc1ri" path="res://Assets/hud assets/menus/buttonCont1.png" id="3_igwvq"]
+[ext_resource type="Texture2D" uid="uid://cj0jcqf3goxos" path="res://Assets/hud assets/menus/buttonContrl2.png" id="4_ax10p"]
+[ext_resource type="Texture2D" uid="uid://crvr8p56dn3rd" path="res://Assets/hud assets/menus/buttonContrl1.png" id="5_44nfx"]
+[ext_resource type="Texture2D" uid="uid://deklhsp8eewu2" path="res://Assets/hud assets/menus/buttonQuit2.png" id="6_viixg"]
+[ext_resource type="Texture2D" uid="uid://laio1wi1mgfq" path="res://Assets/hud assets/menus/buttonQuit1.png" id="7_6utom"]
+[ext_resource type="PackedScene" uid="uid://dt56ry4b8sd3m" path="res://inventory_display.tscn" id="10_tuvum"]
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -17.0
+offset_right = 2.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uwbnv")
+
+[node name="TransBG" type="Sprite2D" parent="."]
+position = Vector2(623, 345)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_4f8cl")
+
+[node name="Inventory" type="Sprite2D" parent="."]
+position = Vector2(705, 333)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("1_qg6c2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 90.0
+offset_right = 2227.0
+offset_bottom = 4090.0
+scale = Vector2(0.12, 0.12)
+theme_override_constants/separation = 200
+
+[node name="ContinueButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_6twpo")
+texture_pressed = ExtResource("3_igwvq")
+
+[node name="ControlsButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_ax10p")
+texture_pressed = ExtResource("5_44nfx")
+
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_viixg")
+texture_pressed = ExtResource("7_6utom")
+
+[node name="InventoryDisplay" parent="." instance=ExtResource("10_tuvum")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -227.0
+offset_top = -199.0
+offset_right = 479.0
+offset_bottom = 209.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

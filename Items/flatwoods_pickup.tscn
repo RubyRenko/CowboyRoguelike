@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqxsi6jrohmjs"]
+[gd_scene load_steps=8 format=3 uid="uid://dqxsi6jrohmjs"]
 
 [ext_resource type="Script" path="res://FlatwoodsPickup.gd" id="1_7o4wy"]
 [ext_resource type="Texture2D" uid="uid://cs44uxn2jlc1j" path="res://Assets/ItemSprites/flatwood eye-02.png" id="2_v070s"]
 [ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="3_ayytf"]
-[ext_resource type="FontFile" uid="uid://b1iy1e5pnw0od" path="res://Assets/hud assets/GothicPixels.ttf" id="4_sgqt5"]
+[ext_resource type="LabelSettings" uid="uid://bms3iwap6uyli" path="res://Assets/hud assets/Title.tres" id="4_n8j3y"]
+[ext_resource type="LabelSettings" uid="uid://daw641c4l4dde" path="res://Assets/hud assets/Text.tres" id="5_dv7j4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0br2u"]
 radius = 23.0217
@@ -11,19 +12,6 @@ radius = 23.0217
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fnndg"]
 radius = 19.0
 height = 90.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_xscar"]
-font = ExtResource("4_sgqt5")
-font_size = 14
-font_color = Color(0.16, 0.118453, 0.0992, 1)
-outline_color = Color(0.290196, 0.215686, 0.180392, 1)
-shadow_size = 0
-
-[sub_resource type="LabelSettings" id="LabelSettings_nj6pd"]
-line_spacing = 2.0
-font = ExtResource("4_sgqt5")
-font_size = 13
-font_color = Color(0.290196, 0.215686, 0.180392, 1)
 
 [node name="FlatwoodsPickup" type="Area2D" groups=["sellable"]]
 script = ExtResource("1_7o4wy")
@@ -48,11 +36,11 @@ texture = ExtResource("3_ayytf")
 
 [node name="Title" type="Label" parent="."]
 offset_left = -51.0
-offset_top = -113.0
+offset_top = -122.0
 offset_right = 53.0
-offset_bottom = -93.0
-text = "Flatwood Eye"
-label_settings = SubResource("LabelSettings_xscar")
+offset_bottom = -87.0
+text = "Flatwoods Eye"
+label_settings = ExtResource("4_n8j3y")
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -63,7 +51,7 @@ offset_right = 52.0
 offset_bottom = -36.0
 text = "Increases ranged dmg
 10 Silver"
-label_settings = SubResource("LabelSettings_nj6pd")
+label_settings = ExtResource("5_dv7j4")
 horizontal_alignment = 1
 autowrap_mode = 2
 

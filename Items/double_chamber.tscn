@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvqixv0v6a7mh"]
+[gd_scene load_steps=8 format=3 uid="uid://cvqixv0v6a7mh"]
 
 [ext_resource type="Script" path="res://DoubleChamber.gd" id="1_shhh5"]
-[ext_resource type="Texture2D" uid="uid://brso0skym7tdp" path="res://Assets/Bullettemp.png" id="2_36gic"]
+[ext_resource type="Texture2D" uid="uid://rlpct1pe6cxh" path="res://Assets/hud assets/bullet chambers-08.png" id="2_ql4np"]
 [ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="3_pklhu"]
-[ext_resource type="FontFile" uid="uid://b1iy1e5pnw0od" path="res://Assets/hud assets/GothicPixels.ttf" id="4_86jpn"]
+[ext_resource type="LabelSettings" uid="uid://bms3iwap6uyli" path="res://Assets/hud assets/Title.tres" id="4_lxqfe"]
+[ext_resource type="LabelSettings" uid="uid://daw641c4l4dde" path="res://Assets/hud assets/Text.tres" id="5_4vpe8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0qkcp"]
 radius = 23.0217
@@ -11,19 +12,6 @@ radius = 23.0217
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tt5px"]
 radius = 19.0
 height = 90.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_ort47"]
-font = ExtResource("4_86jpn")
-font_size = 14
-font_color = Color(0.16, 0.118453, 0.0992, 1)
-outline_color = Color(0.290196, 0.215686, 0.180392, 1)
-shadow_size = 0
-
-[sub_resource type="LabelSettings" id="LabelSettings_2f6nv"]
-line_spacing = 2.0
-font = ExtResource("4_86jpn")
-font_size = 13
-font_color = Color(0.290196, 0.215686, 0.180392, 1)
 
 [node name="DoubleChamber" type="Area2D" groups=["nonstackable", "sellable"]]
 collision_layer = 7
@@ -35,8 +23,8 @@ shape = SubResource("CircleShape2D_0qkcp")
 
 [node name="Bullettemp" type="Sprite2D" parent="."]
 position = Vector2(2.38419e-07, 1.90735e-06)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_36gic")
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("2_ql4np")
 
 [node name="SellingInterface" type="Area2D" parent="."]
 
@@ -48,25 +36,24 @@ position = Vector2(-3.8147e-06, -81)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_pklhu")
 
-[node name="Title" type="Label" parent="." groups=["nonstackable", "sellable"]]
+[node name="Title" type="Label" parent="."]
 offset_left = -51.0
 offset_top = -120.0
 offset_right = 53.0
 offset_bottom = -87.0
 text = "Double Chamber"
-label_settings = SubResource("LabelSettings_ort47")
+label_settings = ExtResource("4_lxqfe")
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Description" type="Label" parent="."]
-offset_left = -50.0
-offset_top = -87.0
-offset_right = 52.0
-offset_bottom = -33.0
-text = "Doubles max
-ammo
-25 Silver"
-label_settings = SubResource("LabelSettings_2f6nv")
+offset_left = -49.0
+offset_top = -84.0
+offset_right = 54.0
+offset_bottom = -30.0
+text = "Doubles max ammo
+25$"
+label_settings = ExtResource("5_4vpe8")
 horizontal_alignment = 1
 autowrap_mode = 2
 

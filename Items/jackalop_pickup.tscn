@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dt8akrmj3vqos"]
+[gd_scene load_steps=8 format=3 uid="uid://dt8akrmj3vqos"]
 
 [ext_resource type="Script" path="res://jackPickup.gd" id="1_mai21"]
 [ext_resource type="Texture2D" uid="uid://cvpleg1i01sl3" path="res://Assets/ItemSprites/jackalope.png" id="2_gjbht"]
 [ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="3_l1ilw"]
-[ext_resource type="FontFile" uid="uid://b1iy1e5pnw0od" path="res://Assets/hud assets/GothicPixels.ttf" id="4_bfxt2"]
+[ext_resource type="LabelSettings" uid="uid://bms3iwap6uyli" path="res://Assets/hud assets/Title.tres" id="4_1lyr2"]
+[ext_resource type="LabelSettings" uid="uid://daw641c4l4dde" path="res://Assets/hud assets/Text.tres" id="5_bmdw4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ry3t"]
 radius = 22.0227
@@ -11,19 +12,6 @@ radius = 22.0227
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_48uen"]
 radius = 18.0
 height = 90.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_nxeny"]
-font = ExtResource("4_bfxt2")
-font_size = 14
-font_color = Color(0.16, 0.118453, 0.0992, 1)
-outline_color = Color(0.290196, 0.215686, 0.180392, 1)
-shadow_size = 0
-
-[sub_resource type="LabelSettings" id="LabelSettings_o4am8"]
-line_spacing = 2.0
-font = ExtResource("4_bfxt2")
-font_size = 13
-font_color = Color(0.290196, 0.215686, 0.180392, 1)
 
 [node name="JackalopPickup" type="Area2D" groups=["sellable"]]
 script = ExtResource("1_mai21")
@@ -52,18 +40,18 @@ offset_top = -120.0
 offset_right = 53.0
 offset_bottom = -87.0
 text = "Roasted Jackalope"
-label_settings = SubResource("LabelSettings_nxeny")
+label_settings = ExtResource("4_1lyr2")
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Description" type="Label" parent="."]
 offset_left = -49.0
 offset_top = -84.0
-offset_right = 53.0
+offset_right = 54.0
 offset_bottom = -30.0
 text = "Increases health
-20 Silver"
-label_settings = SubResource("LabelSettings_o4am8")
+20$"
+label_settings = ExtResource("5_bmdw4")
 horizontal_alignment = 1
 autowrap_mode = 2
 

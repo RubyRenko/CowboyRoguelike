@@ -21,6 +21,8 @@ func deal_dmg():
 
 func set_particles(level):
 	$CPUParticles2D.emission_sphere_radius = level * 50
+	#print(level)
+	#print($CPUParticles2D.emission_sphere_radius)
 
 func _on_body_entered(body):
 	print(body.name)

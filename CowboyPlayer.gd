@@ -6,6 +6,7 @@ class_name CowboyPlayer
 @onready var hp_display = get_node("HUD/HpDisplay")
 @onready var dash_available = $Dash_Available
 @onready var dash_timer = $Dash_Timer
+@onready var reload_timer = $Reload_Timer
 @onready var coin = get_node("HUD/Money")
 @onready var thunder = get_node("ThunderbirdArea")
 @onready var thunder_timer = $Thunder_Timer
@@ -33,6 +34,7 @@ static var inventory = {"darkhat": 0, "cadejo": 0, "tractor": 0}
 var dash_speed = 600
 var dashing = false
 var can_dash = true
+var can_reload = true
 var thunder_start = true
 
 #animation variables
@@ -48,7 +50,10 @@ func _physics_process(delta):
 	if thunder_start && "thunderbird" in inventory:
 		thunder_start = false
 		thunder.visible = true
+		thunder.level = inventory["thunderbird"]
 		thunder_timer.start()
+	elif "thunderbird" in inventory:
+		thunder.level = inventory["thunderbird"]
 	#takes care of player movement, gets direction from input keys
 	#and looks at where the mouse position is
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -94,9 +99,11 @@ func _physics_process(delta):
 			$AudioPlayer.play_sfx("empty")
 	
 	#reloads and puts ammo back at 6
-	if Input.is_action_just_pressed("reload"):
+	if Input.is_action_just_pressed("reload") && can_reload:
 		ammo = max_ammo;
 		$AudioPlayer.play_sfx("reload")
+		can_reload = false
+		reload_timer.start()
 	
 	#handles melee animation and collision
 	if Input.is_action_just_pressed("melee"):
@@ -180,6 +187,9 @@ func _on_dash_timer_timeout():
 
 func _on_thunder_timer_timeout():
 	thunder.deal_dmg()
+
+func _on_reload_timer_timeout():
+	can_reload = true
 
 """
 old scatter shot code
