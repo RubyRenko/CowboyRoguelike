@@ -8,6 +8,8 @@ var price = 40
 
 func _ready():
 	hide_desc()
+	if sold:
+		$DespawnTimer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -42,8 +44,12 @@ func _on_selling_interface_body_exited(body):
 func add_inv():
 	if "thunderbird" in player.inventory:
 		player.inventory["thunderbird"] += 1
+		player.thunder.level += 1
 	else:
 		player.inventory["thunderbird"] = 1
+		player.thunder.show()
+		player.thunder.level = 1
+		player.thunder_timer.start()
 
 func show_desc():
 	$TextBox.visible = true
@@ -54,3 +60,7 @@ func hide_desc():
 	$TextBox.visible = false
 	$Title.visible = false
 	$Description.visible = false
+
+
+func _on_despawn_timer_timeout():
+	queue_free()

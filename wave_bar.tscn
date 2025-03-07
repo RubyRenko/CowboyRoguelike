@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://gr0y08a5x875"]
+
+[ext_resource type="Script" path="res://wave_bar.gd" id="1_gnfsc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nyu5f"]
+bg_color = Color(0.590364, 0.167882, 0.245151, 1)
+
+[node name="WaveBar" type="ProgressBar"]
+offset_right = 264.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_nyu5f")
+max_value = 30.0
+value = 5.0
+show_percentage = false
+script = ExtResource("1_gnfsc")

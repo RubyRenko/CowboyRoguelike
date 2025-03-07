@@ -1,4 +1,6 @@
 res://pause_menu.tscn
+res://Assets/hud assets/TitleBig.tres
+res://Assets/hud assets/TextBig2.tres
 res://Assets/hud assets/Text.tres
 res://inventory_display.tscn
 res://desert_room.tscn
@@ -8,3 +10,39 @@ res://Items/cadejo_pickup.tscn
 res://shop.tscn
 res://goat_head.tscn
 res://cowboy_player.tscn
+res://dash_bar.tscn
+res://wave_bar.tscn
+res://desert_room.gd
+res://wave_bar.gd
+res://CowboyPlayer.gd
+res://thunderbird_pickup.gd
+res://Items/thunderbird_pickup.tscn
+res://shop.gd
+res://melee.tscn
+res://melee.gd
+res://GoatHead.gd
+res://Pickup.gd
+res://coin.tscn
+res://BeansPickup.gd
+res://beans_pickup.tscn
+res://Items/gator_pickup.gd
+res://Items/gator_pickup.tscn
+res://Items/beans_pickup.tscn
+res://Items/chili_pickup.tscn
+res://cadejo_pickup.gd
+res://Items/chili_bowl.gd
+res://dark_watcher_pickup.gd
+res://FlatwoodsPickup.gd
+res://Items/flatwoods_pickup.tscn
+res://Items/dark_watcher_pickup.tscn
+res://jackPickup.gd
+res://jerky_pickup.gd
+res://Items/jerky_pickup.tscn
+res://Items/nessie_pickup.gd
+res://sinkhole_pickup.gd
+res://tractor_pickup.gd
+res://WampusPickup.gd
+res://Items/wampus_pickup.tscn
+res://Items/sinkhole_pickup.tscn
+res://Items/tractor_pickup.tscn
+res://hud.tscn

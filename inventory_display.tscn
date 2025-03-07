@@ -19,6 +19,7 @@ columns = 5
 script = ExtResource("1_qk1wr")
 
 [node name="Item1" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_oajb3")
@@ -55,6 +56,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Item2" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_oajb3")
@@ -91,6 +93,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Item3" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_oajb3")
@@ -127,6 +130,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Item4" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_oajb3")
@@ -163,6 +167,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Item5" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_oajb3")
@@ -199,6 +204,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Item6" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_oajb3")
@@ -235,6 +241,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Item7" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_oajb3")
@@ -271,6 +278,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Item8" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_oajb3")
@@ -307,6 +315,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Item9" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_oajb3")
@@ -343,6 +352,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Item10" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_oajb3")
@@ -379,6 +389,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Item11" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_oajb3")
@@ -415,6 +426,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Item12" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_oajb3")
@@ -451,6 +463,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Item13" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_oajb3")
@@ -487,6 +500,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Item14" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_oajb3")
@@ -523,6 +537,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Item15" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_oajb3")

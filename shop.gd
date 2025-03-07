@@ -18,6 +18,7 @@ extends Node2D
 static var pos_items = ["jackalope", "chili", #hp/flat stat increases
 						"darkhat", "cadejo", "thunderbird", "tractor", #stackable items
 						"double_chamber", "nessie", "sinkhole"] #nonstackable items
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if "double_chamber" in already_bought:

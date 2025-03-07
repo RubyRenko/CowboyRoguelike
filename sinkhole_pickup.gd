@@ -8,6 +8,8 @@ var price = 30
 
 func _ready():
 	hide_desc()
+	if sold:
+		$DespawnTimer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -38,7 +40,7 @@ func _on_selling_interface_body_exited(body):
 	hide_desc()
 
 func add_inv():
-	player.speed += player.speed/2
+	player.speed = 450.0
 	player.inventory["sinkhole"] = 1
 	print(player.inventory)
 
@@ -51,3 +53,7 @@ func hide_desc():
 	$TextBox.visible = false
 	$Title.visible = false
 	$Description.visible = false
+
+
+func _on_despawn_timer_timeout():
+	queue_free()

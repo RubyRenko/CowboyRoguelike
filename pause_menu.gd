@@ -4,6 +4,8 @@ var example_inv = {"darkhat": 0, "cadejo": 0, "tractor": 1, "wampus": 1}
 @onready var inventory_display = $InventoryDisplay
 @onready var main = get_tree().get_root().get_node("Main")
 var is_paused = false
+var display_inv = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
@@ -27,5 +29,30 @@ func unpause():
 	hide()
 	is_paused = false
 
+func toggle_controls():
+	$ControlsText.visible = true
+	$ControlsTitle.visible = true
+	$Inventory2.visible = true
+	$Inventory.visible = false
+	$InventoryDisplay.visible = false
+	display_inv = false
+
+func toggle_inventory():
+	$ControlsText.visible = false
+	$ControlsTitle.visible = false
+	$Inventory2.visible = false
+	$Inventory.visible = true
+	$InventoryDisplay.visible = true
+	display_inv = true
+	
 func _on_continue_button_pressed():
 	unpause()
+
+func _on_controls_button_pressed():
+	if display_inv:
+		toggle_controls()
+	else:
+		toggle_inventory()
+
+func _on_quit_button_pressed():
+	get_tree().change_scene_to_file("res://main_menu.tscn")

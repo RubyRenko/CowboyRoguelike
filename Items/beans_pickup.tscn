@@ -20,4 +20,9 @@ position = Vector2(2.38419e-07, 9.53674e-07)
 scale = Vector2(0.015, 0.015)
 texture = ExtResource("2_pnh5j")
 
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

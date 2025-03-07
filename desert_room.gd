@@ -5,7 +5,7 @@ var rng = RandomNumberGenerator.new()
 @onready var tile_detail = $DesertSprites
 @onready var player = $CowboyPlayer
 @onready var enemies = [load("res://goat_head.tscn")]
-@onready var wave_timer = $WaveTimer
+@onready var wave_timer = $Gui/WaveTimer
 @onready var wave_display = $Gui/WaveAnim
 @onready var shop_spawn = load("res://shop.tscn")
 @onready var boss = load("res://chubacabra.tscn")
@@ -56,7 +56,7 @@ func create_room(width, height, padding = 6):
 			#tileset_prob is the coordinates for the actual tile from the tileset
 			tilemap.set_cell(0, Vector2i(j,i), 0, tileset_prob.pick_random())
 			
-			if i == 10 || i == height - 10 || j == 10 || j == width - 10:
+			if i == 15 || i == height - 15 || j == 15 || j == width - 15:
 				if i > 0 && i < height && j > 0 && j < width:
 					spawn_points.append(Vector2i(j, i))
 	
@@ -86,7 +86,7 @@ func create_detail(width, height):
 		Vector2i(width/2-1, height/2+1),Vector2i(width/2, height/2+1), Vector2i(width/2+1, height/2+1)]
 	
 	#create buildings
-	for i in range(randi_range(20, 40)):
+	for i in range(randi_range(10, 20)):
 		var spawn_x = randi_range(1, width-1)
 		var spawn_y = randi_range(1, height-1)
 		var spawning_tiles = [
@@ -125,10 +125,12 @@ func create_detail(width, height):
 		var pattern = tile_detail.tile_set.get_pattern(randi_range(5, 7))
 		for tile in spawning_tiles:
 			invalid_array.append(tile)
+			if tile in spawn_points:
+				spawn_points.remove_at(spawn_points.find(tile))
 		tile_detail.set_pattern(Vector2i(spawn_x, spawn_y), pattern)
 	
 	#create cactus
-	for i in range(randi_range(30, 100)):
+	for i in range(randi_range(25, 50)):
 		var spawn_x = randi_range(1, width-1)
 		var spawn_y = randi_range(1, height-1)
 		var spawning_tiles = [
@@ -158,6 +160,8 @@ func create_detail(width, height):
 		var pattern = tile_detail.tile_set.get_pattern(randi_range(0, 4))
 		for tile in spawning_tiles:
 			invalid_array.append(tile)
+			if tile in spawn_points:
+				spawn_points.remove_at(spawn_points.find(tile))
 		tile_detail.set_pattern(Vector2i(spawn_x, spawn_y), pattern)
 
 func spawn_enemy(spawn_pos):
@@ -183,7 +187,9 @@ func clean_up():
 			child.queue_free()
 
 func spawn_wave(difficulty):
-	var spawn_array = spawn_points
+	var spawn_array = spawn_points.duplicate()
+	print(spawn_array.size())
+	var player_position = tilemap.local_to_map(player.position)
 	for i in range(randi_range(difficulty, difficulty*2)):
 		#picks a random point from the possible spawn points
 		#spawns an enemy and then pops the value so there isn't duplicates
@@ -226,11 +232,21 @@ func _on_wave_timer_timeout():
 		clean_up()
 		#spawn shop
 		var shop = shop_spawn.instantiate()
-		shop.position = player.position
+		shop.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 		add_child(shop)
+		$Gui/WaveBarLabel.text = "Shop"
 		print("shop spawn")
 		difficulty += 3
+	elif wave == 14:
+		$Gui/WaveBarLabel.text = "Boss incoming:"
+		print("enemy spawn")
+		spawn_wave(difficulty)
+	elif (wave+1) % 5 == 0:
+		$Gui/WaveBarLabel.text = "Shop incoming:"
+		print("enemy spawn")
+		spawn_wave(difficulty)
 	else:
+		$Gui/WaveBarLabel.text = "Next wave:"
 		print("enemy spawn")
 		spawn_wave(difficulty)
 	wave += 1

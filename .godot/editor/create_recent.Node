@@ -1,6 +1,9 @@
 Timer
-Sprite2D
+AnimatedSprite2D
 Label
+ProgressBar
+CPUParticles2D
+Sprite2D
 TextureRect
 GridContainer
 TextureButton
@@ -9,6 +12,3 @@ HBoxContainer
 Button
 Container
 ItemList
-Area2D
-CPUParticles2D
-GPUParticles2D

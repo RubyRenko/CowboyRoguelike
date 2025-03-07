@@ -6,3 +6,6 @@ func _on_body_entered(body):
 		if body.hp > body.max_hp:
 			body.hp = body.max_hp
 		queue_free()
+
+func _on_despawn_timer_timeout():
+	queue_free()

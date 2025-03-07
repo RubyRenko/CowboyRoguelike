@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://be3fpwoys47ky"]
+[gd_scene load_steps=54 format=3 uid="uid://be3fpwoys47ky"]
 
 [ext_resource type="Script" path="res://CowboyPlayer.gd" id="1_oimyp"]
 [ext_resource type="Texture2D" uid="uid://c1lbkgla6h58g" path="res://Assets/sprites/Player sprite/back/walk-back0.png" id="2_w3kbx"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cnbq0uqqeqxt7" path="res://Assets/Sound/Player Gun Click.wav" id="11_00c0b"]
 [ext_resource type="Texture2D" uid="uid://cqu1df7doashu" path="res://Assets/sprites/Player sprite/forward/walk-front0.png" id="11_1jtq5"]
 [ext_resource type="Texture2D" uid="uid://djjp4hy6tv085" path="res://Assets/sprites/Player sprite/back/idle-back1.png" id="11_xadcs"]
+[ext_resource type="Texture2D" uid="uid://dibn2ui3vh2iq" path="res://Assets/sprites/Player sprite/back/dash-back.png" id="12_0kq4j"]
 [ext_resource type="Texture2D" uid="uid://chcyysqxcjw8k" path="res://Assets/sprites/Player sprite/forward/walk-front1.png" id="12_1ma4s"]
 [ext_resource type="Texture2D" uid="uid://f407ptend02v" path="res://Assets/sprites/Player sprite/back/idle-back2.png" id="12_55k2d"]
 [ext_resource type="PackedScene" uid="uid://cac4vxkmwm5en" path="res://melee.tscn" id="13_232df"]
@@ -36,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://5k1gdigsc58g" path="res://Assets/sprites/Player sprite/forward/idle-front2.png" id="24_1schh"]
 [ext_resource type="Texture2D" uid="uid://du6u7lsqgn40l" path="res://Assets/sprites/Player sprite/side/walk-side4.png" id="24_k2orq"]
 [ext_resource type="Texture2D" uid="uid://c1cf88ptrxayj" path="res://Assets/sprites/Player sprite/forward/idle-front3.png" id="25_0kl5m"]
+[ext_resource type="Texture2D" uid="uid://bwm3n4jshv40d" path="res://Assets/sprites/Player sprite/forward/dash-front.png" id="25_75sb6"]
 [ext_resource type="Texture2D" uid="uid://fcn5hlysgdil" path="res://Assets/sprites/Player sprite/side/walk-side5.png" id="25_qcqqe"]
 [ext_resource type="Texture2D" uid="uid://djhnjymxougr1" path="res://Assets/sprites/Player sprite/side/walk-side6.png" id="26_8ut8v"]
 [ext_resource type="Texture2D" uid="uid://b20j07hvav7fq" path="res://Assets/sprites/Player sprite/side/walk-side7.png" id="27_p4yqg"]
@@ -43,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://dod1bjfqe7oiu" path="res://Assets/sprites/Player sprite/side/idle-side1.png" id="35_c44it"]
 [ext_resource type="Texture2D" uid="uid://nlvjbomq4de2" path="res://Assets/sprites/Player sprite/side/idle-side2.png" id="36_kt57j"]
 [ext_resource type="Texture2D" uid="uid://c7e6b8jhtkgu2" path="res://Assets/sprites/Player sprite/side/idle-side3.png" id="37_iv0iv"]
+[ext_resource type="Texture2D" uid="uid://bm7062nwa25te" path="res://Assets/sprites/Player sprite/side/dash side.png" id="38_r2t6s"]
 [ext_resource type="Script" path="res://thunderbird_area.gd" id="44_f0x4w"]
 [ext_resource type="PackedScene" uid="uid://d18gh6v6mtf71" path="res://dash_bar.tscn" id="44_ht30l"]
 
@@ -77,6 +80,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_0kq4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0kq4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0kq4j")
+}],
+"loop": true,
+"name": &"back_dash",
 "speed": 5.0
 }, {
 "frames": [{
@@ -126,6 +143,20 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_75sb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_75sb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_75sb6")
+}],
+"loop": true,
+"name": &"front_dash",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 2.0,
 "texture": ExtResource("22_pfots")
 }, {
@@ -169,6 +200,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_r2t6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_r2t6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_r2t6s")
+}],
+"loop": true,
+"name": &"side_dash",
 "speed": 5.0
 }, {
 "frames": [{
@@ -218,7 +263,18 @@ _data = {
 z_index = 1
 script = ExtResource("1_oimyp")
 
+[node name="DashEffect" type="CPUParticles2D" parent="."]
+lifetime = 0.3
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(10, 10)
+gravity = Vector2(980, 0)
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+
 [node name="ThunderbirdArea" type="Area2D" parent="."]
+process_mode = 1
+visible = false
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("44_f0x4w")
@@ -240,13 +296,14 @@ shape = SubResource("CircleShape2D_bf1xx")
 
 [node name="CowboyAnim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_epel2")
-animation = &"back_idle"
+animation = &"side_dash"
 speed_scale = 2.5
 
 [node name="CenterPoint" type="Marker2D" parent="."]
 
 [node name="Melee" parent="CenterPoint" instance=ExtResource("13_232df")]
-position = Vector2(44, -46)
+visible = false
+position = Vector2(48, 0)
 scale = Vector2(0.5, 0.5)
 collision_mask = 0
 

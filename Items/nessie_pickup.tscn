@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Items/nessie_pickup.gd" id="1_j11md"]
 [ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="2_5wjt1"]
-[ext_resource type="LabelSettings" uid="uid://bms3iwap6uyli" path="res://Assets/hud assets/Title.tres" id="4_lqsw7"]
 [ext_resource type="Texture2D" uid="uid://csb2omfweod5c" path="res://Assets/ItemSprites/nessie tooth-02.png" id="4_os5go"]
-[ext_resource type="LabelSettings" uid="uid://daw641c4l4dde" path="res://Assets/hud assets/Text.tres" id="5_4nnd1"]
+[ext_resource type="LabelSettings" uid="uid://bms3iwap6uyli" path="res://Assets/hud assets/Title.tres" id="4_sctlv"]
+[ext_resource type="LabelSettings" uid="uid://daw641c4l4dde" path="res://Assets/hud assets/Text.tres" id="5_rwqbh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jwcm0"]
 radius = 23.0217
@@ -42,7 +42,7 @@ offset_top = -120.0
 offset_right = 53.0
 offset_bottom = -87.0
 text = "Nessie Tooth"
-label_settings = ExtResource("4_lqsw7")
+label_settings = ExtResource("4_sctlv")
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -53,10 +53,14 @@ offset_right = 54.0
 offset_bottom = -30.0
 text = "Piercing bullets
 30$"
-label_settings = ExtResource("5_4nnd1")
+label_settings = ExtResource("5_rwqbh")
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 20.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="SellingInterface" to="." method="_on_selling_interface_body_entered"]
 [connection signal="body_exited" from="SellingInterface" to="." method="_on_selling_interface_body_exited"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

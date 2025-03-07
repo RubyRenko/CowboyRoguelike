@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://bd146hink0coy"]
+[gd_scene load_steps=64 format=4 uid="uid://bd146hink0coy"]
 
 [ext_resource type="Texture2D" uid="uid://dw5fubqtnb7we" path="res://Assets/Tilemaps/DesertTileset.png" id="1_d3unl"]
 [ext_resource type="Script" path="res://desert_room.gd" id="1_w386a"]
@@ -33,6 +33,172 @@
 [ext_resource type="Texture2D" uid="uid://jykr8l2mpjh2" path="res://Assets/hud assets/wave tiles/waves-19.png" id="26_tf1he"]
 [ext_resource type="Texture2D" uid="uid://girmk7tt42hy" path="res://Assets/hud assets/wave tiles/waves-20.png" id="27_ox382"]
 [ext_resource type="PackedScene" uid="uid://bh68xq7v3vfvv" path="res://pause_menu.tscn" id="33_hsl8k"]
+[ext_resource type="PackedScene" uid="uid://gr0y08a5x875" path="res://wave_bar.tscn" id="34_03012"]
+[ext_resource type="LabelSettings" uid="uid://bdolt4s3v62ei" path="res://Assets/hud assets/TextBig2.tres" id="35_qqaof"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ns8pr"]
+font = ExtResource("6_45l3r")
+font_size = 30
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.65098)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ecpgm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_s3nof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yvd2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_faxoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_f0ivm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_akmg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_uitov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jeqlv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0atfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_is6xe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_72l88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_17oqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_l2adv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_mf3ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_gxijv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_tt0ua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ukfij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_6awni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_l6k2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_tf1he")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ox382")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_pvccq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WaveLabel:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WaveLabel:label_settings:shadow_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.65098)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WaveAnim:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wbf1a"]
+resource_name = "wave_fade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WaveLabel:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WaveLabel:label_settings:shadow_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.65098), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1gnae"]
+resource_name = "wave_fade2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WaveAnim:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c4u4k"]
+_data = {
+"RESET": SubResource("Animation_pvccq"),
+"wave_fade": SubResource("Animation_wbf1a"),
+"wave_fade2": SubResource("Animation_1gnae")
+}
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_x3a4p"]
 tile_data = PackedInt32Array(0, 65536, 1, 65536, 0, 1, 1, 65536, 1, 65537, 0, 2)
@@ -210,190 +376,9 @@ pattern_5 = SubResource("TileMapPattern_85mnf")
 pattern_6 = SubResource("TileMapPattern_wsw0o")
 pattern_7 = SubResource("TileMapPattern_kgdn7")
 
-[sub_resource type="LabelSettings" id="LabelSettings_ns8pr"]
-font = ExtResource("6_45l3r")
-font_size = 30
-shadow_size = 3
-shadow_color = Color(0, 0, 0, 0.65098)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ecpgm"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_s3nof")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_yvd2m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_faxoa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_f0ivm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_akmg6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_uitov")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_jeqlv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_0atfw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_is6xe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_72l88")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_17oqf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_l2adv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_mf3ir")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_gxijv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_tt0ua")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_ukfij")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_6awni")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_l6k2r")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_tf1he")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_ox382")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="Animation" id="Animation_pvccq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WaveLabel:label_settings:font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WaveLabel:label_settings:shadow_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0.65098)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WaveAnim:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_wbf1a"]
-resource_name = "wave_fade"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WaveLabel:label_settings:font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WaveLabel:label_settings:shadow_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0.65098), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_1gnae"]
-resource_name = "wave_fade2"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WaveAnim:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_c4u4k"]
-_data = {
-"RESET": SubResource("Animation_pvccq"),
-"wave_fade": SubResource("Animation_wbf1a"),
-"wave_fade2": SubResource("Animation_1gnae")
-}
-
 [node name="Main" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_w386a")
-
-[node name="DesertTile" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_vjrfc")
-format = 2
-layer_0/name = "0"
-layer_0/tile_data = PackedInt32Array(393242, 65536, 2)
-layer_1/name = "1"
-
-[node name="DesertSprites" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAZAAkAAAACAAEAAAAEAPj/AgAAAAEAAAAEAPn/AgAAAAIAAAAFAPf/AgABAAAAAAAFAPj/AgABAAEAAAAFAPn/AgABAAIAAAAGAPf/AgACAAAAAAAGAPj/AgACAAEAAAAGAPn/AgACAAIAAAAHAPf/AwAAAAAAAAAHAPj/AwAAAAEAAAAHAPn/AwAAAAIAAAAIAPf/AwABAAAAAAAIAPj/AwABAAEAAAAIAPn/AwABAAIAAAAJAPf/AwACAAAAAAAJAPj/AwACAAEAAAAJAPn/AwACAAIAAAALAPj/AAAAAAAAAAALAPn/AAAAAAEAAAAMAPj/AAABAAAAAAAMAPn/AAABAAEAAAANAPj/AAACAAAAAAAOAPj/AAACAAIAAAAPAPj/AAAAAAIAAAABAPf/AQAAAAAAAAABAPj/AQAAAAEAAAABAPn/AQAAAAIAAAACAPf/AQABAAAAAAACAPj/AQABAAEAAAACAPn/AQABAAIAAAADAPf/AQACAAAAAAADAPj/AQACAAEAAAADAPn/AQACAAIAAAAEAPf/AgAAAAAAAAA=")
-tile_set = SubResource("TileSet_35da2")
-
-[node name="CowboyPlayer" parent="." instance=ExtResource("2_10jt5")]
-position = Vector2(212, 255)
-
-[node name="WaveTimer" type="Timer" parent="."]
-wait_time = 5.0
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_rc6bk")
@@ -401,10 +386,15 @@ volume_db = -30.0
 autoplay = true
 
 [node name="Gui" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="WaveTimer" type="Timer" parent="Gui"]
+wait_time = 5.0
 
 [node name="Pause" parent="Gui" instance=ExtResource("33_hsl8k")]
 process_mode = 3
-z_index = 3
+visible = false
+z_as_relative = false
 offset_top = 1.0
 offset_bottom = 1.0
 
@@ -442,5 +432,33 @@ libraries = {
 "": SubResource("AnimationLibrary_c4u4k")
 }
 
+[node name="WaveBar" parent="Gui" instance=ExtResource("34_03012")]
+offset_left = 856.0
+offset_top = 593.0
+offset_right = 1120.0
+offset_bottom = 620.0
+
+[node name="WaveBarLabel" type="Label" parent="Gui"]
+offset_left = 856.0
+offset_top = 570.0
+offset_right = 1039.0
+offset_bottom = 592.0
+text = "Next wave:"
+label_settings = ExtResource("35_qqaof")
+
+[node name="CowboyPlayer" parent="." instance=ExtResource("2_10jt5")]
+position = Vector2(212, 255)
+
+[node name="DesertTile" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_vjrfc")
+format = 2
+layer_0/name = "0"
+layer_0/tile_data = PackedInt32Array(393242, 65536, 2)
+layer_1/name = "1"
+
+[node name="DesertSprites" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAZAAkAAAACAAEAAAAEAPj/AgAAAAEAAAAEAPn/AgAAAAIAAAAFAPf/AgABAAAAAAAFAPj/AgABAAEAAAAFAPn/AgABAAIAAAAGAPf/AgACAAAAAAAGAPj/AgACAAEAAAAGAPn/AgACAAIAAAAHAPf/AwAAAAAAAAAHAPj/AwAAAAEAAAAHAPn/AwAAAAIAAAAIAPf/AwABAAAAAAAIAPj/AwABAAEAAAAIAPn/AwABAAIAAAAJAPf/AwACAAAAAAAJAPj/AwACAAEAAAAJAPn/AwACAAIAAAALAPj/AAAAAAAAAAALAPn/AAAAAAEAAAAMAPj/AAABAAAAAAAMAPn/AAABAAEAAAANAPj/AAACAAAAAAAOAPj/AAACAAIAAAAPAPj/AAAAAAIAAAABAPf/AQAAAAAAAAABAPj/AQAAAAEAAAABAPn/AQAAAAIAAAACAPf/AQABAAAAAAACAPj/AQABAAEAAAACAPn/AQABAAIAAAADAPf/AQACAAAAAAADAPj/AQACAAEAAAADAPn/AQACAAIAAAAEAPf/AgAAAAAAAAA=")
+tile_set = SubResource("TileSet_35da2")
+
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
-[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
+[connection signal="timeout" from="Gui/WaveTimer" to="." method="_on_wave_timer_timeout"]

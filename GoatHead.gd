@@ -13,15 +13,18 @@ var stun = 0
 var slow = 0
 
 @onready var main = get_tree().get_root().get_node("Main")
-@onready var coin = load("res://pickup.tscn")
+@onready var coin = load("res://coin.tscn")
 @onready var blood = load("res://goat_blood.tscn")
 @onready var blood_timer = $Blood_Timer
 @onready var loot_table = [load("res://Items/beans_pickup.tscn"), 
 						load("res://Items/jerky_pickup.tscn"), 
 						load("res://Items/gator_pickup.tscn"),
 						load("res://Items/wampus_pickup.tscn"),
-						load("res://Items/flatwoods_pickup.tscn")]
-
+						load("res://Items/flatwoods_pickup.tscn")
+						]
+func _ready():
+	$AnimatedSprite2D.play()
+	
 func _physics_process(delta):
 	#makes sure the hp display is up to date
 	$HpDisplay.set_text("hp: " + str(hp))
@@ -43,7 +46,10 @@ func _physics_process(delta):
 		velocity = rand_direction * speed * delta
 	
 	move_and_collide(velocity * delta)
-	
+	if velocity.x > 0:
+		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.flip_h = false
 	if hurt:
 		#if the player is too close (in the hit area), then hurts the player
 		next_hurt -= delta
@@ -66,7 +72,7 @@ func die():
 		var c = coin.instantiate()
 		c.position = position + Vector2(randi_range(10,30), randi_range(10,30))
 		main.add_child(c)
-	if randi_range(0,5) == 0:
+	if randi_range(0,0) == 0:
 		var p = loot_table.pick_random().instantiate()
 		if p.is_in_group("sellable"):
 			p.sold = true

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://cowboy_player.tscn" id="1_xv7ad"]
 [ext_resource type="Texture2D" uid="uid://dtm5sj28gohig" path="res://Assets/Cowboytemp.png" id="2_cvgdl"]
 [ext_resource type="PackedScene" uid="uid://d4e2ah1rnbl17" path="res://enemy.tscn" id="3_bijhn"]
-[ext_resource type="PackedScene" uid="uid://ctyq6vaerwf28" path="res://pickup.tscn" id="5_46ww3"]
+[ext_resource type="PackedScene" uid="uid://ctyq6vaerwf28" path="res://coin.tscn" id="5_46ww3"]
 [ext_resource type="Script" path="res://Exit.gd" id="6_pm3r1"]
 [ext_resource type="PackedScene" uid="uid://c58iq3wgcd4xj" path="res://goat_head.tscn" id="7_vt2hp"]
 

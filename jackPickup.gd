@@ -8,6 +8,8 @@ var price = 20
 
 func _ready():
 	hide_desc()
+	if sold:
+		$DespawnTimer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -52,3 +54,7 @@ func hide_desc():
 	$TextBox.visible = false
 	$Title.visible = false
 	$Description.visible = false
+
+
+func _on_despawn_timer_timeout():
+	queue_free()

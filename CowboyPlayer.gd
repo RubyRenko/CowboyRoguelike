@@ -31,7 +31,7 @@ static var armor = 0
 static var inventory = {"darkhat": 0, "cadejo": 0, "tractor": 0}
 
 #all dash variables
-var dash_speed = 600
+var dash_speed = 600.0
 var dashing = false
 var can_dash = true
 var can_reload = true
@@ -44,49 +44,17 @@ func _ready():
 	bullet_display.update_bullets(ammo, max_ammo)
 	hp_display.update_health(hp, max_hp, armor)
 	$CenterPoint/Melee.damage = melee_dmg
-	thunder.visible = false
+	thunder.hide()
 
 func _physics_process(delta):
-	if thunder_start && "thunderbird" in inventory:
-		thunder_start = false
-		thunder.visible = true
-		thunder.level = inventory["thunderbird"]
-		thunder_timer.start()
-	elif "thunderbird" in inventory:
-		thunder.level = inventory["thunderbird"]
 	#takes care of player movement, gets direction from input keys
 	#and looks at where the mouse position is
 	var direction = Input.get_vector("left", "right", "up", "down")
-	if direction.y < 0:
-		$CowboyAnim.play("back")
-		sprite_dir = "back"
-	elif direction.y > 0:
-		$CowboyAnim.play("front")
-		sprite_dir = "front"
-	elif direction.x > 0:
-		$CowboyAnim.play("side")
-		$CowboyAnim.flip_h = false
-		sprite_dir = "right"
-	elif direction.x < 0:
-		$CowboyAnim.play("side")
-		$CowboyAnim.flip_h = true
-		sprite_dir = "left"
-	elif sprite_dir == "left":
-		$CowboyAnim.play("side_idle")
-		$CowboyAnim.flip_h = true
-	elif sprite_dir == "right":
-		$CowboyAnim.play("side_idle")
-		$CowboyAnim.flip_h = false
-	elif sprite_dir == "back":
-		$CowboyAnim.play("back_idle")
-		$CowboyAnim.flip_h = false
-	else:
-		$CowboyAnim.play("front_idle")
-		$CowboyAnim.flip_h = false
-	
+	set_move_anim(direction)
 	velocity = direction * speed
 	$CenterPoint.look_at(get_global_mouse_position())
 	move_and_collide(velocity * delta)
+	
 	
 	if Input.is_action_just_pressed("shoot"):
 		#shoots if there is still ammo
@@ -108,17 +76,28 @@ func _physics_process(delta):
 	#handles melee animation and collision
 	if Input.is_action_just_pressed("melee"):
 		$CenterPoint/Melee.damage = melee_dmg
-		$AnimationPlayer.play("melee")
-	
-	if $AnimationPlayer.is_playing():
-		$CenterPoint/Melee.visible = true
-		$CenterPoint/Melee.set_collision_mask_value(2, true)
-	else:
-		$CenterPoint/Melee.visible = false
-		$CenterPoint/Melee.set_collision_mask_value(2, false)
+		$CenterPoint/Melee.slash()
 	
 	#handles dash
 	if dashing:
+		if sprite_dir == "front":
+			$CowboyAnim.play("front_dash")
+			$DashEffect.visible = true
+			$DashEffect.gravity = Vector2(0, -980)
+		elif sprite_dir == "back":
+			$CowboyAnim.play("back_dash")
+			$DashEffect.visible = true
+			$DashEffect.gravity = Vector2(0, 980)
+		elif sprite_dir == "left":
+			$CowboyAnim.play("side_dash")
+			$CowboyAnim.flip_h = true
+			$DashEffect.visible = true
+			$DashEffect.gravity = Vector2(980, 0)
+		elif sprite_dir == "right":
+			$CowboyAnim.play("side_dash")
+			$CowboyAnim.flip_h = false
+			$DashEffect.visible = true
+			$DashEffect.gravity = Vector2(-980, 0)
 		speed = dash_speed
 		$CowboyAnim.speed_scale = 5
 		set_collision_layer_value(3, true)
@@ -126,6 +105,8 @@ func _physics_process(delta):
 		#$CowboyCollision.set_collision_layer_value(3)
 	else:
 		speed = 300
+		#$DashEffect.visible = false
+		$DashEffect.gravity = Vector2(0, 0)
 		$CowboyAnim.speed_scale = 2.5
 		set_collision_layer_value(3, false)
 		set_collision_layer_value(1, true)
@@ -178,6 +159,34 @@ func hurt(amount, shake = 0.2):
 	else:
 		hp -= amount
 		$Camera2D.add_trauma(shake)
+
+func set_move_anim(direction):
+	if direction.y < 0:
+		$CowboyAnim.play("back")
+		sprite_dir = "back"
+	elif direction.y > 0:
+		$CowboyAnim.play("front")
+		sprite_dir = "front"
+	elif direction.x > 0:
+		$CowboyAnim.play("side")
+		$CowboyAnim.flip_h = false
+		sprite_dir = "right"
+	elif direction.x < 0:
+		$CowboyAnim.play("side")
+		$CowboyAnim.flip_h = true
+		sprite_dir = "left"
+	elif sprite_dir == "left":
+		$CowboyAnim.play("side_idle")
+		$CowboyAnim.flip_h = true
+	elif sprite_dir == "right":
+		$CowboyAnim.play("side_idle")
+		$CowboyAnim.flip_h = false
+	elif sprite_dir == "back":
+		$CowboyAnim.play("back_idle")
+		$CowboyAnim.flip_h = false
+	else:
+		$CowboyAnim.play("front_idle")
+		$CowboyAnim.flip_h = false
 
 func _on_dash_available_timeout():
 	can_dash = true

@@ -1,7 +1,13 @@
-res://
+res://Assets/sprites/Player sprite
 res://Assets/hud assets
-res://Assets/ItemSprites
+res://
+res://Assets
+res://Assets/sprites/Player sprite/side
+res://Assets/sprites/Player sprite/back
+res://Assets/sprites/Player sprite/forward
+res://Assets/sprites/Enemies/goatmove
 res://Assets/hud assets/menus
+res://Assets/ItemSprites
 res://Assets/Tilemaps
 res://Items
 res://Assets/sprites
