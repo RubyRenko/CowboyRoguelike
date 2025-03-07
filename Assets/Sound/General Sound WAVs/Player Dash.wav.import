@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bhehwd78ri8tu"
+path="res://.godot/imported/Player Dash.wav-9c0709a3b665d4291f130755eec627eb.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/General Sound WAVs/Player Dash.wav"
+dest_files=["res://.godot/imported/Player Dash.wav-9c0709a3b665d4291f130755eec627eb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

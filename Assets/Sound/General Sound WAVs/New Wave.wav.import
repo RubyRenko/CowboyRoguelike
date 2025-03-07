@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bpicqlmaqdja1"
+path="res://.godot/imported/New Wave.wav-5b12660a777a7c9495e1c2ca36c14e13.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/General Sound WAVs/New Wave.wav"
+dest_files=["res://.godot/imported/New Wave.wav-5b12660a777a7c9495e1c2ca36c14e13.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

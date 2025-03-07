@@ -10,6 +10,7 @@ class_name CowboyPlayer
 @onready var coin = get_node("HUD/Money")
 @onready var thunder = get_node("ThunderbirdArea")
 @onready var thunder_timer = $Thunder_Timer
+@onready var audio = $AudioPlayer
 
 var bullet = load("res://bullet.tscn")
 var bullet_n = load("res://bullet_nessie.tscn")
@@ -52,6 +53,9 @@ func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	set_move_anim(direction)
 	velocity = direction * speed
+	if velocity != Vector2(0,0) && !audio.playing:
+		var step = ["step1", "step2"]
+		audio.play_sfx(step.pick_random())
 	$CenterPoint.look_at(get_global_mouse_position())
 	move_and_collide(velocity * delta)
 	
@@ -64,12 +68,12 @@ func _physics_process(delta):
 			#print(ammo)
 		else:
 			#otherwise plays empty sfx
-			$AudioPlayer.play_sfx("empty")
+			audio.play_sfx("empty")
 	
 	#reloads and puts ammo back at 6
 	if Input.is_action_just_pressed("reload") && can_reload:
 		ammo = max_ammo;
-		$AudioPlayer.play_sfx("reload")
+		audio.play_sfx("reload")
 		can_reload = false
 		reload_timer.start()
 	
@@ -77,6 +81,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("melee"):
 		$CenterPoint/Melee.damage = melee_dmg
 		$CenterPoint/Melee.slash()
+		audio.play_sfx("melee")
 	
 	#handles dash
 	if dashing:
@@ -105,7 +110,7 @@ func _physics_process(delta):
 		#$CowboyCollision.set_collision_layer_value(3)
 	else:
 		speed = 300
-		#$DashEffect.visible = false
+		$DashEffect.visible = false
 		$DashEffect.gravity = Vector2(0, 0)
 		$CowboyAnim.speed_scale = 2.5
 		set_collision_layer_value(3, false)
@@ -117,6 +122,7 @@ func _physics_process(delta):
 		can_dash = false
 		dash_timer.start()
 		dash_available.start()
+		audio.play_sfx("dash")
 	
 	#updates hud elements
 	hp_display.update_health(hp, max_hp, armor)
@@ -136,7 +142,7 @@ func shoot():
 	b.global_position = $CenterPoint/GunPoint.global_position
 	b.global_rotation = $CenterPoint/GunPoint.global_rotation - deg_to_rad(90)
 	main.add_child(b)
-	$AudioPlayer.play_sfx("fire")
+	audio.play_sfx("fire")
 
 func set_hp(health):
 	var heart = hp_display.get_node("Heart1")
@@ -159,6 +165,8 @@ func hurt(amount, shake = 0.2):
 	else:
 		hp -= amount
 		$Camera2D.add_trauma(shake)
+	var hurt_sound = ["hurt1", "hurt2", "hurt3"]
+	audio.play_sfx(hurt_sound.pick_random())
 
 func set_move_anim(direction):
 	if direction.y < 0:

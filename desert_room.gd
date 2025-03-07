@@ -9,6 +9,7 @@ var rng = RandomNumberGenerator.new()
 @onready var wave_display = $Gui/WaveAnim
 @onready var shop_spawn = load("res://shop.tscn")
 @onready var boss = load("res://chubacabra.tscn")
+@onready var wave_sfx = $WaveSfxPlayer
 
 
 #ids to get each tile from the tilemap
@@ -228,6 +229,7 @@ func _on_wave_timer_timeout():
 		add_child(chupacabra)
 	elif wave % 5 == 0:
 		#clears the previous waves and stops timer
+		wave_sfx.play_sfx("shop_summon")
 		wave_timer.stop()
 		clean_up()
 		#spawn shop
@@ -238,14 +240,17 @@ func _on_wave_timer_timeout():
 		print("shop spawn")
 		difficulty += 3
 	elif wave == 14:
+		wave_sfx.play_sfx("new_wave")
 		$Gui/WaveBarLabel.text = "Boss incoming:"
 		print("enemy spawn")
 		spawn_wave(difficulty)
 	elif (wave+1) % 5 == 0:
+		wave_sfx.play_sfx("new_wave")
 		$Gui/WaveBarLabel.text = "Shop incoming:"
 		print("enemy spawn")
 		spawn_wave(difficulty)
 	else:
+		wave_sfx.play_sfx("new_wave")
 		$Gui/WaveBarLabel.text = "Next wave:"
 		print("enemy spawn")
 		spawn_wave(difficulty)
@@ -256,3 +261,7 @@ func _on_child_exiting_tree(node):
 		wave_timer.wait_time = 5
 		wave_timer.start()
 		wave_timer.wait_time = 30
+		wave_sfx.play_sfx("shop_leave")
+	if node.is_in_group("enemy"):
+		var kill_sounds = ["kill1", "kill2", "kill3", "kill4"]
+		wave_sfx.play_sfx(kill_sounds.pick_random())

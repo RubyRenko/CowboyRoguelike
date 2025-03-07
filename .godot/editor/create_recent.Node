@@ -1,3 +1,5 @@
+AudioStreamPlayer2D
+AudioStreamPlayer
 Timer
 AnimatedSprite2D
 Label
@@ -10,5 +12,3 @@ TextureButton
 VBoxContainer
 HBoxContainer
 Button
-Container
-ItemList

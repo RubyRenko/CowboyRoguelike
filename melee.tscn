@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cac4vxkmwm5en"]
+[gd_scene load_steps=16 format=3 uid="uid://cac4vxkmwm5en"]
 
 [ext_resource type="Script" path="res://melee.gd" id="1_i21w2"]
 [ext_resource type="Texture2D" uid="uid://b38gwrpvo0lr5" path="res://Assets/sprites/Player sprite/melee_sprite-1.png" id="2_877pq"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c3q31q65kdexa" path="res://Assets/sprites/Player sprite/melee_sprite-9.png" id="10_lrxmt"]
 [ext_resource type="Texture2D" uid="uid://c2rrhp2aqom28" path="res://Assets/sprites/Player sprite/melee_sprite-10.png" id="11_c2u4t"]
 [ext_resource type="Texture2D" uid="uid://ds8yty2n2f8r2" path="res://Assets/sprites/Player sprite/melee_sprite-11.png" id="12_yp5cj"]
+[ext_resource type="AudioStream" uid="uid://d0ieat7dgoptf" path="res://Assets/Sound/General Sound WAVs/Player Whip Hit.wav" id="13_vj2d0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t5u0s"]
 animations = [{
@@ -74,6 +75,10 @@ speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qs612")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_vj2d0")
+volume_db = -20.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -20,7 +20,8 @@ var slow = 0
 						load("res://Items/jerky_pickup.tscn"), 
 						load("res://Items/gator_pickup.tscn"),
 						load("res://Items/wampus_pickup.tscn"),
-						load("res://Items/flatwoods_pickup.tscn")
+						load("res://Items/flatwoods_pickup.tscn"),
+						load("res://Items/jackalop_pickup.tscn")
 						]
 func _ready():
 	$AnimatedSprite2D.play()
@@ -72,7 +73,7 @@ func die():
 		var c = coin.instantiate()
 		c.position = position + Vector2(randi_range(10,30), randi_range(10,30))
 		main.add_child(c)
-	if randi_range(0,0) == 0:
+	if randi_range(0,5) == 0:
 		var p = loot_table.pick_random().instantiate()
 		if p.is_in_group("sellable"):
 			p.sold = true
