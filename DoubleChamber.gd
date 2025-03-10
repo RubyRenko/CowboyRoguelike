@@ -5,17 +5,23 @@ var near = false
 var can_buy = false
 var price = 25
 @onready var player = get_tree().get_root().get_node("Main").get_node("CowboyPlayer")
+@onready var shop = get_parent()
 
 func _ready():
 	hide_desc()
+	if sold:
+		$DespawnTimer.start()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if near and can_buy and Input.is_action_just_pressed("interact"):
 		sold = true
+		shop.audio.play_sfx("buy")
 		player.money -= price
 		add_inv()
 		queue_free()
+	elif near and Input.is_action_just_pressed("interact"):
+		shop.audio.play_sfx("no_funds")
 
 func _on_body_entered(body):
 	#print("body detected")
@@ -52,3 +58,7 @@ func hide_desc():
 	$TextBox.visible = false
 	$Title.visible = false
 	$Description.visible = false
+
+
+func _on_despawn_timer_timeout():
+	queue_free()

@@ -4,7 +4,10 @@ var rng = RandomNumberGenerator.new()
 @onready var tilemap = $DesertTile
 @onready var tile_detail = $DesertSprites
 @onready var player = $CowboyPlayer
-@onready var enemies = [load("res://goat_head.tscn")]
+@onready var enemies = [
+				load("res://goat_head.tscn"), load("res://goat_head_alt.tscn"), 
+				load("res://moth.tscn"), load("res://moth_alt.tscn"), load("res://larva.tscn") #testing for forest enemies
+				]
 @onready var wave_timer = $Gui/WaveTimer
 @onready var wave_display = $Gui/WaveAnim
 @onready var shop_spawn = load("res://shop.tscn")
@@ -31,7 +34,7 @@ var room_width = 50
 
 var wave = 1
 var spawn_points = []
-var difficulty = 5
+var difficulty = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,7 +44,11 @@ func _ready():
 func _process(_delta):
 	#if the player runs out of health, goes to the gameover screen
 	if player.hp <= 0:
-		get_tree().change_scene_to_file("res://game_over.tscn")
+		clean_up()
+		$Gui.visible = false
+		player.die()
+		await get_tree().create_timer(2).timeout
+		get_tree().change_scene_to_file("res://main_menu.tscn")
 	
 	"""if Input.is_action_just_pressed("ui_accept"):
 		clean_up()
@@ -165,9 +172,10 @@ func create_detail(width, height):
 				spawn_points.remove_at(spawn_points.find(tile))
 		tile_detail.set_pattern(Vector2i(spawn_x, spawn_y), pattern)
 
-func spawn_enemy(spawn_pos):
+func spawn_enemy(spawn_pos, difficult = 1):
 	#create a new enemy instance and set the position
 	var e = enemies.pick_random().instantiate()
+	e.hp += (e.hp/2) * (difficulty-1)
 	e.position = spawn_pos
 	add_child(e)
 
@@ -184,24 +192,33 @@ func start_up():
 func clean_up():
 	var all_children = get_children()
 	for child in all_children:
-		if child.is_in_group("enemy"):
+		if child.is_in_group("enemy") || child.is_in_group("enemy_prod"):
 			child.queue_free()
 
 func spawn_wave(difficulty):
 	var spawn_array = spawn_points.duplicate()
-	print(spawn_array.size())
+	var spawn_1 = spawn_array.slice(0, spawn_array.size()/4)
+	var spawn_2 = spawn_array.slice(spawn_array.size()/4, (spawn_array.size()/4)*2)
+	var spawn_3 = spawn_array.slice((spawn_array.size()/4)*2, (spawn_array.size()/4)*3)
+	var spawn_4 = spawn_array.slice((spawn_array.size()/4)*2, spawn_array.size())
+	var subsections = [spawn_1, spawn_2, spawn_3, spawn_4]
+	"print(spawn_array.size())
+	print(spawn_1)
+	print(spawn_2)
+	print(spawn_3)
+	print(spawn_4)"
+	
 	var player_position = tilemap.local_to_map(player.position)
-	for i in range(randi_range(difficulty, difficulty*2)):
-		#picks a random point from the possible spawn points
-		#spawns an enemy and then pops the value so there isn't duplicates
-		#print(spawn_array)
-		var index = randi_range(1*i, 20*i)
-		if index >= spawn_array.size():
-			index = spawn_array.size()-1
-		var spawn_pos = spawn_array.pop_at(index)
-		#print(spawn_pos)
-		#print(spawn_array)
-		spawn_enemy(tilemap.map_to_local(spawn_pos))
+	var num_to_spawn = difficulty * 4 + randi_range(0, 3)
+	for i in range(num_to_spawn):
+		var section = subsections.pick_random()
+		var spawn_pos = section.pick_random()
+		while spawn_pos == player_position:
+			spawn_pos = section.pick_random()
+		section.pop_at(section.find(spawn_pos))
+		spawn_enemy(tilemap.map_to_local(spawn_pos), difficulty)
+		print("spawned enemy at " + str(spawn_pos))
+	
 
 func _on_wave_timer_timeout():
 	print("wave ", wave)
@@ -238,7 +255,7 @@ func _on_wave_timer_timeout():
 		add_child(shop)
 		$Gui/WaveBarLabel.text = "Shop"
 		print("shop spawn")
-		difficulty += 3
+		difficulty += 1
 	elif wave == 14:
 		wave_sfx.play_sfx("new_wave")
 		$Gui/WaveBarLabel.text = "Boss incoming:"
@@ -262,6 +279,6 @@ func _on_child_exiting_tree(node):
 		wave_timer.start()
 		wave_timer.wait_time = 30
 		wave_sfx.play_sfx("shop_leave")
-	if node.is_in_group("enemy"):
+	if node.is_in_group("enemy") && node.hit_by_player:
 		var kill_sounds = ["kill1", "kill2", "kill3", "kill4"]
 		wave_sfx.play_sfx(kill_sounds.pick_random())

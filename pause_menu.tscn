@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bh68xq7v3vfvv"]
+[gd_scene load_steps=16 format=3 uid="uid://bh68xq7v3vfvv"]
 
 [ext_resource type="Texture2D" uid="uid://bgpdvj7xqn3nj" path="res://Assets/hud assets/menus/inventory.png" id="1_qg6c2"]
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_uwbnv"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://deklhsp8eewu2" path="res://Assets/hud assets/menus/buttonQuit2.png" id="6_viixg"]
 [ext_resource type="Texture2D" uid="uid://laio1wi1mgfq" path="res://Assets/hud assets/menus/buttonQuit1.png" id="7_6utom"]
 [ext_resource type="PackedScene" uid="uid://dt56ry4b8sd3m" path="res://inventory_display.tscn" id="10_tuvum"]
+[ext_resource type="AudioStream" uid="uid://ddsl51hlny7ib" path="res://Assets/Sound/General Sound WAVs/Button Select.wav" id="14_ii4mu"]
+[ext_resource type="AudioStream" uid="uid://boget6cle13lx" path="res://Assets/Sound/General Sound WAVs/Button Select 2.wav" id="15_lxwj8"]
 
 [node name="Pause" type="Control"]
 z_index = 3
@@ -113,6 +115,14 @@ offset_right = 479.0
 offset_bottom = 209.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Button1Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_ii4mu")
+volume_db = -10.0
+
+[node name="Button2Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_lxwj8")
+volume_db = -10.0
 
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]

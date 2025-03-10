@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name CowboyPlayer
 
 @onready var main = get_tree().get_root().get_node("Main")
+@onready var hud = get_node("HUD")
 @onready var bullet_display = get_node("HUD/BulletDisplay")
 @onready var hp_display = get_node("HUD/HpDisplay")
 @onready var dash_available = $Dash_Available
@@ -21,7 +22,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 #stats
 #static stats carry over when changing scenes
 static var ranged_dmg = 5
-static var melee_dmg = 5
+static var melee_dmg = 8
 static var speed = 300.0
 static var max_ammo = 6
 var ammo = max_ammo
@@ -32,7 +33,7 @@ static var armor = 0
 static var inventory = {"darkhat": 0, "cadejo": 0, "tractor": 0}
 
 #all dash variables
-var dash_speed = 600.0
+var dash_speed = 300.0
 var dashing = false
 var can_dash = true
 var can_reload = true
@@ -103,13 +104,11 @@ func _physics_process(delta):
 			$CowboyAnim.flip_h = false
 			$DashEffect.visible = true
 			$DashEffect.gravity = Vector2(-980, 0)
-		speed = dash_speed
 		$CowboyAnim.speed_scale = 5
 		set_collision_layer_value(3, true)
 		set_collision_layer_value(1, false)
 		#$CowboyCollision.set_collision_layer_value(3)
 	else:
-		speed = 300
 		$DashEffect.visible = false
 		$DashEffect.gravity = Vector2(0, 0)
 		$CowboyAnim.speed_scale = 2.5
@@ -123,6 +122,7 @@ func _physics_process(delta):
 		dash_timer.start()
 		dash_available.start()
 		audio.play_sfx("dash")
+		speed += dash_speed
 	
 	#updates hud elements
 	hp_display.update_health(hp, max_hp, armor)
@@ -196,11 +196,20 @@ func set_move_anim(direction):
 		$CowboyAnim.play("front_idle")
 		$CowboyAnim.flip_h = false
 
+func die():
+	hud.visible = false
+	var die_sounds = ["die1", "die2", "die3"]
+	audio.volume_db = -5
+	if !audio.playing:
+		audio.play_sfx(die_sounds.pick_random())
+	$AnimationPlayer.play("die")
+
 func _on_dash_available_timeout():
 	can_dash = true
 
 func _on_dash_timer_timeout():
 	dashing = false
+	speed -= 300
 
 func _on_thunder_timer_timeout():
 	thunder.deal_dmg()

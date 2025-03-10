@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://be3fpwoys47ky"]
+[gd_scene load_steps=58 format=3 uid="uid://be3fpwoys47ky"]
 
 [ext_resource type="Script" path="res://CowboyPlayer.gd" id="1_oimyp"]
 [ext_resource type="Texture2D" uid="uid://c1lbkgla6h58g" path="res://Assets/sprites/Player sprite/back/walk-back0.png" id="2_w3kbx"]
@@ -48,6 +48,8 @@
 [ext_resource type="Texture2D" uid="uid://bm7062nwa25te" path="res://Assets/sprites/Player sprite/side/dash side.png" id="38_r2t6s"]
 [ext_resource type="Script" path="res://thunderbird_area.gd" id="44_f0x4w"]
 [ext_resource type="PackedScene" uid="uid://d18gh6v6mtf71" path="res://dash_bar.tscn" id="44_ht30l"]
+[ext_resource type="AudioStream" uid="uid://btdqjt3tlyvo1" path="res://Assets/Sound/General Sound WAVs/Player Die 1.wav" id="49_ijtw4"]
+[ext_resource type="Script" path="res://die_audio_player.gd" id="49_n3rmp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bf1xx"]
 
@@ -238,6 +240,60 @@ animations = [{
 radius = 18.0
 height = 40.0
 
+[sub_resource type="Animation" id="Animation_kc35r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CowboyAnim:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CowboyAnim:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1epm3"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CowboyAnim:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.766667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.75, 0.75, 1), Color(1, 1, 1, 1), Color(1, 0.22, 0.22, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CowboyAnim:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.733333, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(0.7, 0.7), Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_on5aa"]
 resource_name = "melee"
 length = 0.3
@@ -256,6 +312,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nyhyu"]
 _data = {
+"RESET": SubResource("Animation_kc35r"),
+"die": SubResource("Animation_1epm3"),
 "melee": SubResource("Animation_on5aa")
 }
 
@@ -296,14 +354,14 @@ shape = SubResource("CircleShape2D_bf1xx")
 
 [node name="CowboyAnim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_epel2")
-animation = &"side_dash"
+animation = &"front"
 speed_scale = 2.5
 
 [node name="CenterPoint" type="Marker2D" parent="."]
 
 [node name="Melee" parent="CenterPoint" instance=ExtResource("13_232df")]
 visible = false
-position = Vector2(48, 0)
+position = Vector2(44, -46)
 scale = Vector2(0.5, 0.5)
 collision_mask = 0
 
@@ -332,7 +390,7 @@ wait_time = 2.0
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_00c0b")
-volume_db = -20.0
+volume_db = -15.0
 script = ExtResource("10_52od8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -349,6 +407,10 @@ offset_bottom = -37.0
 [node name="Reload_Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="DieAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("49_ijtw4")
+script = ExtResource("49_n3rmp")
 
 [connection signal="body_entered" from="ThunderbirdArea" to="ThunderbirdArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ThunderbirdArea" to="ThunderbirdArea" method="_on_body_exited"]

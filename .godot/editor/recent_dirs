@@ -1,11 +1,15 @@
 res://
+res://Assets/sprites/Enemies/wormmove
+res://Assets/sprites/Enemies/mothmovealt
+res://Assets/sprites/Enemies/mothmove
+res://Assets/sprites/Enemies/goatmove
+res://Assets/sprites/Enemies/goatmovealt
 res://Assets/sprites/Player sprite
 res://Assets/hud assets
 res://Assets
 res://Assets/sprites/Player sprite/side
 res://Assets/sprites/Player sprite/back
 res://Assets/sprites/Player sprite/forward
-res://Assets/sprites/Enemies/goatmove
 res://Assets/hud assets/menus
 res://Assets/ItemSprites
 res://Assets/Tilemaps

@@ -20,6 +20,7 @@ func _on_bullet_body_entered(body):
 		#if it hits an enemy, it deals damage to the enemy
 		#print("bullet hit")
 		deal_dmg(body)
+		body.hit_by_player = true
 		queue_free()
 	elif body.is_in_group("boss"):
 		body.take_damage()

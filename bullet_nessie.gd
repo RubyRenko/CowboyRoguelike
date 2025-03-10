@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 var speed = 750
 var damage : int
@@ -19,6 +19,7 @@ func _on_body_entered(body):
 	elif body.is_in_group("enemy"):
 		print("detected enemy")
 		deal_dmg(body)
+		body.hit_by_player = true
 	elif body.is_in_group("boss"):
 		body.take_damage()
 	else:

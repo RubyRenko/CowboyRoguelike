@@ -56,7 +56,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qs612"]
-radius = 48.0
+radius = 58.0
 height = 198.0
 
 [node name="Melee" type="Area2D"]

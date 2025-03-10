@@ -9,7 +9,11 @@ var sounds = {"fire" : preload("res://Assets/Sound/Player Gun Fire(even shorter)
 			"melee" : preload("res://Assets/Sound/General Sound WAVs/Player Whip Attack.wav"),
 			"hurt1" : preload("res://Assets/Sound/General Sound WAVs/Player Hurt 1.wav"),
 			"hurt2" : preload("res://Assets/Sound/General Sound WAVs/Player Hurt 2.wav"),
-			"hurt3" : preload("res://Assets/Sound/General Sound WAVs/Player Hurt 3.wav")
+			"hurt3" : preload("res://Assets/Sound/General Sound WAVs/Player Hurt 3.wav"),
+			"coin" : preload("res://Assets/Sound/General Sound WAVs/Coin Collect.wav"),
+			"die1" : preload("res://Assets/Sound/General Sound WAVs/Player Die 1.wav"),
+			"die2" : preload("res://Assets/Sound/General Sound WAVs/Player Die 2.wav"),
+			"die3" : preload("res://Assets/Sound/General Sound WAVs/Player Die 3.wav")
 			}
 
 func play_sfx(sound):

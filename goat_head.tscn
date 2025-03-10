@@ -1,7 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://c58iq3wgcd4xj"]
 
 [ext_resource type="Script" path="res://GoatHead.gd" id="1_05l85"]
-[ext_resource type="Texture2D" uid="uid://dtxn6rube6gcw" path="res://Assets/sprites/chubaspriteminion.png" id="2_uvclt"]
 [ext_resource type="Texture2D" uid="uid://w6vysha5tlnr" path="res://Assets/sprites/Enemies/goatmove/goatmove_0000.png" id="3_kx33i"]
 [ext_resource type="Texture2D" uid="uid://bikyiysvfv5l" path="res://Assets/sprites/Enemies/goatmove/goatmove_0001.png" id="4_2ma0u"]
 [ext_resource type="Texture2D" uid="uid://b00lnc7dwaug4" path="res://Assets/sprites/Enemies/goatmove/goatmove_0002.png" id="5_4oj05"]
@@ -13,16 +12,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_teiet"]
 radius = 312.41
 
-[sub_resource type="LabelSettings" id="LabelSettings_2q00l"]
-font_size = 15
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3feb"]
 radius = 24.0208
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r7jp3"]
 radius = 18.0278
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_l27xn"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_shqao"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -51,31 +47,41 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrcvs"]
+bg_color = Color(0.469605, 0.190438, 0.214815, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5rsa"]
+bg_color = Color(0.830492, 0.2944, 0.31053, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [node name="GoatHead" type="CharacterBody2D" groups=["enemy"]]
 z_index = 1
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_05l85")
 
-[node name="GoatSprite" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_uvclt")
-
 [node name="SenseArea" type="Area2D" parent="."]
 collision_mask = 3
 
 [node name="SenseCollision" type="CollisionShape2D" parent="SenseArea"]
 shape = SubResource("CircleShape2D_teiet")
-
-[node name="HpDisplay" type="Label" parent="."]
-unique_name_in_owner = true
-offset_left = -20.0
-offset_top = -34.0
-offset_right = 20.0
-offset_bottom = -11.0
-text = "hp:"
-label_settings = SubResource("LabelSettings_2q00l")
 
 [node name="HitArea" type="Area2D" parent="."]
 collision_mask = 3
@@ -87,14 +93,22 @@ shape = SubResource("CircleShape2D_p3feb")
 shape = SubResource("CircleShape2D_r7jp3")
 
 [node name="Blood_Timer" type="Timer" parent="."]
-wait_time = 0.5
 autostart = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="GoatSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_l27xn")
-frame = 5
-frame_progress = 0.932139
+sprite_frames = SubResource("SpriteFrames_shqao")
+
+[node name="HpBar" type="ProgressBar" parent="."]
+offset_left = -28.0
+offset_top = -38.0
+offset_right = 82.0
+offset_bottom = -19.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/background = SubResource("StyleBoxFlat_lrcvs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u5rsa")
+value = 20.0
+show_percentage = false
 
 [connection signal="body_entered" from="SenseArea" to="." method="_on_sense_area_body_entered"]
 [connection signal="body_exited" from="SenseArea" to="." method="_on_sense_area_body_exited"]

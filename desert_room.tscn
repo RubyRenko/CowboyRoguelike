@@ -438,16 +438,16 @@ libraries = {
 }
 
 [node name="WaveBar" parent="Gui" instance=ExtResource("34_03012")]
-offset_left = 856.0
-offset_top = 593.0
-offset_right = 1120.0
-offset_bottom = 620.0
+offset_left = 881.0
+offset_top = 618.0
+offset_right = 1140.0
+offset_bottom = 640.0
 
 [node name="WaveBarLabel" type="Label" parent="Gui"]
-offset_left = 856.0
-offset_top = 570.0
-offset_right = 1039.0
-offset_bottom = 592.0
+offset_left = 882.0
+offset_top = 592.0
+offset_right = 1065.0
+offset_bottom = 618.0
 text = "Next wave:"
 label_settings = ExtResource("35_qqaof")
 

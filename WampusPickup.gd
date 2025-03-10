@@ -5,6 +5,7 @@ var near = false
 var can_buy = false
 var price = 10
 @onready var player = get_tree().get_root().get_node("Main").get_node("CowboyPlayer")
+@onready var shop = get_parent()
 
 func _ready():
 	hide_desc()
@@ -15,14 +16,17 @@ func _ready():
 func _process(delta):
 	if near and can_buy and Input.is_action_just_pressed("interact"):
 		sold = true
+		shop.audio.play_sfx("buy")
 		player.money -= price
-		add_to_inv()
+		add_inv()
 		queue_free()
+	elif near and Input.is_action_just_pressed("interact"):
+		shop.audio.play_sfx("no_funds")
 
 func _on_body_entered(body):
 	#print("body detected")
 	if body.name == "CowboyPlayer" and sold:
-		add_to_inv()
+		add_inv()
 		queue_free()
 
 func _on_selling_interface_body_entered(body):
@@ -39,8 +43,8 @@ func _on_selling_interface_body_exited(body):
 	can_buy = false
 	hide_desc()
 
-func add_to_inv():
-	player.melee_dmg += 2
+func add_inv():
+	player.melee_dmg += 1
 	if "wampus" in player.inventory:
 		player.inventory["wampus"] += 1
 	else:

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipb08"]
 size = Vector2(26, 18)
 
-[node name="GoatBlood" type="Area2D"]
+[node name="GoatBlood" type="Area2D" groups=["enemy_prod"]]
 script = ExtResource("1_burqr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -20,6 +20,18 @@ texture = ExtResource("2_it4ml")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." groups=["enemy_prod"]]
+amount = 5
+lifetime = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(20, 10)
+gravity = Vector2(0, -30)
+angular_velocity_min = -232.73
+angular_velocity_max = 276.36
+scale_amount_min = 3.0
+scale_amount_max = 6.0
+color = Color(0.1353, 0.66, 0.066, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

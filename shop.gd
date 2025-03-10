@@ -14,6 +14,7 @@ extends Node2D
 	"thunderbird" : load("res://Items/thunderbird_pickup.tscn"),
 	"tractor" : load("res://Items/tractor_pickup.tscn")
 }
+@onready var audio = $ShopAudio
 
 static var pos_items = ["jackalope", "chili", #hp/flat stat increases
 						"darkhat", "cadejo", "thunderbird", "tractor", #stackable items

@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
 #stats
+var base_spd = 280
 var speed = 280
 var hp = 20
 
 var chase = null
 var hurt = false
 var next_hurt = 0
+var hit_by_player = false
 
 #status effects
 var stun = 0
@@ -16,6 +18,8 @@ var slow = 0
 @onready var coin = load("res://coin.tscn")
 @onready var blood = load("res://goat_blood.tscn")
 @onready var blood_timer = $Blood_Timer
+@onready var sprite_anim = $GoatSprite
+@onready var hp_bar = $HpBar
 @onready var loot_table = [load("res://Items/beans_pickup.tscn"), 
 						load("res://Items/jerky_pickup.tscn"), 
 						load("res://Items/gator_pickup.tscn"),
@@ -24,16 +28,17 @@ var slow = 0
 						load("res://Items/jackalop_pickup.tscn")
 						]
 func _ready():
-	$AnimatedSprite2D.play()
-	
+	sprite_anim.play()
+	hp_bar.max_value = hp
+
 func _physics_process(delta):
 	#makes sure the hp display is up to date
-	$HpDisplay.set_text("hp: " + str(hp))
+	hp_bar.value = hp
 	if slow > 0:
-		speed = 180
+		speed = base_spd - 100
 		slow -= delta
 	else:
-		speed = 280
+		speed = base_spd
 	if stun > 0:
 		stun -= delta
 		velocity = Vector2(0,0)
@@ -48,9 +53,9 @@ func _physics_process(delta):
 	
 	move_and_collide(velocity * delta)
 	if velocity.x > 0:
-		$AnimatedSprite2D.flip_h = true
+		sprite_anim.flip_h = true
 	else:
-		$AnimatedSprite2D.flip_h = false
+		sprite_anim.flip_h = false
 	if hurt:
 		#if the player is too close (in the hit area), then hurts the player
 		next_hurt -= delta
@@ -110,4 +115,4 @@ func _on_hit_area_body_exited(body):
 func _on_timer_timeout():
 	#print("Spawning blood")
 	spawn_blood()
-	$Blood_Timer.start()
+	blood_timer.start()

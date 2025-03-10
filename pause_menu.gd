@@ -3,6 +3,7 @@ extends Control
 var example_inv = {"darkhat": 0, "cadejo": 0, "tractor": 1, "wampus": 1}
 @onready var inventory_display = $InventoryDisplay
 @onready var main = get_tree().get_root().get_node("Main")
+@onready var button_sounds = [get_node("Button1Audio"), get_node("Button2Audio")]
 var is_paused = false
 var display_inv = true
 
@@ -46,12 +47,15 @@ func toggle_inventory():
 	display_inv = true
 	
 func _on_continue_button_pressed():
+	button_sounds.pick_random().play()
 	unpause()
 
 func _on_controls_button_pressed():
 	if display_inv:
+		button_sounds.pick_random().play()
 		toggle_controls()
 	else:
+		button_sounds.pick_random().play()
 		toggle_inventory()
 
 func _on_quit_button_pressed():
