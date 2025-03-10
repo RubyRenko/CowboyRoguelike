@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://bd146hink0coy"]
+[gd_scene load_steps=66 format=4 uid="uid://bd146hink0coy"]
 
 [ext_resource type="Texture2D" uid="uid://dw5fubqtnb7we" path="res://Assets/Tilemaps/DesertTileset.png" id="1_d3unl"]
 [ext_resource type="Script" path="res://desert_room.gd" id="1_w386a"]
@@ -33,9 +33,9 @@
 [ext_resource type="Texture2D" uid="uid://pivxvelbhkgx" path="res://Assets/hud assets/wave tiles/waves-18.png" id="25_l6k2r"]
 [ext_resource type="Texture2D" uid="uid://jykr8l2mpjh2" path="res://Assets/hud assets/wave tiles/waves-19.png" id="26_tf1he"]
 [ext_resource type="Texture2D" uid="uid://girmk7tt42hy" path="res://Assets/hud assets/wave tiles/waves-20.png" id="27_ox382"]
+[ext_resource type="FontFile" uid="uid://b6cxeh2ocxfkn" path="res://Assets/hud assets/gomarice_block_western.ttf" id="29_ssbfb"]
 [ext_resource type="PackedScene" uid="uid://bh68xq7v3vfvv" path="res://pause_menu.tscn" id="33_hsl8k"]
 [ext_resource type="PackedScene" uid="uid://gr0y08a5x875" path="res://wave_bar.tscn" id="34_03012"]
-[ext_resource type="LabelSettings" uid="uid://bdolt4s3v62ei" path="res://Assets/hud assets/TextBig2.tres" id="35_qqaof"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ns8pr"]
 font = ExtResource("6_45l3r")
@@ -200,6 +200,12 @@ _data = {
 "wave_fade": SubResource("Animation_wbf1a"),
 "wave_fade2": SubResource("Animation_1gnae")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_out16"]
+font = ExtResource("29_ssbfb")
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_x3a4p"]
 tile_data = PackedInt32Array(0, 65536, 1, 65536, 0, 1, 1, 65536, 1, 65537, 0, 2)
@@ -445,11 +451,11 @@ offset_bottom = 640.0
 
 [node name="WaveBarLabel" type="Label" parent="Gui"]
 offset_left = 882.0
-offset_top = 592.0
+offset_top = 587.0
 offset_right = 1065.0
 offset_bottom = 618.0
 text = "Next wave:"
-label_settings = ExtResource("35_qqaof")
+label_settings = SubResource("LabelSettings_out16")
 
 [node name="CowboyPlayer" parent="." instance=ExtResource("2_10jt5")]
 position = Vector2(212, 255)

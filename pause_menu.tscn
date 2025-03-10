@@ -31,20 +31,17 @@ grow_vertical = 2
 script = ExtResource("1_uwbnv")
 
 [node name="TransBG" type="Sprite2D" parent="."]
-z_index = 3
 position = Vector2(623, 345)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_4f8cl")
 
 [node name="Inventory" type="Sprite2D" parent="."]
-z_index = 3
 position = Vector2(705, 333)
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("1_qg6c2")
 
 [node name="Inventory2" type="Sprite2D" parent="."]
 visible = false
-z_index = 3
 position = Vector2(703.5, 329.5)
 scale = Vector2(0.110625, 0.106444)
 texture = ExtResource("4_ypkoe")
@@ -103,6 +100,7 @@ texture_normal = ExtResource("6_viixg")
 texture_pressed = ExtResource("7_6utom")
 
 [node name="InventoryDisplay" parent="." instance=ExtResource("10_tuvum")]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
