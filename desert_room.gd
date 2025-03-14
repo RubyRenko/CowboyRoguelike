@@ -11,7 +11,7 @@ var rng = RandomNumberGenerator.new()
 @onready var wave_timer = $Gui/WaveTimer
 @onready var wave_display = $Gui/WaveAnim
 @onready var shop_spawn = load("res://shop.tscn")
-@onready var boss = load("res://chubacabra.tscn")
+@onready var boss = load("res://Chupacabra_New/chubacabra_new.tscn")
 @onready var wave_sfx = $WaveSfxPlayer
 
 
@@ -48,7 +48,7 @@ func _process(_delta):
 		$Gui.visible = false
 		player.die()
 		await get_tree().create_timer(2).timeout
-		get_tree().change_scene_to_file("res://main_menu.tscn")
+		get_tree().change_scene_to_file("res://main_menu2.tscn")
 	
 	"""if Input.is_action_just_pressed("ui_accept"):
 		clean_up()
@@ -241,14 +241,14 @@ func _on_wave_timer_timeout():
 		difficulty += 3"""
 	if wave == 16:
 		get_tree().change_scene_to_file("res://forest_room.tscn")
-	elif wave == 15:
+	elif wave == 1:
 		#uncomment when chupacabra is ready
-		pass
-		"wave_timer.stop()
+		wave_timer.stop()
 		var chupacabra = boss.instantiate()
 		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 		chupacabra.scale = Vector2(1.5, 1.5)
-		add_child(chupacabra)"
+		add_child(chupacabra)
+		
 	elif wave % 5 == 0:
 		#clears the previous waves and stops timer
 		wave_sfx.play_sfx("shop_summon")

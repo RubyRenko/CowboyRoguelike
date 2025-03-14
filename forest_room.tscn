@@ -1262,6 +1262,7 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_uk0vt")
 
 [node name="ForestTile" type="TileMap" parent="."]
+texture_filter = 1
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_q8kdl")
 format = 2
@@ -1272,6 +1273,7 @@ layer_2/name = "wall"
 
 [node name="ForestDetail" type="TileMap" parent="."]
 z_index = 2
+texture_filter = 1
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_72pil")
 format = 2
@@ -1322,6 +1324,7 @@ script = ExtResource("13_0oisn")
 
 [node name="WaveAnim" type="AnimatedSprite2D" parent="Gui"]
 visible = false
+texture_filter = 1
 position = Vector2(577, 145)
 scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_qhrjr")
