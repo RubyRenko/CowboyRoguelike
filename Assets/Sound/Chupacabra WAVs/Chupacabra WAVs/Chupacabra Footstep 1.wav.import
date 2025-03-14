@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b6h0gc5g5mv7t"
+path="res://.godot/imported/Chupacabra Footstep 1.wav-18e48b60c6e061165460a0a3486218b1.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Chupacabra WAVs/Chupacabra WAVs/Chupacabra Footstep 1.wav"
+dest_files=["res://.godot/imported/Chupacabra Footstep 1.wav-18e48b60c6e061165460a0a3486218b1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

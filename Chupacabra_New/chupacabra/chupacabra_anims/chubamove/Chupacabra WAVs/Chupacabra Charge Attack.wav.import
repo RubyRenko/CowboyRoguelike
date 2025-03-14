@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dw78p3tvxp6h7"
+path="res://.godot/imported/Chupacabra Charge Attack.wav-12d2aacbe83c1e42f7e7b4205ad4c36a.sample"
+
+[deps]
+
+source_file="res://Chupacabra_New/chupacabra/chupacabra_anims/chubamove/Chupacabra WAVs/Chupacabra Charge Attack.wav"
+dest_files=["res://.godot/imported/Chupacabra Charge Attack.wav-12d2aacbe83c1e42f7e7b4205ad4c36a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
