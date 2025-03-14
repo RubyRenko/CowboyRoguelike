@@ -14,7 +14,3 @@ func _input(event):
 			
 func _button_pressed():
 	get_tree().change_scene_to_file("res://desert_room.tscn")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
