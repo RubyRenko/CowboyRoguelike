@@ -64,6 +64,7 @@ animations = [{
 }]
 
 [node name="EnemyDeathSplat" type="AnimatedSprite2D"]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_1ms3e")
 frame = 1
 frame_progress = 0.0997053

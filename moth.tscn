@@ -86,6 +86,7 @@ corner_radius_bottom_left = 2
 
 [node name="Moth" type="CharacterBody2D" groups=["enemy"]]
 z_index = 1
+texture_filter = 1
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_v17xx")

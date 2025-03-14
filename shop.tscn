@@ -77,6 +77,7 @@ script = ExtResource("1_2cwil")
 [node name="Wagon" type="StaticBody2D" parent="."]
 
 [node name="Wagon" type="Sprite2D" parent="Wagon"]
+texture_filter = 1
 position = Vector2(-1, -128)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("2_x3nlf")
@@ -110,6 +111,7 @@ position = Vector2(-99, -63)
 shape = SubResource("CapsuleShape2D_o45mf")
 
 [node name="Shopkeep" type="AnimatedSprite2D" parent="YetiShopkeep"]
+texture_filter = 1
 position = Vector2(-96, -64)
 sprite_frames = SubResource("SpriteFrames_ydf7p")
 frame_progress = 0.988381
@@ -139,6 +141,7 @@ shape = SubResource("CapsuleShape2D_o45mf")
 visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BigfootShopkeep"]
+texture_filter = 1
 position = Vector2(-96, -64)
 sprite_frames = SubResource("SpriteFrames_w62th")
 

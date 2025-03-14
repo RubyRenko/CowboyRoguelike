@@ -7,7 +7,7 @@ extends Node
 
 var dialogue_data : Array = [
 { "image": preload("res://Assets/cutscene assets/cutscene 1.png"), "lines": [
-		{"speaker": "Player", "text": "I’m sure you know these lands are not made for the weak, you know? The moon gives power to the fiercest gangs of beasts I’ve ever seen."},
+		{"speaker": "Player", "text": "I’m sure you know these lands are not made for the weak. The moon gives power to the fiercest gangs of beasts I’ve ever seen."},
 		{"speaker": "Cowboy", "text": "But, you were the one that brought those devils to justice, were you not?"},
 		{"speaker": "Player", "text": "You’re gonna ask me how I did it, huh? That’s a whole can of worms you’re opening up kid."},
 		{"speaker": "Cowboy", "text": "Please, tell me."},
@@ -23,7 +23,7 @@ var dialogue_data : Array = [
 		{"speaker": "Player", "text": "Yup, my good ol’ trusty revolver and whip. Great tools for dealing with those vermin."},
 		{"speaker": "Cowboy", "text": "You must be a great shot then, huh?"},
 		{"speaker": "Player", "text": "You’d be right. All it took was an aim with the CURSOR and a simple flick of the LEFT CLICK to shoot those demons. And when a man is low on rounds, he needs to R to reload."},
-		{"speaker": "Cowboy", "text": "You must be a great shot then, huh? What about your whip?"},
+		{"speaker": "Cowboy", "text": "What about your whip?"},
 		{"speaker": "Player", "text": "Oh yeah, my whip. Sometimes it’s hard to get your shot when they’re up close to you, so a man needs something that can hit ‘em good up close. My whip has never let me down. It gets the job done whenever I RIGHT CLICK. I’d say it even hits them harder than my gun sometimes. There’s nothing more satisfying than getting those baddies good."},
 		{"speaker": "Cowboy", "text": "You really got some fancy tools on you, don’t you? But, what else did you see on your journey?"},
 		{"speaker": "Player", "text": "That’s a good question. You’d honestly be shocked to hear."}

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://cutscene.gd" id="1_4cyk8"]
 [ext_resource type="Texture2D" uid="uid://d2kvnb527an8w" path="res://Assets/cutscene assets/dialogue boxes-02.png" id="2_jkv4e"]
-[ext_resource type="FontFile" uid="uid://dyet8d47q107a" path="res://Assets/cutscene assets/GothicPixels.ttf" id="3_8kjih"]
+[ext_resource type="FontFile" uid="uid://b6cxeh2ocxfkn" path="res://Assets/hud assets/gomarice_block_western.ttf" id="3_vyo1x"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_4cyk8")
@@ -14,6 +14,7 @@ offset_right = 1255.0
 offset_bottom = 676.0
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
 offset_left = -51.0
 offset_top = 20.0
 offset_right = 1284.0
@@ -22,6 +23,7 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="Dialogue Box" type="TextureRect" parent="Panel"]
+layout_mode = 0
 offset_left = 59.0
 offset_top = 23.0
 offset_right = 1221.67
@@ -31,20 +33,22 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 369.0
 offset_top = 507.0
 offset_right = 1160.0
 offset_bottom = 614.0
-theme_override_colors/font_color = Color(0.658824, 0.545098, 0.466667, 1)
-theme_override_fonts/font = ExtResource("3_8kjih")
+theme_override_colors/font_color = Color(0.84, 0.73416, 0.6636, 1)
+theme_override_fonts/font = ExtResource("3_vyo1x")
 autowrap_mode = 2
 
 [node name="SpeakerNameLabel" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 99.0
 offset_top = 640.0
 offset_right = 255.0
 offset_bottom = 669.0
-theme_override_colors/font_color = Color(0.290196, 0.215686, 0.180392, 1)
-theme_override_fonts/font = ExtResource("3_8kjih")
+theme_override_colors/font_color = Color(0.79, 0.584863, 0.4898, 1)
+theme_override_fonts/font = ExtResource("3_vyo1x")
 horizontal_alignment = 1
 vertical_alignment = 1

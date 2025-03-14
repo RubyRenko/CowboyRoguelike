@@ -204,7 +204,6 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_out16"]
 font = ExtResource("29_ssbfb")
 font_size = 25
-font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_x3a4p"]
@@ -424,8 +423,8 @@ script = ExtResource("7_7cw2e")
 
 [node name="WaveAnim" type="AnimatedSprite2D" parent="Gui"]
 visible = false
-position = Vector2(577, 145)
-scale = Vector2(0.08, 0.08)
+position = Vector2(567, 145)
+scale = Vector2(0.128278, 0.112761)
 sprite_frames = SubResource("SpriteFrames_ecpgm")
 frame = 11
 frame_progress = 0.502811
@@ -439,23 +438,32 @@ libraries = {
 }
 
 [node name="WaveBar" parent="Gui" instance=ExtResource("34_03012")]
-offset_left = 881.0
-offset_top = 618.0
-offset_right = 1140.0
-offset_bottom = 640.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 301.0
+offset_top = 41.0
+offset_right = 560.0
+offset_bottom = 63.0
+grow_horizontal = 2
 
 [node name="WaveBarLabel" type="Label" parent="Gui"]
-offset_left = 882.0
-offset_top = 587.0
-offset_right = 1065.0
-offset_bottom = 618.0
-text = "Next wave:"
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 301.0
+offset_top = 10.0
+offset_right = 484.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "Next wave"
 label_settings = SubResource("LabelSettings_out16")
 
 [node name="CowboyPlayer" parent="." instance=ExtResource("2_10jt5")]
 position = Vector2(212, 255)
 
 [node name="DesertTile" type="TileMap" parent="."]
+texture_filter = 1
 tile_set = SubResource("TileSet_vjrfc")
 format = 2
 layer_0/name = "0"
@@ -463,6 +471,7 @@ layer_0/tile_data = PackedInt32Array(393242, 65536, 2)
 layer_1/name = "1"
 
 [node name="DesertSprites" type="TileMapLayer" parent="."]
+texture_filter = 1
 tile_map_data = PackedByteArray("AAAZAAkAAAACAAEAAAAEAPj/AgAAAAEAAAAEAPn/AgAAAAIAAAAFAPf/AgABAAAAAAAFAPj/AgABAAEAAAAFAPn/AgABAAIAAAAGAPf/AgACAAAAAAAGAPj/AgACAAEAAAAGAPn/AgACAAIAAAAHAPf/AwAAAAAAAAAHAPj/AwAAAAEAAAAHAPn/AwAAAAIAAAAIAPf/AwABAAAAAAAIAPj/AwABAAEAAAAIAPn/AwABAAIAAAAJAPf/AwACAAAAAAAJAPj/AwACAAEAAAAJAPn/AwACAAIAAAALAPj/AAAAAAAAAAALAPn/AAAAAAEAAAAMAPj/AAABAAAAAAAMAPn/AAABAAEAAAANAPj/AAACAAAAAAAOAPj/AAACAAIAAAAPAPj/AAAAAAIAAAABAPf/AQAAAAAAAAABAPj/AQAAAAEAAAABAPn/AQAAAAIAAAACAPf/AQABAAAAAAACAPj/AQABAAEAAAACAPn/AQABAAIAAAADAPf/AQACAAAAAAADAPj/AQACAAEAAAADAPn/AQACAAIAAAAEAPf/AgAAAAAAAAA=")
 tile_set = SubResource("TileSet_35da2")
 
