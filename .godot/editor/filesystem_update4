@@ -1,32 +1,14 @@
-res://animated_sprite_2d.gd
-res://Assets/hud assets/TitleBig.tres
-res://Assets/hud assets/TextBig2.tres
-res://Assets/hud assets/Text.tres
-res://death_audio_player.gd
 res://pause_menu.tscn
-res://GoatHead.gd
 res://desert_room.tscn
-res://shop.tscn
-res://goat_head.tscn
-res://goat_head_alt.tscn
-res://cowboy_player.tscn
 res://moth.tscn
-res://wave_bar.tscn
-res://moth_alt.tscn
 res://larva.tscn
-res://main_menu.tscn
-res://inventory_display.tscn
-res://game_over.tscn
-res://forest_room.tscn
 res://melee.tscn
 res://hud.tscn
-res://goat_blood.tscn
 res://enemy_death_splat.tscn
-res://goat_head_alt.gd
-res://mothkid_sfx.gd
-res://moth.gd
-res://moth_alt.gd
-res://larva_sfx.gd
-res://desert_room.gd
-res://larva.gd
-res://forest_room.gd
+res://forest_room.tscn
+res://cutscene.gd
+res://cutscene.tscn
+res://menu_baclground.gd
+res://texture_button.gd
+res://main_menu2.tscn
+res://menu_background.gd
