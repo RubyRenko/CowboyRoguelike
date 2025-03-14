@@ -18,14 +18,14 @@ func enter():
 	else:
 		target.y -= 150
 	owner.target = target
-	owner.speed = 600
+	owner.speed = 500
 	#print(owner.target)
 		
 		
 func exit():
 	super.exit()
 	owner.set_physics_process(false)
-	owner.speed = 250
+	owner.speed = 200
 	await get_tree().create_timer(1).timeout
 
 func transition():
@@ -33,4 +33,4 @@ func transition():
 		get_parent().change_state("Follow")
 		
 func _on_slash_area_body_entered(body):
-	in_slash_range = true
+	owner.player.hurt(0.5)

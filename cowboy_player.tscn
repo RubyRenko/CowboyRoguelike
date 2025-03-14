@@ -383,7 +383,7 @@ script = ExtResource("5_wqsxw")
 one_shot = true
 
 [node name="Dash_Timer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.499
 one_shot = true
 
 [node name="Thunder_Timer" type="Timer" parent="."]
