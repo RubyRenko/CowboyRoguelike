@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b2ph57qbsy05b"
+path="res://.godot/imported/Main Theme (GAMEREADY).ogg-a72bfcc3ef39511d095dc8933bbd392c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sound/Music/Main Theme (GAMEREADY).ogg"
+dest_files=["res://.godot/imported/Main Theme (GAMEREADY).ogg-a72bfcc3ef39511d095dc8933bbd392c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

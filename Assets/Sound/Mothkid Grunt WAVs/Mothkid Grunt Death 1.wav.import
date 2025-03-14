@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b41l6rfbnnnhj"
+path="res://.godot/imported/Mothkid Grunt Death 1.wav-e2ab242e8d2b772a264ede2e4d7670bb.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Mothkid Grunt WAVs/Mothkid Grunt Death 1.wav"
+dest_files=["res://.godot/imported/Mothkid Grunt Death 1.wav-e2ab242e8d2b772a264ede2e4d7670bb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

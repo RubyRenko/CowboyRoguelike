@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://br0241t2w51yl"
+path="res://.godot/imported/Mothkid Grunt Spit.wav-a0f9c7fc0f0c3f13c1b50144e9af86cd.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Mothkid Grunt WAVs/Mothkid Grunt Spit.wav"
+dest_files=["res://.godot/imported/Mothkid Grunt Spit.wav-a0f9c7fc0f0c3f13c1b50144e9af86cd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

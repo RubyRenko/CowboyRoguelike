@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bng0hbkn5u3v"
+path="res://.godot/imported/Large Larva Slither.wav-0841ff36f986d39e8f4a642d68ab206f.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Larga Larva WAVs/Large Larva Slither.wav"
+dest_files=["res://.godot/imported/Large Larva Slither.wav-0841ff36f986d39e8f4a642d68ab206f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

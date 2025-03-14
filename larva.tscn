@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://r33j7536vo7y"]
+[gd_scene load_steps=17 format=3 uid="uid://r33j7536vo7y"]
 
 [ext_resource type="Script" path="res://larva.gd" id="1_3xopi"]
 [ext_resource type="Texture2D" uid="uid://do7kpmho4fj1h" path="res://Assets/sprites/Enemies/wormmove/wormmove_0000.png" id="2_3crli"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bsfu64kf4pn6i" path="res://Assets/sprites/Enemies/wormmove/wormmove_0005.png" id="7_tjnha"]
 [ext_resource type="Texture2D" uid="uid://b2gcaexrrpqva" path="res://Assets/sprites/Enemies/wormmove/wormmove_0006.png" id="8_j2qm8"]
 [ext_resource type="Texture2D" uid="uid://c0vomfwy1jsjt" path="res://Assets/sprites/Enemies/wormmove/wormmove_0007.png" id="9_r0ofo"]
+[ext_resource type="Script" path="res://larva_sfx.gd" id="10_1utbi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s6gxr"]
 radius = 337.073
@@ -110,6 +111,11 @@ theme_override_styles/background = SubResource("StyleBoxFlat_rtvym")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rg0w7")
 value = 20.0
 show_percentage = false
+
+[node name="LarvaSfx" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+max_distance = 1000.0
+script = ExtResource("10_1utbi")
 
 [connection signal="body_entered" from="SenseArea" to="." method="_on_sense_area_body_entered"]
 [connection signal="body_exited" from="SenseArea" to="." method="_on_sense_area_body_exited"]

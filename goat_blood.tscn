@@ -3,18 +3,18 @@
 [ext_resource type="Script" path="res://GoatBlood.gd" id="1_burqr"]
 [ext_resource type="Texture2D" uid="uid://di1f3vqutx7x3" path="res://Assets/sprites/GoatBlood.png" id="2_it4ml"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipb08"]
-size = Vector2(26, 18)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kkiq"]
+size = Vector2(29, 20)
 
 [node name="GoatBlood" type="Area2D" groups=["enemy_prod"]]
 script = ExtResource("1_burqr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ipb08")
+shape = SubResource("RectangleShape2D_1kkiq")
 
 [node name="GoatBloodSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-1, -11)
+scale = Vector2(0.671875, 0.59375)
 texture = ExtResource("2_it4ml")
 
 [node name="Timer" type="Timer" parent="."]
@@ -22,15 +22,14 @@ wait_time = 3.0
 autostart = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." groups=["enemy_prod"]]
-amount = 5
 lifetime = 0.5
 emission_shape = 3
-emission_rect_extents = Vector2(20, 10)
+emission_rect_extents = Vector2(30, 20)
 gravity = Vector2(0, -30)
 angular_velocity_min = -232.73
 angular_velocity_max = 276.36
-scale_amount_min = 3.0
-scale_amount_max = 6.0
+scale_amount_min = 5.0
+scale_amount_max = 8.0
 color = Color(0.1353, 0.66, 0.066, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

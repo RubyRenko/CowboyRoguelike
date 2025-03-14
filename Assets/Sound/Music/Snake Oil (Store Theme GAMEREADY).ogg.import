@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://u76l47vyjuh"
+path="res://.godot/imported/Snake Oil (Store Theme GAMEREADY).ogg-4993ac6db0e20357dd740e6833e67e61.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sound/Music/Snake Oil (Store Theme GAMEREADY).ogg"
+dest_files=["res://.godot/imported/Snake Oil (Store Theme GAMEREADY).ogg-4993ac6db0e20357dd740e6833e67e61.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

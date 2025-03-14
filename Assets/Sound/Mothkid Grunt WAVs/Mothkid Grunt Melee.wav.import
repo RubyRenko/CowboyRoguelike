@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bcf71rq32jyf7"
+path="res://.godot/imported/Mothkid Grunt Melee.wav-16f3fb63bfd2954ccb20810c071e44ab.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Mothkid Grunt WAVs/Mothkid Grunt Melee.wav"
+dest_files=["res://.godot/imported/Mothkid Grunt Melee.wav-16f3fb63bfd2954ccb20810c071e44ab.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1741558800
+::res://::1741919690
 AudioManager.gd::GDScript::-1::1739162551::0::1::::<>Node2D<>::
 AudioPlayer.gd::GDScript::-1::1741426550::0::1::::<>AudioStreamPlayer2D<>::
 audio_player.gd::GDScript::-1::1741385631::0::1::::<>AudioStreamPlayer2D<>::
@@ -10,24 +10,24 @@ bigfoot.tscn::PackedScene::3750543554253516088::1739053392::0::1::::<><>::res://
 bigfoot_shopkeep.gd::GDScript::-1::1741307638::0::1::::<>StaticBody2D<>::
 boss_room_test.tscn::PackedScene::4846270261737087696::1740434571::0::1::::<><>::uid://bv6nmywn88rro::::res://chubacabra.tscn<>uid://be3fpwoys47ky::::res://cowboy_player.tscn
 Bullet.gd::GDScript::-1::1741427892::0::1::::<>Node2D<>::
-bullet.tscn::PackedScene::207685315265105694::1741495237::0::1::::<><>::res://Bullet.gd<>uid://d28cs3nsjlcyc::::res://Assets/ItemSprites/Bullet_sprite.png
+bullet.tscn::PackedScene::207685315265105694::1741564037::0::1::::<><>::res://Bullet.gd<>uid://d28cs3nsjlcyc::::res://Assets/ItemSprites/Bullet_sprite.png
 BulletDisplay.gd::GDScript::-1::1739324502::0::1::::<>HBoxContainer<>::
 BulletHUD.gd::GDScript::-1::1739162551::0::1::::<>Sprite2D<>::
-bullet_nessie.gd::GDScript::-1::1741427875::0::1::::<>Node2D<>::
-bullet_nessie.tscn::PackedScene::6178881209191587989::1741495237::0::1::::<><>::res://bullet_nessie.gd<>uid://csb2omfweod5c::::res://Assets/ItemSprites/nessie tooth-02.png
+bullet_nessie.gd::GDScript::-1::1741561055::0::1::::<>Area2D<>::
+bullet_nessie.tscn::PackedScene::6178881209191587989::1741564037::0::1::::<><>::res://bullet_nessie.gd<>uid://csb2omfweod5c::::res://Assets/ItemSprites/nessie tooth-02.png
 cadejo_pickup.gd::GDScript::-1::1741391044::0::1::::<>Area2D<>::
 CameraShake.gd::GDScript::-1::1739260846::0::1::::<>Camera2D<>::
 chubacabra.gd::GDScript::-1::1740434571::0::1::::<>CharacterBody2D<>::
 chubacabra.tscn::PackedScene::3925194156082634444::1740545917::0::1::::<><>::uid://cncqrwitl7bjk::::res://Assets/sprites/chubasprite.png<>res://chubacabra.gd<>res://finite_state_machine.gd<>res://idle.gd<>res://state.gd<>res://follow.gd<>res://slash.gd<>res://dash.gd
 coin.tscn::PackedScene::6157002397297251083::1741495236::0::1::::<><>::res://Pickup.gd<>uid://c1ddpcaale3w3::::res://Assets/hud assets/coins-03.png
-CowboyPlayer.gd::GDScript::-1::1741428732::0::1::::CowboyPlayer<>CharacterBody2D<>::
-cowboy_player.tscn::PackedScene::2725310185487956468::1741495236::0::1::::<><>::res://CowboyPlayer.gd<>uid://c1lbkgla6h58g::::res://Assets/sprites/Player sprite/back/walk-back0.png<>uid://dgqg84mys600c::::res://Assets/sprites/Player sprite/back/walk-back1.png<>uid://c250b1jsgirxu::::res://Assets/ThunderParticle3.png<>uid://bd17s43x8bvnf::::res://Assets/sprites/Player sprite/back/walk-back2.png<>uid://5dmmsxkmaq8s::::res://Assets/sprites/Player sprite/back/walk-back3.png<>res://CameraShake.gd<>uid://b0ss7lmfxgt1x::::res://Assets/sprites/Player sprite/back/walk-back4.png<>uid://bup0idojnk4x1::::res://Assets/sprites/Player sprite/back/walk-back5.png<>uid://bd15k20ikk6lo::::res://hud.tscn<>uid://j3kyw01la2pf::::res://Assets/sprites/Player sprite/back/walk-back6.png<>uid://dmiwlom4nce57::::res://Assets/sprites/Player sprite/back/walk-back7.png<>res://AudioPlayer.gd<>uid://buso05m88nxci::::res://Assets/sprites/Player sprite/back/idle-back0.png<>uid://cnbq0uqqeqxt7::::res://Assets/Sound/Player Gun Click.wav<>uid://cqu1df7doashu::::res://Assets/sprites/Player sprite/forward/walk-front0.png<>uid://djjp4hy6tv085::::res://Assets/sprites/Player sprite/back/idle-back1.png<>uid://dibn2ui3vh2iq::::res://Assets/sprites/Player sprite/back/dash-back.png<>uid://chcyysqxcjw8k::::res://Assets/sprites/Player sprite/forward/walk-front1.png<>uid://f407ptend02v::::res://Assets/sprites/Player sprite/back/idle-back2.png<>uid://cac4vxkmwm5en::::res://melee.tscn<>uid://do7acrdusfcw3::::res://Assets/sprites/Player sprite/back/idle-back3.png<>uid://bfxw2b271valy::::res://Assets/sprites/Player sprite/forward/walk-front2.png<>uid://dumlykmsk05vw::::res://Assets/sprites/Player sprite/forward/walk-front3.png<>uid://bc0uhfoechddb::::res://Assets/sprites/Player sprite/forward/walk-front4.png<>uid://daop6c56n5h17::::res://Assets/sprites/Player sprite/forward/walk-front5.png<>uid://cct7usouxyx4h::::res://Assets/sprites/Player sprite/forward/walk-front6.png<>uid://k3u3eascj18j::::res://Assets/sprites/Player sprite/forward/walk-front7.png<>uid://dksabnv54iv2i::::res://Assets/sprites/Player sprite/side/walk-side0.png<>uid://bmiai3o3ap4i8::::res://Assets/sprites/Player sprite/side/walk-side1.png<>uid://b306am3gm5rc2::::res://Assets/sprites/Player sprite/forward/idle-front0.png<>uid://db738x2odkeuo::::res://Assets/sprites/Player sprite/side/walk-side2.png<>uid://dnr8o3cskrq65::::res://Assets/sprites/Player sprite/forward/idle-front1.png<>uid://ci5bj1nkvdwed::::res://Assets/sprites/Player sprite/side/walk-side3.png<>uid://5k1gdigsc58g::::res://Assets/sprites/Player sprite/forward/idle-front2.png<>uid://du6u7lsqgn40l::::res://Assets/sprites/Player sprite/side/walk-side4.png<>uid://c1cf88ptrxayj::::res://Assets/sprites/Player sprite/forward/idle-front3.png<>uid://bwm3n4jshv40d::::res://Assets/sprites/Player sprite/forward/dash-front.png<>uid://fcn5hlysgdil::::res://Assets/sprites/Player sprite/side/walk-side5.png<>uid://djhnjymxougr1::::res://Assets/sprites/Player sprite/side/walk-side6.png<>uid://b20j07hvav7fq::::res://Assets/sprites/Player sprite/side/walk-side7.png<>uid://cd32vd56k5jj5::::res://Assets/sprites/Player sprite/side/idle-side0.png<>uid://dod1bjfqe7oiu::::res://Assets/sprites/Player sprite/side/idle-side1.png<>uid://nlvjbomq4de2::::res://Assets/sprites/Player sprite/side/idle-side2.png<>uid://c7e6b8jhtkgu2::::res://Assets/sprites/Player sprite/side/idle-side3.png<>uid://bm7062nwa25te::::res://Assets/sprites/Player sprite/side/dash side.png<>res://thunderbird_area.gd<>uid://d18gh6v6mtf71::::res://dash_bar.tscn<>uid://btdqjt3tlyvo1::::res://Assets/Sound/General Sound WAVs/Player Die 1.wav<>res://die_audio_player.gd
+CowboyPlayer.gd::GDScript::-1::1741563427::0::1::::CowboyPlayer<>CharacterBody2D<>::
+cowboy_player.tscn::PackedScene::2725310185487956468::1741914985::0::1::::<><>::res://CowboyPlayer.gd<>uid://c1lbkgla6h58g::::res://Assets/sprites/Player sprite/back/walk-back0.png<>uid://dgqg84mys600c::::res://Assets/sprites/Player sprite/back/walk-back1.png<>uid://c250b1jsgirxu::::res://Assets/ThunderParticle3.png<>uid://bd17s43x8bvnf::::res://Assets/sprites/Player sprite/back/walk-back2.png<>uid://5dmmsxkmaq8s::::res://Assets/sprites/Player sprite/back/walk-back3.png<>res://CameraShake.gd<>uid://b0ss7lmfxgt1x::::res://Assets/sprites/Player sprite/back/walk-back4.png<>uid://bup0idojnk4x1::::res://Assets/sprites/Player sprite/back/walk-back5.png<>uid://bd15k20ikk6lo::::res://hud.tscn<>uid://j3kyw01la2pf::::res://Assets/sprites/Player sprite/back/walk-back6.png<>uid://dmiwlom4nce57::::res://Assets/sprites/Player sprite/back/walk-back7.png<>res://AudioPlayer.gd<>uid://buso05m88nxci::::res://Assets/sprites/Player sprite/back/idle-back0.png<>uid://cnbq0uqqeqxt7::::res://Assets/Sound/Player Gun Click.wav<>uid://cqu1df7doashu::::res://Assets/sprites/Player sprite/forward/walk-front0.png<>uid://djjp4hy6tv085::::res://Assets/sprites/Player sprite/back/idle-back1.png<>uid://dibn2ui3vh2iq::::res://Assets/sprites/Player sprite/back/dash-back.png<>uid://chcyysqxcjw8k::::res://Assets/sprites/Player sprite/forward/walk-front1.png<>uid://f407ptend02v::::res://Assets/sprites/Player sprite/back/idle-back2.png<>uid://cac4vxkmwm5en::::res://melee.tscn<>uid://do7acrdusfcw3::::res://Assets/sprites/Player sprite/back/idle-back3.png<>uid://bfxw2b271valy::::res://Assets/sprites/Player sprite/forward/walk-front2.png<>uid://dumlykmsk05vw::::res://Assets/sprites/Player sprite/forward/walk-front3.png<>uid://bc0uhfoechddb::::res://Assets/sprites/Player sprite/forward/walk-front4.png<>uid://daop6c56n5h17::::res://Assets/sprites/Player sprite/forward/walk-front5.png<>uid://cct7usouxyx4h::::res://Assets/sprites/Player sprite/forward/walk-front6.png<>uid://k3u3eascj18j::::res://Assets/sprites/Player sprite/forward/walk-front7.png<>uid://dksabnv54iv2i::::res://Assets/sprites/Player sprite/side/walk-side0.png<>uid://bmiai3o3ap4i8::::res://Assets/sprites/Player sprite/side/walk-side1.png<>uid://b306am3gm5rc2::::res://Assets/sprites/Player sprite/forward/idle-front0.png<>uid://db738x2odkeuo::::res://Assets/sprites/Player sprite/side/walk-side2.png<>uid://dnr8o3cskrq65::::res://Assets/sprites/Player sprite/forward/idle-front1.png<>uid://ci5bj1nkvdwed::::res://Assets/sprites/Player sprite/side/walk-side3.png<>uid://5k1gdigsc58g::::res://Assets/sprites/Player sprite/forward/idle-front2.png<>uid://du6u7lsqgn40l::::res://Assets/sprites/Player sprite/side/walk-side4.png<>uid://c1cf88ptrxayj::::res://Assets/sprites/Player sprite/forward/idle-front3.png<>uid://bwm3n4jshv40d::::res://Assets/sprites/Player sprite/forward/dash-front.png<>uid://fcn5hlysgdil::::res://Assets/sprites/Player sprite/side/walk-side5.png<>uid://djhnjymxougr1::::res://Assets/sprites/Player sprite/side/walk-side6.png<>uid://b20j07hvav7fq::::res://Assets/sprites/Player sprite/side/walk-side7.png<>uid://cd32vd56k5jj5::::res://Assets/sprites/Player sprite/side/idle-side0.png<>uid://dod1bjfqe7oiu::::res://Assets/sprites/Player sprite/side/idle-side1.png<>uid://nlvjbomq4de2::::res://Assets/sprites/Player sprite/side/idle-side2.png<>uid://c7e6b8jhtkgu2::::res://Assets/sprites/Player sprite/side/idle-side3.png<>uid://bm7062nwa25te::::res://Assets/sprites/Player sprite/side/dash side.png<>res://thunderbird_area.gd<>uid://d18gh6v6mtf71::::res://dash_bar.tscn<>uid://btdqjt3tlyvo1::::res://Assets/Sound/General Sound WAVs/Player Die 1.wav<>res://die_audio_player.gd
 dark_watcher_pickup.gd::GDScript::-1::1741391169::0::1::::<>Area2D<>::
 dash.gd::GDScript::-1::1740434571::0::1::::<>State<>::
 dash_bar.gd::GDScript::-1::1741307644::0::1::::<>ProgressBar<>::
-dash_bar.tscn::PackedScene::9052674916156085862::1741339625::0::1::::<><>::res://dash_bar.gd
-desert_room.gd::GDScript::-1::1741495235::0::1::::<>Node2D<>::
-desert_room.tscn::PackedScene::2652477569240927236::1741495236::0::1::::<><>::uid://dw5fubqtnb7we::::res://Assets/Tilemaps/DesertTileset.png<>res://desert_room.gd<>uid://be3fpwoys47ky::::res://cowboy_player.tscn<>res://wave_sfx_player.gd<>uid://58lyhuaolr4f::::res://Assets/Tilemaps/tempWall.png<>uid://ca1ge4oryjerg::::res://Assets/Tilemaps/building_l.png<>uid://klnmu5125dt::::res://Assets/Sound/Music/44 Forest (Forest Theme GAMEREADY).ogg<>uid://b1iy1e5pnw0od::::res://Assets/hud assets/GothicPixels.ttf<>uid://rpyhphkuii7q::::res://Assets/Tilemaps/building2.png<>res://wave_label.gd<>uid://upjgy0hvydb4::::res://Assets/Tilemaps/building_3.png<>uid://cwehfgnhh31yo::::res://Assets/hud assets/wave tiles/waves-01.png<>uid://dvaghdj4rpbo5::::res://Assets/Tilemaps/Desert_Sprites.png<>res://wave_anim.gd<>uid://ea284dqrb8dw::::res://Assets/hud assets/wave tiles/waves-02.png<>uid://dgfjyn5pgjh88::::res://Assets/hud assets/wave tiles/waves-03.png<>uid://dcanntcv24djo::::res://Assets/hud assets/wave tiles/waves-04.png<>uid://c8o5obycibejg::::res://Assets/hud assets/wave tiles/waves-05.png<>uid://cd886vtom1grn::::res://Assets/hud assets/wave tiles/waves-06.png<>uid://4w43ejlqvyh3::::res://Assets/hud assets/wave tiles/waves-07.png<>uid://cfjacv6isohca::::res://Assets/hud assets/wave tiles/waves-08.png<>uid://bn7ky7hgrye0q::::res://Assets/hud assets/wave tiles/waves-09.png<>uid://o1omdjupqxu0::::res://Assets/hud assets/wave tiles/waves-10.png<>uid://bpjpne0w6p16q::::res://Assets/hud assets/wave tiles/waves-11.png<>uid://bu5jmu3oblk04::::res://Assets/hud assets/wave tiles/waves-12.png<>uid://fxgj8u0yqyga::::res://Assets/hud assets/wave tiles/waves-13.png<>uid://cs8mbt0kenb8g::::res://Assets/hud assets/wave tiles/waves-14.png<>uid://b02xqy2rfcxju::::res://Assets/hud assets/wave tiles/waves-15.png<>uid://br6nn17yb8uw8::::res://Assets/hud assets/wave tiles/waves-16.png<>uid://0wgx88fgrut::::res://Assets/hud assets/wave tiles/waves-17.png<>uid://pivxvelbhkgx::::res://Assets/hud assets/wave tiles/waves-18.png<>uid://jykr8l2mpjh2::::res://Assets/hud assets/wave tiles/waves-19.png<>uid://girmk7tt42hy::::res://Assets/hud assets/wave tiles/waves-20.png<>uid://bh68xq7v3vfvv::::res://pause_menu.tscn<>uid://gr0y08a5x875::::res://wave_bar.tscn<>uid://bdolt4s3v62ei::::res://Assets/hud assets/TextBig2.tres
+dash_bar.tscn::PackedScene::9052674916156085862::1741564037::0::1::::<><>::res://dash_bar.gd
+desert_room.gd::GDScript::-1::1741914138::0::1::::<>Node2D<>::
+desert_room.tscn::PackedScene::2652477569240927236::1741914985::0::1::::<><>::uid://dw5fubqtnb7we::::res://Assets/Tilemaps/DesertTileset.png<>res://desert_room.gd<>uid://be3fpwoys47ky::::res://cowboy_player.tscn<>res://wave_sfx_player.gd<>uid://58lyhuaolr4f::::res://Assets/Tilemaps/tempWall.png<>uid://ca1ge4oryjerg::::res://Assets/Tilemaps/building_l.png<>uid://klnmu5125dt::::res://Assets/Sound/Music/44 Forest (Forest Theme GAMEREADY).ogg<>uid://b1iy1e5pnw0od::::res://Assets/hud assets/GothicPixels.ttf<>uid://rpyhphkuii7q::::res://Assets/Tilemaps/building2.png<>res://wave_label.gd<>uid://upjgy0hvydb4::::res://Assets/Tilemaps/building_3.png<>uid://cwehfgnhh31yo::::res://Assets/hud assets/wave tiles/waves-01.png<>uid://dvaghdj4rpbo5::::res://Assets/Tilemaps/Desert_Sprites.png<>res://wave_anim.gd<>uid://ea284dqrb8dw::::res://Assets/hud assets/wave tiles/waves-02.png<>uid://dgfjyn5pgjh88::::res://Assets/hud assets/wave tiles/waves-03.png<>uid://dcanntcv24djo::::res://Assets/hud assets/wave tiles/waves-04.png<>uid://c8o5obycibejg::::res://Assets/hud assets/wave tiles/waves-05.png<>uid://cd886vtom1grn::::res://Assets/hud assets/wave tiles/waves-06.png<>uid://4w43ejlqvyh3::::res://Assets/hud assets/wave tiles/waves-07.png<>uid://cfjacv6isohca::::res://Assets/hud assets/wave tiles/waves-08.png<>uid://bn7ky7hgrye0q::::res://Assets/hud assets/wave tiles/waves-09.png<>uid://o1omdjupqxu0::::res://Assets/hud assets/wave tiles/waves-10.png<>uid://bpjpne0w6p16q::::res://Assets/hud assets/wave tiles/waves-11.png<>uid://bu5jmu3oblk04::::res://Assets/hud assets/wave tiles/waves-12.png<>uid://fxgj8u0yqyga::::res://Assets/hud assets/wave tiles/waves-13.png<>uid://cs8mbt0kenb8g::::res://Assets/hud assets/wave tiles/waves-14.png<>uid://b02xqy2rfcxju::::res://Assets/hud assets/wave tiles/waves-15.png<>uid://br6nn17yb8uw8::::res://Assets/hud assets/wave tiles/waves-16.png<>uid://0wgx88fgrut::::res://Assets/hud assets/wave tiles/waves-17.png<>uid://pivxvelbhkgx::::res://Assets/hud assets/wave tiles/waves-18.png<>uid://jykr8l2mpjh2::::res://Assets/hud assets/wave tiles/waves-19.png<>uid://girmk7tt42hy::::res://Assets/hud assets/wave tiles/waves-20.png<>uid://b6cxeh2ocxfkn::::res://Assets/hud assets/gomarice_block_western.ttf<>uid://bh68xq7v3vfvv::::res://pause_menu.tscn<>uid://gr0y08a5x875::::res://wave_bar.tscn
 dialogue.gd::GDScript::-1::1741307638::0::1::::<>CanvasLayer<>::
 dialogue.tscn::PackedScene::574069624189239303::1741307638::0::1::::<><>::res://dialogue.gd<>uid://iips0p3s7elp::::res://Assets/hud assets/dialogue boxes-02.png<>uid://dik4ja21v8uu7::::res://Assets/sprites/BigFootProfAnim.png<>uid://dpvqkfwrjjbk8::::res://Assets/sprites/YetiAnim_01-Sheet.png<>uid://b1iy1e5pnw0od::::res://Assets/hud assets/GothicPixels.ttf
 die_audio_player.gd::GDScript::-1::1741428358::0::1::::<>AudioStreamPlayer2D<>::
@@ -36,44 +36,55 @@ enemy.gd::GDScript::-1::1739162551::0::1::::<>CharacterBody2D<>::
 enemy.tscn::PackedScene::9204635795021369272::1739159323::0::1::::<><>::uid://2etw3x73l1d6::::res://Assets/Cube.png<>res://enemy.gd
 Exit2.gd::GDScript::-1::1739163060::0::1::::<>Area2D<>::
 Exit.gd::GDScript::-1::1739163120::0::1::::<>Area2D<>::
-export_presets.cfg::TextFile::-1::1739326347::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1741568396::0::1::::<><>::
 finite_state_machine.gd::GDScript::-1::1740434571::0::1::::<>Node2D<>::
 FlatwoodPickup.gd::GDScript::-1::1739326833::0::1::::<>Area2D<>::
 FlatwoodsPickup.gd::GDScript::-1::1741391169::0::1::::<>Area2D<>::
 follow.gd::GDScript::-1::1740434571::0::1::::<>State<>::
 forest_room.gd::GDScript::-1::1739487655::0::1::::<>Node2D<>::
-forest_room.tscn::PackedScene::6477576450019100078::1741211128::0::1::::<><>::res://forest_room.gd<>uid://cuc6wb3awlf2p::::res://Assets/Tilemaps/Forest_tileset07.png<>uid://clravkd2h58y1::::res://Assets/Tilemaps/Forest_tileset05.png<>uid://58lyhuaolr4f::::res://Assets/Tilemaps/tempWall.png<>uid://br4a8npn2yejb::::res://Assets/Tilemaps/Forest_tileset04.png<>uid://bnqv2vk5khfu5::::res://Assets/Tilemaps/ForestDetails7Tiled.png<>uid://be3fpwoys47ky::::res://cowboy_player.tscn<>uid://by17hhjx0eur6::::res://Assets/Tilemaps/ForestDetails_04Tiled.png<>uid://klnmu5125dt::::res://Assets/Sound/Music/44 Forest (Forest Theme GAMEREADY).ogg
+forest_room.tscn::PackedScene::6477576450019100078::1741914986::0::1::::<><>::res://forest_room.gd<>uid://cuc6wb3awlf2p::::res://Assets/Tilemaps/Forest_tileset07.png<>uid://clravkd2h58y1::::res://Assets/Tilemaps/Forest_tileset05.png<>uid://58lyhuaolr4f::::res://Assets/Tilemaps/tempWall.png<>uid://br4a8npn2yejb::::res://Assets/Tilemaps/Forest_tileset04.png<>uid://bnqv2vk5khfu5::::res://Assets/Tilemaps/ForestDetails7Tiled.png<>uid://be3fpwoys47ky::::res://cowboy_player.tscn<>uid://by17hhjx0eur6::::res://Assets/Tilemaps/ForestDetails_04Tiled.png<>uid://klnmu5125dt::::res://Assets/Sound/Music/44 Forest (Forest Theme GAMEREADY).ogg
 GameOver.gd::GDScript::-1::1739398244::0::1::::<>Node2D<>::
-game_over.tscn::PackedScene::2209444458219348627::1741214737::0::1::::<><>::res://GameOver.gd
+game_over.tscn::PackedScene::2209444458219348627::1741914986::0::1::::<><>::res://GameOver.gd
 GoatBlood.gd::GDScript::-1::1739162551::0::1::::<>Area2D<>::
-GoatHead.gd::GDScript::-1::1741427822::0::1::::<>CharacterBody2D<>::
-goat_blood.tscn::PackedScene::583260893891104391::1741495237::0::1::::<><>::res://GoatBlood.gd<>uid://di1f3vqutx7x3::::res://Assets/sprites/GoatBlood.png
-goat_head.tscn::PackedScene::6947146955970694915::1741495236::0::1::::<><>::res://GoatHead.gd<>uid://dtxn6rube6gcw::::res://Assets/sprites/chubaspriteminion.png<>uid://w6vysha5tlnr::::res://Assets/sprites/Enemies/goatmove/goatmove_0000.png<>uid://bikyiysvfv5l::::res://Assets/sprites/Enemies/goatmove/goatmove_0001.png<>uid://b00lnc7dwaug4::::res://Assets/sprites/Enemies/goatmove/goatmove_0002.png<>uid://ctsahlqqm14d3::::res://Assets/sprites/Enemies/goatmove/goatmove_0003.png<>uid://i0wo5ju45fic::::res://Assets/sprites/Enemies/goatmove/goatmove_0004.png<>uid://dn5u6cvnawdh0::::res://Assets/sprites/Enemies/goatmove/goatmove_0005.png<>uid://b8nkwwto47smi::::res://Assets/sprites/Enemies/goatmove/goatmove_0006.png
+GoatHead.gd::GDScript::-1::1741914437::0::1::::<>CharacterBody2D<>::
+goat_blood.tscn::PackedScene::583260893891104391::1741914986::0::1::::<><>::res://GoatBlood.gd<>uid://di1f3vqutx7x3::::res://Assets/sprites/GoatBlood.png
+goat_blood_bullet.gd::GDScript::-1::1741562770::0::1::::<>Area2D<>::
+goat_blood_bullet.tscn::PackedScene::6282887589602255321::1741564037::0::1::::<><>::res://goat_blood_bullet.gd<>uid://csb2omfweod5c::::res://Assets/ItemSprites/nessie tooth-02.png
+goat_head.tscn::PackedScene::6947146955970694915::1741914985::0::1::::<><>::res://GoatHead.gd<>uid://w6vysha5tlnr::::res://Assets/sprites/Enemies/goatmove/goatmove_0000.png<>uid://bikyiysvfv5l::::res://Assets/sprites/Enemies/goatmove/goatmove_0001.png<>uid://b00lnc7dwaug4::::res://Assets/sprites/Enemies/goatmove/goatmove_0002.png<>uid://ctsahlqqm14d3::::res://Assets/sprites/Enemies/goatmove/goatmove_0003.png<>uid://i0wo5ju45fic::::res://Assets/sprites/Enemies/goatmove/goatmove_0004.png<>uid://dn5u6cvnawdh0::::res://Assets/sprites/Enemies/goatmove/goatmove_0005.png<>uid://b8nkwwto47smi::::res://Assets/sprites/Enemies/goatmove/goatmove_0006.png<>res://goat_head_sfx.gd
+goat_head_alt.gd::GDScript::-1::1741563364::0::1::::<>CharacterBody2D<>::
+goat_head_alt.tscn::PackedScene::8602068623964435756::1741914985::0::1::::<><>::res://goat_head_alt.gd<>uid://chm0akb8niixd::::res://Assets/sprites/Enemies/goatmovealt/goatmovealt_0000.png<>uid://bfpa7kxws5wbp::::res://Assets/sprites/Enemies/goatmovealt/goatmovealt_0001.png<>uid://mvx4idfsn8kh::::res://Assets/sprites/Enemies/goatmovealt/goatmovealt_0002.png<>uid://br2fc5oov6ps6::::res://Assets/sprites/Enemies/goatmovealt/goatmovealt_0003.png<>uid://b8080ybl6whbb::::res://Assets/sprites/Enemies/goatmovealt/goatmovealt_0004.png<>uid://dh3wbu4dyk7b6::::res://Assets/sprites/Enemies/goatmovealt/goatmovealt_0005.png<>uid://hh4lbiauymko::::res://Assets/sprites/Enemies/goatmovealt/goatmovealt_0006.png
+goat_head_sfx.gd::GDScript::-1::1741914125::0::1::::<>AudioStreamPlayer2D<>::
 HpDisplay.gd::GDScript::-1::1741307637::0::1::::<>HBoxContainer<>::
 hp_display.tscn::PackedScene::8417549211277743709::1741307638::0::1::::<><>::res://HpDisplay.gd<>uid://chn1pdjdr2y1o::::res://Assets/hud assets/cow boy heart-02.png
-hud.tscn::PackedScene::2652501861062635568::1741495236::0::1::::<><>::uid://cebdnhre7ljlw::::res://Assets/hud assets/bullet chambers-02.png<>uid://irna5bc2y8mo::::res://Assets/hud assets/bullet chambers-03.png<>uid://2npyrk4ffbi::::res://Assets/hud assets/bullet chambers-04.png<>res://BulletDisplay.gd<>uid://b77crc3c1jgwd::::res://Assets/hud assets/bullet chambers-07.png<>uid://clls7w4ccbvci::::res://Assets/hud assets/bullet chambers-06.png<>uid://dw3hww6wc72mm::::res://Assets/hud assets/bullet chambers-05.png<>uid://rlpct1pe6cxh::::res://Assets/hud assets/bullet chambers-08.png<>uid://dr6r2nm4dswxx::::res://hp_display.tscn<>uid://degwg4r1qiskw::::res://Assets/hud assets/hot bar box-02.png<>uid://vir3upu5b4b5::::res://Assets/hud assets/coins-02.png<>uid://lxcfoyv578ae::::res://Assets/hud assets/hot bar box-1.png<>uid://cq2gv4dqgvdbs::::res://Assets/hud assets/hot bar box-2.png<>uid://dd8cqdbbj33j::::res://Assets/hud assets/hot bar box-3.png
+hud.tscn::PackedScene::2652501861062635568::1741914986::0::1::::<><>::uid://cebdnhre7ljlw::::res://Assets/hud assets/bullet chambers-02.png<>uid://irna5bc2y8mo::::res://Assets/hud assets/bullet chambers-03.png<>uid://2npyrk4ffbi::::res://Assets/hud assets/bullet chambers-04.png<>res://BulletDisplay.gd<>uid://b77crc3c1jgwd::::res://Assets/hud assets/bullet chambers-07.png<>uid://clls7w4ccbvci::::res://Assets/hud assets/bullet chambers-06.png<>uid://dw3hww6wc72mm::::res://Assets/hud assets/bullet chambers-05.png<>uid://rlpct1pe6cxh::::res://Assets/hud assets/bullet chambers-08.png<>uid://dr6r2nm4dswxx::::res://hp_display.tscn<>uid://degwg4r1qiskw::::res://Assets/hud assets/hot bar box-02.png<>uid://vir3upu5b4b5::::res://Assets/hud assets/coins-02.png<>uid://lxcfoyv578ae::::res://Assets/hud assets/hot bar box-1.png<>uid://cq2gv4dqgvdbs::::res://Assets/hud assets/hot bar box-2.png<>uid://dd8cqdbbj33j::::res://Assets/hud assets/hot bar box-3.png
 icon.svg::CompressedTexture2D::1272389800033636916::1736650451::1741558800::1::::<><>::
 idle.gd::GDScript::-1::1740434571::0::1::::<>State<>::
 inventory_display.gd::GDScript::-1::1741307638::0::1::::<>GridContainer<>::
-inventory_display.tscn::PackedScene::8556695303545833296::1741495235::0::1::::<><>::res://inventory_display.gd<>uid://ba02pqcmb5s2g::::res://Assets/ItemSprites/bowl of chili-02.png<>res://item.gd<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres
+inventory_display.tscn::PackedScene::8556695303545833296::1741914985::0::1::::<><>::res://inventory_display.gd<>uid://ba02pqcmb5s2g::::res://Assets/ItemSprites/bowl of chili-02.png<>res://item.gd<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres
 item.gd::GDScript::-1::1741307638::0::1::::<>TextureRect<>::
 jackPickup.gd::GDScript::-1::1741391233::0::1::::<>Area2D<>::
 jerky_pickup.gd::GDScript::-1::1741339994::0::1::::<>Area2D<>::
-main_menu.gd::GDScript::-1::1741307644::0::1::::<>Node2D<>::
-main_menu.tscn::PackedScene::843795482977329102::1741495237::0::1::::<><>::res://main_menu.gd
+larva.gd::GDScript::-1::1741568027::0::1::::<>CharacterBody2D<>::
+larva.tscn::PackedScene::1252730795308627368::1741914985::0::1::::<><>::res://larva.gd<>uid://do7kpmho4fj1h::::res://Assets/sprites/Enemies/wormmove/wormmove_0000.png<>uid://gh35c2k242xn::::res://Assets/sprites/Enemies/wormmove/wormmove_0001.png<>uid://f23xb2xk622b::::res://Assets/sprites/Enemies/wormmove/wormmove_0002.png<>uid://cs15rpgub8ift::::res://Assets/sprites/Enemies/wormmove/wormmove_0003.png<>uid://cwgpo0p5leo87::::res://Assets/sprites/Enemies/wormmove/wormmove_0004.png<>uid://bsfu64kf4pn6i::::res://Assets/sprites/Enemies/wormmove/wormmove_0005.png<>uid://b2gcaexrrpqva::::res://Assets/sprites/Enemies/wormmove/wormmove_0006.png<>uid://c0vomfwy1jsjt::::res://Assets/sprites/Enemies/wormmove/wormmove_0007.png
+main_menu.gd::GDScript::-1::1741809822::0::1::::<>Node2D<>::
+main_menu.tscn::PackedScene::843795482977329102::1741914985::0::1::::<><>::res://main_menu.gd
 melee.gd::GDScript::-1::1741384844::0::1::::<>Area2D<>::
-melee.tscn::PackedScene::4778769641416780365::1741495236::0::1::::<><>::res://melee.gd<>uid://b38gwrpvo0lr5::::res://Assets/sprites/Player sprite/melee_sprite-1.png<>uid://b7888eor4aiq0::::res://Assets/sprites/Player sprite/melee_sprite-2.png<>uid://co2jkojnciymk::::res://Assets/sprites/Player sprite/melee_sprite-3.png<>uid://6nly1xwjtunc::::res://Assets/sprites/Player sprite/melee_sprite-4.png<>uid://cy04jw305mi70::::res://Assets/sprites/Player sprite/melee_sprite-5.png<>uid://dyasqwtcyyhu::::res://Assets/sprites/Player sprite/melee_sprite-6.png<>uid://k8hwfqejlu7f::::res://Assets/sprites/Player sprite/melee_sprite-7.png<>uid://cdkycw8q0fgv8::::res://Assets/sprites/Player sprite/melee_sprite-8.png<>uid://c3q31q65kdexa::::res://Assets/sprites/Player sprite/melee_sprite-9.png<>uid://c2rrhp2aqom28::::res://Assets/sprites/Player sprite/melee_sprite-10.png<>uid://ds8yty2n2f8r2::::res://Assets/sprites/Player sprite/melee_sprite-11.png<>uid://d0ieat7dgoptf::::res://Assets/Sound/General Sound WAVs/Player Whip Hit.wav
+melee.tscn::PackedScene::4778769641416780365::1741914986::0::1::::<><>::res://melee.gd<>uid://b38gwrpvo0lr5::::res://Assets/sprites/Player sprite/melee_sprite-1.png<>uid://b7888eor4aiq0::::res://Assets/sprites/Player sprite/melee_sprite-2.png<>uid://co2jkojnciymk::::res://Assets/sprites/Player sprite/melee_sprite-3.png<>uid://6nly1xwjtunc::::res://Assets/sprites/Player sprite/melee_sprite-4.png<>uid://cy04jw305mi70::::res://Assets/sprites/Player sprite/melee_sprite-5.png<>uid://dyasqwtcyyhu::::res://Assets/sprites/Player sprite/melee_sprite-6.png<>uid://k8hwfqejlu7f::::res://Assets/sprites/Player sprite/melee_sprite-7.png<>uid://cdkycw8q0fgv8::::res://Assets/sprites/Player sprite/melee_sprite-8.png<>uid://c3q31q65kdexa::::res://Assets/sprites/Player sprite/melee_sprite-9.png<>uid://c2rrhp2aqom28::::res://Assets/sprites/Player sprite/melee_sprite-10.png<>uid://ds8yty2n2f8r2::::res://Assets/sprites/Player sprite/melee_sprite-11.png<>uid://d0ieat7dgoptf::::res://Assets/Sound/General Sound WAVs/Player Whip Hit.wav
+moth.gd::GDScript::-1::1741565723::0::1::::<>CharacterBody2D<>::
+moth.tscn::PackedScene::8246403817082812274::1741914985::0::1::::<><>::res://moth.gd<>uid://3p8lqt7rd7cp::::res://Assets/sprites/Enemies/mothmove/mothmove_0000.png<>uid://cc44vphrgh4dp::::res://Assets/sprites/Enemies/mothmove/mothmove_0001.png<>uid://cigafwk42kxdf::::res://Assets/sprites/Enemies/mothmove/mothmove_0002.png<>uid://clp5hxbgedqn2::::res://Assets/sprites/Enemies/mothmove/mothmove_0003.png<>uid://cm1qudfpqi238::::res://Assets/sprites/Enemies/mothmove/mothmove_0004.png<>uid://b0tin5uja36n8::::res://Assets/sprites/Enemies/mothmove/mothmove_0005.png<>uid://bwkq6lc2rsgrn::::res://Assets/sprites/Enemies/mothmove/mothmove_0006.png<>uid://cvxkaeqydnku3::::res://Assets/sprites/Enemies/mothmove/mothmove_0007.png<>uid://dr3f5nc438hv2::::res://Assets/sprites/Enemies/mothmove/mothmove_0008.png<>uid://duv3avphrtenf::::res://Assets/sprites/Enemies/mothmove/mothmove_0009.png
+moth_alt.gd::GDScript::-1::1741566066::0::1::::<>CharacterBody2D<>::
+moth_alt.tscn::PackedScene::5952066810224579282::1741914985::0::1::::<><>::res://moth_alt.gd<>uid://61qujaei8pf5::::res://Assets/sprites/Enemies/mothmovealt/mothmovealt_0000.png<>uid://dxmk41dqfle1d::::res://Assets/sprites/Enemies/mothmovealt/mothmovealt_0001.png<>uid://bok5mdfv43c3y::::res://Assets/sprites/Enemies/mothmovealt/mothmovealt_0002.png<>uid://bl605cegkhlfd::::res://Assets/sprites/Enemies/mothmovealt/mothmovealt_0003.png<>uid://f7xlhk7dlx2w::::res://Assets/sprites/Enemies/mothmovealt/mothmovealt_0004.png<>uid://b7s0x6lpuaxk8::::res://Assets/sprites/Enemies/mothmovealt/mothmovealt_0005.png<>uid://dcq4rucxd3and::::res://Assets/sprites/Enemies/mothmovealt/mothmovealt_0006.png<>uid://c3b1koof2nmoa::::res://Assets/sprites/Enemies/mothmovealt/mothmovealt_0007.png<>uid://bysr351rucbkr::::res://Assets/sprites/Enemies/mothmovealt/mothmovealt_0008.png<>uid://cb4xuu6owk5ma::::res://Assets/sprites/Enemies/mothmovealt/mothmovealt_0009.png
 nessie_bullet.gd::GDScript::-1::1741307638::0::1::::<>Area2D<>::
 pause_menu.gd::GDScript::-1::1741428947::0::1::::<>Control<>::
-pause_menu.tscn::PackedScene::2943783924356023547::1741495235::0::1::::<><>::uid://bgpdvj7xqn3nj::::res://Assets/hud assets/menus/inventory.png<>res://pause_menu.gd<>uid://drjnjquogoq86::::res://Assets/hud assets/menus/transparent bg.png<>uid://bx0xeg3a042xg::::res://Assets/hud assets/menus/buttonCont2.png<>uid://cp0ayhslbc1ri::::res://Assets/hud assets/menus/buttonCont1.png<>uid://cj0jcqf3goxos::::res://Assets/hud assets/menus/buttonContrl2.png<>uid://d1aswoi53wgf2::::res://Assets/hud assets/menus/inventoryBlank.png<>uid://crvr8p56dn3rd::::res://Assets/hud assets/menus/buttonContrl1.png<>uid://c5cvr2a33en8n::::res://Assets/hud assets/TitleBig.tres<>uid://bdolt4s3v62ei::::res://Assets/hud assets/TextBig2.tres<>uid://deklhsp8eewu2::::res://Assets/hud assets/menus/buttonQuit2.png<>uid://laio1wi1mgfq::::res://Assets/hud assets/menus/buttonQuit1.png<>uid://dt56ry4b8sd3m::::res://inventory_display.tscn<>uid://ddsl51hlny7ib::::res://Assets/Sound/General Sound WAVs/Button Select.wav<>uid://boget6cle13lx::::res://Assets/Sound/General Sound WAVs/Button Select 2.wav
+pause_menu.tscn::PackedScene::2943783924356023547::1741914984::0::1::::<><>::uid://bgpdvj7xqn3nj::::res://Assets/hud assets/menus/inventory.png<>res://pause_menu.gd<>uid://drjnjquogoq86::::res://Assets/hud assets/menus/transparent bg.png<>uid://bx0xeg3a042xg::::res://Assets/hud assets/menus/buttonCont2.png<>uid://cp0ayhslbc1ri::::res://Assets/hud assets/menus/buttonCont1.png<>uid://cj0jcqf3goxos::::res://Assets/hud assets/menus/buttonContrl2.png<>uid://d1aswoi53wgf2::::res://Assets/hud assets/menus/inventoryBlank.png<>uid://crvr8p56dn3rd::::res://Assets/hud assets/menus/buttonContrl1.png<>uid://c5cvr2a33en8n::::res://Assets/hud assets/TitleBig.tres<>uid://bdolt4s3v62ei::::res://Assets/hud assets/TextBig2.tres<>uid://deklhsp8eewu2::::res://Assets/hud assets/menus/buttonQuit2.png<>uid://laio1wi1mgfq::::res://Assets/hud assets/menus/buttonQuit1.png<>uid://dt56ry4b8sd3m::::res://inventory_display.tscn<>uid://ddsl51hlny7ib::::res://Assets/Sound/General Sound WAVs/Button Select.wav<>uid://boget6cle13lx::::res://Assets/Sound/General Sound WAVs/Button Select 2.wav
 Pickup.gd::GDScript::-1::1741389319::0::1::::<>Area2D<>::
 Player.gd::GDScript::-1::1739162552::0::1::::<>CharacterBody2D<>::
 RetryButton.gd::GDScript::-1::1739162552::0::1::::<>Button<>::
-shop.gd::GDScript::-1::1741390993::0::1::::<>Node2D<>::
-shop.tscn::PackedScene::2582635126605326860::1741495236::0::1::::<><>::res://shop.gd<>uid://dqaewuei1sttl::::res://Assets/sprites/YetiIdle_SpriteSheet.png<>uid://csk5rrrpylj0c::::res://Assets/sprites/Shop Wagon.png<>res://shopkeep.gd<>uid://igc3wk5pw2q2::::res://dialogue.tscn<>res://bigfoot_shopkeep.gd<>uid://ba8x53aboe5gk::::res://Assets/sprites/BigfootSpriteSheet.png<>res://shop_audio.gd
+shop.gd::GDScript::-1::1741564907::0::1::::<>Node2D<>::
+shop.tscn::PackedScene::2582635126605326860::1741914985::0::1::::<><>::res://shop.gd<>uid://dqaewuei1sttl::::res://Assets/sprites/YetiIdle_SpriteSheet.png<>uid://csk5rrrpylj0c::::res://Assets/sprites/Shop Wagon.png<>res://shopkeep.gd<>uid://igc3wk5pw2q2::::res://dialogue.tscn<>res://bigfoot_shopkeep.gd<>uid://ba8x53aboe5gk::::res://Assets/sprites/BigfootSpriteSheet.png<>res://shop_audio.gd
 shopkeep.gd::GDScript::-1::1741307638::0::1::::<>StaticBody2D<>::
 shop_audio.gd::GDScript::-1::1741389769::0::1::::<>AudioStreamPlayer2D<>::
-sinkhole_pickup.gd::GDScript::-1::1741391320::0::1::::<>Area2D<>::
+sinkhole_pickup.gd::GDScript::-1::1741560758::0::1::::<>Area2D<>::
 slash.gd::GDScript::-1::1740434571::0::1::::<>State<>::
 state.gd::GDScript::-1::1740434571::0::1::::State<>Node2D<>::
 test1.gd::GDScript::-1::1739162552::0::1::::<>Node2D<>::
@@ -83,10 +94,10 @@ test2.tscn::PackedScene::6167086556547527593::1739325953::0::1::::<><>::res://te
 thunderbird_area.gd::GDScript::-1::1741307638::0::1::::<>Area2D<>::
 thunderbird_pickup.gd::GDScript::-1::1741391320::0::1::::<>Area2D<>::
 tractor_pickup.gd::GDScript::-1::1741390870::0::1::::<>Area2D<>::
-WampusPickup.gd::GDScript::-1::1741391320::0::1::::<>Area2D<>::
+WampusPickup.gd::GDScript::-1::1741563427::0::1::::<>Area2D<>::
 wave_anim.gd::GDScript::-1::1741307638::0::1::::<>AnimatedSprite2D<>::
 wave_bar.gd::GDScript::-1::1741335129::0::1::::<>ProgressBar<>::
-wave_bar.tscn::PackedScene::457789631623422266::1741339625::0::1::::<><>::res://wave_bar.gd
+wave_bar.tscn::PackedScene::457789631623422266::1741914985::0::1::::<><>::res://wave_bar.gd
 wave_label.gd::GDScript::-1::1741307638::0::1::::<>Label<>::
 wave_sfx_player.gd::GDScript::-1::1741386174::0::1::::<>AudioStreamPlayer<>::
 ::res://Assets/::1741558800
@@ -98,7 +109,7 @@ DashParticle.png::CompressedTexture2D::1248706932644939580::1741307644::17415588
 ThunderParticle2.png::CompressedTexture2D::3703846140880278615::1741307637::1741558800::1::::<><>::
 ThunderParticle3.png::CompressedTexture2D::6731392569184470278::1741307637::1741558800::1::::<><>::
 ThunderParticle.png::CompressedTexture2D::564192395895219519::1741307637::1741558800::1::::<><>::
-::res://Assets/hud assets/::1741558829
+::res://Assets/hud assets/::1741914125
 bullet chambers-02.png::CompressedTexture2D::5055866880141528136::1738546779::1741558802::1::::<><>::
 bullet chambers-03.png::CompressedTexture2D::597396069202481818::1738546779::1741558802::1::::<><>::
 bullet chambers-04.png::CompressedTexture2D::56555594489540278::1738546779::1741558802::1::::<><>::
@@ -124,11 +135,11 @@ hot bar box-02.png::CompressedTexture2D::7453751731401950194::1738546779::174155
 hot bar box-2.png::CompressedTexture2D::5952004397130316936::1739224188::1741558816::1::::<><>::
 hot bar box-3.png::CompressedTexture2D::218767741580553961::1739224202::1741558816::1::::<><>::
 hotbar tiles-02.png::CompressedTexture2D::4838719269899577612::1739222664::1741558818::1::::<><>::
-Text.tres::LabelSettings::7206613746497803566::1741494381::0::1::::<><>::uid://b6cxeh2ocxfkn::::res://Assets/hud assets/gomarice_block_western.ttf
-TextBig2.tres::LabelSettings::2626591872453797572::1741494381::0::1::::<><>::uid://b6cxeh2ocxfkn::::res://Assets/hud assets/gomarice_block_western.ttf
+Text.tres::LabelSettings::7206613746497803566::1741914125::0::1::::<><>::uid://b6cxeh2ocxfkn::::res://Assets/hud assets/gomarice_block_western.ttf
+TextBig2.tres::LabelSettings::2626591872453797572::1741914125::0::1::::<><>::uid://b6cxeh2ocxfkn::::res://Assets/hud assets/gomarice_block_western.ttf
 TextBig.tres::LabelSettings::3330647569681235217::1741307644::0::1::::<><>::uid://b6cxeh2ocxfkn::::res://Assets/hud assets/gomarice_block_western.ttf
 Title.tres::LabelSettings::3267561125308740942::1741307637::0::1::::<><>::uid://b1iy1e5pnw0od::::res://Assets/hud assets/GothicPixels.ttf
-TitleBig.tres::LabelSettings::6883942266820008707::1741494381::0::1::::<><>::uid://b1iy1e5pnw0od::::res://Assets/hud assets/GothicPixels.ttf
+TitleBig.tres::LabelSettings::6883942266820008707::1741914125::0::1::::<><>::uid://b1iy1e5pnw0od::::res://Assets/hud assets/GothicPixels.ttf
 waves tiles-02.png::CompressedTexture2D::281212275512865201::1741307637::1741558829::1::::<><>::
 ::res://Assets/hud assets/menus/::1741558815
 button select and non selected.png::CompressedTexture2D::9151010853971761041::1741307637::1741558814::1::::<><>::
@@ -186,7 +197,7 @@ thunderbird.png::CompressedTexture2D::6874326485748057852::1741307637::174155881
 tractor beam-02.png::CompressedTexture2D::6290808358024763259::1741307637::1741558816::1::::<><>::
 wampus_paw.png::CompressedTexture2D::6221376735866801893::1741307637::1741558814::1::::<><>::
 yeti coat.png::CompressedTexture2D::6304123677808016167::1741307637::1741558816::1::::<><>::
-::res://Assets/Sound/::1741558830
+::res://Assets/Sound/::1741913765
 Player Gun Click.wav::AudioStreamWAV::5688377905083410498::1739052596::1741558830::1::::<><>::
 Player Gun Fire(even shorter).wav::AudioStreamWAV::2373607105153162504::1739052588::1741558830::1::::<><>::
 Player Reload.wav::AudioStreamWAV::7287958936042893719::1739052603::1741558830::1::::<><>::
@@ -215,8 +226,32 @@ Player Whip Attack.wav::AudioStreamWAV::6004799929906032925::1741383909::1741558
 Player Whip Hit.wav::AudioStreamWAV::8930742079555943415::1741383909::1741558830::1::::<><>::
 Store Leaves.wav::AudioStreamWAV::1759850064860959328::1741383909::1741558830::1::::<><>::
 Store Summon.wav::AudioStreamWAV::2029304202114336756::1741383909::1741558830::1::::<><>::
-::res://Assets/Sound/Music/::1741558800
+::res://Assets/Sound/Goat Head WAVs/::1741913780
+Goat Head Bite.wav::AudioStreamWAV::4514139885972946199::1741913747::1741913780::1::::<><>::
+Goat Head Death 2.wav::AudioStreamWAV::5161746086070541129::1741913747::1741913780::1::::<><>::
+Goat Head Death.wav::AudioStreamWAV::923232045097986456::1741913747::1741913780::1::::<><>::
+Goat Head Hover.wav::AudioStreamWAV::4286397465586138107::1741913747::1741913780::1::::<><>::
+Goat Head Spawn 2.wav::AudioStreamWAV::6091766184237558798::1741913747::1741913780::1::::<><>::
+Goat Head Spawn.wav::AudioStreamWAV::1049831622102006509::1741913747::1741913780::1::::<><>::
+::res://Assets/Sound/Larga Larva WAVs/::1741913780
+Large Larva Bite.wav::AudioStreamWAV::6435416384005096675::1741913752::1741913780::1::::<><>::
+Large Larva Die 1.wav::AudioStreamWAV::7389903946802853169::1741913752::1741913780::1::::<><>::
+Large Larva Die 2.wav::AudioStreamWAV::5671076614070982557::1741913752::1741913780::1::::<><>::
+Large Larva Slither.wav::AudioStreamWAV::97435070926215901::1741913752::1741913780::1::::<><>::
+Large Larva Summon 2.wav::AudioStreamWAV::2199772814424789719::1741913752::1741913780::1::::<><>::
+Large Larva Summon.wav::AudioStreamWAV::3292293367880501430::1741913752::1741913780::1::::<><>::
+::res://Assets/Sound/Mothkid Grunt WAVs/::1741913780
+Mothkid Grunt Death 1.wav::AudioStreamWAV::4476295118017385795::1741913760::1741913780::1::::<><>::
+Mothkid Grunt Death 2.wav::AudioStreamWAV::458786448058057295::1741913760::1741913780::1::::<><>::
+Mothkid Grunt Hover.wav::AudioStreamWAV::8275871906339125784::1741913760::1741913780::1::::<><>::
+Mothkid Grunt Melee.wav::AudioStreamWAV::2539110553071996578::1741913760::1741913780::1::::<><>::
+Mothkid Grunt Spit.wav::AudioStreamWAV::3632933012434835987::1741913760::1741913780::1::::<><>::
+Mothkid Grunt Summon 1.wav::AudioStreamWAV::8954151171002152746::1741913760::1741913780::1::::<><>::
+Mothkid Grunt Summon 2.wav::AudioStreamWAV::4033608256930249075::1741913760::1741913780::1::::<><>::
+::res://Assets/Sound/Music/::1741913780
 44 Forest (Forest Theme GAMEREADY).ogg::AudioStreamOggVorbis::21335542356986025::1739263586::1741558800::1::::<><>::
+Main Theme (GAMEREADY).ogg::AudioStreamOggVorbis::4312965426531922145::1741913579::1741913780::1::::<><>::
+Snake Oil (Store Theme GAMEREADY).ogg::AudioStreamOggVorbis::43286482499904803::1741913577::1741913780::1::::<><>::
 ::res://Assets/sprites/::1741558804
 BigFootProfAnim.png::CompressedTexture2D::7743193485579955696::1741307637::1741558800::1::::<><>::
 BigfootSpriteSheet.png::CompressedTexture2D::2455996684945989486::1741307637::1741558800::1::::<><>::
@@ -230,7 +265,21 @@ Shop Wagon.png::CompressedTexture2D::6058737118563434480::1741307637::1741558800
 temp_bigfoot.jpg::CompressedTexture2D::2062578251542852466::1738620194::1741558804::1::::<><>::
 YetiAnim_01-Sheet.png::CompressedTexture2D::8256436265695588977::1741307637::1741558800::1::::<><>::
 YetiIdle_SpriteSheet.png::CompressedTexture2D::8282566761769973645::1741307637::1741558800::1::::<><>::
-::res://Assets/sprites/Enemies/::1741559048
+::res://Assets/sprites/Enemies/::1741919756
+::res://Assets/sprites/Enemies/bloodspray/::1741919757
+bloodspray_0000.png::CompressedTexture2D::1878511411251058579::1741919757::1741919758::1::::<><>::
+bloodspray_0001.png::CompressedTexture2D::3657608463209758600::1741919757::1741919758::1::::<><>::
+bloodspray_0002.png::CompressedTexture2D::8620413557486596225::1741919757::1741919758::1::::<><>::
+bloodspray_0003.png::CompressedTexture2D::2653026191676547290::1741919757::1741919758::1::::<><>::
+bloodspray_0004.png::CompressedTexture2D::345236006681604049::1741919757::1741919758::1::::<><>::
+bloodspray_0005.png::CompressedTexture2D::7957194145726435093::1741919757::1741919758::1::::<><>::
+bloodspray_0006.png::CompressedTexture2D::6636977442978463383::1741919757::1741919759::1::::<><>::
+bloodspray_0007.png::CompressedTexture2D::5108636384520163087::1741919757::1741919759::1::::<><>::
+bloodspray_0008.png::CompressedTexture2D::1733854683334780128::1741919757::1741919759::1::::<><>::
+bloodspray_0009.png::CompressedTexture2D::6926357871166218919::1741919757::1741919759::1::::<><>::
+bloodspray_0010.png::CompressedTexture2D::3606001166356915203::1741919756::1741919759::1::::<><>::
+bloodspray_0011.png::CompressedTexture2D::6574139017398952504::1741919757::1741919759::1::::<><>::
+bloodspray_0012.png::CompressedTexture2D::3299005705023158896::1741919757::1741919759::1::::<><>::
 ::res://Assets/sprites/Enemies/goatmove/::1741558800
 goatmove_0000.png::CompressedTexture2D::1609469142589162287::1741307644::1741558800::1::::<><>::
 goatmove_0001.png::CompressedTexture2D::87354352760122387::1741307644::1741558800::1::::<><>::
@@ -239,7 +288,7 @@ goatmove_0003.png::CompressedTexture2D::6143601299857008262::1741307644::1741558
 goatmove_0004.png::CompressedTexture2D::614482558463675686::1741307644::1741558800::1::::<><>::
 goatmove_0005.png::CompressedTexture2D::8134918188541020451::1741307644::1741558800::1::::<><>::
 goatmove_0006.png::CompressedTexture2D::4730137077485634872::1741307644::1741558800::1::::<><>::
-::res://Assets/sprites/Enemies/goatmovealt/::1741559032
+::res://Assets/sprites/Enemies/goatmovealt/::1741559053
 goatmovealt_0000.png::CompressedTexture2D::5290454259015679393::1741559032::1741559053::1::::<><>::
 goatmovealt_0001.png::CompressedTexture2D::2768388275387957273::1741559032::1741559053::1::::<><>::
 goatmovealt_0002.png::CompressedTexture2D::887066760421509575::1741559032::1741559053::1::::<><>::
@@ -247,7 +296,7 @@ goatmovealt_0003.png::CompressedTexture2D::3635677979444069191::1741559032::1741
 goatmovealt_0004.png::CompressedTexture2D::4756311535855876607::1741559032::1741559053::1::::<><>::
 goatmovealt_0005.png::CompressedTexture2D::7709725188729110065::1741559032::1741559053::1::::<><>::
 goatmovealt_0006.png::CompressedTexture2D::507553051177296146::1741559032::1741559053::1::::<><>::
-::res://Assets/sprites/Enemies/mothmove/::1741559038
+::res://Assets/sprites/Enemies/mothmove/::1741559053
 mothmove_0000.png::CompressedTexture2D::1998277463871743035::1741559038::1741559053::1::::<><>::
 mothmove_0001.png::CompressedTexture2D::4974885103436842721::1741559038::1741559053::1::::<><>::
 mothmove_0002.png::CompressedTexture2D::5346748484300219751::1741559038::1741559053::1::::<><>::
@@ -258,7 +307,7 @@ mothmove_0006.png::CompressedTexture2D::3952246434862376039::1741559038::1741559
 mothmove_0007.png::CompressedTexture2D::6294895177961175300::1741559038::1741559053::1::::<><>::
 mothmove_0008.png::CompressedTexture2D::8410632816070017897::1741559038::1741559053::1::::<><>::
 mothmove_0009.png::CompressedTexture2D::8608092058976603927::1741559038::1741559053::1::::<><>::
-::res://Assets/sprites/Enemies/mothmovealt/::1741559043
+::res://Assets/sprites/Enemies/mothmovealt/::1741559053
 mothmovealt_0000.png::CompressedTexture2D::2230535635050817676::1741559043::1741559053::1::::<><>::
 mothmovealt_0001.png::CompressedTexture2D::8799038316729275247::1741559043::1741559053::1::::<><>::
 mothmovealt_0002.png::CompressedTexture2D::3391551377764078824::1741559043::1741559053::1::::<><>::
@@ -269,7 +318,7 @@ mothmovealt_0006.png::CompressedTexture2D::7334461988313671469::1741559043::1741
 mothmovealt_0007.png::CompressedTexture2D::6741790623974092996::1741559043::1741559053::1::::<><>::
 mothmovealt_0008.png::CompressedTexture2D::4109195538349949401::1741559043::1741559053::1::::<><>::
 mothmovealt_0009.png::CompressedTexture2D::4904330471625557824::1741559043::1741559053::1::::<><>::
-::res://Assets/sprites/Enemies/wormmove/::1741559048
+::res://Assets/sprites/Enemies/wormmove/::1741559053
 wormmove_0000.png::CompressedTexture2D::8208600548746797591::1741559048::1741559053::1::::<><>::
 wormmove_0001.png::CompressedTexture2D::437337502969247263::1741559048::1741559053::1::::<><>::
 wormmove_0002.png::CompressedTexture2D::408423661899747515::1741559048::1741559053::1::::<><>::
@@ -355,21 +404,21 @@ Forest_tileset05.png::CompressedTexture2D::5580051102000820942::1739052550::1741
 Forest_tileset07.png::CompressedTexture2D::6182668605704349681::1739052569::1741558800::1::::<><>::
 tempWall.png::CompressedTexture2D::2174500919577793755::1739061372::1741558800::1::::<><>::
 ::res://CowboyRoguelitePrototype0/::1737516097
-::res://Items/::1741495236
+::res://Items/::1741564037
 beans_pickup.tscn::PackedScene::3818309970837856191::1741426121::0::1::::<><>::res://BeansPickup.gd<>uid://bj4ql62gcysnb::::res://Assets/ItemSprites/can o beans-02.png
 cadejo_pickup.tscn::PackedScene::6790561043912525282::1741426121::0::1::::<><>::res://cadejo_pickup.gd<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://bmjffewm4ucfm::::res://Assets/ItemSprites/cadejo chain-02.png<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres
 chili_bowl.gd::GDScript::-1::1741391169::0::1::::<>Area2D<>::
 chili_pickup.tscn::PackedScene::4108602509041070097::1741426121::0::1::::<><>::res://Items/chili_bowl.gd<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://ba02pqcmb5s2g::::res://Assets/ItemSprites/bowl of chili-02.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres<>res://shop_audio.gd
 dark_watcher_pickup.tscn::PackedScene::2253601509651593617::1741426121::0::1::::<><>::res://dark_watcher_pickup.gd<>uid://6qmy01ekl1yr::::res://Assets/ItemSprites/dark watcher hat-02.png<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres<>res://shop_audio.gd
 double_chamber.tscn::PackedScene::6280365079657854063::1741426122::0::1::::<><>::res://DoubleChamber.gd<>uid://rlpct1pe6cxh::::res://Assets/hud assets/bullet chambers-08.png<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres
-flatwoods_pickup.tscn::PackedScene::8330873072770726124::1741426122::0::1::::<><>::res://FlatwoodsPickup.gd<>uid://cs44uxn2jlc1j::::res://Assets/ItemSprites/flatwood eye-02.png<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres
+flatwoods_pickup.tscn::PackedScene::8330873072770726124::1741564037::0::1::::<><>::res://FlatwoodsPickup.gd<>uid://cs44uxn2jlc1j::::res://Assets/ItemSprites/flatwood eye-02.png<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres
 gator_pickup.gd::GDScript::-1::1741391233::0::1::::<>Area2D<>::
 gator_pickup.tscn::PackedScene::765066310405730775::1741426122::0::1::::<><>::uid://byrgmn0eh6t2a::::res://Assets/ItemSprites/gatorman scale.png<>res://Items/gator_pickup.gd<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres
 jackalop_pickup.tscn::PackedScene::8560993315906726070::1741495236::0::1::::<><>::res://jackPickup.gd<>uid://cvpleg1i01sl3::::res://Assets/ItemSprites/jackalope.png<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres
 jerky_pickup.tscn::PackedScene::4221233892113787676::1741495236::0::1::::<><>::res://jerky_pickup.gd<>uid://cb8xf0vcmjy5a::::res://Assets/ItemSprites/jerky-02.png
 nessie_pickup.gd::GDScript::-1::1741391320::0::1::::<>Area2D<>::
 nessie_pickup.tscn::PackedScene::8378666454307565216::1741426122::0::1::::<><>::res://Items/nessie_pickup.gd<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://csb2omfweod5c::::res://Assets/ItemSprites/nessie tooth-02.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres
-sinkhole_pickup.tscn::PackedScene::8919129490741257356::1741426121::0::1::::<><>::res://sinkhole_pickup.gd<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://3q2uk4gxedrk::::res://Assets/ItemSprites/sinkhole sam boots-02.png<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres
+sinkhole_pickup.tscn::PackedScene::8919129490741257356::1741564037::0::1::::<><>::res://sinkhole_pickup.gd<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://3q2uk4gxedrk::::res://Assets/ItemSprites/sinkhole sam boots-02.png<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres
 thunderbird_pickup.tscn::PackedScene::3916222112126034969::1741426121::0::1::::<><>::res://thunderbird_pickup.gd<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://c468fgyl2yvrw::::res://Assets/ItemSprites/thunderbird.png<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres
 tractor_pickup.tscn::PackedScene::6510557520287462225::1741426121::0::1::::<><>::res://tractor_pickup.gd<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://cvvkxu557e1m2::::res://Assets/ItemSprites/tractor beam-02.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres
-wampus_pickup.tscn::PackedScene::5372803633746876462::1741426121::0::1::::<><>::res://WampusPickup.gd<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://cuvxfv07m3i0t::::res://Assets/ItemSprites/wampus_paw.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres
+wampus_pickup.tscn::PackedScene::5372803633746876462::1741564037::0::1::::<><>::res://WampusPickup.gd<>uid://dhro7ihoxmkk3::::res://Assets/hud assets/floating txtbox.png<>uid://cuvxfv07m3i0t::::res://Assets/ItemSprites/wampus_paw.png<>uid://bms3iwap6uyli::::res://Assets/hud assets/Title.tres<>uid://daw641c4l4dde::::res://Assets/hud assets/Text.tres

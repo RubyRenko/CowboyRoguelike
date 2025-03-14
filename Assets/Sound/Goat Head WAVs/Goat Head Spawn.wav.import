@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://o7stq5idk1s8"
+path="res://.godot/imported/Goat Head Spawn.wav-31c088b85463b553bed3f50a264191d4.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Goat Head WAVs/Goat Head Spawn.wav"
+dest_files=["res://.godot/imported/Goat Head Spawn.wav-31c088b85463b553bed3f50a264191d4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dp55nv041ygjo"
+path="res://.godot/imported/Mothkid Grunt Hover.wav-bc48f213ce088560a178e8d31263d587.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Mothkid Grunt WAVs/Mothkid Grunt Hover.wav"
+dest_files=["res://.godot/imported/Mothkid Grunt Hover.wav-bc48f213ce088560a178e8d31263d587.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

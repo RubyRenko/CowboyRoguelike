@@ -1,0 +1,77 @@
+[gd_scene load_steps=17 format=3 uid="uid://b3dutsns77qfy"]
+
+[ext_resource type="Texture2D" uid="uid://1072qu4os0ex" path="res://Assets/sprites/Enemies/bloodspray/bloodspray_0000.png" id="1_4nlsk"]
+[ext_resource type="Texture2D" uid="uid://bsd1joho2c47u" path="res://Assets/sprites/Enemies/bloodspray/bloodspray_0001.png" id="2_behi6"]
+[ext_resource type="Texture2D" uid="uid://du217mk4sft3v" path="res://Assets/sprites/Enemies/bloodspray/bloodspray_0002.png" id="3_icshw"]
+[ext_resource type="Texture2D" uid="uid://bd2e7os1ohwx3" path="res://Assets/sprites/Enemies/bloodspray/bloodspray_0003.png" id="4_msaw8"]
+[ext_resource type="Texture2D" uid="uid://e6h8sq7kxryf" path="res://Assets/sprites/Enemies/bloodspray/bloodspray_0004.png" id="5_k8mob"]
+[ext_resource type="Texture2D" uid="uid://dlmr3byti2i66" path="res://Assets/sprites/Enemies/bloodspray/bloodspray_0005.png" id="6_hel4k"]
+[ext_resource type="Texture2D" uid="uid://c1tabwoqk2tj8" path="res://Assets/sprites/Enemies/bloodspray/bloodspray_0006.png" id="7_ui406"]
+[ext_resource type="Texture2D" uid="uid://ce1wq3cpf8l6n" path="res://Assets/sprites/Enemies/bloodspray/bloodspray_0007.png" id="8_nxf57"]
+[ext_resource type="Texture2D" uid="uid://yx5llkvcyvlw" path="res://Assets/sprites/Enemies/bloodspray/bloodspray_0008.png" id="9_ombk8"]
+[ext_resource type="Texture2D" uid="uid://c5xgdqei5yrrb" path="res://Assets/sprites/Enemies/bloodspray/bloodspray_0009.png" id="10_e6y3x"]
+[ext_resource type="Texture2D" uid="uid://brm1kvdiv6780" path="res://Assets/sprites/Enemies/bloodspray/bloodspray_0010.png" id="11_xh5ju"]
+[ext_resource type="Texture2D" uid="uid://c0wtdye71bihc" path="res://Assets/sprites/Enemies/bloodspray/bloodspray_0011.png" id="12_j452v"]
+[ext_resource type="Texture2D" uid="uid://bnace3ea6a6lo" path="res://Assets/sprites/Enemies/bloodspray/bloodspray_0012.png" id="13_m15aa"]
+[ext_resource type="Script" path="res://animated_sprite_2d.gd" id="14_i8ei0"]
+[ext_resource type="Script" path="res://death_audio_player.gd" id="15_71dhy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ms3e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4nlsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_behi6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_icshw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_msaw8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k8mob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hel4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ui406")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nxf57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ombk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_e6y3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xh5ju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_j452v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_m15aa")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemyDeathSplat" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_1ms3e")
+frame = 1
+frame_progress = 0.0997053
+script = ExtResource("14_i8ei0")
+
+[node name="DeathAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+max_distance = 1000.0
+script = ExtResource("15_71dhy")
+
+[connection signal="finished" from="DeathAudioPlayer" to="." method="_on_death_audio_player_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dpqvcimetovs1"]
+[gd_scene load_steps=19 format=3 uid="uid://dpqvcimetovs1"]
 
 [ext_resource type="Script" path="res://moth.gd" id="1_v17xx"]
 [ext_resource type="Texture2D" uid="uid://3p8lqt7rd7cp" path="res://Assets/sprites/Enemies/mothmove/mothmove_0000.png" id="2_xivdt"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cvxkaeqydnku3" path="res://Assets/sprites/Enemies/mothmove/mothmove_0007.png" id="9_objkw"]
 [ext_resource type="Texture2D" uid="uid://dr3f5nc438hv2" path="res://Assets/sprites/Enemies/mothmove/mothmove_0008.png" id="10_lswky"]
 [ext_resource type="Texture2D" uid="uid://duv3avphrtenf" path="res://Assets/sprites/Enemies/mothmove/mothmove_0009.png" id="11_w2377"]
+[ext_resource type="Script" path="res://mothkid_sfx.gd" id="12_vs5pm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s6gxr"]
 radius = 337.073
@@ -119,6 +120,11 @@ theme_override_styles/background = SubResource("StyleBoxFlat_rtvym")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rg0w7")
 value = 20.0
 show_percentage = false
+
+[node name="MothkidSfx" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+max_distance = 1000.0
+script = ExtResource("12_vs5pm")
 
 [connection signal="body_entered" from="SenseArea" to="." method="_on_sense_area_body_entered"]
 [connection signal="body_exited" from="SenseArea" to="." method="_on_sense_area_body_exited"]

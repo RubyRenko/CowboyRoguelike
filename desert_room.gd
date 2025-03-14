@@ -5,8 +5,8 @@ var rng = RandomNumberGenerator.new()
 @onready var tile_detail = $DesertSprites
 @onready var player = $CowboyPlayer
 @onready var enemies = [
-				load("res://goat_head.tscn"), load("res://goat_head_alt.tscn"), 
-				load("res://moth.tscn"), load("res://moth_alt.tscn"), load("res://larva.tscn") #testing for forest enemies
+				load("res://goat_head.tscn"), load("res://goat_head_alt.tscn"), #desert enemies
+				load("res://moth.tscn"), load("res://moth_alt.tscn"), load("res://larva.tscn") #forest enemies
 				]
 @onready var wave_timer = $Gui/WaveTimer
 @onready var wave_display = $Gui/WaveAnim
@@ -239,11 +239,16 @@ func _on_wave_timer_timeout():
 		add_child(shop)
 		print("shop spawn")
 		difficulty += 3"""
-	if wave == 15:
+	if wave == 16:
+		get_tree().change_scene_to_file("res://forest_room.tscn")
+	elif wave == 15:
+		#uncomment when chupacabra is ready
+		pass
+		"wave_timer.stop()
 		var chupacabra = boss.instantiate()
 		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 		chupacabra.scale = Vector2(1.5, 1.5)
-		add_child(chupacabra)
+		add_child(chupacabra)"
 	elif wave % 5 == 0:
 		#clears the previous waves and stops timer
 		wave_sfx.play_sfx("shop_summon")

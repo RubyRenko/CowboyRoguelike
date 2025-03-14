@@ -17,8 +17,10 @@ var slow = 0
 @onready var main = get_tree().get_root().get_node("Main")
 @onready var coin = load("res://coin.tscn")
 @onready var blood = load("res://goat_blood.tscn")
+@onready var death_sprite = load("res://enemy_death_splat.tscn")
 @onready var sprite_anim = $MothSprite
 @onready var hp_bar = $HpBar
+@onready var sounds = $MothkidSfx
 @onready var loot_table = [load("res://Items/beans_pickup.tscn"), 
 						load("res://Items/jerky_pickup.tscn"), 
 						load("res://Items/gator_pickup.tscn"),
@@ -29,6 +31,7 @@ var slow = 0
 func _ready():
 	sprite_anim.play()
 	hp_bar.max_value = hp
+	sounds.play_sfx(["spawn1", "spawn2"].pick_random())
 
 func _physics_process(delta):
 	#makes sure the hp display is up to date
@@ -46,6 +49,8 @@ func _physics_process(delta):
 		velocity = (chase.position - position ).normalized()  * speed
 		if randi_range(0, 10) == 0:
 			velocity += Vector2(randi_range(-3,3), randi_range(-3, 3)) * speed
+			if !sounds.playing:
+				sounds.play_sfx("hover")
 	elif randi_range(0,30) == 0:
 		#when not chasing, every few seconds, choose a random direction and move towards it
 		#this will make the enemy wander naturally
@@ -68,6 +73,7 @@ func _physics_process(delta):
 			#main.get_node("CowboyPlayer").hp -= 1
 			next_hurt = 1.5
 			#making the next_hurt value higher makes it take more time
+			sounds.play_sfx("attack")
 	
 	if hp <= 0:
 		#if the enemy hp drops to zero, then it dies
@@ -75,10 +81,17 @@ func _physics_process(delta):
 
 func die():
 	var main = get_tree().get_root().get_node("Main")
+	
+	var d = death_sprite.instantiate()
+	d.sound = ["moth1", "moth2"].pick_random()
+	d.position = Vector2(position.x, position.y+30)
+	main.add_child(d)
+	
 	for i in range(randi_range(1,5)):
 		var c = coin.instantiate()
 		c.position = position + Vector2(randi_range(10,30), randi_range(10,30))
 		main.add_child(c)
+	
 	if randi_range(0,5) == 0:
 		var p = loot_table.pick_random().instantiate()
 		if p.is_in_group("sellable"):

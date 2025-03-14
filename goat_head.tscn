@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c58iq3wgcd4xj"]
+[gd_scene load_steps=16 format=3 uid="uid://c58iq3wgcd4xj"]
 
 [ext_resource type="Script" path="res://GoatHead.gd" id="1_05l85"]
 [ext_resource type="Texture2D" uid="uid://w6vysha5tlnr" path="res://Assets/sprites/Enemies/goatmove/goatmove_0000.png" id="3_kx33i"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://i0wo5ju45fic" path="res://Assets/sprites/Enemies/goatmove/goatmove_0004.png" id="7_wdaq8"]
 [ext_resource type="Texture2D" uid="uid://dn5u6cvnawdh0" path="res://Assets/sprites/Enemies/goatmove/goatmove_0005.png" id="8_1m5ut"]
 [ext_resource type="Texture2D" uid="uid://b8nkwwto47smi" path="res://Assets/sprites/Enemies/goatmove/goatmove_0006.png" id="9_ivrx4"]
+[ext_resource type="Script" path="res://goat_head_sfx.gd" id="9_udvvi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_teiet"]
 radius = 312.41
@@ -109,6 +110,11 @@ theme_override_styles/background = SubResource("StyleBoxFlat_lrcvs")
 theme_override_styles/fill = SubResource("StyleBoxFlat_u5rsa")
 value = 20.0
 show_percentage = false
+
+[node name="GoatHeadSfx" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+max_distance = 1000.0
+script = ExtResource("9_udvvi")
 
 [connection signal="body_entered" from="SenseArea" to="." method="_on_sense_area_body_entered"]
 [connection signal="body_exited" from="SenseArea" to="." method="_on_sense_area_body_exited"]

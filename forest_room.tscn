@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cyj10c3muv175"]
+[gd_scene load_steps=70 format=3 uid="uid://cyj10c3muv175"]
 
 [ext_resource type="Script" path="res://forest_room.gd" id="1_uk0vt"]
 [ext_resource type="Texture2D" uid="uid://cuc6wb3awlf2p" path="res://Assets/Tilemaps/Forest_tileset07.png" id="2_curss"]
@@ -9,6 +9,33 @@
 [ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://cowboy_player.tscn" id="6_rb41a"]
 [ext_resource type="Texture2D" uid="uid://by17hhjx0eur6" path="res://Assets/Tilemaps/ForestDetails_04Tiled.png" id="7_4670u"]
 [ext_resource type="AudioStream" uid="uid://klnmu5125dt" path="res://Assets/Sound/Music/44 Forest (Forest Theme GAMEREADY).ogg" id="9_8uypr"]
+[ext_resource type="Script" path="res://wave_sfx_player.gd" id="10_5wknl"]
+[ext_resource type="PackedScene" uid="uid://bh68xq7v3vfvv" path="res://pause_menu.tscn" id="11_7qoik"]
+[ext_resource type="FontFile" uid="uid://b1iy1e5pnw0od" path="res://Assets/hud assets/GothicPixels.ttf" id="12_qt0i3"]
+[ext_resource type="Script" path="res://wave_label.gd" id="13_0oisn"]
+[ext_resource type="Texture2D" uid="uid://cwehfgnhh31yo" path="res://Assets/hud assets/wave tiles/waves-01.png" id="14_3lvy6"]
+[ext_resource type="Texture2D" uid="uid://ea284dqrb8dw" path="res://Assets/hud assets/wave tiles/waves-02.png" id="15_idiw4"]
+[ext_resource type="Texture2D" uid="uid://dgfjyn5pgjh88" path="res://Assets/hud assets/wave tiles/waves-03.png" id="16_c70iv"]
+[ext_resource type="Texture2D" uid="uid://dcanntcv24djo" path="res://Assets/hud assets/wave tiles/waves-04.png" id="17_4vohe"]
+[ext_resource type="Texture2D" uid="uid://c8o5obycibejg" path="res://Assets/hud assets/wave tiles/waves-05.png" id="18_f146x"]
+[ext_resource type="Texture2D" uid="uid://cd886vtom1grn" path="res://Assets/hud assets/wave tiles/waves-06.png" id="19_oauui"]
+[ext_resource type="Texture2D" uid="uid://4w43ejlqvyh3" path="res://Assets/hud assets/wave tiles/waves-07.png" id="20_h4dyr"]
+[ext_resource type="Texture2D" uid="uid://cfjacv6isohca" path="res://Assets/hud assets/wave tiles/waves-08.png" id="21_o35g7"]
+[ext_resource type="Texture2D" uid="uid://bn7ky7hgrye0q" path="res://Assets/hud assets/wave tiles/waves-09.png" id="22_jta4c"]
+[ext_resource type="Texture2D" uid="uid://o1omdjupqxu0" path="res://Assets/hud assets/wave tiles/waves-10.png" id="23_q43iw"]
+[ext_resource type="Texture2D" uid="uid://bpjpne0w6p16q" path="res://Assets/hud assets/wave tiles/waves-11.png" id="24_djlfx"]
+[ext_resource type="Texture2D" uid="uid://bu5jmu3oblk04" path="res://Assets/hud assets/wave tiles/waves-12.png" id="25_lfvpo"]
+[ext_resource type="Texture2D" uid="uid://fxgj8u0yqyga" path="res://Assets/hud assets/wave tiles/waves-13.png" id="26_ggct3"]
+[ext_resource type="Texture2D" uid="uid://cs8mbt0kenb8g" path="res://Assets/hud assets/wave tiles/waves-14.png" id="27_wfjxo"]
+[ext_resource type="Texture2D" uid="uid://b02xqy2rfcxju" path="res://Assets/hud assets/wave tiles/waves-15.png" id="28_vr3ik"]
+[ext_resource type="Texture2D" uid="uid://br6nn17yb8uw8" path="res://Assets/hud assets/wave tiles/waves-16.png" id="29_6kevq"]
+[ext_resource type="Texture2D" uid="uid://0wgx88fgrut" path="res://Assets/hud assets/wave tiles/waves-17.png" id="30_u8adt"]
+[ext_resource type="Texture2D" uid="uid://pivxvelbhkgx" path="res://Assets/hud assets/wave tiles/waves-18.png" id="31_2oxx1"]
+[ext_resource type="Texture2D" uid="uid://jykr8l2mpjh2" path="res://Assets/hud assets/wave tiles/waves-19.png" id="32_hlw2j"]
+[ext_resource type="Texture2D" uid="uid://girmk7tt42hy" path="res://Assets/hud assets/wave tiles/waves-20.png" id="33_vigp4"]
+[ext_resource type="Script" path="res://wave_anim.gd" id="34_gchw1"]
+[ext_resource type="PackedScene" uid="uid://gr0y08a5x875" path="res://wave_bar.tscn" id="35_pau3r"]
+[ext_resource type="FontFile" uid="uid://b6cxeh2ocxfkn" path="res://Assets/hud assets/gomarice_block_western.ttf" id="36_jgeww"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbfcu"]
 texture = ExtResource("2_curss")
@@ -677,7 +704,6 @@ tile_data = PackedInt32Array(0, 917504, 8, 65536, 917504, 9, 1, 983040, 8, 65537
 tile_data = PackedInt32Array(131072, 327680, 10, 196608, 327680, 11, 262144, 327680, 12, 65537, 393216, 9, 131073, 393216, 10, 196609, 393216, 11, 262145, 393216, 12, 327681, 393216, 13, 393217, 393216, 14, 2, 458752, 8, 65538, 458752, 9, 131074, 458752, 10, 196610, 458752, 11, 262146, 458752, 12, 327682, 458752, 13, 393218, 458752, 14, 65539, 524288, 9, 131075, 524288, 10, 196611, 524288, 11, 262147, 524288, 12, 327683, 524288, 13, 131076, 589824, 10, 196612, 589824, 11)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_mru1n"]
-tile_data = PackedInt32Array(0, 851968, 10, 65536, 851968, 11, 131072, 851968, 12, 196608, 851968, 13, 1, 917504, 10, 65537, 917504, 11, 131073, 917504, 12, 196609, 917504, 13, 262145, 917504, 14, 2, 983040, 10, 65538, 983040, 11, 131074, 983040, 12, 196610, 983040, 13)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_1rphr"]
 tile_data = PackedInt32Array(0, 1, 2, 65536, 1, 3, 1, 65537, 2, 65537, 65537, 3, 2, 131073, 2, 65538, 131073, 3)
@@ -691,13 +717,9 @@ texture = ExtResource("5_irc53")
 4:0/0 = 0
 5:0/0 = 0
 7:0/0 = 0
-7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:0/0 = 0
-9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:0/0 = 0
-11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 13:0/0 = 0
-13:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
@@ -717,13 +739,9 @@ texture = ExtResource("5_irc53")
 5:2/0 = 0
 5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.625, 8, -8, 8, -8, -5.375, 1.75, -3.25)
 7:2/0 = 0
-7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:2/0 = 0
-9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:2/0 = 0
-11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 13:2/0 = 0
-13:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:3/0 = 0
 0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.375, -3.25, 8, -2, 8, -8, -0.125, -8)
 1:3/0 = 0
@@ -743,11 +761,8 @@ texture = ExtResource("5_irc53")
 4:4/0 = 0
 5:4/0 = 0
 9:4/0 = 0
-9:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:4/0 = 0
-11:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 13:4/0 = 0
-13:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:5/0 = 0
 1:5/0 = 0
 2:5/0 = 0
@@ -1076,6 +1091,176 @@ pattern_15 = SubResource("TileMapPattern_m1fn1")
 pattern_16 = SubResource("TileMapPattern_2hmpo")
 pattern_17 = SubResource("TileMapPattern_n8jyo")
 
+[sub_resource type="LabelSettings" id="LabelSettings_825h1"]
+font = ExtResource("12_qt0i3")
+font_size = 30
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.65098)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhrjr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_3lvy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_idiw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_c70iv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4vohe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_f146x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_oauui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_h4dyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_o35g7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_jta4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_q43iw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_djlfx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_lfvpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ggct3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_wfjxo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_vr3ik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_6kevq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_u8adt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_2oxx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_hlw2j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_vigp4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_pvccq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WaveLabel:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WaveLabel:label_settings:shadow_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.65098)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WaveAnim:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wbf1a"]
+resource_name = "wave_fade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WaveLabel:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WaveLabel:label_settings:shadow_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.65098), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1gnae"]
+resource_name = "wave_fade2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WaveAnim:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c4u4k"]
+_data = {
+"RESET": SubResource("Animation_pvccq"),
+"wave_fade": SubResource("Animation_wbf1a"),
+"wave_fade2": SubResource("Animation_1gnae")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_3rxce"]
+font = ExtResource("36_jgeww")
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_uk0vt")
 
@@ -1098,12 +1283,72 @@ layer_0/tile_data = PackedInt32Array(-1572892, 0, 2, -1572891, 65536, 2, -157289
 [node name="CowboyPlayer" parent="." instance=ExtResource("6_rb41a")]
 position = Vector2(491, 299)
 
-[node name="WaveTimer" type="Timer" parent="."]
-wait_time = 5.0
-
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_8uypr")
 volume_db = -20.0
 autoplay = true
 
-[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
+[node name="WaveSfxPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -25.0
+script = ExtResource("10_5wknl")
+
+[node name="Gui" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="WaveTimer" type="Timer" parent="Gui"]
+wait_time = 5.0
+
+[node name="Pause" parent="Gui" instance=ExtResource("11_7qoik")]
+process_mode = 3
+visible = false
+z_as_relative = false
+offset_top = 1.0
+offset_bottom = 1.0
+
+[node name="WaveLabel" type="Label" parent="Gui"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.5
+offset_top = 114.0
+offset_right = 138.5
+offset_bottom = 145.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.966667, 0.966667, 0.966667, 1)
+text = "Placeholder text"
+label_settings = SubResource("LabelSettings_825h1")
+horizontal_alignment = 1
+script = ExtResource("13_0oisn")
+
+[node name="WaveAnim" type="AnimatedSprite2D" parent="Gui"]
+visible = false
+position = Vector2(577, 145)
+scale = Vector2(0.08, 0.08)
+sprite_frames = SubResource("SpriteFrames_qhrjr")
+speed_scale = -1.0
+script = ExtResource("34_gchw1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Gui/WaveAnim"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_c4u4k")
+}
+
+[node name="WaveBar" parent="Gui" instance=ExtResource("35_pau3r")]
+offset_left = 881.0
+offset_top = 618.0
+offset_right = 1140.0
+offset_bottom = 640.0
+
+[node name="WaveBarLabel" type="Label" parent="Gui"]
+offset_left = 882.0
+offset_top = 587.0
+offset_right = 1065.0
+offset_bottom = 618.0
+text = "Next wave:"
+label_settings = SubResource("LabelSettings_3rxce")
+
+[connection signal="timeout" from="Gui/WaveTimer" to="." method="_on_wave_timer_timeout"]

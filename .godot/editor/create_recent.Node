@@ -1,15 +1,14 @@
+AudioStreamPlayer2D
+AnimatedSprite2D
 Area2D
 ProgressBar
 CharacterBody2D
 AudioStreamPlayer
-AudioStreamPlayer2D
 Sprite2D
 CPUParticles2D
 Timer
-AnimatedSprite2D
 Label
 TextureRect
 GridContainer
 TextureButton
 VBoxContainer
-HBoxContainer

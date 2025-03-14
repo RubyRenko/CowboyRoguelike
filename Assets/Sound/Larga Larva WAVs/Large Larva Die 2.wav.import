@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cm2d2kuc047oj"
+path="res://.godot/imported/Large Larva Die 2.wav-39a3f2a43aa178b402e25a9ba605af2d.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Larga Larva WAVs/Large Larva Die 2.wav"
+dest_files=["res://.godot/imported/Large Larva Die 2.wav-39a3f2a43aa178b402e25a9ba605af2d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

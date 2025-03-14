@@ -18,9 +18,11 @@ var slow = 0
 @onready var coin = load("res://coin.tscn")
 @onready var blood = load("res://goat_blood.tscn")
 @onready var blood_bullet = load("res://goat_blood_bullet.tscn")
+@onready var death_sprite = load("res://enemy_death_splat.tscn")
 @onready var blood_timer = $Blood_Timer
 @onready var sprite_anim = $GoatSpriteAlt
 @onready var hp_bar = $HpBar
+@onready var sounds = $GoatHeadSfx
 @onready var bullet_spawn = $CenterPoint/GunPoint
 @onready var loot_table = [load("res://Items/beans_pickup.tscn"), 
 						load("res://Items/jerky_pickup.tscn"), 
@@ -32,7 +34,9 @@ var slow = 0
 func _ready():
 	sprite_anim.play()
 	hp_bar.max_value = hp
-	
+	var spawn_sounds = ["spawn1", "spawn2"]
+	sounds.play_sfx(spawn_sounds.pick_random())
+
 func _physics_process(delta):
 	#makes sure the hp display is up to date
 	hp_bar.value = hp
@@ -53,6 +57,7 @@ func _physics_process(delta):
 		#this will make the enemy wander naturally
 		var rand_direction =  Vector2(randi_range(-20,20), randi_range(-20,20))
 		velocity = rand_direction * speed * delta
+		sounds.play_sfx("bite")
 	
 	move_and_collide(velocity * delta)
 	if velocity.x > 0:
@@ -77,16 +82,24 @@ func _physics_process(delta):
 
 func die():
 	var main = get_tree().get_root().get_node("Main")
+	
+	var d = death_sprite.instantiate()
+	d.sound = ["goat1", "goat2"].pick_random()
+	d.position = Vector2(position.x, position.y+30)
+	main.add_child(d)
+	
 	for i in range(randi_range(1,5)):
 		var c = coin.instantiate()
 		c.position = position + Vector2(randi_range(10,30), randi_range(10,30))
 		main.add_child(c)
+	
 	if randi_range(0,5) == 0:
 		var p = loot_table.pick_random().instantiate()
 		if p.is_in_group("sellable"):
 			p.sold = true
 		p.position = position
 		main.add_child(p)
+	
 	queue_free()
 
 func spawn_blood():

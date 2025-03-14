@@ -108,13 +108,13 @@ offset_bottom = 214.0
 script = ExtResource("4_h5ano")
 
 [node name="BulletHUD" type="AnimatedSprite2D" parent="BulletDisplay"]
-position = Vector2(1068.68, 0.675)
+position = Vector2(81, 80)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_2k3k8")
 speed_scale = 0.0
 
 [node name="BulletHUD2" type="AnimatedSprite2D" parent="BulletDisplay"]
-position = Vector2(923.675, 1.675)
+position = Vector2(225, 80)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_2k3k8")
 speed_scale = 0.0
