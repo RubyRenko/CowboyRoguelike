@@ -31,7 +31,11 @@ func exit():
 func transition():
 	if owner.target - Vector2(5, 5) < owner.position && owner.position < owner.target + Vector2(5,5):
 		get_parent().change_state("Follow")
-	#else:
-		#get_parent().change_state("Follow")
+	#elif owner.is_in_group("DesertSprite"):
+			#print("Hit wall!")
+	else:
+		owner.target = owner.player.position#update the postion so it knows where you are
+		#fixes it kinda freezing after a dash from hitting wall even though your now behind it
+		
 func _on_slash_area_body_entered(body):
 	owner.player.hurt(0.5)

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var player: CowboyPlayer = $"../CowboyPlayer"
+@onready var building: TileMapLayer =  $"../DesertSprites"
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var progress_bar: ProgressBar = $Boss_UI/ProgressBar
 @onready var state_machine = $FiniteStateMachine
