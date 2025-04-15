@@ -1,7 +1,7 @@
+TextureRect
 TextureButton
 Sprite2D
 Label
-TextureRect
 Panel
 Node
 AudioStreamPlayer2D
@@ -12,11 +12,3 @@ ProgressBar
 CharacterBody2D
 AudioStreamPlayer
 CPUParticles2D
-Timer
-<<<<<<< Updated upstream
-=======
-Label
-TextureRect
-GridContainer
-TextureButton
->>>>>>> Stashed changes
