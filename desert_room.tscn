@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://bd146hink0coy"]
+[gd_scene load_steps=67 format=4 uid="uid://bd146hink0coy"]
 
 [ext_resource type="Texture2D" uid="uid://dw5fubqtnb7we" path="res://Assets/Tilemaps/DesertTileset.png" id="1_d3unl"]
 [ext_resource type="Script" path="res://desert_room.gd" id="1_w386a"]
@@ -36,6 +36,7 @@
 [ext_resource type="FontFile" uid="uid://b6cxeh2ocxfkn" path="res://Assets/hud assets/gomarice_block_western.ttf" id="29_ssbfb"]
 [ext_resource type="PackedScene" uid="uid://bh68xq7v3vfvv" path="res://pause_menu.tscn" id="33_hsl8k"]
 [ext_resource type="PackedScene" uid="uid://gr0y08a5x875" path="res://wave_bar.tscn" id="34_03012"]
+[ext_resource type="Script" path="res://destroyTerrain.gd" id="37_lo7lj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ns8pr"]
 font = ExtResource("6_45l3r")
@@ -474,6 +475,7 @@ layer_1/name = "1"
 texture_filter = 1
 tile_map_data = PackedByteArray("AAAZAAkAAAACAAEAAAAEAPj/AgAAAAEAAAAEAPn/AgAAAAIAAAAFAPf/AgABAAAAAAAFAPj/AgABAAEAAAAFAPn/AgABAAIAAAAGAPf/AgACAAAAAAAGAPj/AgACAAEAAAAGAPn/AgACAAIAAAAHAPf/AwAAAAAAAAAHAPj/AwAAAAEAAAAHAPn/AwAAAAIAAAAIAPf/AwABAAAAAAAIAPj/AwABAAEAAAAIAPn/AwABAAIAAAAJAPf/AwACAAAAAAAJAPj/AwACAAEAAAAJAPn/AwACAAIAAAALAPj/AAAAAAAAAAALAPn/AAAAAAEAAAAMAPj/AAABAAAAAAAMAPn/AAABAAEAAAANAPj/AAACAAAAAAAOAPj/AAACAAIAAAAPAPj/AAAAAAIAAAABAPf/AQAAAAAAAAABAPj/AQAAAAEAAAABAPn/AQAAAAIAAAACAPf/AQABAAAAAAACAPj/AQABAAEAAAACAPn/AQABAAIAAAADAPf/AQACAAAAAAADAPj/AQACAAEAAAADAPn/AQACAAIAAAAEAPf/AgAAAAAAAAA=")
 tile_set = SubResource("TileSet_35da2")
+script = ExtResource("37_lo7lj")
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="timeout" from="Gui/WaveTimer" to="." method="_on_wave_timer_timeout"]

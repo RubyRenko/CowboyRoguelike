@@ -294,6 +294,7 @@ grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_d14ql")
 theme_override_styles/fill = SubResource("StyleBoxFlat_l150d")
 max_value = 300.0
+value = 298.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="Boss_UI/ProgressBar"]

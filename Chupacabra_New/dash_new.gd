@@ -31,6 +31,7 @@ func exit():
 func transition():
 	if owner.target - Vector2(5, 5) < owner.position && owner.position < owner.target + Vector2(5,5):
 		get_parent().change_state("Follow")
-		
+	#else:
+		#get_parent().change_state("Follow")
 func _on_slash_area_body_entered(body):
 	owner.player.hurt(0.5)

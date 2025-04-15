@@ -173,7 +173,7 @@ func create_detail(width, height):
 		tile_detail.set_pattern(Vector2i(spawn_x, spawn_y), pattern)
 
 func spawn_enemy(spawn_pos, difficult = 1):
-	#create a new enemy instance and set the position
+	#create a new enemy instance and set the dddddddddposition
 	var e = enemies.pick_random().instantiate()
 	e.hp += (e.hp/2) * (difficulty-1)
 	e.position = spawn_pos
