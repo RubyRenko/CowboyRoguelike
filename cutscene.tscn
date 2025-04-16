@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://okmh64u3fxhr"]
+[gd_scene load_steps=5 format=3 uid="uid://okmh64u3fxhr"]
 
 [ext_resource type="Script" path="res://cutscene.gd" id="1_4cyk8"]
-[ext_resource type="Texture2D" uid="uid://d2kvnb527an8w" path="res://Assets/cutscene assets/dialogue boxes-02.png" id="2_jkv4e"]
+[ext_resource type="Texture2D" uid="uid://dfp0pg68140sy" path="res://Assets/cutscene assets/dialogue boxe no sprite-02.png" id="2_37qrm"]
+[ext_resource type="FontFile" uid="uid://drsvb3gij1p5" path="res://Assets/cutscene assets/alagard.ttf" id="3_ttp3i"]
 [ext_resource type="FontFile" uid="uid://b6cxeh2ocxfkn" path="res://Assets/hud assets/gomarice_block_western.ttf" id="3_vyo1x"]
 
 [node name="Node" type="Node"]
@@ -24,25 +25,26 @@ stretch_mode = 5
 
 [node name="Dialogue Box" type="TextureRect" parent="Panel"]
 layout_mode = 0
-offset_left = 59.0
-offset_top = 23.0
-offset_right = 1221.67
-offset_bottom = 677.0
-texture = ExtResource("2_jkv4e")
+offset_left = -129.0
+offset_top = 233.0
+offset_right = 1358.0
+offset_bottom = 699.0
+texture = ExtResource("2_37qrm")
 expand_mode = 3
-stretch_mode = 5
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 369.0
-offset_top = 507.0
-offset_right = 1160.0
-offset_bottom = 614.0
+offset_left = 133.0
+offset_top = 565.0
+offset_right = 1150.0
+offset_bottom = 642.0
 theme_override_colors/font_color = Color(0.84, 0.73416, 0.6636, 1)
-theme_override_fonts/font = ExtResource("3_vyo1x")
+theme_override_fonts/font = ExtResource("3_ttp3i")
+theme_override_font_sizes/font_size = 18
 autowrap_mode = 2
 
 [node name="SpeakerNameLabel" type="Label" parent="Panel"]
+visible = false
 layout_mode = 0
 offset_left = 99.0
 offset_top = 640.0
