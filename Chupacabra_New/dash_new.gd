@@ -4,6 +4,7 @@ extends State
 @onready var chupacabra_charge: AudioStreamPlayer2D = $"../../Chupacabra_Charge"
 var in_slash_range = false
 
+
 func enter():
 	super.enter()
 	owner.set_physics_process(true)
@@ -19,6 +20,7 @@ func enter():
 		target.y -= 150
 	owner.target = target
 	owner.speed = 500
+
 	#print(owner.target)
 		
 		

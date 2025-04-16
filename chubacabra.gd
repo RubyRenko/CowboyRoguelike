@@ -39,6 +39,7 @@ func _process(delta):
 	if state_machine.current_state.name == "Follow":
 		direction = player.position - position
 	elif state_machine.current_state.name == "Dash":
+		#building.collision_enabled = false
 		direction = target - position
 	
 	#direction = player.position - position
@@ -73,7 +74,14 @@ func die():
 
 func _physics_process(delta):
 	velocity = direction.normalized() * speed
-	move_and_collide(velocity * delta)
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		if collision.get_collider() == building:#Checks if its from tilelayermap of desert sprites
+			print("building hit")
+			var col_cords = collision.get_position() #get position where this occured
+			var tile = building.local_to_map(col_cords) #convert to tile at those cords
+			building.erase_cell(tile)#erase tile
+			
  
 func take_damage():
 	health -= 10 - DEF
