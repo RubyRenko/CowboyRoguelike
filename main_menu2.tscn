@@ -9,7 +9,17 @@
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_j0c7f")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -374.0
+offset_top = -2.0
+offset_right = 1519.0
+offset_bottom = 672.0
+texture = ExtResource("1_7n8xt")
+expand_mode = 3
+stretch_mode = 5
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(576, 324)
 scale = Vector2(0.144556, 0.144556)
