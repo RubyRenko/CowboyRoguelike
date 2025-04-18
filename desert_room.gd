@@ -241,7 +241,7 @@ func _on_wave_timer_timeout():
 		difficulty += 3"""
 	if wave == 16:
 		get_tree().change_scene_to_file("res://forest_room.tscn")
-	elif wave == 1:
+	elif wave == 15:
 		#uncomment when chupacabra is ready
 		wave_timer.stop()
 		var chupacabra = boss.instantiate()
