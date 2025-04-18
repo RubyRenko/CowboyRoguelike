@@ -353,6 +353,7 @@ scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_bf1xx")
 
 [node name="CowboyAnim" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_epel2")
 animation = &"front"
 speed_scale = 2.5
@@ -361,7 +362,7 @@ speed_scale = 2.5
 
 [node name="Melee" parent="CenterPoint" instance=ExtResource("13_232df")]
 visible = false
-position = Vector2(44, -46)
+position = Vector2(48, 0)
 scale = Vector2(0.5, 0.5)
 collision_mask = 0
 
@@ -382,7 +383,7 @@ script = ExtResource("5_wqsxw")
 one_shot = true
 
 [node name="Dash_Timer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.499
 one_shot = true
 
 [node name="Thunder_Timer" type="Timer" parent="."]

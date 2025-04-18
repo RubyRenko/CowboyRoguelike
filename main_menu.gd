@@ -28,3 +28,17 @@ func _on_desert_button_pressed():
 	$Label.hide()
 	$Label2.hide()
 	$LoadingLabel.show()
+
+
+func _on_texture_button_pressed() -> void:
+	ResourceLoader.load_threaded_request(DESERT_SCENE_PATH)
+	loading_desert = true
+	var player = cowboy.instantiate()
+	player.ranged_dmg = 5
+	player.melee_dmg = 5
+	player.speed = 300.0
+	player.max_ammo = 6
+	player.max_hp = 8
+	player.hp = player.max_hp
+	player.money = 0
+	player.queue_free()

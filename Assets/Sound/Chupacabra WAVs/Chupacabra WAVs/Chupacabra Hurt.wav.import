@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cujnuoy8c3hd2"
+path="res://.godot/imported/Chupacabra Hurt.wav-a0efa6ec588e643445ca3fdbb46c1331.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Chupacabra WAVs/Chupacabra WAVs/Chupacabra Hurt.wav"
+dest_files=["res://.godot/imported/Chupacabra Hurt.wav-a0efa6ec588e643445ca3fdbb46c1331.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

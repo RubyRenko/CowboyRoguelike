@@ -1,14 +1,14 @@
+TextureRect
 TextureButton
 Sprite2D
 Label
-TextureRect
 Panel
 Node
 AudioStreamPlayer2D
+Node2D
 AnimatedSprite2D
 Area2D
 ProgressBar
 CharacterBody2D
 AudioStreamPlayer
 CPUParticles2D
-Timer

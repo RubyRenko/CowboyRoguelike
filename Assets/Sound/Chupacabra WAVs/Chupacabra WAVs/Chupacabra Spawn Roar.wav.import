@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cxevx8t5u2dgx"
+path="res://.godot/imported/Chupacabra Spawn Roar.wav-636684c4f0d248547a7e50d49cd92c8f.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Chupacabra WAVs/Chupacabra WAVs/Chupacabra Spawn Roar.wav"
+dest_files=["res://.godot/imported/Chupacabra Spawn Roar.wav-636684c4f0d248547a7e50d49cd92c8f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
