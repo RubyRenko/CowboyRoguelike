@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://cr7sei7aprnm3"]
+
+[ext_resource type="Script" path="res://Rooms/Tests/test1.gd" id="1_rmec5"]
+[ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://Player/cowboy_player.tscn" id="1_xv7ad"]
+[ext_resource type="Texture2D" uid="uid://dtm5sj28gohig" path="res://Assets/Cowboytemp.png" id="2_cvgdl"]
+[ext_resource type="PackedScene" uid="uid://d4e2ah1rnbl17" path="res://Enemies/enemy.tscn" id="3_bijhn"]
+[ext_resource type="PackedScene" uid="uid://ctyq6vaerwf28" path="res://Items/coin.tscn" id="5_46ww3"]
+[ext_resource type="Script" path="res://Rooms/Tests/Exit.gd" id="6_pm3r1"]
+[ext_resource type="PackedScene" uid="uid://c58iq3wgcd4xj" path="res://Enemies/GoatHead/goat_head.tscn" id="7_vt2hp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhk66"]
+
+[node name="Main" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_rmec5")
+
+[node name="CowboyPlayer" parent="." instance=ExtResource("1_xv7ad")]
+position = Vector2(90, 177)
+
+[node name="Enemy" parent="." instance=ExtResource("3_bijhn")]
+position = Vector2(736, 374)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_bijhn")]
+position = Vector2(271, 560)
+
+[node name="Pickup" parent="." instance=ExtResource("5_46ww3")]
+position = Vector2(186, 339)
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(80, 63)
+script = ExtResource("6_pm3r1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Exit"]
+scale = Vector2(0.027, 0.029)
+texture = ExtResource("2_cvgdl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+shape = SubResource("RectangleShape2D_hhk66")
+
+[node name="GoatHead" parent="." instance=ExtResource("7_vt2hp")]
+position = Vector2(505, 126)
+
+[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]

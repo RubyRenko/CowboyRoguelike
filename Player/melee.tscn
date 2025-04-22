@@ -1,0 +1,85 @@
+[gd_scene load_steps=16 format=3 uid="uid://cac4vxkmwm5en"]
+
+[ext_resource type="Script" path="res://Player/melee.gd" id="1_i21w2"]
+[ext_resource type="Texture2D" uid="uid://b38gwrpvo0lr5" path="res://Assets/sprites/Player sprite/melee_sprite-1.png" id="2_877pq"]
+[ext_resource type="Texture2D" uid="uid://b7888eor4aiq0" path="res://Assets/sprites/Player sprite/melee_sprite-2.png" id="3_bpxgc"]
+[ext_resource type="Texture2D" uid="uid://co2jkojnciymk" path="res://Assets/sprites/Player sprite/melee_sprite-3.png" id="4_pba0g"]
+[ext_resource type="Texture2D" uid="uid://6nly1xwjtunc" path="res://Assets/sprites/Player sprite/melee_sprite-4.png" id="5_epkq4"]
+[ext_resource type="Texture2D" uid="uid://cy04jw305mi70" path="res://Assets/sprites/Player sprite/melee_sprite-5.png" id="6_42x2l"]
+[ext_resource type="Texture2D" uid="uid://dyasqwtcyyhu" path="res://Assets/sprites/Player sprite/melee_sprite-6.png" id="7_6iryc"]
+[ext_resource type="Texture2D" uid="uid://k8hwfqejlu7f" path="res://Assets/sprites/Player sprite/melee_sprite-7.png" id="8_6sfti"]
+[ext_resource type="Texture2D" uid="uid://cdkycw8q0fgv8" path="res://Assets/sprites/Player sprite/melee_sprite-8.png" id="9_us0qy"]
+[ext_resource type="Texture2D" uid="uid://c3q31q65kdexa" path="res://Assets/sprites/Player sprite/melee_sprite-9.png" id="10_lrxmt"]
+[ext_resource type="Texture2D" uid="uid://c2rrhp2aqom28" path="res://Assets/sprites/Player sprite/melee_sprite-10.png" id="11_c2u4t"]
+[ext_resource type="Texture2D" uid="uid://ds8yty2n2f8r2" path="res://Assets/sprites/Player sprite/melee_sprite-11.png" id="12_yp5cj"]
+[ext_resource type="AudioStream" uid="uid://d0ieat7dgoptf" path="res://Assets/Sound/General Sound WAVs/Player Whip Hit.wav" id="13_vj2d0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t5u0s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_877pq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bpxgc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pba0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_epkq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_42x2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6iryc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6sfti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_us0qy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lrxmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_c2u4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yp5cj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qs612"]
+radius = 58.0
+height = 198.0
+
+[node name="Melee" type="Area2D"]
+z_index = 1
+texture_filter = 1
+collision_mask = 2
+script = ExtResource("1_i21w2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, 0)
+rotation = 1.5708
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_t5u0s")
+frame = 10
+frame_progress = 1.0
+speed_scale = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qs612")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_vj2d0")
+volume_db = -20.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

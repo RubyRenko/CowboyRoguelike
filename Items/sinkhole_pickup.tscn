@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d0cq03d1bgy4s"]
 
-[ext_resource type="Script" path="res://sinkhole_pickup.gd" id="1_ovbis"]
+[ext_resource type="Script" path="res://Items/Scripts/sinkhole_pickup.gd" id="1_ovbis"]
 [ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="2_vfsj4"]
 [ext_resource type="LabelSettings" uid="uid://bms3iwap6uyli" path="res://Assets/hud assets/Title.tres" id="4_ujiot"]
 [ext_resource type="Texture2D" uid="uid://3q2uk4gxedrk" path="res://Assets/ItemSprites/sinkhole sam boots-02.png" id="4_xy6yp"]

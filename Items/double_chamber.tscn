@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cvqixv0v6a7mh"]
 
-[ext_resource type="Script" path="res://DoubleChamber.gd" id="1_shhh5"]
+[ext_resource type="Script" path="res://Items/Scripts/DoubleChamber.gd" id="1_shhh5"]
 [ext_resource type="Texture2D" uid="uid://rlpct1pe6cxh" path="res://Assets/hud assets/bullet chambers-08.png" id="2_ql4np"]
 [ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="3_pklhu"]
 [ext_resource type="LabelSettings" uid="uid://bms3iwap6uyli" path="res://Assets/hud assets/Title.tres" id="4_lxqfe"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dqxsi6jrohmjs"]
 
-[ext_resource type="Script" path="res://FlatwoodsPickup.gd" id="1_7o4wy"]
+[ext_resource type="Script" path="res://Items/Scripts/FlatwoodsPickup.gd" id="1_7o4wy"]
 [ext_resource type="Texture2D" uid="uid://cs44uxn2jlc1j" path="res://Assets/ItemSprites/flatwood eye-02.png" id="2_v070s"]
 [ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="3_ayytf"]
 [ext_resource type="LabelSettings" uid="uid://bms3iwap6uyli" path="res://Assets/hud assets/Title.tres" id="4_n8j3y"]

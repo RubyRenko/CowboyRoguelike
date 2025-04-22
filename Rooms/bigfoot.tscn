@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bto150pv6mwui"]
+
+[ext_resource type="Script" path="res://Rooms/Bigfoot.gd" id="1_nhmm6"]
+[ext_resource type="Texture2D" uid="uid://4nemk88u2gr7" path="res://Assets/sprites/temp_bigfoot.jpg" id="2_ksuvy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x555h"]
+font_size = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ab417"]
+size = Vector2(199, 194)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oyhgl"]
+radius = 384.033
+
+[node name="Bigfoot" type="Node2D"]
+script = ExtResource("1_nhmm6")
+
+[node name="text" type="Label" parent="."]
+offset_left = -199.0
+offset_top = -230.0
+offset_right = 243.0
+offset_bottom = -175.0
+text = "Hey... Nice to meet you"
+label_settings = SubResource("LabelSettings_x555h")
+
+[node name="body" type="StaticBody2D" parent="."]
+
+[node name="TempBigfoot" type="Sprite2D" parent="body"]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_ksuvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body"]
+position = Vector2(-10.5, -1)
+shape = SubResource("RectangleShape2D_ab417")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_oyhgl")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
