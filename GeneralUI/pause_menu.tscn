@@ -100,7 +100,6 @@ texture_normal = ExtResource("6_viixg")
 texture_pressed = ExtResource("7_6utom")
 
 [node name="InventoryDisplay" parent="." instance=ExtResource("10_tuvum")]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

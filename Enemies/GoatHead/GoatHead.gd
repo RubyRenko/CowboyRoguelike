@@ -15,9 +15,9 @@ var stun = 0
 var slow = 0
 
 @onready var main = get_tree().get_root().get_node("Main")
-@onready var coin = load("res://coin.tscn")
-@onready var blood = load("res://goat_blood.tscn")
-@onready var death_sprite = load("res://enemy_death_splat.tscn")
+@onready var coin = load("res://Items/coin.tscn")
+@onready var blood = load("res://Enemies/GoatHead/goat_blood.tscn")
+@onready var death_sprite = load("res://Enemies/enemy_death_splat.tscn")
 @onready var blood_timer = $Blood_Timer
 @onready var sprite_anim = $GoatSprite
 @onready var hp_bar = $HpBar

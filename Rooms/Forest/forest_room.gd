@@ -5,11 +5,11 @@ extends Node2D
 @onready var player = $CowboyPlayer
 @onready var enemies = [
 				#load("res://goat_head.tscn"), load("res://goat_head_alt.tscn"), #desert enemies
-				load("res://moth.tscn"), load("res://moth_alt.tscn"), load("res://larva.tscn") #forest enemies
+				load("res://Enemies/Moths/moth.tscn"), load("res://Enemies/Moths/moth_alt.tscn"), load("res://Enemies/Larva/larva.tscn") #forest enemies
 				]
 @onready var wave_timer = $Gui/WaveTimer
 @onready var wave_display = $Gui/WaveAnim
-@onready var shop_spawn = load("res://shop.tscn")
+@onready var shop_spawn = load("res://Shop/shop.tscn")
 #@onready var boss = load("res://chubacabra.tscn") #boss, change with mothman
 @onready var wave_sfx = $WaveSfxPlayer
 
@@ -63,7 +63,7 @@ func _process(delta):
 		$Gui.visible = false
 		player.die()
 		await get_tree().create_timer(2).timeout
-		get_tree().change_scene_to_file("res://main_menu.tscn")
+		get_tree().change_scene_to_file("res://GeneralUI/main_menu.tscn")
 
 func create_room(width, height, padding = 12):
 	var terrain_start_point = []

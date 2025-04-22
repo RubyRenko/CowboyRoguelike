@@ -5,13 +5,13 @@ var rng = RandomNumberGenerator.new()
 @onready var tile_detail = $DesertSprites
 @onready var player = $CowboyPlayer
 @onready var enemies = [
-				load("res://goat_head.tscn"), load("res://goat_head_alt.tscn"), #desert enemies
-				load("res://moth.tscn"), load("res://moth_alt.tscn"), load("res://larva.tscn") #forest enemies
+				load("res://Enemies/GoatHead/goat_head.tscn"), load("res://Enemies/GoatHead/goat_head_alt.tscn"), #desert enemies
+				load("res://Enemies/Moths/moth.tscn"), load("res://Enemies/Moths/moth_alt.tscn"), load("res://Enemies/Larva/larva.tscn") #forest enemies
 				]
 @onready var wave_timer = $Gui/WaveTimer
 @onready var wave_display = $Gui/WaveAnim
-@onready var shop_spawn = load("res://shop.tscn")
-@onready var boss = load("res://Chupacabra_New/chubacabra_new.tscn")
+@onready var shop_spawn = load("res://Shop/shop.tscn")
+@onready var boss = load("res://Enemies/Chupacabra_New/chubacabra_new.tscn")
 @onready var wave_sfx = $WaveSfxPlayer
 
 
@@ -48,7 +48,7 @@ func _process(_delta):
 		$Gui.visible = false
 		player.die()
 		await get_tree().create_timer(2).timeout
-		get_tree().change_scene_to_file("res://main_menu2.tscn")
+		get_tree().change_scene_to_file("res://GeneralUI/main_menu2.tscn")
 	
 	"""if Input.is_action_just_pressed("ui_accept"):
 		clean_up()
@@ -240,7 +240,7 @@ func _on_wave_timer_timeout():
 		print("shop spawn")
 		difficulty += 3"""
 	if wave == 16:
-		get_tree().change_scene_to_file("res://forest_room.tscn")
+		get_tree().change_scene_to_file("res://Rooms/Forest/forest_room.tscn")
 	elif wave == 15:
 		#uncomment when chupacabra is ready
 		wave_timer.stop()

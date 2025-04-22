@@ -6,7 +6,7 @@ var chase = null
 var hurt = false
 var next_hurt = 0
 @onready var main = get_tree().get_root().get_node("Main")
-@onready var coin = load("res://pickup.tscn")
+@onready var coin = load("res://Items/coin.tscn")
 
 func _physics_process(delta):
 	#makes sure the hp display is up to date

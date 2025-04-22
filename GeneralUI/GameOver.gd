@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var cowboy = load("res://cowboy_player.tscn")
+@onready var cowboy = load("res://Player/cowboy_player.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,7 +29,7 @@ func _on_forest_button_pressed():
 	player.max_hp = 8
 	player.hp = player.max_hp
 	player.money = 0
-	get_tree().change_scene_to_file("res://forest_room.tscn")
+	get_tree().change_scene_to_file("res://Rooms/Forest/forest_room.tscn")
 
 
 func _on_desert_button_pressed():
@@ -41,4 +41,4 @@ func _on_desert_button_pressed():
 	player.max_hp = 8
 	player.hp = player.max_hp
 	player.money = 0
-	get_tree().change_scene_to_file("res://desert_room.tscn")
+	get_tree().change_scene_to_file("res://Rooms/Desert/desert_room.tscn")

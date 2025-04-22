@@ -1,7 +1,7 @@
 extends Node2D
-const DESERT_SCENE_PATH : String = "res://desert_room.tscn"
+const DESERT_SCENE_PATH : String = "res://Rooms/Desert/desert_room.tscn"
 var loading_desert = false
-@onready var cowboy = load("res://cowboy_player.tscn")
+@onready var cowboy = load("res://Player/cowboy_player.tscn")
 
 func _process(delta):
 	if loading_desert && (ResourceLoader.load_threaded_get_status(DESERT_SCENE_PATH) == ResourceLoader.THREAD_LOAD_LOADED):
@@ -9,8 +9,7 @@ func _process(delta):
 		get_tree().change_scene_to_packed(new_scene)
 		
 func _on_forest_button_pressed():
-	
-	get_tree().change_scene_to_file("res://forest_room.tscn")
+	get_tree().change_scene_to_file("res://Rooms/Forest/forest_room.tscn")
 
 func _on_desert_button_pressed():
 	ResourceLoader.load_threaded_request(DESERT_SCENE_PATH)

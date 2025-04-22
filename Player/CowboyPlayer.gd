@@ -13,8 +13,8 @@ class_name CowboyPlayer
 @onready var thunder_timer = $Thunder_Timer
 @onready var audio = $AudioPlayer
 
-var bullet = load("res://bullet.tscn")
-var bullet_n = load("res://bullet_nessie.tscn")
+var bullet = load("res://Player/Bullets/bullet.tscn")
+var bullet_n = load("res://Player/Bullets/bullet_nessie.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

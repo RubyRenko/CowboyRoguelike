@@ -53,6 +53,7 @@ func update_inv(inventory):
 	var i = 0
 	for item in inventory.keys():
 		if inventory[item] != 0:
+			print_debug(item);
 			get_child(i).texture = item_sprites[item]
 			get_child(i).set_item_name(item_names[item])
 			get_child(i).set_item_desc(item_desc[item] + "\nx" + str(inventory[item]))

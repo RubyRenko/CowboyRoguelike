@@ -6,8 +6,8 @@ extends CharacterBody2D
 @onready var progress_bar: ProgressBar = $Boss_UI/ProgressBar
 @onready var state_machine = $FiniteStateMachine
 @onready var main = get_tree().get_root().get_node("Main")
-@onready var coin = load("res://coin.tscn")
-@onready var death_sprite = load("res://enemy_death_splat.tscn")
+@onready var coin = load("res://Items/coin.tscn")
+@onready var death_sprite = load("res://Enemies/enemy_death_splat.tscn")
 @onready var loot_table = [load("res://Items/nessie_pickup.tscn"), 
 						load("res://Items/dark_watcher_pickup.tscn"), 
 						load("res://Items/gator_pickup.tscn"),

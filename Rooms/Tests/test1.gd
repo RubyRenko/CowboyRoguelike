@@ -1,5 +1,5 @@
 extends Node2D
-@onready var enemies = [load("res://enemy.tscn"), load("res://goat_head.tscn")]
+@onready var enemies = [load("res://Enemies/enemy.tscn"), load("res://Enemies/GoatHead/goat_head.tscn")]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,7 +11,7 @@ func _process(delta):
 	if $CowboyPlayer.hp <= 0:
 		#if the player runs out of hp
 		#print("game over")
-		get_tree().change_scene_to_file("res://game_over.tscn")
+		get_tree().change_scene_to_file("res://GeneralUI/game_over.tscn")
 	
 	#when space is pressed, spawns an enemy
 	#ui accept is default, can be changed to whatever button

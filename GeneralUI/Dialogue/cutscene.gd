@@ -58,7 +58,7 @@ func show_next_line():
 			background_texture_rect.texture = dialogue_data[current_image_index]["image"]
 			show_next_line()
 		else:
-			get_tree().change_scene_to_file("res://main_menu2.tscn")
+			get_tree().change_scene_to_file("res://GeneralUI/main_menu2.tscn")
 
 	
 func _input(event):

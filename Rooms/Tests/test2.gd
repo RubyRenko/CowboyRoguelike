@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var enemy = load("res://enemy.tscn")
+@onready var enemy = load("res://Enemies/enemy.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

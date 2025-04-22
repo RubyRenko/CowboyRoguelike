@@ -22,6 +22,7 @@ func pause():
 	get_tree().paused = true
 	show()
 	var inv = main.get_node("CowboyPlayer").inventory
+	print_debug(inv)
 	inventory_display.update_inv(inv)
 	is_paused = true
 
@@ -59,4 +60,4 @@ func _on_controls_button_pressed():
 		toggle_inventory()
 
 func _on_quit_button_pressed():
-	get_tree().change_scene_to_file("res://main_menu2.tscn")
+	get_tree().change_scene_to_file("res://GeneralUI/main_menu2.tscn")
