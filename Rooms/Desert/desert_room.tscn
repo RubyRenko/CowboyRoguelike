@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://dw5fubqtnb7we" path="res://Assets/Tilemaps/DesertTileset.png" id="1_d3unl"]
 [ext_resource type="Script" path="res://Rooms/Desert/desert_room.gd" id="1_w386a"]
 [ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://Player/cowboy_player.tscn" id="2_10jt5"]
+[ext_resource type="AudioStream" uid="uid://j2d0uq7tywbx" path="res://Assets/Sound/Music/First Hoedown (Town Theme GAMEREADY).ogg" id="2_q2dst"]
 [ext_resource type="Script" path="res://GeneralUI/wave_sfx_player.gd" id="3_em6cx"]
 [ext_resource type="Texture2D" uid="uid://58lyhuaolr4f" path="res://Assets/Tilemaps/tempWall.png" id="3_mjflq"]
 [ext_resource type="Texture2D" uid="uid://ca1ge4oryjerg" path="res://Assets/Tilemaps/building_l.png" id="5_dagkt"]
-[ext_resource type="AudioStream" uid="uid://klnmu5125dt" path="res://Assets/Sound/Music/44 Forest (Forest Theme GAMEREADY).ogg" id="5_rc6bk"]
 [ext_resource type="FontFile" uid="uid://b1iy1e5pnw0od" path="res://Assets/hud assets/GothicPixels.ttf" id="6_45l3r"]
 [ext_resource type="Texture2D" uid="uid://rpyhphkuii7q" path="res://Assets/Tilemaps/building2.png" id="6_86bab"]
 [ext_resource type="Script" path="res://GeneralUI/wave_label.gd" id="7_7cw2e"]
@@ -381,7 +381,7 @@ process_mode = 1
 script = ExtResource("1_w386a")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_rc6bk")
+stream = ExtResource("2_q2dst")
 volume_db = -30.0
 autoplay = true
 

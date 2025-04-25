@@ -52,12 +52,15 @@ func _physics_process(delta):
 		#when chasing, minus the chased from the enemy's position to get the direction
 		$CenterPoint.look_at(chase.position)
 		velocity = (chase.position - position).normalized() * speed
+		if !sounds.playing:
+			sounds.play_sfx("hover")
 	elif randi_range(0,30) == 0:
 		#when not chasing, every few seconds, choose a random direction and move towards it
 		#this will make the enemy wander naturally
 		var rand_direction =  Vector2(randi_range(-20,20), randi_range(-20,20))
 		velocity = rand_direction * speed * delta
-		sounds.play_sfx("bite")
+		if !sounds.playing:
+			sounds.play_sfx("hover")
 	
 	move_and_collide(velocity * delta)
 	if velocity.x > 0:
@@ -75,6 +78,7 @@ func _physics_process(delta):
 			#main.get_node("CowboyPlayer").hp -= 1
 			next_hurt = 1.5
 			#making the next_hurt value higher makes it take more time
+			sounds.play_sfx("bite")
 	
 	if hp <= 0:
 		#if the enemy hp drops to zero, then it dies

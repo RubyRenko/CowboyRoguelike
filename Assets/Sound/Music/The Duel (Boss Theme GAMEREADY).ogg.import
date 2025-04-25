@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cpgx1s56qwrtk"
+path="res://.godot/imported/The Duel (Boss Theme GAMEREADY).ogg-87e64104b6e3d34389c1445963804b60.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sound/Music/The Duel (Boss Theme GAMEREADY).ogg"
+dest_files=["res://.godot/imported/The Duel (Boss Theme GAMEREADY).ogg-87e64104b6e3d34389c1445963804b60.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
