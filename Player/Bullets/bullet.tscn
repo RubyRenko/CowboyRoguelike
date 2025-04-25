@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7usudnqblte"]
+[gd_scene load_steps=4 format=3 uid="uid://c7usudnqblte"]
 
 [ext_resource type="Script" path="res://Player/Bullets/Bullet.gd" id="1_gv073"]
 [ext_resource type="Texture2D" uid="uid://d28cs3nsjlcyc" path="res://Assets/ItemSprites/Bullet_sprite.png" id="2_rn3r5"]
-[ext_resource type="Script" path="res://Player/Bullets/bullet_sfx.gd" id="3_lgqri"]
-[ext_resource type="Script" path="res://Player/Bullets/bulletdebuff_sfx.gd" id="4_1o8fa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qqv1x"]
 radius = 6.0
@@ -24,14 +22,6 @@ texture = ExtResource("2_rn3r5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
 shape = SubResource("CapsuleShape2D_qqv1x")
-
-[node name="BulletSfx" type="AudioStreamPlayer2D" parent="."]
-volume_db = -15.0
-script = ExtResource("3_lgqri")
-
-[node name="BulletDebuffSfx" type="AudioStreamPlayer2D" parent="."]
-volume_db = -15.0
-script = ExtResource("4_1o8fa")
 
 [connection signal="body_entered" from="Bullet" to="." method="_on_bullet_body_entered"]
 [connection signal="body_entered" from="Bullet" to="Bullet" method="_on_body_entered"]
