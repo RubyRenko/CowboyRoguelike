@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c30nsv2udwnly"]
 
-[ext_resource type="Script" path="res://cadejo_pickup.gd" id="1_s76p1"]
+[ext_resource type="Script" path="res://Items/Scripts/cadejo_pickup.gd" id="1_s76p1"]
 [ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="2_j6fsj"]
 [ext_resource type="LabelSettings" uid="uid://bms3iwap6uyli" path="res://Assets/hud assets/Title.tres" id="4_0scqe"]
 [ext_resource type="Texture2D" uid="uid://bmjffewm4ucfm" path="res://Assets/ItemSprites/cadejo chain-02.png" id="4_p7jjo"]

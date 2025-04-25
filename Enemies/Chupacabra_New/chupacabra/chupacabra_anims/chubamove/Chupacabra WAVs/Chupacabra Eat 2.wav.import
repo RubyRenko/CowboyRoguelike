@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c3rgvpy8d4pfe"
+path="res://.godot/imported/Chupacabra Eat 2.wav-2ac2383d41f29c6b54c4650bd18edbba.sample"
+
+[deps]
+
+source_file="res://Enemies/Chupacabra_New/chupacabra/chupacabra_anims/chubamove/Chupacabra WAVs/Chupacabra Eat 2.wav"
+dest_files=["res://.godot/imported/Chupacabra Eat 2.wav-2ac2383d41f29c6b54c4650bd18edbba.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

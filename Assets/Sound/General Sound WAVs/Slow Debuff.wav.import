@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dt3hu1uskjxsk"
+path="res://.godot/imported/Slow Debuff.wav-cc93a3685bb9a03d0c3021cbb7dab07c.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/General Sound WAVs/Slow Debuff.wav"
+dest_files=["res://.godot/imported/Slow Debuff.wav-cc93a3685bb9a03d0c3021cbb7dab07c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

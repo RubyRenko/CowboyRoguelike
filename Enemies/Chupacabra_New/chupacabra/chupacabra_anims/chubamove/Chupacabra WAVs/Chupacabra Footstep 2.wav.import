@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ca4pku0fajlrh"
+path="res://.godot/imported/Chupacabra Footstep 2.wav-b25a635ff92047ee43b19a7ed874b1ac.sample"
+
+[deps]
+
+source_file="res://Enemies/Chupacabra_New/chupacabra/chupacabra_anims/chubamove/Chupacabra WAVs/Chupacabra Footstep 2.wav"
+dest_files=["res://.godot/imported/Chupacabra Footstep 2.wav-b25a635ff92047ee43b19a7ed874b1ac.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

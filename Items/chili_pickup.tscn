@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://bysic3agekq1n"]
 
-[ext_resource type="Script" path="res://Items/chili_bowl.gd" id="1_gkp2v"]
+[ext_resource type="Script" path="res://Items/Scripts/chili_bowl.gd" id="1_gkp2v"]
 [ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="2_dkiup"]
 [ext_resource type="Texture2D" uid="uid://ba02pqcmb5s2g" path="res://Assets/ItemSprites/bowl of chili-02.png" id="4_nifoi"]
 [ext_resource type="LabelSettings" uid="uid://bms3iwap6uyli" path="res://Assets/hud assets/Title.tres" id="4_q12ry"]
 [ext_resource type="LabelSettings" uid="uid://daw641c4l4dde" path="res://Assets/hud assets/Text.tres" id="5_8gn2e"]
-[ext_resource type="Script" path="res://shop_audio.gd" id="6_ncich"]
+[ext_resource type="Script" path="res://Shop/shop_audio.gd" id="6_ncich"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8g0oo"]
 radius = 23.0217

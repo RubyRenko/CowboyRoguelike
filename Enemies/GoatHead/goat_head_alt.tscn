@@ -1,0 +1,130 @@
+[gd_scene load_steps=16 format=3 uid="uid://dus52wmgg0lxk"]
+
+[ext_resource type="Script" path="res://Enemies/GoatHead/goat_head_alt.gd" id="1_qjyqb"]
+[ext_resource type="Texture2D" uid="uid://chm0akb8niixd" path="res://Assets/sprites/Enemies/goatmovealt/goatmovealt_0000.png" id="2_pgb23"]
+[ext_resource type="Texture2D" uid="uid://bfpa7kxws5wbp" path="res://Assets/sprites/Enemies/goatmovealt/goatmovealt_0001.png" id="3_hkmpy"]
+[ext_resource type="Texture2D" uid="uid://mvx4idfsn8kh" path="res://Assets/sprites/Enemies/goatmovealt/goatmovealt_0002.png" id="4_sx1u0"]
+[ext_resource type="Texture2D" uid="uid://br2fc5oov6ps6" path="res://Assets/sprites/Enemies/goatmovealt/goatmovealt_0003.png" id="5_oy8cx"]
+[ext_resource type="Texture2D" uid="uid://b8080ybl6whbb" path="res://Assets/sprites/Enemies/goatmovealt/goatmovealt_0004.png" id="6_g8nar"]
+[ext_resource type="Texture2D" uid="uid://dh3wbu4dyk7b6" path="res://Assets/sprites/Enemies/goatmovealt/goatmovealt_0005.png" id="7_c30fc"]
+[ext_resource type="Texture2D" uid="uid://hh4lbiauymko" path="res://Assets/sprites/Enemies/goatmovealt/goatmovealt_0006.png" id="8_7lc3i"]
+[ext_resource type="Script" path="res://Enemies/GoatHead/goat_head_sfx.gd" id="9_7nra6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_teiet"]
+radius = 312.41
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3feb"]
+radius = 24.0208
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r7jp3"]
+radius = 18.0278
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fox3b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pgb23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hkmpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sx1u0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oy8cx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g8nar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c30fc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7lc3i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrcvs"]
+bg_color = Color(0.469605, 0.190438, 0.214815, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5rsa"]
+bg_color = Color(0.830492, 0.2944, 0.31053, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="GoatHeadAlt" type="CharacterBody2D" groups=["enemy"]]
+z_index = 1
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_qjyqb")
+
+[node name="SenseArea" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="SenseCollision" type="CollisionShape2D" parent="SenseArea"]
+scale = Vector2(1.2, 1.2)
+shape = SubResource("CircleShape2D_teiet")
+
+[node name="HitArea" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="HitCollision" type="CollisionShape2D" parent="HitArea"]
+shape = SubResource("CircleShape2D_p3feb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r7jp3")
+
+[node name="Blood_Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="GoatSpriteAlt" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_fox3b")
+
+[node name="HpBar" type="ProgressBar" parent="."]
+offset_left = -28.0
+offset_top = -38.0
+offset_right = 82.0
+offset_bottom = -19.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/background = SubResource("StyleBoxFlat_lrcvs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u5rsa")
+value = 20.0
+show_percentage = false
+
+[node name="CenterPoint" type="Marker2D" parent="."]
+
+[node name="GunPoint" type="Marker2D" parent="CenterPoint"]
+position = Vector2(25, 0)
+
+[node name="GoatHeadSfx" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+max_distance = 1000.0
+script = ExtResource("9_7nra6")
+
+[connection signal="body_entered" from="SenseArea" to="." method="_on_sense_area_body_entered"]
+[connection signal="body_exited" from="SenseArea" to="." method="_on_sense_area_body_exited"]
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
+[connection signal="body_exited" from="HitArea" to="." method="_on_hit_area_body_exited"]
+[connection signal="timeout" from="Blood_Timer" to="." method="_on_timer_timeout"]

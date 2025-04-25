@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://w3symfr3qsw8"
+path="res://.godot/imported/Stun Debuff.wav-0695dee715823a20a4e86da90495c20b.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/General Sound WAVs/Stun Debuff.wav"
+dest_files=["res://.godot/imported/Stun Debuff.wav-0695dee715823a20a4e86da90495c20b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
