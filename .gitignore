@@ -119,5 +119,6 @@
 *.cfg
 *.Node
 *.bin
+*.tmp
 /.idea
 /.godot
