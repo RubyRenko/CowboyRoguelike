@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cisvj5in5kobe"]
 
-[ext_resource type="Script" path="res://WampusPickup.gd" id="1_ea7jc"]
+[ext_resource type="Script" path="res://Items/Scripts/WampusPickup.gd" id="1_ea7jc"]
 [ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="2_7krbo"]
 [ext_resource type="Texture2D" uid="uid://cuvxfv07m3i0t" path="res://Assets/ItemSprites/wampus_paw.png" id="2_kef3a"]
 [ext_resource type="LabelSettings" uid="uid://bms3iwap6uyli" path="res://Assets/hud assets/Title.tres" id="4_1j6hp"]

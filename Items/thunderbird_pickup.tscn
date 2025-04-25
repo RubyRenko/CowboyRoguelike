@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bv2buus8xe186"]
 
-[ext_resource type="Script" path="res://thunderbird_pickup.gd" id="1_g4ya2"]
+[ext_resource type="Script" path="res://Items/Scripts/thunderbird_pickup.gd" id="1_g4ya2"]
 [ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="2_kkn6e"]
 [ext_resource type="LabelSettings" uid="uid://bms3iwap6uyli" path="res://Assets/hud assets/Title.tres" id="3_ux6x0"]
 [ext_resource type="Texture2D" uid="uid://c468fgyl2yvrw" path="res://Assets/ItemSprites/thunderbird.png" id="4_4ssnn"]

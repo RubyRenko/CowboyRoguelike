@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ck470oi82amrq"
+path="res://.godot/imported/Chupacabra Melee.wav-7e0f764116f049c33e8e95b58760e4fd.sample"
+
+[deps]
+
+source_file="res://Enemies/Chupacabra_New/chupacabra/chupacabra_anims/chubamove/Chupacabra WAVs/Chupacabra Melee.wav"
+dest_files=["res://.godot/imported/Chupacabra Melee.wav-7e0f764116f049c33e8e95b58760e4fd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dt8akrmj3vqos"]
 
-[ext_resource type="Script" path="res://jackPickup.gd" id="1_mai21"]
+[ext_resource type="Script" path="res://Items/Scripts/jackPickup.gd" id="1_mai21"]
 [ext_resource type="Texture2D" uid="uid://cvpleg1i01sl3" path="res://Assets/ItemSprites/jackalope.png" id="2_gjbht"]
 [ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="3_l1ilw"]
 [ext_resource type="LabelSettings" uid="uid://bms3iwap6uyli" path="res://Assets/hud assets/Title.tres" id="4_7vaq7"]

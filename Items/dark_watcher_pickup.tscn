@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://7dwqtw8aidt6"]
 
-[ext_resource type="Script" path="res://dark_watcher_pickup.gd" id="1_c03fk"]
+[ext_resource type="Script" path="res://Items/Scripts/dark_watcher_pickup.gd" id="1_c03fk"]
 [ext_resource type="Texture2D" uid="uid://6qmy01ekl1yr" path="res://Assets/ItemSprites/dark watcher hat-02.png" id="2_5n38n"]
 [ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="3_3ymwg"]
 [ext_resource type="LabelSettings" uid="uid://bms3iwap6uyli" path="res://Assets/hud assets/Title.tres" id="4_mux7j"]
 [ext_resource type="LabelSettings" uid="uid://daw641c4l4dde" path="res://Assets/hud assets/Text.tres" id="5_rblwj"]
-[ext_resource type="Script" path="res://shop_audio.gd" id="6_62ipy"]
+[ext_resource type="Script" path="res://Shop/shop_audio.gd" id="6_62ipy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h1one"]
 radius = 23.0217

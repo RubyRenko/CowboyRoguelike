@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://ct4naq3oauebx"]
+
+[ext_resource type="Script" path="res://Rooms/Tests/test2.gd" id="1_i4f30"]
+[ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://Player/cowboy_player.tscn" id="2_igihv"]
+[ext_resource type="PackedScene" uid="uid://bto150pv6mwui" path="res://Rooms/bigfoot.tscn" id="3_pygoa"]
+[ext_resource type="Script" path="res://Rooms/Tests/Exit2.gd" id="4_lm1tn"]
+[ext_resource type="Texture2D" uid="uid://dtm5sj28gohig" path="res://Assets/Cowboytemp.png" id="5_ncr11"]
+[ext_resource type="PackedScene" uid="uid://dt8akrmj3vqos" path="res://Items/jackalop_pickup.tscn" id="6_5xbt5"]
+[ext_resource type="PackedScene" uid="uid://cvqixv0v6a7mh" path="res://Items/double_chamber.tscn" id="7_1ei5h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c41w"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_i4f30")
+
+[node name="CowboyPlayer" parent="." instance=ExtResource("2_igihv")]
+position = Vector2(565, 528)
+
+[node name="Bigfoot" parent="." instance=ExtResource("3_pygoa")]
+position = Vector2(379, 319)
+scale = Vector2(0.3, 0.3)
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(567, 615)
+script = ExtResource("4_lm1tn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Exit"]
+scale = Vector2(0.027, 0.029)
+texture = ExtResource("5_ncr11")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+shape = SubResource("RectangleShape2D_2c41w")
+
+[node name="JackalopPickup" parent="." instance=ExtResource("6_5xbt5")]
+position = Vector2(641, 361)
+
+[node name="DoubleChamber" parent="." instance=ExtResource("7_1ei5h")]
+position = Vector2(894, 363)
+
+[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://drmxoaxs2hbm3"]
 
-[ext_resource type="Script" path="res://Items/nessie_pickup.gd" id="1_j11md"]
+[ext_resource type="Script" path="res://Items/Scripts/nessie_pickup.gd" id="1_j11md"]
 [ext_resource type="Texture2D" uid="uid://dhro7ihoxmkk3" path="res://Assets/hud assets/floating txtbox.png" id="2_5wjt1"]
 [ext_resource type="Texture2D" uid="uid://csb2omfweod5c" path="res://Assets/ItemSprites/nessie tooth-02.png" id="4_os5go"]
 [ext_resource type="LabelSettings" uid="uid://bms3iwap6uyli" path="res://Assets/hud assets/Title.tres" id="4_sctlv"]
