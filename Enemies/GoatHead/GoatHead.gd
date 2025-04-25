@@ -49,15 +49,11 @@ func _physics_process(delta):
 	elif chase != null:
 		#when chasing, minus the chased from the enemy's position to get the direction
 		velocity = (chase.position - position).normalized() * speed
-		if !sounds.playing:
-			sounds.play_sfx("hover")
 	elif randi_range(0,30) == 0:
 		#when not chasing, every few seconds, choose a random direction and move towards it
 		#this will make the enemy wander naturally
 		var rand_direction =  Vector2(randi_range(-20,20), randi_range(-20,20))
 		velocity = rand_direction * speed * delta
-		if !sounds.playing:
-				sounds.play_sfx("hover")
 	
 	move_and_collide(velocity * delta)
 	if velocity.x > 0:

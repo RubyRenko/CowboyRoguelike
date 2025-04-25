@@ -1,6 +1,5 @@
 extends Area2D
 var damage = 10
-@onready var sounds = $MeleeDebuffSFX
 
 func _on_body_entered(body):
 	if body.is_in_group("enemy"):
@@ -17,11 +16,8 @@ func deal_dmg(body):
 	body.hp -= damage
 	if randi_range(0, 100) <= 5 * owner.inventory["darkhat"]:
 		body.stun += 1
-		sounds.play_sfx("stunhit")
 	body.slow += owner.inventory["cadejo"]
-	if body.slow >= 1:
-		sounds.play_sfx("slowhit")
-	$MeleeHitSFX.play()
+	$AudioStreamPlayer2D.play()
 
 
 func _on_animated_sprite_2d_animation_finished():
