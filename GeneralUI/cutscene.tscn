@@ -34,13 +34,13 @@ expand_mode = 3
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 133.0
-offset_top = 565.0
-offset_right = 1150.0
-offset_bottom = 642.0
+offset_left = 125.0
+offset_top = 570.0
+offset_right = 1153.0
+offset_bottom = 641.0
 theme_override_colors/font_color = Color(0.84, 0.73416, 0.6636, 1)
 theme_override_fonts/font = ExtResource("3_ttp3i")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 20
 autowrap_mode = 2
 
 [node name="SpeakerNameLabel" type="Label" parent="Panel"]

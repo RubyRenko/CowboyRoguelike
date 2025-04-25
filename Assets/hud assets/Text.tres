@@ -1,8 +1,8 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://daw641c4l4dde"]
 
-[ext_resource type="FontFile" uid="uid://b6cxeh2ocxfkn" path="res://Assets/hud assets/gomarice_block_western.ttf" id="1_h0yxv"]
+[ext_resource type="FontFile" uid="uid://drsvb3gij1p5" path="res://Assets/cutscene assets/alagard.ttf" id="1_iwn86"]
 
 [resource]
-font = ExtResource("1_h0yxv")
+font = ExtResource("1_iwn86")
 font_size = 15
 font_color = Color(0.290196, 0.215686, 0.180392, 1)

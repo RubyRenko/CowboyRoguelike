@@ -24,7 +24,8 @@ var dialogue_data : Array = [
 		{"speaker": "Cowboy", "text": "You must be a great shot then, huh?"},
 		{"speaker": "Player", "text": "You’d be right. All it took was an aim with the CURSOR and a simple flick of the LEFT CLICK to shoot those demons. And when a man is low on rounds, he needs to R to reload."},
 		{"speaker": "Cowboy", "text": "What about your whip?"},
-		{"speaker": "Player", "text": "Oh yeah, my whip. Sometimes it’s hard to get your shot when they’re up close to you, so a man needs something that can hit ‘em good up close. My whip has never let me down. It gets the job done whenever I RIGHT CLICK. I’d say it even hits them harder than my gun sometimes. There’s nothing more satisfying than getting those baddies good."},
+		{"speaker": "Player", "text": "Oh yeah, my whip. Sometimes it’s hard to get your shot when they’re up close to you, so a man needs something that can hit ‘em good up close."},
+		{"speaker": "Player", "text": "My whip has never let me down. It gets the job done whenever I RIGHT CLICK. I’d say it even hits them harder than my gun sometimes. There’s nothing more satisfying than getting those baddies good."},
 		{"speaker": "Cowboy", "text": "You really got some fancy tools on you, don’t you? But, what else did you see on your journey?"},
 		{"speaker": "Player", "text": "That’s a good question. You’d honestly be shocked to hear."}
 	]},    
