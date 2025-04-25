@@ -7,11 +7,11 @@ extends Node
 
 var dialogue_data : Array = [
 { "image": preload("res://Assets/cutscene assets/cutscene 1.png"), "lines": [
-		{"speaker": "Player", "text": "I’m sure you know these lands are not made for the weak. The moon gives power to the fiercest gangs of beasts I’ve ever seen."},
+		{"speaker": "Player", "text": "You know... these lands are not made for the weak; The moon gives power to the fiercest gangs of beasts I’ve ever seen."},
 		{"speaker": "Cowboy", "text": "But, you were the one that brought those devils to justice, were you not?"},
 		{"speaker": "Player", "text": "You’re gonna ask me how I did it, huh? That’s a whole can of worms you’re opening up kid."},
 		{"speaker": "Cowboy", "text": "Please, tell me."},
-		{"speaker": "Player", "text": "Fine, kid. I’ll tell you but it’s a long tale."}
+		{"speaker": "Player", "text": "Fine, kid. I’ll tell you, but it’s a long tale."}
 	]},
 	{ "image": preload("res://Assets/cutscene assets/cutscene2.png"), "lines": [
 		{"speaker": "Player", "text": "From bloodsuckers to bug men, not even the towns are safe from the Blood Moon. Their gangs come in endless waves like damn zombies surrounding me from every side."},
@@ -32,8 +32,8 @@ var dialogue_data : Array = [
 	{ "image": preload("res://Assets/cutscene assets/cutscene4.png"), "lines": [
 		{"speaker": "Player", "text": "Despite the constant bloodshed of what seemed like thousands of waves of monsters, I occasionally encountered this strange merchant who would sell me goods. Those goods helped me along the way so thank the lord he was there."},
 		{"speaker": "Cowboy", "text": "Quite peculiar, did this shopkeeper have a name?"},
-		{"speaker": "Player", "text": "Eh, never really got a name, so I just called him Mr. Biggs. However, I think that man had a twin brother or something."},
-		{"speaker": "Cowboy", "text": "Now, you still haven’t told me the nitty-gritty of this take, friend. What did you fight? Who did you slay? Where did you go?"},
+		{"speaker": "Player", "text": "Eh, never really got a name, so I just called him Mr. Biggs. However, I think that man had a twin brother, or a lover, or something."},
+		{"speaker": "Cowboy", "text": "Now, you still haven’t told me the nitty-gritty of this tale, friend. What did you fight? Who did you slay? Where did you go?"},
 		{"speaker": "Player", "text": "Jeez kid, you really are eager, aren’t you? Fine then, I guess it would be rude of me to not go into such detail-"},
 		{"speaker": "Cowboy", "text": "Oh, and one more question!"},
 		{"speaker": "Player", "text": "What?"},

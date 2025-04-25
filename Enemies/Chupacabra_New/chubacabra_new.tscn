@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://ck470oi82amrq" path="res://Enemies/Chupacabra_New/chupacabra/chupacabra_anims/chubamove/Chupacabra WAVs/Chupacabra Melee.wav" id="2_vaao3"]
 [ext_resource type="Script" path="res://States/idle.gd" id="3_k2l71"]
 [ext_resource type="AudioStream" uid="uid://dw78p3tvxp6h7" path="res://Enemies/Chupacabra_New/chupacabra/chupacabra_anims/chubamove/Chupacabra WAVs/Chupacabra Charge Attack.wav" id="3_pwenx"]
-[ext_resource type="FontFile" uid="uid://b6cxeh2ocxfkn" path="res://Assets/hud assets/gomarice_block_western.ttf" id="7_7vjxp"]
+[ext_resource type="FontFile" uid="uid://drsvb3gij1p5" path="res://Assets/cutscene assets/alagard.ttf" id="7_v6wuj"]
 [ext_resource type="Script" path="res://Enemies/Chupacabra_New/follow_new.gd" id="9_gg3hq"]
 [ext_resource type="Texture2D" uid="uid://bw3rex6kmr3d4" path="res://Enemies/Chupacabra_New/chupacabra/chupacabra_anims/chubacharge/chubacharge_0000.png" id="9_yt7cy"]
 [ext_resource type="Script" path="res://Enemies/Chupacabra_New/slash_new.gd" id="10_kqwls"]
@@ -310,7 +310,7 @@ offset_right = 47.5
 offset_bottom = 23.0
 grow_horizontal = 2
 scale = Vector2(2.12078, 1.89939)
-theme_override_fonts/font = ExtResource("7_7vjxp")
+theme_override_fonts/font = ExtResource("7_v6wuj")
 theme_override_font_sizes/font_size = 25
 text = "Chupacabra"
 metadata/_edit_use_anchors_ = true
