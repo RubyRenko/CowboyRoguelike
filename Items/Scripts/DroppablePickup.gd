@@ -1,4 +1,4 @@
-class_name DroppedPickup extends Area2D
+class_name DroppablePickup extends Area2D
 
 var item_key : String
 @export var texture_sprite : Sprite2D
