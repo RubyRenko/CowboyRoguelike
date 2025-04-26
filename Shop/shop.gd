@@ -1,20 +1,8 @@
 extends Node2D
 @onready var already_bought = get_tree().get_root().get_node("Main").get_node("CowboyPlayer").inventory
-@onready var item_list = {
-	"jackalope" : load("res://Items/jackalop_pickup.tscn"),
-	"double_chamber" : load("res://Items/double_chamber.tscn"),
-	"wampus" : load("res://Items/wampus_pickup.tscn"),
-	"flatwoods" : load("res://Items/flatwoods_pickup.tscn"),
-	"gator" : load("res://Items/gator_pickup.tscn"),
-	"darkhat" : load("res://Items/dark_watcher_pickup.tscn"),
-	"chili" : load("res://Items/chili_pickup.tscn"),
-	"nessie" : load("res://Items/nessie_pickup.tscn"),
-	"sinkhole" : load("res://Items/sinkhole_pickup.tscn"),
-	"cadejo" : load("res://Items/cadejo_pickup.tscn"),
-	"thunderbird" : load("res://Items/thunderbird_pickup.tscn"),
-	"tractor" : load("res://Items/tractor_pickup.tscn")
-}
 @onready var audio = $ShopAudio
+
+const nonstackable : Array[String] = ["double_chamber", "nessie", "sinkhole"]
 
 static var pos_items = ["jackalope", "chili", #hp/flat stat increases
 						"darkhat", "cadejo", "thunderbird", "tractor", #stackable items
@@ -22,33 +10,35 @@ static var pos_items = ["jackalope", "chili", #hp/flat stat increases
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if "double_chamber" in already_bought:
-		pos_items.pop_at(pos_items.find("double_chamber"))
-	if already_bought["darkhat"] == 10:
-		pos_items.pop_at(pos_items.find("darkhat"))
+	if "double_chamber" in already_bought and "double_chamber" in pos_items:
+		print_debug("Popping: " + pos_items.pop_at(pos_items.find("double_chamber")))
+	if already_bought["darkhat"] == 10 and "darkhat" in pos_items:
+		print_debug("Popping: " + pos_items.pop_at(pos_items.find("darkhat")))
+		
 	var item1 = pos_items.pick_random()
-	var item1_instance = item_list[item1].instantiate()
+	var item1_instance : BuyablePickup = load("res://Items/BuyablePickup.tscn").instantiate();
+	item1_instance.create_pickup(item1);
 	item1_instance.position = $ItemPoint1.position
-	if item1_instance.is_in_group("nonstackable"):
-		print("removing ", item1)
-		pos_items.pop_at(pos_items.find(item1))
+	if nonstackable.find(item1) != -1:
+		print("removing ", pos_items.pop_at(pos_items.find(item1)))
 	add_child(item1_instance)
 	
 	var item2 = pos_items.pick_random()
-	var item2_instance = item_list[item2].instantiate()
+	var item2_instance : BuyablePickup = load("res://Items/BuyablePickup.tscn").instantiate();
+	item2_instance.create_pickup(item2);
 	item2_instance.position = $ItemPoint2.position
-	if item2_instance.is_in_group("nonstackable"):
-		print("removing ", item2)
-		pos_items.pop_at(pos_items.find(item2))
+	if nonstackable.find(item2) != -1:
+		print("removing ", pos_items.pop_at(pos_items.find(item2)))
 	add_child(item2_instance)
 	
 	var item3 = pos_items.pick_random()
-	var item3_instance = item_list[item3].instantiate()
+	var item3_instance : BuyablePickup = load("res://Items/BuyablePickup.tscn").instantiate();
+	item3_instance.create_pickup(item3);
 	item3_instance.position = $ItemPoint3.position
-	if item3_instance.is_in_group("nonstackable"):
-		print("removing ", item3)
-		pos_items.pop_at(pos_items.find(item3))
-	add_child(item3_instance)
+	if nonstackable.find(item3) != -1:
+		print("removing ", pos_items.pop_at(pos_items.find(item3)))
+	add_child(item3_instance)	
+	
 	print(pos_items)
 	if randi_range(0,1) == 0:
 		$YetiShopkeep.queue_free()
