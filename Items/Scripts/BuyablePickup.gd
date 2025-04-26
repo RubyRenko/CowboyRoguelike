@@ -5,7 +5,7 @@ extends Area2D
 @export var title_label : Label
 @export var description_label : Label
 
-var Item_Details : Dictionary = {
+static var Item_Details : Dictionary = {
 								"chili" : {
 									"price" : 10,
 									"title" : "Chilli\n Bowl",

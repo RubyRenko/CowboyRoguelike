@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://hq0hkgpu3rsa"]
+
+[ext_resource type="Script" path="res://Items/Scripts/DroppedPickup.gd" id="1_mv3ge"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p120l"]
+radius = 26.0
+
+[node name="DroppablePickup" type="Area2D" node_paths=PackedStringArray("texture_sprite", "collider")]
+z_index = 1
+script = ExtResource("1_mv3ge")
+texture_sprite = NodePath("Sprite2D")
+collider = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p120l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.015, 0.015)
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cb8xf0vcmjy5a" path="res://Assets/ItemSprites/jerky-02.png" id="2_prf2t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5ho6"]
-radius = 25.02
+radius = 26.0
 
 [node name="jerky_pickup" type="Area2D"]
 collision_layer = 7
