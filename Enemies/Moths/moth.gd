@@ -15,19 +15,14 @@ var stun = 0
 var slow = 0
 
 @onready var main = get_tree().get_root().get_node("Main")
-@onready var coin = load("res://Items/coin.tscn")
+@onready var coin = load("res://Items/DroppablePickup.tscn")
 @onready var blood = load("res://Enemies/GoatHead/goat_blood.tscn")
 @onready var death_sprite = load("res://Enemies/enemy_death_splat.tscn")
 @onready var sprite_anim = $MothSprite
 @onready var hp_bar = $HpBar
 @onready var sounds = $MothkidSfx
-@onready var loot_table = [load("res://Items/beans_pickup.tscn"), 
-						load("res://Items/jerky_pickup.tscn"), 
-						load("res://Items/gator_pickup.tscn"),
-						load("res://Items/wampus_pickup.tscn"),
-						load("res://Items/flatwoods_pickup.tscn"),
-						load("res://Items/jackalop_pickup.tscn")
-						]
+@onready var loot_table = ["beans", "jerky", "gator", "wampus", "flatwoods", "jackalope"]
+
 func _ready():
 	sprite_anim.play()
 	hp_bar.max_value = hp
@@ -89,15 +84,14 @@ func die():
 	
 	for i in range(randi_range(1,5)):
 		var c = coin.instantiate()
+		c.create_pickup("coin")
 		c.position = position + Vector2(randi_range(10,30), randi_range(10,30))
 		main.add_child(c)
 	
 	if randi_range(0,5) == 0:
-		var p = loot_table.pick_random().instantiate()
-		if p.is_in_group("sellable"):
-			p.sold = true
-		p.position = position
-		main.add_child(p)
+		var p = loot_table.pick_random()
+		EnemyLoot.CreateLoot(p, self)
+		
 	queue_free()
 
 func _on_sense_area_body_entered(body):

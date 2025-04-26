@@ -36,8 +36,9 @@ func create_pickup(key : String):
 	
 func _on_body_entered(body):
 	if body.name == "CowboyPlayer":
-		Item_Details[item_key]["function"].call(body)
-		queue_free()
+		var function : Callable = Item_Details[item_key]["function"]
+		function.call(body)
+	queue_free()
 
 func _on_despawn_timer_timeout():
 	queue_free()

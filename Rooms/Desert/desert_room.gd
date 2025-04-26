@@ -40,11 +40,6 @@ var difficulty = 1
 func _ready():
 	start_up()
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_text_newline"):
-		shop_wave()
-		player.money = 999
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	#if the player runs out of health, goes to the gameover screen
