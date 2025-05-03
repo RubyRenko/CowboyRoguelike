@@ -43,12 +43,14 @@ func status_checks(delta):
 		slow -= delta * slow_modifier
 	else:
 		speed = base_spd
-		
+
+var default_dir_left = true;
 func _after_movement_checks(delta):
+	sprite_anim.flip_h = velocity.x > 0
 	if velocity.x > 0:
-		sprite_anim.flip_h = true
+		sprite_anim.flip_h = default_dir_left
 	else:
-		sprite_anim.flip_h = false
+		sprite_anim.flip_h = !default_dir_left
 	if hurt:
 		#if the player is too close (in the hit area), then hurts the player
 		next_hurt -= delta

@@ -12,6 +12,7 @@ func _init() -> void:
 	attack_sfx = "attack"
 	damage = 3
 	slow_modifier = 2
+	default_dir_left = false;
 
 func _ready():
 	sounds = $LarvaSfx
@@ -29,8 +30,11 @@ func _determine_movement(delta):
 		if !sounds.playing:
 			sounds.play_sfx("slither")
 	elif chase != null && sprite_anim.frame > 3 && sprite_anim.frame < 7:
-		#when chasing, minus the chased from the enemy's position to get the direction
 		velocity = (chase.position - position).normalized() * speed
+		if !sounds.playing:
+			sounds.play_sfx("slither")
+	elif !hurt and target != null && sprite_anim.frame > 3 && sprite_anim.frame < 7:
+		velocity = (target.position - position).normalized() * speed/3
 		if !sounds.playing:
 			sounds.play_sfx("slither")
 	elif sprite_anim.frame > 3:

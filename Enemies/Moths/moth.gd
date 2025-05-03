@@ -11,6 +11,7 @@ func _init() -> void:
 	attack_sfx = "attack"
 	damage = 2
 	slow_modifier = 2
+	default_dir_left = false;
 
 func _ready():
 	sounds = $MothkidSfx
@@ -23,14 +24,17 @@ func _determine_movement(delta):
 		stun -= delta*2
 		velocity = Vector2(0,0)
 	elif chase != null:
-		#when chasing, minus the chased from the enemy's position to get the direction
-		velocity = (chase.position - position ).normalized()  * speed
+		velocity = (chase.position - position).normalized()  * speed
 		if randi_range(0, 10) == 0:
 			velocity += Vector2(randi_range(-3,3), randi_range(-3, 3)) * speed
-			if !sounds.playing:
-				sounds.play_sfx("hover")
+		if !sounds.playing:
+			sounds.play_sfx("hover")
+	elif !hurt and target != null:
+		velocity = (target.position - position).normalized()  * speed/3
+		if randi_range(0, 10) == 0:
+			velocity += Vector2(randi_range(-3,3), randi_range(-3, 3)) * speed/3
+		if !sounds.playing:
+			sounds.play_sfx("hover")
 	elif randi_range(0,30) == 0:
-		#when not chasing, every few seconds, choose a random direction and move towards it
-		#this will make the enemy wander naturally
 		var rand_direction =  Vector2(randi_range(-20,20), randi_range(-20,20))
 		velocity = rand_direction * speed * delta

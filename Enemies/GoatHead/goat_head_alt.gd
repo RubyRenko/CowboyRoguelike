@@ -30,6 +30,10 @@ func _determine_movement(delta):
 		velocity = (chase.position - position).normalized() * speed
 		if !sounds.playing:
 			sounds.play_sfx("hover")
+	elif !hurt and target != null:
+		velocity = (target.position - position).normalized() * speed/3
+		if !sounds.playing:
+			sounds.play_sfx("hover")
 	elif randi_range(0,30) == 0:
 		var rand_direction =  Vector2(randi_range(-20,20), randi_range(-20,20))
 		velocity = rand_direction * speed * delta
