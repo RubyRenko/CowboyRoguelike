@@ -250,17 +250,7 @@ func _on_wave_timer_timeout():
 		add_child(chupacabra)
 		
 	elif wave % 5 == 0:
-		#clears the previous waves and stops timer
-		wave_sfx.play_sfx("shop_summon")
-		wave_timer.stop()
-		clean_up()
-		#spawn shop
-		var shop = shop_spawn.instantiate()
-		shop.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
-		add_child(shop)
-		$Gui/WaveBarLabel.text = "Shop"
-		print("shop spawn")
-		difficulty += 1
+		shop_wave()
 	elif wave == 14:
 		wave_sfx.play_sfx("new_wave")
 		$Gui/WaveBarLabel.text = "Boss incoming:"
@@ -277,6 +267,19 @@ func _on_wave_timer_timeout():
 		print("enemy spawn")
 		spawn_wave(difficulty)
 	wave += 1
+	
+func shop_wave():
+	#clears the previous waves and stops timer
+	wave_sfx.play_sfx("shop_summon")
+	wave_timer.stop()
+	clean_up()
+	#spawn shop
+	var shop = shop_spawn.instantiate()
+	shop.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
+	add_child(shop)
+	$Gui/WaveBarLabel.text = "Shop"
+	print("shop spawn")
+	difficulty += 1
 
 func _on_child_exiting_tree(node):
 	if node.name == "Shop":

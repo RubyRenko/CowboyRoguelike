@@ -57,8 +57,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qs612"]
-radius = 58.0
-height = 198.0
+radius = 89.0
+height = 228.0
 
 [node name="Melee" type="Area2D"]
 z_index = 1
@@ -76,6 +76,7 @@ frame_progress = 1.0
 speed_scale = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24, 0)
 shape = SubResource("CapsuleShape2D_qs612")
 
 [node name="MeleeDebuffSFX" type="AudioStreamPlayer2D" parent="."]

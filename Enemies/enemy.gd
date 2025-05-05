@@ -6,7 +6,7 @@ var chase = null
 var hurt = false
 var next_hurt = 0
 @onready var main = get_tree().get_root().get_node("Main")
-@onready var coin = load("res://Items/coin.tscn")
+@onready var coin = load("res://Items/DroppablePickup.tscn")
 
 func _physics_process(delta):
 	#makes sure the hp display is up to date
@@ -42,7 +42,8 @@ func _physics_process(delta):
 func die():
 	var main = get_tree().get_root().get_node("Main")
 	for i in range(randi_range(1,5)):
-		var c = coin.instantiate()
+		var c : DroppablePickup = coin.instantiate()
+		c.create_pickup("coin")
 		c.position = position + Vector2(randi_range(10,30), randi_range(10,30))
 		main.add_child(c)
 	queue_free()

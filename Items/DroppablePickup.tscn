@@ -1,21 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctyq6vaerwf28"]
+[gd_scene load_steps=3 format=3 uid="uid://hq0hkgpu3rsa"]
 
-[ext_resource type="Script" path="res://Items/Scripts/CoinPickup.gd" id="1_0plyx"]
-[ext_resource type="Texture2D" uid="uid://c1ddpcaale3w3" path="res://Assets/hud assets/coins-03.png" id="2_jdsgp"]
+[ext_resource type="Script" path="res://Items/Scripts/DroppablePickup.gd" id="1_mv3ge"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p120l"]
-radius = 14.0
+radius = 26.0
 
-[node name="CoinPickup" type="Area2D"]
+[node name="DroppablePickup" type="Area2D" node_paths=PackedStringArray("texture_sprite", "collider")]
 z_index = 1
-script = ExtResource("1_0plyx")
+script = ExtResource("1_mv3ge")
+texture_sprite = NodePath("Sprite2D")
+collider = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_p120l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.01, 0.01)
-texture = ExtResource("2_jdsgp")
+scale = Vector2(0.015, 0.015)
 
 [node name="DespawnTimer" type="Timer" parent="."]
 wait_time = 20.0
