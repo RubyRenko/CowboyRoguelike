@@ -1,9 +1,9 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bms3iwap6uyli"]
 
-[ext_resource type="FontFile" uid="uid://b1iy1e5pnw0od" path="res://Assets/hud assets/GothicPixels.ttf" id="1_ce4x4"]
+[ext_resource type="FontFile" uid="uid://drsvb3gij1p5" path="res://Assets/cutscene assets/alagard.ttf" id="1_7g5lp"]
 
 [resource]
-font = ExtResource("1_ce4x4")
+font = ExtResource("1_7g5lp")
 font_size = 15
 font_color = Color(0.16, 0.118453, 0.0992, 1)
 outline_color = Color(0.290196, 0.215686, 0.180392, 1)
