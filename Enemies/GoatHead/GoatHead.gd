@@ -6,7 +6,7 @@ class_name GoatHead extends Enemy_Base
 func _init():
 	base_spd = 280
 	speed = 280
-	hp = 20
+	hp = 6
 	loot_table = ["beans", "jerky", "gator", "wampus", "flatwoods", "jackalope"]
 	death_sounds = ["goat1", "goat2"]
 	attack_sfx = "bite"

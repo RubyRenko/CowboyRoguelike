@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 200
-var hp = 20
+var hp = 4
 var chase = null
 var hurt = false
 var next_hurt = 0

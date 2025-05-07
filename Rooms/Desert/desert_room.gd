@@ -293,6 +293,7 @@ func _on_wave_timer_timeout():
 		
 	elif wave % 5 == 0:
 		shop_wave()
+		
 	elif wave == 14:
 		wave_sfx.play_sfx("new_wave")
 		$Gui/WaveBarLabel.text = "Boss incoming:"
@@ -321,7 +322,7 @@ func shop_wave():
 	add_child(shop)
 	$Gui/WaveBarLabel.text = "Shop"
 	print("shop spawn")
-	difficulty += 1
+	"difficulty += 1"
 
 func _on_child_exiting_tree(node):
 	if node.name == "Shop":

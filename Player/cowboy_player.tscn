@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://be3fpwoys47ky"]
+[gd_scene load_steps=59 format=3 uid="uid://be3fpwoys47ky"]
 
 [ext_resource type="Script" path="res://Player/CowboyPlayer.gd" id="1_oimyp"]
 [ext_resource type="Texture2D" uid="uid://c1lbkgla6h58g" path="res://Assets/sprites/Player sprite/back/walk-back0.png" id="2_w3kbx"]
@@ -50,6 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://d18gh6v6mtf71" path="res://Player/dash_bar.tscn" id="44_ht30l"]
 [ext_resource type="AudioStream" uid="uid://btdqjt3tlyvo1" path="res://Assets/Sound/General Sound WAVs/Player Die 1.wav" id="49_ijtw4"]
 [ext_resource type="Script" path="res://Player/die_audio_player.gd" id="49_n3rmp"]
+[ext_resource type="Texture2D" uid="uid://ckdxgcyyy60q1" path="res://Player/reload R sprite sheet.png" id="51_l3bfx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bf1xx"]
 
@@ -412,6 +413,11 @@ one_shot = true
 [node name="DieAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("49_ijtw4")
 script = ExtResource("49_n3rmp")
+
+[node name="reload_r" type="Sprite2D" parent="."]
+position = Vector2(1, -68)
+scale = Vector2(0.102344, 0.102344)
+texture = ExtResource("51_l3bfx")
 
 [connection signal="body_entered" from="ThunderbirdArea" to="ThunderbirdArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ThunderbirdArea" to="ThunderbirdArea" method="_on_body_exited"]

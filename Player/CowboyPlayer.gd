@@ -12,6 +12,7 @@ class_name CowboyPlayer
 @onready var thunder = get_node("ThunderbirdArea")
 @onready var thunder_timer = $Thunder_Timer
 @onready var audio = $AudioPlayer
+@onready var reload_indicator = $reload_r
 
 var bullet = load("res://Player/Bullets/bullet.tscn")
 var bullet_n = load("res://Player/Bullets/bullet_nessie.tscn")
@@ -21,8 +22,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #stats
 #static stats carry over when changing scenes
-static var ranged_dmg = 5
-static var melee_dmg = 8
+static var ranged_dmg = 2
+static var melee_dmg = 4
 static var speed = 300.0
 static var max_ammo = 6
 var ammo = max_ammo
@@ -42,11 +43,13 @@ var thunder_start = true
 #animation variables
 var sprite_dir = ""
 
+
 func _ready():
 	bullet_display.update_bullets(ammo, max_ammo)
 	hp_display.update_health(hp, max_hp, armor)
 	$CenterPoint/Melee.damage = melee_dmg
 	thunder.hide()
+	reload_indicator.hide()
 
 func _physics_process(delta):
 	#takes care of player movement, gets direction from input keys
@@ -66,7 +69,10 @@ func _physics_process(delta):
 		if ammo > 0:
 			shoot()
 			ammo -= 1
-			#print(ammo)
+			#print(ammo)			
+			if ammo == 0:
+				reload_indicator.show()
+			
 		else:
 			#otherwise plays empty sfx
 			audio.play_sfx("empty")
@@ -77,6 +83,7 @@ func _physics_process(delta):
 		audio.play_sfx("reload")
 		can_reload = false
 		reload_timer.start()
+		reload_indicator.hide()
 	
 	#handles melee animation and collision
 	if Input.is_action_just_pressed("melee"):

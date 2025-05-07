@@ -6,7 +6,7 @@ func _init() -> void:
 	#stats
 	base_spd = 300
 	speed = 300
-	hp = 40
+	hp = 2
 	loot_table = ["beans", "jerky", "gator", "wampus", "flatwoods", "jackalope"]
 	death_sounds = ["larva1", "larva2"]
 	attack_sfx = "attack"
