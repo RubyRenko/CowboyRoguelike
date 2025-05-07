@@ -1,5 +1,5 @@
 extends Area2D
-var damage = 10
+var damage = 4
 @onready var sounds = $MeleeDebuffSFX
 
 func _on_body_entered(body):

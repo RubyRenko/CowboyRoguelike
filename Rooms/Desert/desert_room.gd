@@ -217,7 +217,7 @@ func create_detail(width, height):
 func spawn_enemy(spawn_pos, difficult = 1):
 	#create a new enemy instance and set the dddddddddposition
 	var e = enemies.pick_random().instantiate()
-	e.hp += (e.hp/2) * (difficulty-1)
+	"e.hp += (e.hp/2) * (difficulty-1)"
 	e.position = spawn_pos
 	add_child(e)
 
@@ -296,17 +296,17 @@ func _on_wave_timer_timeout():
 		
 	elif wave == 14:
 		wave_sfx.play_sfx("new_wave")
-		$Gui/WaveBarLabel.text = "Boss incoming:"
+		$Gui/WaveBarLabel.text = "BOSS INCOMING:"
 		print("enemy spawn")
 		spawn_wave(difficulty)
 	elif (wave+1) % 5 == 0:
 		wave_sfx.play_sfx("new_wave")
-		$Gui/WaveBarLabel.text = "Shop incoming:"
+		$Gui/WaveBarLabel.text = "SHOP INCOMING:"
 		print("enemy spawn")
 		spawn_wave(difficulty)
 	else:
 		wave_sfx.play_sfx("new_wave")
-		$Gui/WaveBarLabel.text = "Next wave:"
+		$Gui/WaveBarLabel.text = "NEXT WAVE:"
 		print("enemy spawn")
 		spawn_wave(difficulty)
 	wave += 1
@@ -320,9 +320,9 @@ func shop_wave():
 	var shop = shop_spawn.instantiate()
 	shop.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 	add_child(shop)
-	$Gui/WaveBarLabel.text = "Shop"
+	$Gui/WaveBarLabel.text = "SHOP"
 	print("shop spawn")
-	"difficulty += 1"
+	difficulty += 1
 
 func _on_child_exiting_tree(node):
 	if node.name == "Shop":

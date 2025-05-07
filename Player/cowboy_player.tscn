@@ -50,7 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://d18gh6v6mtf71" path="res://Player/dash_bar.tscn" id="44_ht30l"]
 [ext_resource type="AudioStream" uid="uid://btdqjt3tlyvo1" path="res://Assets/Sound/General Sound WAVs/Player Die 1.wav" id="49_ijtw4"]
 [ext_resource type="Script" path="res://Player/die_audio_player.gd" id="49_n3rmp"]
-[ext_resource type="Texture2D" uid="uid://ckdxgcyyy60q1" path="res://Player/reload R sprite sheet.png" id="51_l3bfx"]
+[ext_resource type="Texture2D" uid="uid://vwgsigrkwx6h" path="res://Assets/sprites/r1.png" id="51_46x4o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bf1xx"]
 
@@ -414,10 +414,13 @@ one_shot = true
 stream = ExtResource("49_ijtw4")
 script = ExtResource("49_n3rmp")
 
-[node name="reload_r" type="Sprite2D" parent="."]
-position = Vector2(1, -68)
+[node name="reload_r" type="TextureRect" parent="."]
+offset_left = -17.0
+offset_top = -79.0
+offset_right = 326.0
+offset_bottom = 223.0
 scale = Vector2(0.102344, 0.102344)
-texture = ExtResource("51_l3bfx")
+texture = ExtResource("51_46x4o")
 
 [connection signal="body_entered" from="ThunderbirdArea" to="ThunderbirdArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ThunderbirdArea" to="ThunderbirdArea" method="_on_body_exited"]

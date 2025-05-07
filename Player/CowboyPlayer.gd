@@ -13,6 +13,9 @@ class_name CowboyPlayer
 @onready var thunder_timer = $Thunder_Timer
 @onready var audio = $AudioPlayer
 @onready var reload_indicator = $reload_r
+@onready var r_texture = preload("res://Assets/sprites/r1.png")
+@onready var r_texture2 = preload("res://Assets/sprites/r2.png")
+
 
 var bullet = load("res://Player/Bullets/bullet.tscn")
 var bullet_n = load("res://Player/Bullets/bullet_nessie.tscn")
@@ -42,7 +45,7 @@ var thunder_start = true
 
 #animation variables
 var sprite_dir = ""
-
+var is_blinking = false
 
 func _ready():
 	bullet_display.update_bullets(ammo, max_ammo)
@@ -70,9 +73,10 @@ func _physics_process(delta):
 			shoot()
 			ammo -= 1
 			#print(ammo)			
-			if ammo == 0:
+			if ammo == 0 and !is_blinking:
 				reload_indicator.show()
-			
+				is_blinking = true
+				start_blinking()
 		else:
 			#otherwise plays empty sfx
 			audio.play_sfx("empty")
@@ -84,6 +88,7 @@ func _physics_process(delta):
 		can_reload = false
 		reload_timer.start()
 		reload_indicator.hide()
+		stop_blinking()
 	
 	#handles melee animation and collision
 	if Input.is_action_just_pressed("melee"):
@@ -143,13 +148,24 @@ func shoot():
 		b = bullet_n.instantiate()
 	else:
 		b = bullet.instantiate()
-	b.damage = ranged_dmg
-	b.stun_chance = inventory["darkhat"]
-	b.slow = inventory["tractor"]
-	b.global_position = $CenterPoint/GunPoint.global_position
-	b.global_rotation = $CenterPoint/GunPoint.global_rotation - deg_to_rad(90)
-	main.add_child(b)
-	audio.play_sfx("fire")
+		b.damage = ranged_dmg
+		b.stun_chance = inventory["darkhat"]
+		b.slow = inventory["tractor"]
+		b.global_position = $CenterPoint/GunPoint.global_position
+		b.global_rotation = $CenterPoint/GunPoint.global_rotation - deg_to_rad(90)
+		main.add_child(b)
+		audio.play_sfx("fire")
+
+func start_blinking():
+	while is_blinking:
+		reload_indicator.texture = r_texture
+		await get_tree().create_timer(0.5).timeout
+		reload_indicator.texture = r_texture2
+		await get_tree().create_timer(0.5).timeout
+			
+func stop_blinking():
+	is_blinking = false
+	reload_indicator.hide()
 
 func set_hp(health):
 	var heart = hp_display.get_node("Heart1")

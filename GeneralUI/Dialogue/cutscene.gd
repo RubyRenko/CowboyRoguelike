@@ -1,4 +1,4 @@
-extends Node
+ssdawdasaextends Node
 
 @onready var dialogue_label = $Panel/Label
 @onready var speaker_name_label = $Panel/SpeakerNameLabel
