@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://be3fpwoys47ky"]
+[gd_scene load_steps=61 format=3 uid="uid://be3fpwoys47ky"]
 
 [ext_resource type="Script" path="res://Player/CowboyPlayer.gd" id="1_oimyp"]
 [ext_resource type="Texture2D" uid="uid://c1lbkgla6h58g" path="res://Assets/sprites/Player sprite/back/walk-back0.png" id="2_w3kbx"]
@@ -51,6 +51,8 @@
 [ext_resource type="AudioStream" uid="uid://btdqjt3tlyvo1" path="res://Assets/Sound/General Sound WAVs/Player Die 1.wav" id="49_ijtw4"]
 [ext_resource type="Script" path="res://Player/die_audio_player.gd" id="49_n3rmp"]
 [ext_resource type="Texture2D" uid="uid://vwgsigrkwx6h" path="res://Assets/sprites/r1.png" id="51_46x4o"]
+[ext_resource type="Texture2D" uid="uid://dnvcu7mwo2rtb" path="res://Assets/sprites/red arrow.png" id="52_jcr06"]
+[ext_resource type="Script" path="res://Player/nav_arrow.gd" id="53_rgxnm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bf1xx"]
 
@@ -421,6 +423,11 @@ offset_right = 326.0
 offset_bottom = 223.0
 scale = Vector2(0.102344, 0.102344)
 texture = ExtResource("51_46x4o")
+
+[node name="nav_arrow" type="Sprite2D" parent="."]
+texture = ExtResource("52_jcr06")
+offset = Vector2(0, -100)
+script = ExtResource("53_rgxnm")
 
 [connection signal="body_entered" from="ThunderbirdArea" to="ThunderbirdArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ThunderbirdArea" to="ThunderbirdArea" method="_on_body_exited"]

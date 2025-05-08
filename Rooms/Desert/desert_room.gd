@@ -14,6 +14,7 @@ var rng = RandomNumberGenerator.new()
 @onready var shop_spawn = load("res://Shop/shop.tscn")
 @onready var boss = load("res://Enemies/Chupacabra_New/chubacabra_new.tscn")
 @onready var wave_sfx = $WaveSfxPlayer
+@onready var nav_arrow = $CowboyPlayer/nav_arrow
 
 
 #ids to get each tile from the tilemap
@@ -230,6 +231,7 @@ func start_up():
 	#starts wave timer and makes the first wave spawn earlier
 	wave_timer.start()
 	wave_timer.wait_time = 30
+	nav_arrow.visible = false
 
 func clean_up():
 	var all_children = get_children()
@@ -323,6 +325,7 @@ func shop_wave():
 	$Gui/WaveBarLabel.text = "SHOP"
 	print("shop spawn")
 	difficulty += 1
+	nav_arrow.visible = true
 
 func _on_child_exiting_tree(node):
 	if node.name == "Shop":
@@ -330,6 +333,7 @@ func _on_child_exiting_tree(node):
 		wave_timer.start()
 		wave_timer.wait_time = 30
 		wave_sfx.play_sfx("shop_leave")
+		nav_arrow.visible = false
 	if node.is_in_group("enemy") && node.hit_by_player:
 		var kill_sounds = ["kill1", "kill2", "kill3", "kill4"]
 		wave_sfx.play_sfx(kill_sounds.pick_random())

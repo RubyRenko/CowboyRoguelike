@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://bc2bvgost5g5y"]
+[gd_scene load_steps=20 format=3 uid="uid://bc2bvgost5g5y"]
 
 [ext_resource type="Script" path="res://Shop/shop.gd" id="1_2cwil"]
 [ext_resource type="Texture2D" uid="uid://dqaewuei1sttl" path="res://Assets/sprites/YetiIdle_SpriteSheet.png" id="2_cuel8"]
 [ext_resource type="Texture2D" uid="uid://csk5rrrpylj0c" path="res://Assets/sprites/Shop Wagon.png" id="2_x3nlf"]
+[ext_resource type="Script" path="res://Shop/wagon.gd" id="3_ap56g"]
 [ext_resource type="Script" path="res://Shop/shopkeep.gd" id="3_ymogu"]
 [ext_resource type="PackedScene" uid="uid://igc3wk5pw2q2" path="res://GeneralUI/Dialogue/dialogue.tscn" id="5_iorg0"]
 [ext_resource type="Script" path="res://Shop/bigfoot_shopkeep.gd" id="6_olup5"]
@@ -81,6 +82,7 @@ texture_filter = 1
 position = Vector2(-1, -128)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("2_x3nlf")
+script = ExtResource("3_ap56g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wagon"]
 position = Vector2(6.5, -135)
