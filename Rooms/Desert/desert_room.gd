@@ -227,12 +227,12 @@ func spawn_wave(difficulty):
 func _on_wave_timer_timeout():
 	print("wave ", wave)
 	wave_display.display_wave(wave)
-	if wave == 1:
+	"""if wave == 1:
 		var chupacabra = boss.instantiate()
 		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 		chupacabra.scale = Vector2(1.5, 1.5)
 		song.play_song("boss")
-		add_child(chupacabra)
+		add_child(chupacabra)"""
 	"""if wave == 1:
 		#clears the previous waves and stops timer
 		wave_timer.stop()
