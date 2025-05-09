@@ -1,9 +1,36 @@
 extends Node2D
 
 var rng = RandomNumberGenerator.new()
-@onready var tilemap = $DesertTile
-@onready var tile_detail = $DesertSprites
-@onready var desert_tile = [$DesertTileBase, $DesertTileTerrain, $DesertTileDetail]
+@onready var tilemap = $DesertTileBase
+@onready var tile_detail = $DesertTileDetail
+@onready var tile_patterns = [
+	tile_detail.tile_set.get_pattern(0), #patterns 0-6 are 2x3
+	tile_detail.tile_set.get_pattern(1),
+	tile_detail.tile_set.get_pattern(2),
+	tile_detail.tile_set.get_pattern(3),
+	tile_detail.tile_set.get_pattern(4),
+	tile_detail.tile_set.get_pattern(5),
+	tile_detail.tile_set.get_pattern(6),
+	tile_detail.tile_set.get_pattern(7), #patterns 7-8 are 2x4
+	tile_detail.tile_set.get_pattern(8),
+	tile_detail.tile_set.get_pattern(9), #patterns 9-16 are 2x2
+	tile_detail.tile_set.get_pattern(10),
+	tile_detail.tile_set.get_pattern(11),
+	tile_detail.tile_set.get_pattern(12),
+	tile_detail.tile_set.get_pattern(13),
+	tile_detail.tile_set.get_pattern(14),
+	tile_detail.tile_set.get_pattern(15),
+	tile_detail.tile_set.get_pattern(16),
+	tile_detail.tile_set.get_pattern(17), #patterns 17-18 are 3x2
+	tile_detail.tile_set.get_pattern(18),
+	tile_detail.tile_set.get_pattern(19), #patterns 19-20 are 3x3
+	tile_detail.tile_set.get_pattern(20),
+	tile_detail.tile_set.get_pattern(21), #patterns 21-23 are 4x5
+	tile_detail.tile_set.get_pattern(22),
+	tile_detail.tile_set.get_pattern(23),
+	tile_detail.tile_set.get_pattern(24), #pattern 24 is 3x5
+	tile_detail.tile_set.get_pattern(25) #pattern 25 is 3x4
+	]
 @onready var player = $CowboyPlayer
 @onready var enemies = [
 				load("res://Enemies/GoatHead/goat_head.tscn"), load("res://Enemies/GoatHead/goat_head_alt.tscn"), #desert enemies
@@ -89,7 +116,7 @@ func _process(_delta):
 			tile_detail.set_pattern(Vector2i(i, -1), cactus)
 			tile_detail.set_pattern(Vector2i(i, height+1), cactus2)"""
 
-func create_room(width, height, padding = 6):
+func create_room(width, height, padding = 12):
 	var terrain_start_point : Array
 	#nested for loops to get i rows and j columns
 	#padding is so that around the room there's still tiles and doesn't stop suddenly
@@ -98,17 +125,26 @@ func create_room(width, height, padding = 6):
 			#0 is the layer, Vector2i(j,i) is the coordinate the tile will be placed at
 			#0 is what tileset it is
 			#tileset_prob is the coordinates for the actual tile from the tileset
-			desert_tile[0].set_cell(Vector2i(j, i), 0, Vector2i(6, 0))
+			tilemap.set_cell(Vector2i(j, i), 0, Vector2i(6, 0))
 			
 			if i == 15 && j >= 5 || i == height - 15 && j >= 5\
 			|| j == 15 && i >= 5|| j == width - 15 && i >= 5:
 				if i > 0 && i < height && j > 0 && j < width:
 					spawn_points.append(Vector2i(j, i))
 			
-			if randi_range(0, 45) == 0:
-				terrain_start_point.append(Vector2i(j, i))
+			"if randi_range(0, 45) == 0:
+				terrain_start_point.append(Vector2i(j, i))"
+	
+	# sets the invisible walls
+	for i in (height+1):
+		tilemap.set_cell(Vector2i(-1, i), 0, Vector2i(13, 0))
+		tilemap.set_cell(Vector2i(width+1, i), 0, Vector2i(13, 0))
 		
-	#create grass patches
+	for i in (width+1):
+		tilemap.set_cell(Vector2i(i, -1), 0, Vector2i(13, 0))
+		tilemap.set_cell(Vector2i(i, height+1), 0, Vector2i(13, 0))
+	
+	"""#create grass patches
 	var to_tile = []
 	for tile in terrain_start_point:
 		to_tile.append(tile)
@@ -119,17 +155,57 @@ func create_room(width, height, padding = 6):
 				var new_tile = tile + Vector2i(x, y)
 				to_tile.append(new_tile)
 	
-	desert_tile[1].set_cells_terrain_connect(to_tile, 0, 1)
+	desert_tile[1].set_cells_terrain_connect(to_tile, 0, 1)"""
 
-func create_detail(width, height):
+func create_detail(width, height, amount = 50):
 	var invalid_array = [
 		Vector2i(width/2-1, height/2-1), Vector2i(width/2, height/2-1), Vector2i(width/2+1, height/2-1),
 		Vector2i(width/2-1, height/2), Vector2i(width/2, height/2), Vector2i(width/2+1, height/2),
 		Vector2i(width/2-1, height/2+1),Vector2i(width/2, height/2+1), Vector2i(width/2+1, height/2+1)]
 	
-	var pattern_test = desert_tile[2].tile_set.get_pattern(1)
-	desert_tile[2].set_pattern(Vector2i(0,0), pattern_test)
-	
+	for i in amount:
+		var spawn_point = Vector2i(randi_range(3, room_width-3), randi_range(3, room_height-3))
+		var pattern_ind = randi_range(0, 25)
+		var pattern = tile_patterns[pattern_ind]
+		if pattern_ind <= 6:
+			# checks in a 2x3 area if it's clear and can be spawned there
+			spawn_desert_pattern(pattern, spawn_point, 2, 3, invalid_array)
+		elif pattern_ind <= 8:
+			# checks in a 2x4 area if it's clear and can be spawned there
+			spawn_desert_pattern(pattern, spawn_point, 2, 4, invalid_array)
+		elif pattern_ind <= 16:
+			# checks in a 2x2 area if it's clear and can be spawned there
+			spawn_desert_pattern(pattern, spawn_point, 2, 2, invalid_array)
+		elif pattern_ind <= 18:
+			# checks in a 3x2 area if it's clear and can be spawned there
+			spawn_desert_pattern(pattern, spawn_point, 3, 2, invalid_array)
+		elif pattern_ind <= 20:
+			# checks in a 3x3 area if it's clear and can be spawned there
+			spawn_desert_pattern(pattern, spawn_point, 3, 3, invalid_array)
+		elif pattern_ind <= 23:
+			# checks in a 4x5 area if it's clear and can be spawned there
+			spawn_desert_pattern(pattern, spawn_point, 4, 5, invalid_array)
+		elif pattern_ind == 24:
+			# checks in a 3x5 area if it's clear and can be spawned there
+			spawn_desert_pattern(pattern, spawn_point, 3, 5, invalid_array)
+		elif pattern_ind == 25:
+			# checks in a 3x4 area if it's clear and can be spawned there
+			spawn_desert_pattern(pattern, spawn_point, 3, 4, invalid_array)
+
+func spawn_desert_pattern(pattern, spawn_point, x_dim, y_dim, invalid_array):
+	# checks in a x_dim by y_dim if the spaces are clear to be spawned in
+	var valid_spawn = true
+	for x in x_dim:
+		for y in y_dim:
+			if spawn_point + Vector2i(x, y) in invalid_array:
+					valid_spawn = false
+	# if can spawn, then sets the pattern and appends the tiles
+	# taken up by the pattern onto the invalid array
+	if valid_spawn:
+		tile_detail.set_pattern(spawn_point, pattern)
+		for x in x_dim:
+			for y in y_dim:
+				invalid_array.append(spawn_point + Vector2i(x, y))
 """func create_detail(width, height):
 	var invalid_array = [
 		Vector2i(width/2-1, height/2-1), Vector2i(width/2, height/2-1), Vector2i(width/2+1, height/2-1),
@@ -227,7 +303,7 @@ func start_up():
 	create_detail(room_width, room_height)
 	"var pattern = tile_detail.tile_set.get_pattern(randi_range(5, 7))
 	tile_detail.set_pattern(Vector2i(0,0), pattern)"
-	player.position = tilemap.map_to_local(Vector2i(room_width/4, room_height/4))
+	player.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 	#starts wave timer and makes the first wave spawn earlier
 	wave_timer.start()
 	wave_timer.wait_time = 30
