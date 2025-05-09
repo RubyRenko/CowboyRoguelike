@@ -6,13 +6,15 @@ var rng = RandomNumberGenerator.new()
 @onready var player = $CowboyPlayer
 @onready var enemies = [
 				load("res://Enemies/GoatHead/goat_head.tscn"), load("res://Enemies/GoatHead/goat_head_alt.tscn"), #desert enemies
-				load("res://Enemies/Moths/moth.tscn"), load("res://Enemies/Moths/moth_alt.tscn"), load("res://Enemies/Larva/larva.tscn") #forest enemies
+				#load("res://Enemies/Moths/moth.tscn"), load("res://Enemies/Moths/moth_alt.tscn"), load("res://Enemies/Larva/larva.tscn") #forest enemies
 				]
 @onready var wave_timer = $Gui/WaveTimer
 @onready var wave_display = $Gui/WaveAnim
 @onready var shop_spawn = load("res://Shop/shop.tscn")
 @onready var boss = load("res://Enemies/Chupacabra_New/chubacabra_new.tscn")
 @onready var wave_sfx = $WaveSfxPlayer
+@onready var song = $MusicPlayer
+
 
 
 #ids to get each tile from the tilemap
@@ -49,10 +51,12 @@ func _process(_delta):
 		player.die()
 		await get_tree().create_timer(2).timeout
 		get_tree().change_scene_to_file("res://GeneralUI/main_menu2.tscn")
-	
+		
 	"""if Input.is_action_just_pressed("ui_accept"):
 		clean_up()
 		start_up()"""
+		
+
 
 func create_room(width, height, padding = 6):
 	#nested for loops to get i rows and j columns
@@ -186,6 +190,7 @@ func start_up():
 	tile_detail.set_pattern(Vector2i(0,0), pattern)
 	player.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 	#starts wave timer and makes the first wave spawn earlier
+	song.play_song("town")
 	wave_timer.start()
 	wave_timer.wait_time = 30
 
@@ -219,15 +224,15 @@ func spawn_wave(difficulty):
 		spawn_enemy(tilemap.map_to_local(spawn_pos), difficulty)
 		print("spawned enemy at " + str(spawn_pos))
 	
-
 func _on_wave_timer_timeout():
 	print("wave ", wave)
 	wave_display.display_wave(wave)
-	"""if wave == 1:
+	if wave == 1:
 		var chupacabra = boss.instantiate()
 		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 		chupacabra.scale = Vector2(1.5, 1.5)
-		add_child(chupacabra)"""
+		song.play_song("boss")
+		add_child(chupacabra)
 	"""if wave == 1:
 		#clears the previous waves and stops timer
 		wave_timer.stop()
@@ -247,6 +252,7 @@ func _on_wave_timer_timeout():
 		var chupacabra = boss.instantiate()
 		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 		chupacabra.scale = Vector2(1.5, 1.5)
+		song.play_song("boss")
 		add_child(chupacabra)
 		
 	elif wave % 5 == 0:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://cyj10c3muv175"]
+[gd_scene load_steps=70 format=3 uid="uid://cyj10c3muv175"]
 
 [ext_resource type="Script" path="res://Rooms/Forest/forest_room.gd" id="1_uk0vt"]
 [ext_resource type="Texture2D" uid="uid://cuc6wb3awlf2p" path="res://Assets/Tilemaps/Forest_tileset07.png" id="2_curss"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://be3fpwoys47ky" path="res://Player/cowboy_player.tscn" id="6_rb41a"]
 [ext_resource type="Texture2D" uid="uid://by17hhjx0eur6" path="res://Assets/Tilemaps/ForestDetails_04Tiled.png" id="7_4670u"]
 [ext_resource type="AudioStream" uid="uid://klnmu5125dt" path="res://Assets/Sound/Music/44 Forest (Forest Theme GAMEREADY).ogg" id="9_8uypr"]
+[ext_resource type="Script" path="res://Rooms/stagemusic.gd" id="10_5bx50"]
 [ext_resource type="Script" path="res://GeneralUI/wave_sfx_player.gd" id="10_5wknl"]
 [ext_resource type="PackedScene" uid="uid://bh68xq7v3vfvv" path="res://GeneralUI/pause_menu.tscn" id="11_7qoik"]
 [ext_resource type="FontFile" uid="uid://b1iy1e5pnw0od" path="res://Assets/hud assets/GothicPixels.ttf" id="12_qt0i3"]
@@ -1286,6 +1287,7 @@ position = Vector2(491, 299)
 stream = ExtResource("9_8uypr")
 volume_db = -20.0
 autoplay = true
+script = ExtResource("10_5bx50")
 
 [node name="WaveSfxPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -25.0
