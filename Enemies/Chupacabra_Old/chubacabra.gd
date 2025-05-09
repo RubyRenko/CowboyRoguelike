@@ -6,19 +6,10 @@ extends CharacterBody2D
 @onready var progress_bar: ProgressBar = $Boss_UI/ProgressBar
 @onready var state_machine = $FiniteStateMachine
 @onready var main = get_tree().get_root().get_node("Main")
-@onready var coin = load("res://Items/coin.tscn")
+@onready var coin = load("res://Items/DroppablePickup.tscn")
 @onready var death_sprite = load("res://Enemies/enemy_death_splat.tscn")
-@onready var loot_table = [load("res://Items/nessie_pickup.tscn"), 
-						load("res://Items/dark_watcher_pickup.tscn"), 
-						load("res://Items/gator_pickup.tscn"),
-						load("res://Items/wampus_pickup.tscn"),
-						load("res://Items/flatwoods_pickup.tscn"),
-						load("res://Items/cadejo_pickup.tscn"),
-						load("res://Items/jackalop_pickup.tscn"),
-						load("res://Items/sinkhole_pickup.tscn"),
-						load("res://Items/thunderbird_pickup.tscn"),
-						load("res://Items/tractor_pickup.tscn")				
-						]
+@onready var loot_table = ["nessie", "darkhat", "gator", "wampus", "flatwoods", "jackalope", "sinkhole", "thunderbird", "tractor", "cadejo"]
+
 
 var direction : Vector2
 var target : Vector2
@@ -61,14 +52,12 @@ func die():
 	
 	for i in range(randi_range(1,5)):
 		var c = coin.instantiate()
+		c.create_pickup("coin")
 		c.position = position + Vector2(randi_range(10,30), randi_range(10,30))
 		main.add_child(c)
 	
-	var p = loot_table.pick_random().instantiate()
-	if p.is_in_group("sellable"):
-		p.sold = true
-	p.position = position
-	main.add_child(p)
+	var p = loot_table.pick_random()
+	EnemyLoot.CreateLoot(p, self)
 	
 	queue_free()
 
