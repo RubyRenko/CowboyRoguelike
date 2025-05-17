@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://gr0y08a5x875"]
 
 [ext_resource type="Script" path="res://GeneralUI/wave_bar.gd" id="1_gnfsc"]
-[ext_resource type="Texture2D" uid="uid://bf8ku7rtikeog" path="res://Assets/hud assets/HUDbackground bar things.png" id="1_t6mi4"]
 [ext_resource type="Texture2D" uid="uid://cnq7udahmkhal" path="res://Assets/hud assets/HUDwave bar inner.png" id="1_ugjbh"]
+[ext_resource type="Texture2D" uid="uid://dqogiufpguqfe" path="res://GeneralUI/HUDwave bar outer.png" id="3_eccn3"]
 [ext_resource type="Texture2D" uid="uid://c8pmofl3hdxox" path="res://Assets/hud assets/HUDwavebarball.png" id="3_pqr1k"]
 [ext_resource type="Texture2D" uid="uid://bxd347jqh5xu0" path="res://Assets/hud assets/HUDwave counter.png" id="5_mcek5"]
 
@@ -11,14 +11,14 @@ atlas = ExtResource("5_mcek5")
 region = Rect2(0, 0, 270, 270)
 
 [node name="WaveBar" type="TextureProgressBar" node_paths=PackedStringArray("wave_number_sprite")]
-offset_left = 186.0
+offset_left = 197.0
 offset_top = 36.0
-offset_right = 558.0
+offset_right = 592.0
 offset_bottom = 108.0
 rotation = 3.14159
 scale = Vector2(0.5, 0.5)
 max_value = 30.0
-value = 2.0
+value = 30.0
 fill_mode = 1
 nine_patch_stretch = true
 texture_progress = ExtResource("1_ugjbh")
@@ -27,12 +27,13 @@ wave_number_sprite = NodePath("Ball/Number")
 
 [node name="BarUnder" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(164, 34)
+position = Vector2(200, 34)
 rotation = -3.14159
-texture = ExtResource("1_t6mi4")
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("3_eccn3")
 
 [node name="Ball" type="Sprite2D" parent="."]
-position = Vector2(450, 36)
+position = Vector2(486, 36)
 rotation = -3.14159
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_pqr1k")
