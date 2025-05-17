@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bd15k20ikk6lo"]
+[gd_scene load_steps=20 format=3 uid="uid://bd15k20ikk6lo"]
 
 [ext_resource type="PackedScene" uid="uid://dr6r2nm4dswxx" path="res://Player/UIAndHUD/hp_display.tscn" id="1_2y5o4"]
 [ext_resource type="Texture2D" uid="uid://degwg4r1qiskw" path="res://Assets/hud assets/hot bar box-02.png" id="2_f1rcm"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dd8cqdbbj33j" path="res://Assets/hud assets/hot bar box-3.png" id="5_4a3l5"]
 [ext_resource type="FontFile" uid="uid://drsvb3gij1p5" path="res://Assets/cutscene assets/alagard.ttf" id="6_s4icj"]
 [ext_resource type="Texture2D" uid="uid://vir3upu5b4b5" path="res://Assets/hud assets/coins-02.png" id="7_8wsfe"]
+[ext_resource type="Texture2D" uid="uid://bf8ku7rtikeog" path="res://Assets/hud assets/HUDbackground bar things.png" id="8_5g4fs"]
 [ext_resource type="Script" path="res://Player/UIAndHUD/BulletDisplay.gd" id="8_x320l"]
 [ext_resource type="Texture2D" uid="uid://cebdnhre7ljlw" path="res://Assets/hud assets/bullet chambers-02.png" id="9_fpjdy"]
+[ext_resource type="Texture2D" uid="uid://dak425jhpmb0k" path="res://Assets/hud assets/HUDcoin counter.png" id="9_ks8ol"]
 [ext_resource type="Texture2D" uid="uid://irna5bc2y8mo" path="res://Assets/hud assets/bullet chambers-03.png" id="10_v1480"]
 [ext_resource type="Texture2D" uid="uid://2npyrk4ffbi" path="res://Assets/hud assets/bullet chambers-04.png" id="11_noyxj"]
 [ext_resource type="Texture2D" uid="uid://b77crc3c1jgwd" path="res://Assets/hud assets/bullet chambers-07.png" id="12_n26p6"]
@@ -53,10 +55,10 @@ animations = [{
 
 [node name="HpDisplay" parent="." instance=ExtResource("1_2y5o4")]
 texture_filter = 1
-offset_left = 13.0
-offset_top = 13.0
-offset_right = 1143.0
-offset_bottom = 75.0
+offset_left = -1.0
+offset_top = 3.0
+offset_right = 1129.0
+offset_bottom = 65.0
 scale = Vector2(0.839253, 0.839253)
 
 [node name="InvHotbar" type="Node2D" parent="."]
@@ -90,28 +92,67 @@ position = Vector2(1086.8, 62.8)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_4a3l5")
 
-[node name="Money" type="Label" parent="."]
-offset_left = 64.0
-offset_top = 178.0
-offset_right = 118.0
-offset_bottom = 220.0
-text = "0"
-label_settings = SubResource("LabelSettings_r3ihe")
-horizontal_alignment = 1
+[node name="MoneyBar" type="NinePatchRect" parent="."]
+offset_top = 590.0
+offset_right = 444.0
+offset_bottom = 722.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_5g4fs")
+patch_margin_left = 5
+patch_margin_top = 31
+patch_margin_right = 78
+patch_margin_bottom = 31
 
-[node name="Coins-03" type="Sprite2D" parent="."]
+[node name="MoneyUnder" type="Sprite2D" parent="MoneyBar"]
+z_index = -1
+position = Vector2(616, 68)
+texture = ExtResource("9_ks8ol")
+
+[node name="Money" type="Label" parent="MoneyBar/MoneyUnder"]
+unique_name_in_owner = true
+self_modulate = Color(0.329412, 0.121569, 0.121569, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.5
+offset_top = -179.0
+offset_right = -189.5
+offset_bottom = -137.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+text = "90"
+label_settings = SubResource("LabelSettings_r3ihe")
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Coins-03" type="Sprite2D" parent="MoneyBar"]
 texture_filter = 1
-position = Vector2(37, 197)
-scale = Vector2(0.0200605, 0.019498)
+position = Vector2(184, 64)
+scale = Vector2(0.1, 0.098)
 texture = ExtResource("7_8wsfe")
 
-[node name="BulletDisplay" type="HBoxContainer" parent="."]
+[node name="BulletBar" type="NinePatchRect" parent="."]
+offset_top = 102.5
+offset_right = 530.0
+offset_bottom = 240.5
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_5g4fs")
+patch_margin_left = 5
+patch_margin_top = 31
+patch_margin_right = 78
+patch_margin_bottom = 31
+
+[node name="BulletDisplay" type="HBoxContainer" parent="." node_paths=PackedStringArray("under_bar")]
 texture_filter = 1
 offset_left = -1.0
 offset_top = 82.0
 offset_right = 261.0
-offset_bottom = 214.0
+offset_bottom = 163.0
 script = ExtResource("8_x320l")
+under_bar = NodePath("../BulletBar")
 
 [node name="BulletHUD" type="AnimatedSprite2D" parent="BulletDisplay"]
 position = Vector2(46.3222, 34.2553)

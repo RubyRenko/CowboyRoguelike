@@ -2,6 +2,7 @@ extends HBoxContainer
 
 enum MODES {simple, partial}
 
+@export var under_bar : NinePatchRect
 var heart_full = preload("res://Assets/hud assets/cow boy heart-02.png")
 var heart_half = preload("res://Assets/hud assets/half heart with black.png")
 var heart_empty = preload("res://Assets/hud assets/empty heart.png")
@@ -12,6 +13,9 @@ func update_health(health, max_hp, armor=0):
 	update_partial(health, max_hp, armor)
 
 func update_partial(health, max_hp, armor=0):
+	if (health <= 0):
+		under_bar.visible = false
+	under_bar.size.x = (40 * (max_hp/2 + armor) + 100) * 5
 	for i in get_child_count():
 		if health > i * 2 + 1:
 			get_child(i).visible = true
