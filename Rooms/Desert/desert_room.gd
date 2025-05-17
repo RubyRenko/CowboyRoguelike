@@ -43,6 +43,7 @@ var rng = RandomNumberGenerator.new()
 @onready var wave_sfx = $WaveSfxPlayer
 @onready var nav_arrow = $CowboyPlayer/nav_arrow
 
+@export var wave_bar : TextureProgressBar
 @export var enemies_rem_label : Label
 var enemies_rem_text : String = "Enemies Remaining: "
 
@@ -223,6 +224,7 @@ func spawn_wave(difficulty):
 func _on_wave_timer_timeout():
 	print("wave ", wave)
 	wave_display.display_wave(wave)
+	wave_bar.change_wave(wave)
 	if wave == 16:
 		get_tree().change_scene_to_file("res://Rooms/Forest/forest_room.tscn")
 	elif wave == 15:

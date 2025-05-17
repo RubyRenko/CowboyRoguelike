@@ -1599,9 +1599,10 @@ pattern_23 = SubResource("TileMapPattern_tfh78")
 pattern_24 = SubResource("TileMapPattern_x5p86")
 pattern_25 = SubResource("TileMapPattern_l340h")
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("enemies_rem_label")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("wave_bar", "enemies_rem_label")]
 process_mode = 1
 script = ExtResource("1_w386a")
+wave_bar = NodePath("Gui/WaveBar")
 enemies_rem_label = NodePath("Gui/EnemiesRem")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
@@ -1661,14 +1662,12 @@ libraries = {
 }
 
 [node name="WaveBar" parent="Gui" instance=ExtResource("34_03012")]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 301.0
-offset_top = 41.0
-offset_right = 560.0
-offset_bottom = 63.0
-grow_horizontal = 2
+offset_left = 871.0
+offset_top = 85.0
+offset_right = 1243.0
+offset_bottom = 157.0
+scale = Vector2(-0.5, 0.5)
+value = 30.0
 
 [node name="WaveBarLabel" type="Label" parent="Gui"]
 anchors_preset = 5
@@ -1683,11 +1682,10 @@ text = "NEXT WAVE"
 label_settings = SubResource("LabelSettings_out16")
 
 [node name="EnemiesRem" type="Label" parent="Gui"]
-visible = false
-offset_left = 877.0
-offset_top = 75.0
-offset_right = 1124.0
-offset_bottom = 106.0
+offset_left = 745.0
+offset_top = 109.0
+offset_right = 992.0
+offset_bottom = 143.0
 text = "Enemies Remaining:  "
 label_settings = SubResource("LabelSettings_out16")
 
