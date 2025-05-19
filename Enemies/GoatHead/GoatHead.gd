@@ -2,6 +2,7 @@ class_name GoatHead extends Enemy_Base
 
 @onready var blood = load("res://Enemies/GoatHead/goat_blood.tscn")
 @onready var blood_timer = $Blood_Timer
+@onready var flash_animation = $GoatSprite/FlashAnimation
 
 func _init():
 	base_spd = 280

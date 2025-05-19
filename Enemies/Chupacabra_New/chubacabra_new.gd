@@ -6,7 +6,6 @@ extends CharacterBody2D
 @onready var state_machine = $FiniteStateMachine
 @onready var main: Node2D = $"."
 
-
 var direction : Vector2
 var target : Vector2
 var speed = 250

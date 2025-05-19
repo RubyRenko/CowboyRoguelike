@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var coin = load("res://Items/DroppablePickup.tscn")
 @onready var death_sprite = load("res://Enemies/enemy_death_splat.tscn")
 @onready var loot_table = ["nessie", "darkhat", "gator", "wampus", "flatwoods", "jackalope", "sinkhole", "thunderbird", "tractor", "cadejo"]
-
+@onready var flash_animation = $AnimatedSprite2D/FlashAnimation
 
 var direction : Vector2
 var target : Vector2

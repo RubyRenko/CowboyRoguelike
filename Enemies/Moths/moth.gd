@@ -1,5 +1,6 @@
 class_name Moth extends Enemy_Base
 
+@onready var flash_animation = $MothSprite/FlashAnimation
 
 func _init() -> void:
 	#stats

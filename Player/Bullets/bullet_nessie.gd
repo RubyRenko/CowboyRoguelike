@@ -1,5 +1,6 @@
 extends Area2D
 
+
 var speed = 750
 var damage : int
 var stun_chance = 0
@@ -21,11 +22,15 @@ func _on_body_entered(body):
 		#just skips
 		pass
 	elif body.is_in_group("enemy"):
-		print("detected enemy")
+		#print("detected enemy")
+		if body.flash_animation: 
+			body.flash_animation.play("flash")
 		deal_dmg(body)
 		body.hit_by_player = true
 		sounds.play_sfx("hit")
 	elif body.is_in_group("boss"):
+		if body.flash_animation: 
+			body.flash_animation.play("flash")
 		body.take_damage()
 		sounds.play_sfx("hit")
 	else:

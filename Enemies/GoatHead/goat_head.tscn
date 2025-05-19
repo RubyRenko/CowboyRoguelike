@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://c58iq3wgcd4xj"]
+[gd_scene load_steps=21 format=3 uid="uid://c58iq3wgcd4xj"]
 
 [ext_resource type="Script" path="res://Enemies/GoatHead/GoatHead.gd" id="1_05l85"]
+[ext_resource type="Shader" path="res://Enemies/damage_flash.gdshader" id="2_nb5vq"]
 [ext_resource type="Texture2D" uid="uid://w6vysha5tlnr" path="res://Assets/sprites/Enemies/goatmove/goatmove_0000.png" id="3_kx33i"]
 [ext_resource type="Texture2D" uid="uid://bikyiysvfv5l" path="res://Assets/sprites/Enemies/goatmove/goatmove_0001.png" id="4_2ma0u"]
 [ext_resource type="Texture2D" uid="uid://b00lnc7dwaug4" path="res://Assets/sprites/Enemies/goatmove/goatmove_0002.png" id="5_4oj05"]
@@ -18,6 +19,12 @@ radius = 24.0208
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r7jp3"]
 radius = 18.0278
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_snaq8"]
+resource_local_to_scene = true
+shader = ExtResource("2_nb5vq")
+shader_parameter/flash_color = Color(1, 0, 0.0166664, 1)
+shader_parameter/flash_value = null
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_shqao"]
 animations = [{
@@ -47,6 +54,43 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_d6ngj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_y5208"]
+resource_name = "flash"
+length = 0.03
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.000221509, 0.0293614),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f8dil"]
+_data = {
+"RESET": SubResource("Animation_d6ngj"),
+"flash": SubResource("Animation_y5208")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrcvs"]
 bg_color = Color(0.469605, 0.190438, 0.214815, 1)
@@ -98,8 +142,16 @@ autostart = true
 
 [node name="GoatSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_snaq8")
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_shqao")
+frame = 6
+frame_progress = 0.753259
+
+[node name="FlashAnimation" type="AnimationPlayer" parent="GoatSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_f8dil")
+}
 
 [node name="HpBar" type="ProgressBar" parent="."]
 offset_left = -28.0
