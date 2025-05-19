@@ -29,7 +29,10 @@ var rng = RandomNumberGenerator.new()
 	tile_detail.tile_set.get_pattern(22),
 	tile_detail.tile_set.get_pattern(23),
 	tile_detail.tile_set.get_pattern(24), #pattern 24 is 3x5
-	tile_detail.tile_set.get_pattern(25) #pattern 25 is 3x4
+	tile_detail.tile_set.get_pattern(25), #pattern 25 is 3x4
+	tile_detail.tile_set.get_pattern(26),#buildings
+	tile_detail.tile_set.get_pattern(27),
+	tile_detail.tile_set.get_pattern(28)
 	]
 @onready var player = $CowboyPlayer
 @onready var enemies = [
@@ -165,7 +168,7 @@ func create_detail(width, height, amount = 50):
 	
 	for i in amount:
 		var spawn_point = Vector2i(randi_range(3, room_width-3), randi_range(3, room_height-3))
-		var pattern_ind = randi_range(0, 25)
+		var pattern_ind = randi_range(0, 28)#26-28 are buildings
 		var pattern = tile_patterns[pattern_ind]
 		if pattern_ind <= 6:
 			# checks in a 2x3 area if it's clear and can be spawned there
@@ -191,6 +194,15 @@ func create_detail(width, height, amount = 50):
 		elif pattern_ind == 25:
 			# checks in a 3x4 area if it's clear and can be spawned there
 			spawn_desert_pattern(pattern, spawn_point, 3, 4, invalid_array)
+		elif pattern_ind == 26:
+			# checks in a 3x4 area if it's clear and can be spawned there
+			spawn_desert_pattern(pattern, spawn_point, 12,11, invalid_array)
+		elif pattern_ind == 27:
+			# checks in a 3x4 area if it's clear and can be spawned there
+			spawn_desert_pattern(pattern, spawn_point, 12,11, invalid_array)
+		elif pattern_ind == 28:
+			# checks in a 3x4 area if it's clear and can be spawned there
+			spawn_desert_pattern(pattern, spawn_point, 12,11, invalid_array)
 
 func spawn_desert_pattern(pattern, spawn_point, x_dim, y_dim, invalid_array):
 	# checks in a x_dim by y_dim if the spaces are clear to be spawned in
