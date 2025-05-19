@@ -1,5 +1,7 @@
 class_name MothAlt extends Enemy_Base
 
+@onready var flash_animation = $MothSpriteAlt/FlashAnimation
+
 func _init() -> void:
 	#stats
 	base_spd = 280

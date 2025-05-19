@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://r33j7536vo7y"]
+[gd_scene load_steps=22 format=3 uid="uid://r33j7536vo7y"]
 
 [ext_resource type="Script" path="res://Enemies/Larva/larva.gd" id="1_3xopi"]
 [ext_resource type="Texture2D" uid="uid://do7kpmho4fj1h" path="res://Assets/sprites/Enemies/wormmove/wormmove_0000.png" id="2_3crli"]
+[ext_resource type="Shader" path="res://Enemies/damage_flash.gdshader" id="2_58j21"]
 [ext_resource type="Texture2D" uid="uid://gh35c2k242xn" path="res://Assets/sprites/Enemies/wormmove/wormmove_0001.png" id="3_ypvyn"]
 [ext_resource type="Texture2D" uid="uid://f23xb2xk622b" path="res://Assets/sprites/Enemies/wormmove/wormmove_0002.png" id="4_o7jol"]
 [ext_resource type="Texture2D" uid="uid://cs15rpgub8ift" path="res://Assets/sprites/Enemies/wormmove/wormmove_0003.png" id="5_2y0n8"]
@@ -19,6 +20,12 @@ radius = 24.0208
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7qtx"]
 radius = 18.0278
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wpdsg"]
+resource_local_to_scene = true
+shader = ExtResource("2_58j21")
+shader_parameter/flash_color = Color(1, 0, 0.0156863, 1)
+shader_parameter/flash_value = null
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fiasv"]
 animations = [{
@@ -51,6 +58,43 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_urdjw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_iiwvk"]
+resource_name = "flash"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [null, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_20hcf"]
+_data = {
+"RESET": SubResource("Animation_urdjw"),
+"flash": SubResource("Animation_iiwvk")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtvym"]
 bg_color = Color(0.469605, 0.190438, 0.214815, 1)
@@ -99,8 +143,15 @@ shape = SubResource("CircleShape2D_842b3")
 shape = SubResource("CircleShape2D_h7qtx")
 
 [node name="LarvaSprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_wpdsg")
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fiasv")
+
+[node name="FlashAnimation" type="AnimationPlayer" parent="LarvaSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_20hcf")
+}
+speed_scale = 2.0
 
 [node name="HpBar" type="ProgressBar" parent="."]
 offset_left = -28.0

@@ -155,11 +155,12 @@ func _physics_process(delta):
 	coin.set_text(str(money))
 	bullet_display.update_bullets(ammo, max_ammo)
 
-func shoot():
+func shoot(shake = 0.13):
 	#makes 1 bullet right in front
 	var b
 	if "nessie" in inventory:
 		b = bullet_n.instantiate()
+
 	else:
 		b = bullet.instantiate()
 	b.damage = ranged_dmg
@@ -168,6 +169,7 @@ func shoot():
 	b.global_position = $CenterPoint/GunPoint.global_position
 	b.global_rotation = $CenterPoint/GunPoint.global_rotation - deg_to_rad(90)
 	main.add_child(b)
+	$Camera2D.add_trauma(randf_range(0.10, shake))
 	audio.play_sfx("fire")
 
 func start_blinking():
@@ -187,7 +189,7 @@ func set_hp(health):
 		var h = heart.instantiate()
 		h.positon.x += 50 * (1+i)
 
-func hurt(amount, shake = 0.2):
+func hurt(amount, shake = 0.3):
 	if armor > 0 and amount <= armor:
 		armor -= amount
 		if armor < 0:

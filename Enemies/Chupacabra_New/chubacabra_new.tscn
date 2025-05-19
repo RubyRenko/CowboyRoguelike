@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bv6nmywn88rro"]
+[gd_scene load_steps=74 format=3 uid="uid://bv6nmywn88rro"]
 
 [ext_resource type="Script" path="res://Enemies/Chupacabra_Old/chubacabra.gd" id="1_v3ton"]
 [ext_resource type="AudioStream" uid="uid://w6dy5jvvtetp" path="res://Enemies/Chupacabra_New/chupacabra/chupacabra_anims/chubamove/Chupacabra WAVs/Chupacabra Footstep 1.wav" id="2_2hfq8"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dpv135m6ir87k" path="res://Enemies/Chupacabra_New/chupacabra/chupacabra_anims/chubacharge/chubacharge_0003.png" id="12_qqllh"]
 [ext_resource type="Texture2D" uid="uid://bsxqdlkbd5pn1" path="res://Enemies/Chupacabra_New/chupacabra/chupacabra_anims/chubacharge/chubacharge_0004.png" id="13_bwtib"]
 [ext_resource type="Texture2D" uid="uid://bdpasp8f0que4" path="res://Enemies/Chupacabra_New/chupacabra/chupacabra_anims/chubacharge/chubacharge_0005.png" id="14_ua2gb"]
+[ext_resource type="Shader" path="res://Enemies/damage_flash.gdshader" id="14_vvfdn"]
 [ext_resource type="Texture2D" uid="uid://ds4kvtocl7vrk" path="res://Enemies/Chupacabra_New/chupacabra/chupacabra_anims/chubacharge/chubacharge_0006.png" id="15_qcrxd"]
 [ext_resource type="Texture2D" uid="uid://dd5yp8li75xgy" path="res://Enemies/Chupacabra_New/chupacabra/chupacabra_anims/chubacharge/chubacharge_0007.png" id="16_tx8g5"]
 [ext_resource type="Texture2D" uid="uid://dryi6rbngenqj" path="res://Enemies/Chupacabra_New/chupacabra/chupacabra_anims/chubacharge/chubacharge_0008.png" id="17_fb76c"]
@@ -86,6 +87,12 @@ radius = 80.0062
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5i42r"]
 radius = 19.753
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0apwq"]
+resource_local_to_scene = true
+shader = ExtResource("14_vvfdn")
+shader_parameter/flash_color = Color(1, 0, 0.0156863, 1)
+shader_parameter/flash_value = null
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_quu0x"]
 animations = [{
@@ -257,6 +264,43 @@ animations = [{
 "speed": 16.0
 }]
 
+[sub_resource type="Animation" id="Animation_dsd6r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_tsylm"]
+resource_name = "flash"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [null, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2cpif"]
+_data = {
+"RESET": SubResource("Animation_dsd6r"),
+"flash": SubResource("Animation_tsylm")
+}
+
 [node name="ChubacabraBoss" type="CharacterBody2D" groups=["boss"]]
 collision_layer = 2
 collision_mask = 3
@@ -360,8 +404,15 @@ script = ExtResource("12_5ytg8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_0apwq")
 sprite_frames = SubResource("SpriteFrames_quu0x")
 animation = &"dash"
+
+[node name="FlashAnimation" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_2cpif")
+}
+speed_scale = 2.0
 
 [connection signal="body_entered" from="SlashArea" to="FiniteStateMachine/Follow" method="_on_slash_area_body_entered"]
 [connection signal="body_entered" from="SlashArea" to="FiniteStateMachine/Slash" method="_on_slash_area_body_entered"]

@@ -4,7 +4,7 @@ class_name GoatHeadAlt extends Enemy_Base
 @onready var blood_bullet = load("res://Enemies/GoatHead/goat_blood_bullet.tscn")
 @onready var blood_timer = $Blood_Timer
 @onready var bullet_spawn = $CenterPoint/GunPoint
-
+@onready var flash_animation = $GoatSpriteAlt/FlashAnimation
 func _init() -> void:
 	#stats
 	base_spd = 200

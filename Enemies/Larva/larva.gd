@@ -2,6 +2,8 @@ class_name Larva extends Enemy_Base
 
 var rand_direction : Vector2
 
+@onready var flash_animation = $LarvaSprite/FlashAnimation
+
 func _init() -> void:
 	#stats
 	base_spd = 300

@@ -8,6 +8,7 @@ var slow = 0
 @onready var sounds2 = $BulletDebuffSfx
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#makes the bullt go straight in front
@@ -23,6 +24,8 @@ func _on_bullet_body_entered(body):
 	elif body.is_in_group("enemy"):
 		#if it hits an enemy, it deals damage to the enemy
 		#print("bullet hit")
+		if body.flash_animation: 
+			body.flash_animation.play("flash")
 		deal_dmg(body)
 		body.hit_by_player = true
 		speed = 0
@@ -31,6 +34,8 @@ func _on_bullet_body_entered(body):
 		await sounds.finished
 		queue_free()
 	elif body.is_in_group("boss"):
+		if body.flash_animation: 
+			body.flash_animation.play("flash")
 		body.take_damage()
 		speed = 0
 		visible = false;

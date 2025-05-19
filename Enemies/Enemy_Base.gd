@@ -27,6 +27,7 @@ var attack_sfx
 @onready var coin = load("res://Items/DroppablePickup.tscn")
 @onready var hp_bar = $HpBar
 
+
 func _ready() -> void:
 	sprite_anim.play()
 	hp_bar.max_value = hp
