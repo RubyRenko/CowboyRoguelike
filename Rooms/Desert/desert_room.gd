@@ -341,7 +341,7 @@ func spawn_wave(difficulty):
 	print(spawn_4)"
 	
 	var player_position = tilemap.local_to_map(player.position)
-	var num_to_spawn = difficulty * 4 + randi_range(0, 3)
+	var num_to_spawn = difficulty * 4 + randi_range(0, 6)
 	for i in range(num_to_spawn):
 		var section = subsections.pick_random()
 		var spawn_pos = section.pick_random()
