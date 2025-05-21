@@ -123,25 +123,30 @@ func create_room(width, height, padding = 12):
 
 func create_detail(range_x, range_y):
 	var point = Vector2i(randi_range(0, range_x), randi_range(0, range_y))
-	var detail_array = [Vector2i(7,0), Vector2i(9,0), Vector2i(11,0), Vector2i(13,0), 
+	var detail_array = [Vector2i(0,0), Vector2i(1,0), Vector2i(3,0), Vector2i(5,0), 
+						Vector2i(0,2), Vector2i(1,2), Vector2i(3,2), Vector2i(5,2),
+						Vector2i(0,4),  Vector2i(1,4), Vector2i(3,4), Vector2i(5,4),
+						Vector2i(7,0), Vector2i(9,0), Vector2i(11,0), Vector2i(13,0), 
 						Vector2i(7,2), Vector2i(9,2), Vector2i(11,2), Vector2i(13,2),
-									   Vector2i(9,4), Vector2i(11,4), Vector2i(13,4)]
+						Vector2i(7,4),  Vector2i(9,4), Vector2i(11,4), Vector2i(13,4)]
 	if point == Vector2i(16, 12):
 		point.x += 2
 		point.y += 2
 	while tile_details.get_cell_atlas_coords(0, point) != Vector2i(-1,-1):
 		point.x += randi_range(-3, 3)
 		point.y += randi_range(-3, 3)
-	if tile_details.get_cell_atlas_coords(0, point) == Vector2i(-1,-1):
+	if tile_details.get_cell_atlas_coords(0, point) <= Vector2i(-1,-1):
 		if point in spawn_points:
 			spawn_points.pop_at(spawn_points.find(point))
 		if randi_range(0,1) == 0:
 			#50% chance for a big item, a pattern
 			var pattern_ind : int
 			if color_palette == 0 || color_palette == 3:
-				pattern_ind = randi_range(0,7)
+				pattern_ind = randi_range(6,16)
+				var pattern = tile_details.tile_set.get_pattern(pattern_ind)
+				tile_details.set_pattern(0, point, pattern)
 			else:
-				pattern_ind = color_palette * 9 + randi_range(0,7)
+				pattern_ind = randi_range(0,16)#pattern_ind = color_palette * 9
 			var pattern = tile_details.tile_set.get_pattern(pattern_ind)
 			tile_details.set_pattern(0, point, pattern)
 		else:
@@ -149,9 +154,17 @@ func create_detail(range_x, range_y):
 			var color
 			if color_palette == 0 || color_palette == 3:
 				color = 0
+				var pattern_ind = randi_range(6,16)
+				var pattern = tile_details.tile_set.get_pattern(pattern_ind)
+				tile_details.set_pattern(0, point, pattern)
 			else:
 				color = 1
+				var pattern_ind = randi_range(6,16)
+				var pattern = tile_details.tile_set.get_pattern(pattern_ind)
+				tile_details.set_pattern(0, point, pattern)
+				
 			tile_details.set_cell(0, point, color, detail_array.pick_random())
+
 
 func start_up():
 	create_room(room_width, room_height)
