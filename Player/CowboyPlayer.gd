@@ -8,7 +8,7 @@ class_name CowboyPlayer
 @onready var dash_available = $Dash_Available
 @onready var dash_timer = $Dash_Timer
 @onready var reload_timer = $Reload_Timer
-@onready var coin = get_node("HUD/Money")
+@onready var coin = get_node("HUD/%Money")
 @onready var thunder = get_node("ThunderbirdArea")
 @onready var thunder_timer = $Thunder_Timer
 @onready var audio = $AudioPlayer
