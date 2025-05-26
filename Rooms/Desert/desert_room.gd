@@ -217,7 +217,7 @@ func spawn_wave(difficulty):
 		while spawn_pos == player_position:
 			spawn_pos = section.pick_random()
 		section.pop_at(section.find(spawn_pos))
-		spawn_enemy(tilemap.map_to_local(spawn_pos), difficulty)
+		#spawn_enemy(tilemap.map_to_local(spawn_pos), difficulty)
 		print("spawned enemy at " + str(spawn_pos))
 	
 
