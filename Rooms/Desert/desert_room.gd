@@ -179,7 +179,7 @@ func spawn_enemy(spawn_pos, difficult = 1):
 
 func start_up():
 	create_room(room_width, room_height)
-	create_detail(room_width, room_height)
+	#create_detail(room_width, room_height)
 	"var pattern = tile_detail.tile_set.get_pattern(randi_range(5, 7))
 	tile_detail.set_pattern(Vector2i(0,0), pattern)"
 	player.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
