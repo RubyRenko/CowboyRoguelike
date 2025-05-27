@@ -71,6 +71,7 @@ var wave = 1
 var spawn_points = []
 var difficulty = 1
 var is_blinking = false
+const SAFE_RADIUS : float = 350.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -174,6 +175,27 @@ func spawn_desert_pattern(pattern, spawn_point, x_dim, y_dim, invalid_array):
 		for x in x_dim:
 			for y in y_dim:
 				invalid_array.append(spawn_point + Vector2i(x, y))
+				
+func get_valid_spawn_position() -> Vector2:
+	var spawn_array = spawn_points.duplicate()
+	var spawn_1 = spawn_array.slice(0, spawn_array.size()/4)
+	var spawn_2 = spawn_array.slice(spawn_array.size()/4, (spawn_array.size()/4)*2)
+	var spawn_3 = spawn_array.slice((spawn_array.size()/4)*2, (spawn_array.size()/4)*3)
+	var spawn_4 = spawn_array.slice((spawn_array.size()/4)*2, spawn_array.size())
+	var subsections = [spawn_1, spawn_2, spawn_3, spawn_4]	
+	var player_position = tilemap.local_to_map(player.position)
+	var section = subsections.pick_random()
+	var spawn_pos = section.pick_random()
+	var spawn_position: Vector2
+	var attempts := 0
+	while attempts < 10:
+		spawn_position = section.pick_random()
+		if spawn_position.distance_to(player.global_position) > SAFE_RADIUS:
+			return spawn_position
+		attempts += 1
+
+	# fallback if no valid spawn found
+	return spawn_position
 
 func spawn_enemy(spawn_pos, difficult = 1):
 	#create a new enemy instance and set the dddddddddposition
@@ -217,13 +239,18 @@ func spawn_wave(difficulty):
 	enemies_left = num_to_spawn
 	enemies_rem_label.text = enemies_rem_text + str(enemies_left)
 	for i in range(num_to_spawn):
-		var section = subsections.pick_random()
-		var spawn_pos = section.pick_random()
-		while spawn_pos == player_position:
+		var spawn_pos: Vector2i
+		var attempts := 0
+		while attempts < 10:
+			var section = subsections.pick_random()
 			spawn_pos = section.pick_random()
-		section.pop_at(section.find(spawn_pos))
-		spawn_enemy(tilemap.map_to_local(spawn_pos), difficulty)
-		print("spawned enemy at " + str(spawn_pos))
+			var world_pos = tilemap.map_to_local(spawn_pos)
+			if world_pos.distance_to(player.global_position) > SAFE_RADIUS:
+				section.erase(spawn_pos)
+				spawn_enemy(world_pos, difficulty)
+				print("spawned enemy at " + str(spawn_pos))
+				break
+			attempts += 1
 	
 
 func _on_wave_timer_timeout():
@@ -240,7 +267,7 @@ func _on_wave_timer_timeout():
 		chupacabra.scale = Vector2(1.5, 1.5)
 		add_child(chupacabra)
 		enemies_rem_label.text = enemies_rem_text.to_upper() + "1"
-	elif wave % 5 == 0:
+	elif wave % 2 == 0:
 		shop_wave()
 	elif wave == 14:
 		wave_sfx.play_sfx("new_wave")
