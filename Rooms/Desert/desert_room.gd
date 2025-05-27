@@ -43,6 +43,8 @@ var rng = RandomNumberGenerator.new()
 @onready var wave_sfx = $WaveSfxPlayer
 @onready var nav_arrow = $CowboyPlayer/nav_arrow
 @onready var E_interact = $CowboyPlayer/E_interact
+@onready var nav_texture = preload("res://Assets/sprites/red arrow.png")
+@onready var nav_texture2 = preload("res://Assets/sprites/white arrow.png")
 
 @export var wave_bar : TextureProgressBar
 @export var enemies_rem_label : Label
@@ -68,6 +70,7 @@ var room_width = 50
 var wave = 1
 var spawn_points = []
 var difficulty = 1
+var is_blinking = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -270,10 +273,13 @@ func shop_wave():
 	print("shop spawn")
 	difficulty += 1
 	nav_arrow.show()
+	is_blinking = true
+	start_blinking()
 
 func _on_child_exiting_tree(node):
 	if node.name == "Shop":
 		nav_arrow.hide()
+		stop_blinking()
 		wave_timer.wait_time = 5
 		wave_timer.start()
 		wave_timer.wait_time = 30
@@ -287,3 +293,13 @@ func _on_child_exiting_tree(node):
 			wave_timer.wait_time = 5
 			wave_timer.start()
 			
+func start_blinking():
+	while is_blinking:
+		nav_arrow.texture = nav_texture
+		await get_tree().create_timer(0.5).timeout
+		nav_arrow.texture = nav_texture2
+		await get_tree().create_timer(0.5).timeout
+			
+func stop_blinking():
+	is_blinking = false
+	nav_arrow.hide()
