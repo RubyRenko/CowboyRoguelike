@@ -235,7 +235,7 @@ func _on_wave_timer_timeout():
 		chupacabra.scale = Vector2(1.5, 1.5)
 		add_child(chupacabra)
 		enemies_rem_label.text = enemies_rem_text.to_upper() + "1"
-	elif wave % 5 == 0:
+	elif wave % 2 == 0:
 		shop_wave()
 	elif wave == 14:
 		wave_sfx.play_sfx("new_wave")
@@ -267,7 +267,7 @@ func shop_wave():
 	$Gui/WaveBarLabel.text = "SHOP"
 	print("shop spawn")
 	difficulty += 1
-	nav_arrow.visible = true
+	nav_arrow.show()
 
 func _on_child_exiting_tree(node):
 	if node.name == "Shop":
@@ -275,7 +275,6 @@ func _on_child_exiting_tree(node):
 		wave_timer.start()
 		wave_timer.wait_time = 30
 		wave_sfx.play_sfx("shop_leave")
-		nav_arrow.visible = false
 	if node.is_in_group("enemy") && node.hit_by_player:
 		var kill_sounds = ["kill1", "kill2", "kill3", "kill4"]
 		wave_sfx.play_sfx(kill_sounds.pick_random())

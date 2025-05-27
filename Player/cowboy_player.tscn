@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://be3fpwoys47ky"]
+[gd_scene load_steps=62 format=3 uid="uid://be3fpwoys47ky"]
 
 [ext_resource type="Script" path="res://Player/CowboyPlayer.gd" id="1_oimyp"]
 [ext_resource type="Texture2D" uid="uid://c1lbkgla6h58g" path="res://Assets/sprites/Player sprite/back/walk-back0.png" id="2_w3kbx"]
@@ -320,6 +320,8 @@ _data = {
 "melee": SubResource("Animation_on5aa")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_46jn4"]
+
 [node name="CowboyPlayer" type="CharacterBody2D" groups=["player"]]
 z_index = 1
 script = ExtResource("1_oimyp")
@@ -428,6 +430,13 @@ texture = ExtResource("51_46x4o")
 texture = ExtResource("52_jcr06")
 offset = Vector2(0, -100)
 script = ExtResource("53_rgxnm")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_46jn4")
 
 [connection signal="body_entered" from="ThunderbirdArea" to="ThunderbirdArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ThunderbirdArea" to="ThunderbirdArea" method="_on_body_exited"]
