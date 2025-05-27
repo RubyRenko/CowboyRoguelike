@@ -240,7 +240,7 @@ func _on_wave_timer_timeout():
 		chupacabra.scale = Vector2(1.5, 1.5)
 		add_child(chupacabra)
 		enemies_rem_label.text = enemies_rem_text.to_upper() + "1"
-	elif wave % 2 == 0:
+	elif wave % 5 == 0:
 		shop_wave()
 	elif wave == 14:
 		wave_sfx.play_sfx("new_wave")
