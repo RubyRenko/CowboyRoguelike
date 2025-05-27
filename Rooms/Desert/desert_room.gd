@@ -42,6 +42,7 @@ var rng = RandomNumberGenerator.new()
 @onready var boss = load("res://Enemies/Chupacabra_New/chubacabra_new.tscn")
 @onready var wave_sfx = $WaveSfxPlayer
 @onready var nav_arrow = $CowboyPlayer/nav_arrow
+@onready var E_interact = $CowboyPlayer/E_interact
 
 @export var wave_bar : TextureProgressBar
 @export var enemies_rem_label : Label
@@ -186,7 +187,8 @@ func start_up():
 	#starts wave timer and makes the first wave spawn earlier
 	wave_timer.start()
 	wave_timer.wait_time = 30
-	nav_arrow.visible = false
+	nav_arrow.hide()
+	E_interact.hide()
 
 func clean_up():
 	var all_children = get_children()
@@ -271,6 +273,7 @@ func shop_wave():
 
 func _on_child_exiting_tree(node):
 	if node.name == "Shop":
+		nav_arrow.hide()
 		wave_timer.wait_time = 5
 		wave_timer.start()
 		wave_timer.wait_time = 30

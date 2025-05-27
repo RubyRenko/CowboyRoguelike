@@ -21,9 +21,15 @@ func _process(delta):
 
 func _on_interact_area_body_entered(body):
 	if body.name == "CowboyPlayer":
+		var E_interact = body.get_node_or_null("E_interact")
+		if E_interact:
+			E_interact.show()
 		can_talk = true
 
 func _on_interact_area_body_exited(body):
 	if body.name == "CowboyPlayer":
+		var E_interact = body.get_node_or_null("E_interact")
+		if E_interact:
+			E_interact.hide()
 		can_talk = false
 		$Dialogue.visible = false

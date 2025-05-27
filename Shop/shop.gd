@@ -1,5 +1,4 @@
 extends Node2D
-@onready var already_bought = get_tree().get_root().get_node("Main").get_node("CowboyPlayer").inventory
 @onready var audio = $ShopAudio
 
 const nonstackable : Array[String] = ["double_chamber", "nessie", "sinkhole"]
@@ -9,7 +8,15 @@ static var pos_items = ["jackalope", "chili", #hp/flat stat increases
 						"double_chamber", "nessie", "sinkhole"] #nonstackable items
 
 # Called when the node enters the scene tree for the first time.
+func wait_for_node(path: String) -> void:
+	while get_node_or_null(path) == null:
+		await get_tree().process_frame
+
 func _ready():
+	var main_node = get_tree().get_root().get_node_or_null("Main")
+	await wait_for_node("/root/Main/CowboyPlayer")
+	var player = get_node("/root/Main/CowboyPlayer")
+	var already_bought = player.inventory
 	if "double_chamber" in already_bought and "double_chamber" in pos_items:
 		print_debug("Popping: " + pos_items.pop_at(pos_items.find("double_chamber")))
 	if already_bought["darkhat"] == 10 and "darkhat" in pos_items:
