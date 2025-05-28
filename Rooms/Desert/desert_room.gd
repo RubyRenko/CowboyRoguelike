@@ -105,13 +105,13 @@ func create_room(width, height, padding = 12):
 					spawn_points.append(Vector2i(j, i))
 	
 	# sets the invisible walls
-	for i in (height+1):
-		tilemap.set_cell(Vector2i(-1, i), 0, Vector2i(13, 0))
-		tilemap.set_cell(Vector2i(width+1, i), 0, Vector2i(13, 0))
+	#for i in (height+1):
+		#tilemap.set_cell(Vector2i(-1, i), 0, Vector2i(13, 0))
+		#tilemap.set_cell(Vector2i(width+1, i), 0, Vector2i(13, 0))
 		
-	for i in (width+1):
-		tilemap.set_cell(Vector2i(i, -1), 0, Vector2i(13, 0))
-		tilemap.set_cell(Vector2i(i, height+1), 0, Vector2i(13, 0))
+	#for i in (width+1):
+		#tilemap.set_cell(Vector2i(i, -1), 0, Vector2i(13, 0))
+		#tilemap.set_cell(Vector2i(i, height+1), 0, Vector2i(13, 0))
 	
 	"""#create grass patches
 	var to_tile = []
