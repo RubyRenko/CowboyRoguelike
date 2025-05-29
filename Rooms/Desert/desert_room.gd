@@ -71,7 +71,7 @@ var wave = 1
 var spawn_points = []
 var difficulty = 1
 var is_blinking = false
-const SAFE_RADIUS : float = 350.0
+const SAFE_RADIUS : float = 375.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -224,7 +224,7 @@ func clean_up():
 var enemies_spawned : int = 0
 var enemies_left : int = 0
 func spawn_wave(difficulty):
-	wave_timer.stop()
+	"wave_timer.stop()"
 	enemies_rem_label.visible = true
 	var spawn_array = spawn_points.duplicate()
 	var spawn_1 = spawn_array.slice(0, spawn_array.size()/4)
