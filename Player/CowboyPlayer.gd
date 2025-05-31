@@ -25,16 +25,16 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #stats
 #static stats carry over when changing scenes
-static var ranged_dmg = 2
-static var melee_dmg = 4
-static var speed = 300.0
-static var max_ammo = 6
-var ammo = max_ammo
-static var max_hp = 8
-static var hp = 8
-static var money = 0
-static var armor = 0
-static var inventory = {"darkhat": 0, "cadejo": 0, "tractor": 0}
+static var ranged_dmg : int
+static var melee_dmg : int
+static var speed : float
+static var max_ammo : int
+var ammo : int = max_ammo
+static var max_hp : int
+static var hp : int
+static var money : int
+static var armor : int
+static var inventory : Dictionary
 
 #all dash variables
 var dash_speed = 300.0
@@ -47,12 +47,26 @@ var thunder_start = true
 var sprite_dir = ""
 var is_blinking = false
 
+#put base values in here, that way you don't need them in like 3 different places
+#Inits stats to base values, as defined here.
+static func init_stats():
+	ranged_dmg = 2
+	melee_dmg = 4
+	speed = 300.0
+	max_ammo = 6
+	max_hp = 8
+	hp = 8
+	money = 0
+	armor = 0
+	inventory = {"darkhat": 0, "cadejo": 0, "tractor": 0}
+
 func _ready():
 	bullet_display.update_bullets(ammo, max_ammo)
 	hp_display.update_health(hp, max_hp, armor)
 	$CenterPoint/Melee.damage = melee_dmg
 	thunder.hide()
 	reload_indicator.hide()
+	ammo = max_ammo
 
 func _physics_process(delta):
 	#takes care of player movement, gets direction from input keys
@@ -148,13 +162,13 @@ func shoot():
 		b = bullet_n.instantiate()
 	else:
 		b = bullet.instantiate()
-		b.damage = ranged_dmg
-		b.stun_chance = inventory["darkhat"]
-		b.slow = inventory["tractor"]
-		b.global_position = $CenterPoint/GunPoint.global_position
-		b.global_rotation = $CenterPoint/GunPoint.global_rotation - deg_to_rad(90)
-		main.add_child(b)
-		audio.play_sfx("fire")
+	b.damage = ranged_dmg
+	b.stun_chance = inventory["darkhat"]
+	b.slow = inventory["tractor"]
+	b.global_position = $CenterPoint/GunPoint.global_position
+	b.global_rotation = $CenterPoint/GunPoint.global_rotation - deg_to_rad(90)
+	main.add_child(b)
+	audio.play_sfx("fire")
 
 func start_blinking():
 	while is_blinking:
@@ -239,37 +253,3 @@ func _on_thunder_timer_timeout():
 
 func _on_reload_timer_timeout():
 	can_reload = true
-
-"""
-old scatter shot code
-var gun = 1
-	if gun == 2 and Input.is_action_just_pressed("shoot"):
-		if ammo > 0:
-			scatter_shot()
-			ammo -= 2
-			print(ammo)
-	
-	#changes gun back and forth from revolver to shotgun
-	if Input.is_action_just_pressed("gun_change"):
-		gun += 1
-		if gun > 2:
-			gun = 1
-	
-	func scatter_shot():
-	#makes a scatter shot with 3 bullets in front
-	var a = bullet.instantiate()
-	var b = bullet.instantiate()
-	var c = bullet.instantiate()
-	a.damage = damage-3
-	a.global_position = $Marker2D.global_position
-	a.global_rotation = $Marker2D.global_rotation - deg_to_rad(90)
-	main.add_child(a)
-	b.damage = damage-3
-	b.global_position = $Marker2D.global_position
-	b.global_rotation = $Marker2D.global_rotation - deg_to_rad(75)
-	main.add_child(b)
-	c.damage = damage-3
-	c.global_position = $Marker2D.global_position
-	c.global_rotation = $Marker2D.global_rotation - deg_to_rad(105)
-	main.add_child(c)
-"""

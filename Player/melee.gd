@@ -4,9 +4,8 @@ var damage = 4
 
 func _on_body_entered(body):
 	if body.is_in_group("enemy"):
+		body.hit_by_player = true
 		deal_dmg(body)
-	if body.is_in_group("enemy"):
-		body.hp -= damage
 
 func slash():
 	$AnimatedSprite2D.play("default")

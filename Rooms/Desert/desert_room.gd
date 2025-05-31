@@ -75,6 +75,9 @@ const SAFE_RADIUS : float = 375.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	wave = 1
+	wave_bar.change_wave(wave)
+	enemies_left = 0
 	start_up()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -103,28 +106,6 @@ func create_room(width, height, padding = 12):
 			|| j == 15 && i >= 5|| j == width - 15 && i >= 5:
 				if i > 0 && i < height && j > 0 && j < width:
 					spawn_points.append(Vector2i(j, i))
-	
-	# sets the invisible walls
-	#for i in (height+1):
-		#tilemap.set_cell(Vector2i(-1, i), 0, Vector2i(13, 0))
-		#tilemap.set_cell(Vector2i(width+1, i), 0, Vector2i(13, 0))
-		
-	#for i in (width+1):
-		#tilemap.set_cell(Vector2i(i, -1), 0, Vector2i(13, 0))
-		#tilemap.set_cell(Vector2i(i, height+1), 0, Vector2i(13, 0))
-	
-	"""#create grass patches
-	var to_tile = []
-	for tile in terrain_start_point:
-		to_tile.append(tile)
-		var size_x = randi_range(3, 5)
-		var size_y = randi_range(3, 5)
-		for x in range(-size_x, size_x):
-			for y in range(-size_y, size_y):
-				var new_tile = tile + Vector2i(x, y)
-				to_tile.append(new_tile)
-	
-	desert_tile[1].set_cells_terrain_connect(to_tile, 0, 1)"""
 
 func create_detail(width, height, amount = 50):
 	var invalid_array = [
@@ -176,26 +157,6 @@ func spawn_desert_pattern(pattern, spawn_point, x_dim, y_dim, invalid_array):
 			for y in y_dim:
 				invalid_array.append(spawn_point + Vector2i(x, y))
 				
-func get_valid_spawn_position() -> Vector2:
-	var spawn_array = spawn_points.duplicate()
-	var spawn_1 = spawn_array.slice(0, spawn_array.size()/4)
-	var spawn_2 = spawn_array.slice(spawn_array.size()/4, (spawn_array.size()/4)*2)
-	var spawn_3 = spawn_array.slice((spawn_array.size()/4)*2, (spawn_array.size()/4)*3)
-	var spawn_4 = spawn_array.slice((spawn_array.size()/4)*2, spawn_array.size())
-	var subsections = [spawn_1, spawn_2, spawn_3, spawn_4]	
-	var player_position = tilemap.local_to_map(player.position)
-	var section = subsections.pick_random()
-	var spawn_pos = section.pick_random()
-	var spawn_position: Vector2
-	var attempts := 0
-	while attempts < 10:
-		spawn_position = section.pick_random()
-		if spawn_position.distance_to(player.global_position) > SAFE_RADIUS:
-			return spawn_position
-		attempts += 1
-
-	# fallback if no valid spawn found
-	return spawn_position
 
 func spawn_enemy(spawn_pos, difficult = 1):
 	#create a new enemy instance and set the dddddddddposition
@@ -206,8 +167,6 @@ func spawn_enemy(spawn_pos, difficult = 1):
 func start_up():
 	create_room(room_width, room_height)
 	#create_detail(room_width, room_height)
-	"var pattern = tile_detail.tile_set.get_pattern(randi_range(5, 7))
-	tile_detail.set_pattern(Vector2i(0,0), pattern)"
 	player.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 	#starts wave timer and makes the first wave spawn earlier
 	wave_timer.start()
@@ -223,8 +182,12 @@ func clean_up():
 
 var enemies_spawned : int = 0
 var enemies_left : int = 0
+var spawn_range_x : int = 800
+var spawn_range_y : int = 800
+var spawn_buffer : int = 300
+var valid_room_area : Rect2 = Rect2(-560, -530, 3000, 3000) #rough area inside the map
 func spawn_wave(difficulty):
-	"wave_timer.stop()"
+	wave_timer.stop()
 	enemies_rem_label.visible = true
 	var spawn_array = spawn_points.duplicate()
 	var spawn_1 = spawn_array.slice(0, spawn_array.size()/4)
@@ -239,18 +202,16 @@ func spawn_wave(difficulty):
 	enemies_left = num_to_spawn
 	enemies_rem_label.text = enemies_rem_text + str(enemies_left)
 	for i in range(num_to_spawn):
-		var spawn_pos: Vector2i
-		var attempts := 0
-		while attempts < 10:
-			var section = subsections.pick_random()
-			spawn_pos = section.pick_random()
-			var world_pos = tilemap.map_to_local(spawn_pos)
-			if world_pos.distance_to(player.global_position) > SAFE_RADIUS:
-				section.erase(spawn_pos)
-				spawn_enemy(world_pos, difficulty)
-				print("spawned enemy at " + str(spawn_pos))
-				break
-			attempts += 1
+		var spawn_pos = get_spawn_pos()
+		while spawn_pos.distance_to(player.position) < spawn_buffer or not valid_room_area.has_point(spawn_pos):
+			spawn_pos = get_spawn_pos()
+		spawn_enemy(spawn_pos, difficulty)
+		print("spawned enemy at " + str(spawn_pos))
+		
+func get_spawn_pos() -> Vector2:
+	var spawn_x : int = randf_range(player.position.x - spawn_range_x, player.position.x + spawn_range_x)
+	var spawn_y : int = randf_range(player.position.y - spawn_range_y, player.position.y + spawn_range_y)
+	return Vector2(spawn_x, spawn_y)
 	
 
 func _on_wave_timer_timeout():

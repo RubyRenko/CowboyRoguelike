@@ -2406,30 +2406,41 @@ libraries = {
 }
 
 [node name="WaveBar" parent="Gui" instance=ExtResource("34_03012")]
-offset_left = 848.0
-offset_top = 87.0
-offset_right = 1241.0
-offset_bottom = 159.0
-scale = Vector2(-0.5, 0.5)
+offset_left = 996.0
+offset_top = 89.0
+offset_right = 1389.0
+offset_bottom = 161.0
+scale = Vector2(-0.25, 0.25)
 
 [node name="WaveBarLabel" type="Label" parent="Gui"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 301.0
-offset_top = 10.0
-offset_right = 484.0
-offset_bottom = 41.0
-grow_horizontal = 2
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -281.0
+offset_right = -64.0
+offset_bottom = -257.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
 text = "NEXT WAVE"
 label_settings = SubResource("LabelSettings_out16")
 
 [node name="EnemiesRem" type="Label" parent="Gui"]
-offset_left = 745.0
-offset_top = 109.0
-offset_right = 992.0
-offset_bottom = 143.0
-text = "Enemies Remaining:  "
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -309.0
+offset_top = -230.0
+offset_right = -57.0
+offset_bottom = -206.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Enemies Remaining: 0"
 label_settings = SubResource("LabelSettings_out16")
 
 [node name="CowboyPlayer" parent="." instance=ExtResource("2_10jt5")]
