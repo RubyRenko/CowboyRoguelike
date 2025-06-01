@@ -400,6 +400,8 @@ stream = ExtResource("11_00c0b")
 volume_db = -15.0
 script = ExtResource("10_52od8")
 
+[node name="AudioListener2D" type="AudioListener2D" parent="AudioPlayer"]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_nyhyu")
