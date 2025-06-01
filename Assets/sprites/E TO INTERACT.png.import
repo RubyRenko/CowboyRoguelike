@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nvnvl4qorkaq"
-path="res://.godot/imported/white arrow.png-98e95293167e27916a20353fd332043e.ctex"
+uid="uid://8de60t730er1"
+path="res://.godot/imported/E TO INTERACT.png-f4678544c1d67ddf7ad44aa2b3a7e58b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/white arrow.png"
-dest_files=["res://.godot/imported/white arrow.png-98e95293167e27916a20353fd332043e.ctex"]
+source_file="res://Assets/sprites/E TO INTERACT.png"
+dest_files=["res://.godot/imported/E TO INTERACT.png-f4678544c1d67ddf7ad44aa2b3a7e58b.ctex"]
 
 [params]
 

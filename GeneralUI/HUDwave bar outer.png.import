@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nvnvl4qorkaq"
-path="res://.godot/imported/white arrow.png-98e95293167e27916a20353fd332043e.ctex"
+uid="uid://dqogiufpguqfe"
+path="res://.godot/imported/HUDwave bar outer.png-cd220466c352e27a0ed19016580d3fc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/white arrow.png"
-dest_files=["res://.godot/imported/white arrow.png-98e95293167e27916a20353fd332043e.ctex"]
+source_file="res://GeneralUI/HUDwave bar outer.png"
+dest_files=["res://.godot/imported/HUDwave bar outer.png-cd220466c352e27a0ed19016580d3fc9.ctex"]
 
 [params]
 

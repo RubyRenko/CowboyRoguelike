@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nvnvl4qorkaq"
-path="res://.godot/imported/white arrow.png-98e95293167e27916a20353fd332043e.ctex"
+uid="uid://dak425jhpmb0k"
+path="res://.godot/imported/HUDcoin counter.png-85e7478d8eca89172e012aa2a6b680f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/white arrow.png"
-dest_files=["res://.godot/imported/white arrow.png-98e95293167e27916a20353fd332043e.ctex"]
+source_file="res://Assets/hud assets/HUDcoin counter.png"
+dest_files=["res://.godot/imported/HUDcoin counter.png-85e7478d8eca89172e012aa2a6b680f5.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@onready var arrow = $nav_arrow
+@onready var arrow = self
 
 func _ready() -> void:
 	GlobalSignals.target_position_updated.connect(self._on_target_position_updated)

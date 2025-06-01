@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://bc2bvgost5g5y"]
+[gd_scene load_steps=24 format=3 uid="uid://bc2bvgost5g5y"]
 
 [ext_resource type="Script" path="res://Shop/shop.gd" id="1_2cwil"]
 [ext_resource type="Texture2D" uid="uid://dqaewuei1sttl" path="res://Assets/sprites/YetiIdle_SpriteSheet.png" id="2_cuel8"]
+[ext_resource type="Script" path="res://Shop/interact.gd" id="2_nty8k"]
 [ext_resource type="Texture2D" uid="uid://csk5rrrpylj0c" path="res://Assets/sprites/Shop Wagon.png" id="2_x3nlf"]
 [ext_resource type="Script" path="res://Shop/wagon.gd" id="3_ap56g"]
 [ext_resource type="Script" path="res://Shop/shopkeep.gd" id="3_ymogu"]
@@ -9,6 +10,7 @@
 [ext_resource type="Script" path="res://Shop/bigfoot_shopkeep.gd" id="6_olup5"]
 [ext_resource type="Texture2D" uid="uid://ba8x53aboe5gk" path="res://Assets/sprites/BigfootSpriteSheet.png" id="7_b08kw"]
 [ext_resource type="Script" path="res://Shop/shop_audio.gd" id="8_yoov6"]
+[ext_resource type="Script" path="res://Shop/area_2d.gd" id="10_xrkbr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dpdqj"]
 size = Vector2(118, 92)
@@ -71,6 +73,12 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uq0p1"]
+radius = 16.3501
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3l532"]
+size = Vector2(178.5, 47)
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_2cwil")
@@ -150,6 +158,23 @@ sprite_frames = SubResource("SpriteFrames_w62th")
 [node name="ShopAudio" type="AudioStreamPlayer2D" parent="."]
 volume_db = -10.0
 script = ExtResource("8_yoov6")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("10_xrkbr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -105)
+scale = Vector2(20, 20)
+shape = SubResource("CircleShape2D_uq0p1")
+
+[node name="AreaInteract" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("2_nty8k")
+
+[node name="Interact" type="CollisionShape2D" parent="AreaInteract"]
+position = Vector2(6.75, -65)
+shape = SubResource("RectangleShape2D_3l532")
 
 [connection signal="body_entered" from="YetiShopkeep/InteractArea" to="YetiShopkeep" method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="YetiShopkeep/InteractArea" to="YetiShopkeep" method="_on_interact_area_body_exited"]

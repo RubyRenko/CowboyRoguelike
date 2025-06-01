@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nvnvl4qorkaq"
-path="res://.godot/imported/white arrow.png-98e95293167e27916a20353fd332043e.ctex"
+uid="uid://penxkemnm80a"
+path="res://.godot/imported/DesertColor_02(double size).png-82fb410550d984ed7e428374144aab0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/white arrow.png"
-dest_files=["res://.godot/imported/white arrow.png-98e95293167e27916a20353fd332043e.ctex"]
+source_file="res://Assets/Tilemaps/DesertColor_02(double size).png"
+dest_files=["res://.godot/imported/DesertColor_02(double size).png-82fb410550d984ed7e428374144aab0a.ctex"]
 
 [params]
 
