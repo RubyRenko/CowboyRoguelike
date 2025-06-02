@@ -12,6 +12,7 @@ class_name CowboyPlayer
 @onready var thunder = get_node("ThunderbirdArea")
 @onready var thunder_timer = $Thunder_Timer
 @onready var audio = $AudioPlayer
+@onready var itemaudio = $ItemCollectSound
 @onready var reload_indicator = $reload_r
 @onready var r_texture = preload("res://Assets/sprites/r1.png")
 @onready var r_texture2 = preload("res://Assets/sprites/r2.png")
