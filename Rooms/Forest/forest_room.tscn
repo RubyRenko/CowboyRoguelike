@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://cyj10c3muv175"]
+[gd_scene load_steps=73 format=3 uid="uid://cyj10c3muv175"]
 
 [ext_resource type="Script" path="res://Rooms/Forest/forest_room.gd" id="1_uk0vt"]
 [ext_resource type="Texture2D" uid="uid://cuc6wb3awlf2p" path="res://Assets/Tilemaps/Forest_tileset07.png" id="2_curss"]

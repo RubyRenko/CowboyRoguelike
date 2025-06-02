@@ -13,6 +13,10 @@ extends Node2D
 #@onready var boss = load("res://chubacabra.tscn") #boss, change with mothman
 @onready var wave_sfx = $WaveSfxPlayer
 @onready var enemies_rem_label : Label = $Gui/EnemiesRem
+@onready var nav_arrow = $CowboyPlayer/nav_arrow
+@onready var E_interact = $CowboyPlayer/E_interact
+@onready var nav_texture = preload("res://Assets/sprites/red arrow.png")
+@onready var nav_texture2 = preload("res://Assets/sprites/white arrow.png")
 
 var color_palette = 0
 var room_width = 80
@@ -22,6 +26,8 @@ var enemies_left : int = 0
 var wave = 1
 var spawn_points = []
 var difficulty = 1
+var is_blinking = false
+const SAFE_RADIUS : float = 375.0
 
 var tile_ids = [
 			Vector2i(1,1), Vector2i(5,0), Vector2i(5,1), #base grass tiles
@@ -176,6 +182,8 @@ func start_up():
 	#starts wave timer and makes the first wave spawn earlier
 	wave_timer.start()
 	wave_timer.wait_time = 20
+	nav_arrow.hide()
+	E_interact.hide()
 
 func clean_up():
 	var all_children = get_children()
@@ -183,10 +191,16 @@ func clean_up():
 		if child.is_in_group("enemy") || child.is_in_group("enemy_prod"):
 			child.queue_free()
 
+var enemies_spawned : int = 0
+var spawn_range_x : int = 800
+var spawn_range_y : int = 800
+var spawn_buffer : int = 300
+var valid_room_area : Rect2 = Rect2(-560, -530, 3000, 3000) #rough area inside the map
+
 func spawn_enemy(spawn_pos, difficult = 1):
 	#create a new enemy instance and set the position
 	var e = enemies.pick_random().instantiate()
-	e.hp += (e.hp/2) * (difficulty-1)
+	"e.hp += (e.hp/2) * (difficulty-1)"
 	e.position = spawn_pos
 	add_child(e)
 
@@ -206,19 +220,24 @@ func spawn_wave(difficulty):
 	var player_position = tilemap.local_to_map(player.position)
 	var num_to_spawn = difficulty * 4 + randi_range(0, 3)
 	for i in range(num_to_spawn):
-		var section = subsections.pick_random()
-		var spawn_pos = section.pick_random()
-		while spawn_pos == player_position:
-			spawn_pos = section.pick_random()
-		section.pop_at(section.find(spawn_pos))
-		spawn_enemy(tilemap.map_to_local(spawn_pos), difficulty)
+		var spawn_pos = get_spawn_pos()
+		while spawn_pos.distance_to(player.position) < spawn_buffer or not valid_room_area.has_point(spawn_pos):
+			spawn_pos = get_spawn_pos()
+		spawn_enemy(spawn_pos, difficulty)
 		print("spawned enemy at " + str(spawn_pos))
 	enemies_rem_label.visible = true
 	enemies_left = num_to_spawn
 	enemies_rem_label.text = enemies_rem_text + str(enemies_left)
+	
+func get_spawn_pos() -> Vector2:
+	var spawn_x : int = randf_range(player.position.x - spawn_range_x, player.position.x + spawn_range_x)
+	var spawn_y : int = randf_range(player.position.y - spawn_range_y, player.position.y + spawn_range_y)
+	return Vector2(spawn_x, spawn_y)
 
 func _on_child_exiting_tree(node):
 	if node.name == "Shop":
+		nav_arrow.hide()
+		stop_blinking()
 		wave_timer.wait_time = 5
 		wave_timer.start()
 		wave_timer.wait_time = 30
@@ -268,6 +287,9 @@ func _on_wave_timer_timeout():
 		enemies_rem_label.visible = false
 		print("shop spawn")
 		difficulty += 1
+		nav_arrow.show()
+		is_blinking = true
+		start_blinking()
 	elif wave == 14:
 		wave_sfx.play_sfx("new_wave")
 		$Gui/WaveBarLabel2.text = "Boss incoming:"
@@ -285,3 +307,14 @@ func _on_wave_timer_timeout():
 		enemies_rem_label.visible = true
 		spawn_wave(difficulty)
 	wave += 1
+	
+func start_blinking():
+	while is_blinking:
+		nav_arrow.texture = nav_texture
+		await get_tree().create_timer(0.5).timeout
+		nav_arrow.texture = nav_texture2
+		await get_tree().create_timer(0.5).timeout
+			
+func stop_blinking():
+	is_blinking = false
+	nav_arrow.hide()
