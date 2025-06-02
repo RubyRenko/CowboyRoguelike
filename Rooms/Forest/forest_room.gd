@@ -106,22 +106,22 @@ func create_room(width, height, padding = 12):
 			tilemap.set_cell(1, tile, color_palette, grass_prob.pick_random())
 	
 	#creates invisible wall around the edge of the room
-	for i in range(height+1):
-		tilemap.set_cell(2, Vector2i(-1, i), 3, Vector2i(0,0))
-		tilemap.set_cell(2, Vector2i(width+1, i), 3, Vector2i(0,0))
-		if i == 0:
-			pass
-		elif i % 3 == 0:
-			var tree = tile_details.tile_set.get_pattern(0)
-			tile_details.set_pattern(0, Vector2i(-1, i), tree)
-			tile_details.set_pattern(0, Vector2i(width+1, i), tree)
-	for i in range(width+1):
-		tilemap.set_cell(2, Vector2i(i,-1), 3, Vector2i(0,0))
-		tilemap.set_cell(2, Vector2i(i, height+1), 3, Vector2i(0,0))
-		if i % 3 == 0:
-			var tree = tile_details.tile_set.get_pattern(0)
-			tile_details.set_pattern(0, Vector2i(i, -1), tree)
-			tile_details.set_pattern(0, Vector2i(i, height+1), tree)
+	#for i in range(height+1):
+		#tilemap.set_cell(2, Vector2i(-1, i), 3, Vector2i(0,0))
+		#tilemap.set_cell(2, Vector2i(width+1, i), 3, Vector2i(0,0))
+		#if i == 0:
+			#pass
+		#elif i % 3 == 0:
+			#var tree = tile_details.tile_set.get_pattern(0)
+			#tile_details.set_pattern(0, Vector2i(-1, i), tree)
+			#tile_details.set_pattern(0, Vector2i(width+1, i), tree)
+	#for i in range(width+1):
+		#tilemap.set_cell(2, Vector2i(i,-1), 3, Vector2i(0,0))
+		#tilemap.set_cell(2, Vector2i(i, height+1), 3, Vector2i(0,0))
+		#if i % 3 == 0:
+			#var tree = tile_details.tile_set.get_pattern(0)
+			#tile_details.set_pattern(0, Vector2i(i, -1), tree)
+			#tile_details.set_pattern(0, Vector2i(i, height+1), tree)
 
 func create_detail(range_x, range_y):
 	var point = Vector2i(randi_range(0, range_x), randi_range(0, range_y))
@@ -170,8 +170,8 @@ func create_detail(range_x, range_y):
 
 func start_up():
 	create_room(room_width, room_height)
-	for i in range(randi_range(10, 20)):
-			create_detail(room_width, room_height)
+	#for i in range(randi_range(10, 20)):
+			#create_detail(room_width, room_height)
 	player.position = tilemap.map_to_local(Vector2i(room_width, room_height))
 	#starts wave timer and makes the first wave spawn earlier
 	wave_timer.start()
