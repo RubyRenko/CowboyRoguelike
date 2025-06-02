@@ -1403,4 +1403,5 @@ label_settings = SubResource("LabelSettings_3rxce")
 [node name="ForestMap_03" parent="." instance=ExtResource("38_aewls")]
 position = Vector2(-794, -278)
 
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="timeout" from="Gui/WaveTimer" to="." method="_on_wave_timer_timeout"]

@@ -17,6 +17,7 @@ extends Node2D
 @onready var E_interact = $CowboyPlayer/E_interact
 @onready var nav_texture = preload("res://Assets/sprites/red arrow.png")
 @onready var nav_texture2 = preload("res://Assets/sprites/white arrow.png")
+@onready var wave_bar : TextureProgressBar = $Gui/WaveBar2
 
 var color_palette = 0
 var room_width = 80
@@ -200,34 +201,30 @@ var valid_room_area : Rect2 = Rect2(-560, -530, 3000, 3000) #rough area inside t
 func spawn_enemy(spawn_pos, difficult = 1):
 	#create a new enemy instance and set the position
 	var e = enemies.pick_random().instantiate()
-	"e.hp += (e.hp/2) * (difficulty-1)"
 	e.position = spawn_pos
 	add_child(e)
 
 func spawn_wave(difficulty):
+	wave_timer.stop()
+	enemies_rem_label.visible = true
 	var spawn_array = spawn_points.duplicate()
 	var spawn_1 = spawn_array.slice(0, spawn_array.size()/4)
 	var spawn_2 = spawn_array.slice(spawn_array.size()/4, (spawn_array.size()/4)*2)
 	var spawn_3 = spawn_array.slice((spawn_array.size()/4)*2, (spawn_array.size()/4)*3)
 	var spawn_4 = spawn_array.slice((spawn_array.size()/4)*2, spawn_array.size())
 	var subsections = [spawn_1, spawn_2, spawn_3, spawn_4]
-	print(spawn_array.size())
-	print(spawn_1)
-	print(spawn_2)
-	print(spawn_3)
-	print(spawn_4)
 	
 	var player_position = tilemap.local_to_map(player.position)
 	var num_to_spawn = difficulty * 4 + randi_range(0, 3)
+	enemies_spawned = num_to_spawn
+	enemies_left = num_to_spawn
+	enemies_rem_label.text = enemies_rem_text + str(enemies_left)
 	for i in range(num_to_spawn):
 		var spawn_pos = get_spawn_pos()
 		while spawn_pos.distance_to(player.position) < spawn_buffer or not valid_room_area.has_point(spawn_pos):
 			spawn_pos = get_spawn_pos()
 		spawn_enemy(spawn_pos, difficulty)
 		print("spawned enemy at " + str(spawn_pos))
-	enemies_rem_label.visible = true
-	enemies_left = num_to_spawn
-	enemies_rem_label.text = enemies_rem_text + str(enemies_left)
 	
 func get_spawn_pos() -> Vector2:
 	var spawn_x : int = randf_range(player.position.x - spawn_range_x, player.position.x + spawn_range_x)
@@ -247,10 +244,34 @@ func _on_child_exiting_tree(node):
 		wave_sfx.play_sfx(kill_sounds.pick_random())
 		enemies_left-= 1
 		enemies_rem_label.text = enemies_rem_text + str(enemies_left)
+		if enemies_left <= 0:
+			wave_timer.wait_time = 5
+			wave_timer.start()
 
 func _on_wave_timer_timeout():
 	print("wave ", wave)
 	wave_display.display_wave(wave)
+	wave_bar.change_wave(wave)
+	if wave == 16:
+		get_tree().change_scene_to_file("res://Rooms/Forest/forest_room.tscn")
+	elif wave % 5 == 0:
+		shop_wave()
+	elif wave == 14:
+		wave_sfx.play_sfx("new_wave")
+		$Gui/WaveBarLabel2.text = "NEXT WAVE:"
+		print("enemy spawn")
+		spawn_wave(difficulty)
+	elif (wave+1) % 5 == 0:
+		wave_sfx.play_sfx("new_wave")
+		$Gui/WaveBarLabel2.text = "SHOP INCOMING:"
+		print("enemy spawn")
+		spawn_wave(difficulty)
+	else:
+		wave_sfx.play_sfx("new_wave")
+		$Gui/WaveBarLabel2.text = "NEXT WAVE:"
+		print("enemy spawn")
+		spawn_wave(difficulty)
+	wave += 1
 	"""if wave == 1:
 		var chupacabra = boss.instantiate()
 		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
@@ -274,6 +295,7 @@ func _on_wave_timer_timeout():
 		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 		chupacabra.scale = Vector2(1.5, 1.5)
 		add_child(chupacabra)"
+	'''
 	if wave % 5 == 0:
 		#clears the previous waves and stops timer
 		wave_sfx.play_sfx("shop_summon")
@@ -307,7 +329,24 @@ func _on_wave_timer_timeout():
 		enemies_rem_label.visible = true
 		spawn_wave(difficulty)
 	wave += 1
-	
+	'''
+func shop_wave():
+	#clears the previous waves and stops timer
+	enemies_rem_label.visible = false
+	wave_sfx.play_sfx("shop_summon")
+	wave_timer.stop()
+	clean_up()
+	#spawn shop
+	var shop = shop_spawn.instantiate()
+	shop.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
+	add_child(shop)
+	$Gui/WaveBarLabel2.text = "SHOP"
+	print("shop spawn")
+	difficulty += 1
+	nav_arrow.show()
+	is_blinking = true
+	start_blinking()
+
 func start_blinking():
 	while is_blinking:
 		nav_arrow.texture = nav_texture
