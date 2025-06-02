@@ -26,7 +26,26 @@ scale = Vector2(0.144556, 0.144556)
 texture = ExtResource("1_7n8xt")
 script = ExtResource("2_bhbj4")
 
+[node name="TextureButtonForest" type="TextureButton" parent="."]
+offset_left = 442.0
+offset_top = 558.0
+offset_right = 2100.0
+offset_bottom = 1374.0
+scale = Vector2(0.136029, 0.136029)
+texture_normal = ExtResource("3_quts5")
+texture_hover = ExtResource("4_147sm")
+
+[node name="TextureButtonDesert" type="TextureButton" parent="."]
+offset_left = 441.0
+offset_top = 442.0
+offset_right = 2099.0
+offset_bottom = 1258.0
+scale = Vector2(0.136029, 0.136029)
+texture_normal = ExtResource("3_quts5")
+texture_hover = ExtResource("4_147sm")
+
 [node name="TextureButton" type="TextureButton" parent="."]
+visible = false
 offset_left = 441.0
 offset_top = 443.0
 offset_right = 2099.0
@@ -35,4 +54,6 @@ scale = Vector2(0.136029, 0.136029)
 texture_normal = ExtResource("3_quts5")
 texture_hover = ExtResource("4_147sm")
 
+[connection signal="pressed" from="TextureButtonForest" to="." method="_on_forest_button_pressed"]
+[connection signal="pressed" from="TextureButtonDesert" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
