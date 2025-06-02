@@ -45,7 +45,7 @@ var rng = RandomNumberGenerator.new()
 @onready var E_interact = $CowboyPlayer/E_interact
 @onready var nav_texture = preload("res://Assets/sprites/red arrow.png")
 @onready var nav_texture2 = preload("res://Assets/sprites/white arrow.png")
-
+@onready var song = $MusicPlayer
 @export var wave_bar : TextureProgressBar
 @export var enemies_rem_label : Label
 var enemies_rem_text : String = "Enemies Remaining: "
@@ -75,6 +75,7 @@ const SAFE_RADIUS : float = 375.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	song.play_song("town")
 	wave = 1
 	wave_bar.change_wave(wave)
 	enemies_left = 0
@@ -226,9 +227,10 @@ func _on_wave_timer_timeout():
 		var chupacabra = boss.instantiate()
 		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 		chupacabra.scale = Vector2(1.5, 1.5)
+		song.play_song("boss")
 		add_child(chupacabra)
 		enemies_rem_label.text = enemies_rem_text.to_upper() + "1"
-	elif wave % 2 == 0:
+	elif wave % 5 == 0:
 		shop_wave()
 	elif wave == 14:
 		wave_sfx.play_sfx("new_wave")
