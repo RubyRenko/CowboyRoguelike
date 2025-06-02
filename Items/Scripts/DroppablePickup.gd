@@ -15,13 +15,16 @@ static var Item_Details : Dictionary = {
 											"texture_path": "res://Assets/ItemSprites/can o beans-02.png",
 											"function" : func(player): 
 														player.hp += 2
+														player.itemaudio.play()
 														if player.hp > player.max_hp:
 															player.hp = player.max_hp,
+													
 										},
 										"jerky" : {
 											"texture_path": "res://Assets/ItemSprites/jerky-02.png",
 											"function" : func(player): 
 														player.hp += 1
+														player.itemaudio.play()
 														if player.hp > player.max_hp:
 															player.hp = player.max_hp,
 										}

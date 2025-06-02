@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://be3fpwoys47ky"]
+[gd_scene load_steps=64 format=3 uid="uid://be3fpwoys47ky"]
 
 [ext_resource type="Script" path="res://Player/CowboyPlayer.gd" id="1_oimyp"]
 [ext_resource type="Texture2D" uid="uid://c1lbkgla6h58g" path="res://Assets/sprites/Player sprite/back/walk-back0.png" id="2_w3kbx"]
@@ -54,6 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://bsd2xll4seby8" path="res://Assets/sprites/red arrow.png" id="52_jcr06"]
 [ext_resource type="Texture2D" uid="uid://8de60t730er1" path="res://Assets/sprites/E TO INTERACT.png" id="52_nf7e3"]
 [ext_resource type="Script" path="res://Player/nav_arrow.gd" id="53_rgxnm"]
+[ext_resource type="AudioStream" uid="uid://dvvufby0itlnt" path="res://Assets/Sound/General Sound WAVs/Item Collect.wav" id="55_b5yvu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bf1xx"]
 
@@ -449,6 +450,10 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_46jn4")
+
+[node name="ItemCollectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("55_b5yvu")
+volume_db = -13.0
 
 [connection signal="body_entered" from="ThunderbirdArea" to="ThunderbirdArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ThunderbirdArea" to="ThunderbirdArea" method="_on_body_exited"]

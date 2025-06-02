@@ -2353,7 +2353,7 @@ wave_bar = NodePath("Gui/WaveBar")
 enemies_rem_label = NodePath("Gui/EnemiesRem")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -30.0
+volume_db = -25.0
 autoplay = true
 script = ExtResource("2_4bsjh")
 
