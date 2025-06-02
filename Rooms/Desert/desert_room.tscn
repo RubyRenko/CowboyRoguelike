@@ -2445,7 +2445,7 @@ label_settings = SubResource("LabelSettings_out16")
 
 [node name="CowboyPlayer" parent="." instance=ExtResource("2_10jt5")]
 unique_name_in_owner = true
-position = Vector2(212, 255)
+position = Vector2(1150, 1250)
 
 [node name="DesertTile" type="TileMap" parent="."]
 texture_filter = 1
