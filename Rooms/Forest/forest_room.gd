@@ -12,11 +12,13 @@ extends Node2D
 @onready var shop_spawn = load("res://Shop/shop.tscn")
 #@onready var boss = load("res://chubacabra.tscn") #boss, change with mothman
 @onready var wave_sfx = $WaveSfxPlayer
+@onready var enemies_rem_label : Label = $Gui/EnemiesRem
 
 var color_palette = 0
 var room_width = 80
 var room_height = 80
-
+var enemies_rem_text : String = "Enemies Remaining: "
+var enemies_left : int = 0
 var wave = 1
 var spawn_points = []
 var difficulty = 1
@@ -63,7 +65,7 @@ func _process(delta):
 		$Gui.visible = false
 		player.die()
 		await get_tree().create_timer(2).timeout
-		get_tree().change_scene_to_file("res://GeneralUI/main_menu.tscn")
+		get_tree().change_scene_to_file("res://GeneralUI/main_menu2.tscn")
 
 func create_room(width, height, padding = 12):
 	var terrain_start_point = []
@@ -211,6 +213,9 @@ func spawn_wave(difficulty):
 		section.pop_at(section.find(spawn_pos))
 		spawn_enemy(tilemap.map_to_local(spawn_pos), difficulty)
 		print("spawned enemy at " + str(spawn_pos))
+	enemies_rem_label.visible = true
+	enemies_left = num_to_spawn
+	enemies_rem_label.text = enemies_rem_text + str(enemies_left)
 
 func _on_child_exiting_tree(node):
 	if node.name == "Shop":
@@ -221,6 +226,8 @@ func _on_child_exiting_tree(node):
 	if node.is_in_group("enemy") && node.hit_by_player:
 		var kill_sounds = ["kill1", "kill2", "kill3", "kill4"]
 		wave_sfx.play_sfx(kill_sounds.pick_random())
+		enemies_left-= 1
+		enemies_rem_label.text = enemies_rem_text + str(enemies_left)
 
 func _on_wave_timer_timeout():
 	print("wave ", wave)
@@ -257,22 +264,24 @@ func _on_wave_timer_timeout():
 		var shop = shop_spawn.instantiate()
 		shop.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 		add_child(shop)
-		$Gui/WaveBarLabel.text = "Shop"
+		$Gui/WaveBarLabel2.text = "Shop"
+		enemies_rem_label.visible = false
 		print("shop spawn")
 		difficulty += 1
 	elif wave == 14:
 		wave_sfx.play_sfx("new_wave")
-		$Gui/WaveBarLabel.text = "Boss incoming:"
+		$Gui/WaveBarLabel2.text = "Boss incoming:"
 		print("enemy spawn")
 		spawn_wave(difficulty)
 	elif (wave+1) % 5 == 0:
 		wave_sfx.play_sfx("new_wave")
-		$Gui/WaveBarLabel.text = "Shop incoming:"
+		$Gui/WaveBarLabel2.text = "Shop incoming:"
 		print("enemy spawn")
 		spawn_wave(difficulty)
 	else:
 		wave_sfx.play_sfx("new_wave")
-		$Gui/WaveBarLabel.text = "Next wave:"
+		$Gui/WaveBarLabel2.text = "Next wave:"
 		print("enemy spawn")
+		enemies_rem_label.visible = true
 		spawn_wave(difficulty)
 	wave += 1
