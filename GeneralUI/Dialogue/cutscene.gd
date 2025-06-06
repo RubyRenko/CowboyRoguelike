@@ -3,6 +3,7 @@ extends Node
 @onready var dialogue_label = $Panel/Label
 @onready var speaker_name_label = $Panel/SpeakerNameLabel
 @onready var background_texture_rect = $Panel/TextureRect
+@onready var song = $MusicPlayer
 
 
 var dialogue_data : Array = [
@@ -67,6 +68,7 @@ func _input(event):
 		show_next_line()
 		
 func _ready():
+	song.play_song("intro")
 	background_texture_rect.texture = dialogue_data[current_image_index]["image"]
 	show_next_line()
 	

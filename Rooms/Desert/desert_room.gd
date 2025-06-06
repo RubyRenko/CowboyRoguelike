@@ -75,6 +75,7 @@ const SAFE_RADIUS : float = 375.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	CowboyPlayer.init_stats()
 	song.play_song("town")
 	wave = 1
 	wave_bar.change_wave(wave)

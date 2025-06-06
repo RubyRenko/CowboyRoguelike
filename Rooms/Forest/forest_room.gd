@@ -13,6 +13,11 @@ extends Node2D
 #@onready var boss = load("res://chubacabra.tscn") #boss, change with mothman
 @onready var wave_sfx = $WaveSfxPlayer
 @onready var enemies_rem_label : Label = $Gui/EnemiesRem
+@onready var nav_arrow = $CowboyPlayer/nav_arrow
+@onready var E_interact = $CowboyPlayer/E_interact
+@onready var nav_texture = preload("res://Assets/sprites/red arrow.png")
+@onready var nav_texture2 = preload("res://Assets/sprites/white arrow.png")
+@onready var wave_bar : TextureProgressBar = $Gui/WaveBar2
 
 var color_palette = 0
 var room_width = 80
@@ -22,6 +27,8 @@ var enemies_left : int = 0
 var wave = 1
 var spawn_points = []
 var difficulty = 1
+var is_blinking = false
+const SAFE_RADIUS : float = 375.0
 
 var tile_ids = [
 			Vector2i(1,1), Vector2i(5,0), Vector2i(5,1), #base grass tiles
@@ -176,6 +183,8 @@ func start_up():
 	#starts wave timer and makes the first wave spawn earlier
 	wave_timer.start()
 	wave_timer.wait_time = 20
+	nav_arrow.hide()
+	E_interact.hide()
 
 func clean_up():
 	var all_children = get_children()
@@ -183,42 +192,49 @@ func clean_up():
 		if child.is_in_group("enemy") || child.is_in_group("enemy_prod"):
 			child.queue_free()
 
+var enemies_spawned : int = 0
+var spawn_range_x : int = 800
+var spawn_range_y : int = 800
+var spawn_buffer : int = 300
+var valid_room_area : Rect2 = Rect2(-560, -530, 3000, 3000) #rough area inside the map
+
 func spawn_enemy(spawn_pos, difficult = 1):
 	#create a new enemy instance and set the position
 	var e = enemies.pick_random().instantiate()
-	e.hp += (e.hp/2) * (difficulty-1)
 	e.position = spawn_pos
 	add_child(e)
 
 func spawn_wave(difficulty):
+	wave_timer.stop()
+	enemies_rem_label.visible = true
 	var spawn_array = spawn_points.duplicate()
 	var spawn_1 = spawn_array.slice(0, spawn_array.size()/4)
 	var spawn_2 = spawn_array.slice(spawn_array.size()/4, (spawn_array.size()/4)*2)
 	var spawn_3 = spawn_array.slice((spawn_array.size()/4)*2, (spawn_array.size()/4)*3)
 	var spawn_4 = spawn_array.slice((spawn_array.size()/4)*2, spawn_array.size())
 	var subsections = [spawn_1, spawn_2, spawn_3, spawn_4]
-	print(spawn_array.size())
-	print(spawn_1)
-	print(spawn_2)
-	print(spawn_3)
-	print(spawn_4)
 	
 	var player_position = tilemap.local_to_map(player.position)
 	var num_to_spawn = difficulty * 4 + randi_range(0, 3)
-	for i in range(num_to_spawn):
-		var section = subsections.pick_random()
-		var spawn_pos = section.pick_random()
-		while spawn_pos == player_position:
-			spawn_pos = section.pick_random()
-		section.pop_at(section.find(spawn_pos))
-		spawn_enemy(tilemap.map_to_local(spawn_pos), difficulty)
-		print("spawned enemy at " + str(spawn_pos))
-	enemies_rem_label.visible = true
+	enemies_spawned = num_to_spawn
 	enemies_left = num_to_spawn
 	enemies_rem_label.text = enemies_rem_text + str(enemies_left)
+	for i in range(num_to_spawn):
+		var spawn_pos = get_spawn_pos()
+		while spawn_pos.distance_to(player.position) < spawn_buffer or not valid_room_area.has_point(spawn_pos):
+			spawn_pos = get_spawn_pos()
+		spawn_enemy(spawn_pos, difficulty)
+		print("spawned enemy at " + str(spawn_pos))
+	
+func get_spawn_pos() -> Vector2:
+	var spawn_x : int = randf_range(player.position.x - spawn_range_x, player.position.x + spawn_range_x)
+	var spawn_y : int = randf_range(player.position.y - spawn_range_y, player.position.y + spawn_range_y)
+	return Vector2(spawn_x, spawn_y)
 
 func _on_child_exiting_tree(node):
 	if node.name == "Shop":
+		nav_arrow.hide()
+		stop_blinking()
 		wave_timer.wait_time = 5
 		wave_timer.start()
 		wave_timer.wait_time = 30
@@ -228,10 +244,34 @@ func _on_child_exiting_tree(node):
 		wave_sfx.play_sfx(kill_sounds.pick_random())
 		enemies_left-= 1
 		enemies_rem_label.text = enemies_rem_text + str(enemies_left)
+		if enemies_left <= 0:
+			wave_timer.wait_time = 5
+			wave_timer.start()
 
 func _on_wave_timer_timeout():
 	print("wave ", wave)
 	wave_display.display_wave(wave)
+	wave_bar.change_wave(wave)
+	if wave == 16:
+		get_tree().change_scene_to_file("res://Rooms/Forest/forest_room.tscn")
+	elif wave % 5 == 0:
+		shop_wave()
+	elif wave == 14:
+		wave_sfx.play_sfx("new_wave")
+		$Gui/WaveBarLabel2.text = "NEXT WAVE:"
+		print("enemy spawn")
+		spawn_wave(difficulty)
+	elif (wave+1) % 5 == 0:
+		wave_sfx.play_sfx("new_wave")
+		$Gui/WaveBarLabel2.text = "SHOP INCOMING:"
+		print("enemy spawn")
+		spawn_wave(difficulty)
+	else:
+		wave_sfx.play_sfx("new_wave")
+		$Gui/WaveBarLabel2.text = "NEXT WAVE:"
+		print("enemy spawn")
+		spawn_wave(difficulty)
+	wave += 1
 	"""if wave == 1:
 		var chupacabra = boss.instantiate()
 		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
@@ -255,6 +295,7 @@ func _on_wave_timer_timeout():
 		chupacabra.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
 		chupacabra.scale = Vector2(1.5, 1.5)
 		add_child(chupacabra)"
+	'''
 	if wave % 5 == 0:
 		#clears the previous waves and stops timer
 		wave_sfx.play_sfx("shop_summon")
@@ -268,6 +309,9 @@ func _on_wave_timer_timeout():
 		enemies_rem_label.visible = false
 		print("shop spawn")
 		difficulty += 1
+		nav_arrow.show()
+		is_blinking = true
+		start_blinking()
 	elif wave == 14:
 		wave_sfx.play_sfx("new_wave")
 		$Gui/WaveBarLabel2.text = "Boss incoming:"
@@ -285,3 +329,31 @@ func _on_wave_timer_timeout():
 		enemies_rem_label.visible = true
 		spawn_wave(difficulty)
 	wave += 1
+	'''
+func shop_wave():
+	#clears the previous waves and stops timer
+	enemies_rem_label.visible = false
+	wave_sfx.play_sfx("shop_summon")
+	wave_timer.stop()
+	clean_up()
+	#spawn shop
+	var shop = shop_spawn.instantiate()
+	shop.position = tilemap.map_to_local(Vector2i(room_width/2, room_height/2))
+	add_child(shop)
+	$Gui/WaveBarLabel2.text = "SHOP"
+	print("shop spawn")
+	difficulty += 1
+	nav_arrow.show()
+	is_blinking = true
+	start_blinking()
+
+func start_blinking():
+	while is_blinking:
+		nav_arrow.texture = nav_texture
+		await get_tree().create_timer(0.5).timeout
+		nav_arrow.texture = nav_texture2
+		await get_tree().create_timer(0.5).timeout
+			
+func stop_blinking():
+	is_blinking = false
+	nav_arrow.hide()
