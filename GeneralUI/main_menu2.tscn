@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c22lajekmhwvd"]
+[gd_scene load_steps=11 format=3 uid="uid://c22lajekmhwvd"]
 
 [ext_resource type="Texture2D" uid="uid://b2cqd7ev02oon" path="res://Assets/cutscene assets/menu screen bmb-01.png" id="1_7n8xt"]
 [ext_resource type="Script" path="res://GeneralUI/main_menu.gd" id="1_j0c7f"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://hnu3fsrabdwv" path="res://Assets/cutscene assets/idle.png" id="3_quts5"]
 [ext_resource type="Texture2D" uid="uid://dwg6slfgeldon" path="res://Assets/cutscene assets/hover.png" id="4_147sm"]
 [ext_resource type="FontFile" uid="uid://b1iy1e5pnw0od" path="res://Assets/hud assets/GothicPixels.ttf" id="5_xivpr"]
+[ext_resource type="Script" path="res://Rooms/stagemusic.gd" id="7_2y0kx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2723c"]
 font = ExtResource("5_xivpr")
@@ -101,6 +102,11 @@ offset_bottom = 1259.0
 scale = Vector2(0.136029, 0.136029)
 texture_normal = ExtResource("3_quts5")
 texture_hover = ExtResource("4_147sm")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -25.0
+autoplay = true
+script = ExtResource("7_2y0kx")
 
 [connection signal="pressed" from="TextureButtonForest" to="." method="_on_forest_button_pressed"]
 [connection signal="pressed" from="TextureButtonDesert" to="." method="_on_texture_button_pressed"]

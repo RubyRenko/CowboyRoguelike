@@ -5,9 +5,11 @@ var loading_desert = false
 var loading_forest = false
 
 @onready var start_button = $TextureButtonDesert
+@onready var song = $MusicPlayer
 
 func _ready():
 	start_button.pressed.connect(_on_texture_button_pressed)
+	song.play_song("menu");
 
 func _process(delta):
 	if loading_desert && (ResourceLoader.load_threaded_get_status(DESERT_SCENE_PATH) == ResourceLoader.THREAD_LOAD_LOADED):

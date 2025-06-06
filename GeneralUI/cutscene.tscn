@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://okmh64u3fxhr"]
+[gd_scene load_steps=6 format=3 uid="uid://okmh64u3fxhr"]
 
 [ext_resource type="Script" path="res://GeneralUI/Dialogue/cutscene.gd" id="1_4cyk8"]
 [ext_resource type="Texture2D" uid="uid://dfp0pg68140sy" path="res://Assets/cutscene assets/dialogue boxe no sprite-02.png" id="2_37qrm"]
 [ext_resource type="FontFile" uid="uid://drsvb3gij1p5" path="res://Assets/cutscene assets/alagard.ttf" id="3_ttp3i"]
 [ext_resource type="FontFile" uid="uid://b6cxeh2ocxfkn" path="res://Assets/hud assets/gomarice_block_western.ttf" id="3_vyo1x"]
+[ext_resource type="Script" path="res://Rooms/stagemusic.gd" id="5_j78xu"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_4cyk8")
@@ -54,3 +55,8 @@ theme_override_colors/font_color = Color(0.79, 0.584863, 0.4898, 1)
 theme_override_fonts/font = ExtResource("3_vyo1x")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -25.0
+autoplay = true
+script = ExtResource("5_j78xu")
