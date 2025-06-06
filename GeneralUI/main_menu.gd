@@ -3,7 +3,11 @@ const DESERT_SCENE_PATH : String = "res://Rooms/Desert/desert_room.tscn"
 const FOREST_SCENE_PATH : String = "res://Rooms/Forest/forest_room.tscn"
 var loading_desert = false
 var loading_forest = false
-@onready var cowboy = load("res://Player/cowboy_player.tscn")
+
+@onready var start_button = $TextureButtonDesert
+
+func _ready():
+	start_button.pressed.connect(_on_texture_button_pressed)
 
 func _process(delta):
 	if loading_desert && (ResourceLoader.load_threaded_get_status(DESERT_SCENE_PATH) == ResourceLoader.THREAD_LOAD_LOADED):
@@ -24,5 +28,5 @@ func _on_forest_button_pressed() -> void:
 
 func _on_texture_button_pressed() -> void:
 	ResourceLoader.load_threaded_request(DESERT_SCENE_PATH)
+	print("START BUTTON PRESSED")
 	loading_desert = true
-	CowboyPlayer.init_stats()

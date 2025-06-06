@@ -40,6 +40,7 @@ texture = ExtResource("1_7n8xt")
 script = ExtResource("2_bhbj4")
 
 [node name="Button name2" type="Label" parent="."]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -56,6 +57,7 @@ label_settings = SubResource("LabelSettings_2723c")
 horizontal_alignment = 1
 
 [node name="Button name" type="Label" parent="."]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -72,6 +74,7 @@ label_settings = SubResource("LabelSettings_2723c")
 horizontal_alignment = 1
 
 [node name="TextureButtonForest" type="TextureButton" parent="."]
+visible = false
 offset_left = 576.0
 offset_top = 461.0
 offset_right = 2234.0
@@ -81,10 +84,10 @@ texture_normal = SubResource("CompressedTexture2D_dgkxe")
 texture_hover = ExtResource("4_147sm")
 
 [node name="TextureButtonDesert" type="TextureButton" parent="."]
-offset_left = 285.0
-offset_top = 459.0
-offset_right = 1943.0
-offset_bottom = 1275.0
+offset_left = 438.0
+offset_top = 458.0
+offset_right = 2096.0
+offset_bottom = 1274.0
 scale = Vector2(0.136029, 0.136029)
 texture_normal = SubResource("CompressedTexture2D_8q2lx")
 texture_hover = ExtResource("4_147sm")
